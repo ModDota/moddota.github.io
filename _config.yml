@@ -9,8 +9,9 @@ includes_dir        : _includes
 sass:
   sass_dir: _sass
 collections:
-  posts:
-    output          : true
+  articles:
+    output: true
+    permalink: /:collection/:name
 
 # Handling Reading
 safe                : false

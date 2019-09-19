@@ -1,5 +1,10 @@
 ---
-title: Test Title
+title: Moddota Knowledge Base
 ---
 
-Hello 123
+<h3>Articles</h3>
+<ul>
+    {% for article in site.articles %}
+        <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+    {% endfor %}
+</ul>
