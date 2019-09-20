@@ -2,6 +2,7 @@
 title: The importance of AbilitySpecial values
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 *To specify numeric values, you can put in a number or you can use `%name` formatting to grab values out of the "AbilitySpecial" block of the ability. The advantage to using the `%name` syntax is that the value can change as the ability levels up and the numeric value can be formatted into tooltips.*

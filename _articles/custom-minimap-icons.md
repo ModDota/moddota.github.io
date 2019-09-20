@@ -2,6 +2,7 @@
 title: Custom Minimap Icons
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 Here is a quick and simple step by step guide on how to make and use your own minimap icons for creatures

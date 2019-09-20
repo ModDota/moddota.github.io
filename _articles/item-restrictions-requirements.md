@@ -2,6 +2,7 @@
 title: Item Restrictions &amp;amp; Requirements
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 This implements the following mechanic:

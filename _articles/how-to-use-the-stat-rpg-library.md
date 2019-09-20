@@ -2,6 +2,7 @@
 title: How to use the Stat-RPG Library
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 ***What is Stat-RPG ?***<br>

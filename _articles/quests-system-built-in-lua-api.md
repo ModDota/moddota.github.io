@@ -2,6 +2,7 @@
 title: Quests System (Built-In Lua API)
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 This is a tutorial on how to use the quest system which comes by default with the game, used on the tutorials and the holdout map.

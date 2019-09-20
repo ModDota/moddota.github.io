@@ -2,6 +2,7 @@
 title: Hiding HUD with SetHUDVisible
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 There's a function currently missing from the API page: SetHUDVisible(int, bool) which I want to document here.

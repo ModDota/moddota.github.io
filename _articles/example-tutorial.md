@@ -2,6 +2,7 @@
 title: Example Tutorial
 author: SinZ
 steamId: 76561198039302883
+category: general
 ---
 
 ##Example Tutorial  

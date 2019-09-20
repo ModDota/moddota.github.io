@@ -2,6 +2,7 @@
 title: [Hammer] Making skip/clip blocks out of models
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 This is the quickest but one very useful tip for Hammer map design. 

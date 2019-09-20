@@ -2,6 +2,7 @@
 title: Volcano Particle Creation
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 Here I'll explain how to modify preexisting particles for the creation of a [Volcano ability](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/firelord_volcano.txt) :nuke:

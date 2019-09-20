@@ -2,6 +2,7 @@
 title: Extracting and Compiling VTEX files
 author: HMFD
 steamId: 76561198053730418
+category: general
 ---
 
 Hello everybody. Recently, I've been looking through the .VTEX files used by most of the sprites and particle effects in-game, but I couldn't find any extensive documentation about it. Therefore, I decided to write this little guide in case anybody else finds it useful.

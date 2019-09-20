@@ -2,6 +2,7 @@
 title: Passing AbilitySpecial values into Lua
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 Given this "AbilitySpecial" block in the ability:

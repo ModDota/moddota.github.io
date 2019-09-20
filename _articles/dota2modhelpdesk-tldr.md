@@ -2,6 +2,7 @@
 title: #dota2modhelpdesk Tl;dr
 author: Lemon
 steamId: 76561198008077486
+category: general
 ---
 
 I had too much free time today, so I made this for myself, maybe you can find something useful as well.

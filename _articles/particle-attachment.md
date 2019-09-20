@@ -2,6 +2,7 @@
 title: Particle Attachment
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 # How to find and attach particles

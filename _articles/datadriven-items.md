@@ -2,6 +2,7 @@
 title: DataDriven Items
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 A comprehensive guide to npc_items_custom and coding items

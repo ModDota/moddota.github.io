@@ -2,6 +2,7 @@
 title: Making any ability use charges
 author: DoctorGester
 steamId: 76561198046920629
+category: general
 ---
 
 A guide/snippet which will help you to make any ability use charges like Shrapnel or Stone Caller.

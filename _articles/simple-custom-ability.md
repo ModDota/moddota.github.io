@@ -2,6 +2,7 @@
 title: Simple Custom Ability
 author: Birdie
 steamId: 76561198072811189
+category: general
 ---
 
 I have created a tutorial on making a simple custom ability here: https://www.youtube.com/watch?v=_wDoRXgrjBY

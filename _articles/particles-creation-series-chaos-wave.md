@@ -2,6 +2,7 @@
 title: Particles Creation Series - Chaos Wave
 author: kritth
 steamId: 76561198055627364
+category: general
 ---
 
 <h2>Table of content</h2>

@@ -2,6 +2,7 @@
 title: NEW API Wiki Pages
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 This contains an index of the new code-reference pages added in the [Beta Release Notes](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Beta_Release_Notes). After the patch hits, if you find something interesting, make a thread.

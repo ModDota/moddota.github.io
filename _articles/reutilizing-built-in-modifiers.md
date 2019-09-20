@@ -2,6 +2,7 @@
 title: Reutilizing Built-In Modifiers
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 Here it will be explained how to reuse any Built-In modifier through the datadriven system.

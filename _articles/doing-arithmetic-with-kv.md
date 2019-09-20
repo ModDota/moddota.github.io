@@ -2,6 +2,7 @@
 title: Doing arithmetic with KV
 author: Pizzalol
 steamId: 76561198015886976
+category: general
 ---
 
 Hello! 

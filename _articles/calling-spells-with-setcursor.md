@@ -2,6 +2,7 @@
 title: Calling Spells with SetCursor
 author: tte
 steamId: 76561198003060848
+category: general
 ---
 
 `CDotaBaseAbility:OnSpellStart` in combination with `CDotaBaseNPC:SetCursorCastTarget` and `CDOTABaseNPC:SetCursorPosition` are used to "Call" spells.

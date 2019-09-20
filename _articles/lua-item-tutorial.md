@@ -2,6 +2,7 @@
 title: Lua Item Tutorial
 author: DrTeaSpoon
 steamId: 76561197975484185
+category: general
 ---
 
 This tutorial is walk-through of creating completely new item with the new item_lua base class. <br>

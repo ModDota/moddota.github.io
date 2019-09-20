@@ -2,6 +2,7 @@
 title: Item Drop System
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 Here I'll go over the implementation of a flexible item drop system for any sort of gamemode, mostly useful for RPGs.

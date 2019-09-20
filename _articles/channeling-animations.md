@@ -2,6 +2,7 @@
 title: Channeling Animations
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 ### Short Version: 

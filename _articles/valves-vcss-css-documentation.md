@@ -2,6 +2,7 @@
 title: Valve's VCSS (CSS) Documentation
 author: Imvoo
 steamId: 76561198021806322
+category: general
 ---
 
 # V(alve's) CSS Sheet

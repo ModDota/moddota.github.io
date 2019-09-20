@@ -2,6 +2,7 @@
 title: DataDriven Ability Events &amp;amp; Modifiers
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 A guide that tries to cover every Ability & Modifier Event of the *ability_datadriven* system, with examples.

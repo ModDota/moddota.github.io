@@ -2,6 +2,7 @@
 title: Unit producing buildings
 author: Noya
 steamId: 76561198046984233
+category: general
 ---
 
 This is a response tutorial on @Lemon30 [question thread](https://moddota.com/forums/discussion/168/unit-producing-buildings-how-do-they-work), I'm gonna explain the scripting approaches to fully spawning units with a building, including making them controllable and defining initial orders.

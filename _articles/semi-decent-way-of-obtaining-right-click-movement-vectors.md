@@ -2,6 +2,7 @@
 title: Semi-decent way of obtaining right click movement vectors
 author: Myll
 steamId: 76561198000729788
+category: general
 ---
 
 First, listen to this event: `ListenToGameEvent('dota_player_used_ability', Dynamic_Wrap(WormWar, 'OnAbilityUsed'), self)`

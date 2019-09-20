@@ -2,6 +2,7 @@
 title: 3rd-person view and control method
 author: Aerohand
 steamId: 76561198072158954
+category: general
 ---
 
 Hello everyone. Today I will introduce your guys the way to make a 3rd-person view mod in dota2 workshop tool.
