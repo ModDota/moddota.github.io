@@ -10,7 +10,7 @@ You will need some basic knowledge to understand this tutorial.
 
 The final demo would be like this:
 
-{% include gfycat.html id=MessySilverKarakul %}
+{% include gfycat.html id="MessySilverKarakul" %}
 
 You would also find my work of this in steam workshop which name is Speed Racing.
 http://steamcommunity.com/sharedfiles/filedetails/?id=370771264

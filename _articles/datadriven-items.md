@@ -309,7 +309,7 @@ Alt-click text on items in Inventory and dropped on the ground. Takes the string
 Overrides the default "[ALLIES] **ItemName** dropped here".
  It will look for *#DOTA_Chat_Text_String* (*Text_String* can be whatever) in your addon strings. 
 
-{% include gfycat.html id=RemarkableImportantAnt %}
+{% include gfycat.html id="RemarkableImportantAnt" %}
 
 In the item_datadriven:
 ~~~

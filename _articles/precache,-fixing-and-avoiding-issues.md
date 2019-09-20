@@ -13,7 +13,7 @@ http://puu.sh/fBzOp/5c7afff665.jpg
 
 Missing particles are indicated by red crosses:
 
-{% include gfycat.html id=SinfulShamefulBittern %}
+{% include gfycat.html id="SinfulShamefulBittern" %}
 
 **How to fix and avoid this crap?**
 
@@ -87,6 +87,6 @@ http://puu.sh/fBxWT/83cceac063.png
 
 Now after adding that particle (which I just looked up on the Asset Browser and copied the path to the .vpcf), everything is displaying properly:
 
-{% include gfycat.html id=SphericalHonorableChevrotain %}
+{% include gfycat.html id="SphericalHonorableChevrotain" %}
 
 ---

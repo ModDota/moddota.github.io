@@ -65,7 +65,7 @@ If you want to use the example .VTEX_C file created by this tutorial to use in y
 
 ### Bonus GIF
 
-{% include gfycat.html id=AmpleNaiveKiwi %}
+{% include gfycat.html id="AmpleNaiveKiwi" %}
 
 
 

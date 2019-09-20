@@ -46,17 +46,17 @@ category: general
 
 **Pitch** Rotation, 15 every frame (0.03 interval)
 
-{% include gfycat.html id=BothImpureHeterodontosaurus %}
+{% include gfycat.html id="BothImpureHeterodontosaurus" %}
 
 <br>
 
 **Yaw** Rotation, 15 every frame
 
-{% include gfycat.html id=MemorableAcceptableDikdik %}
+{% include gfycat.html id="MemorableAcceptableDikdik" %}
 
 <br>
 
 **Roll** Rotation, 15 every frame
 
-{% include gfycat.html id=GraciousWebbedHamadryad %}
+{% include gfycat.html id="GraciousWebbedHamadryad" %}
 

@@ -9,11 +9,11 @@ Here's in the breakdown of an ability that spawns units and moves them with rota
 
 The end result while there is no enemies to go to would be like this:
 
-{% include gfycat.html id=UniformLikableDavidstiger %}
+{% include gfycat.html id="UniformLikableDavidstiger" %}
 
 I include a Debug boolean that can be enabled to show the path and acquisition of different states:
 
-{% include gfycat.html id=MeekPortlyCrocodileskink %}
+{% include gfycat.html id="MeekPortlyCrocodileskink" %}
 
 The complete codes for the ability can be found in the following [SpellLibrary](https://github.com/Pizzalol/SpellLibrary) links:
 
@@ -98,4 +98,4 @@ unit:OnPhysicsFrame(nil)
 
 For a different logic, check [Locust Swarm](https://github.com/MNoya/DotaCraft/blob/master/scripts/vscripts/heroes/crypt_lord/locust_swarm.lua) from **[DotaCraft](https://github.com/MNoya/DotaCraft)** repository, it uses the same movement physics but has different acquire and return logic, to fit Warcraft 3 behavior.
 
-{% include gfycat.html id=TartSlowAfricangroundhornbill %}
+{% include gfycat.html id="TartSlowAfricangroundhornbill" %}

@@ -240,7 +240,7 @@ end
  
 Here we make use of the Timers library for a simple 1.0 second delay, there are many different timer functions included and explained in timers.lua. The bool on ForceKill is to enable the death animation.
 
-{% include gfycat.html id=DigitalDefinitiveChimpanzee %}
+{% include gfycat.html id="DigitalDefinitiveChimpanzee" %}
  
  
 ### Tables. <a name="tables">
@@ -310,7 +310,7 @@ end
 
 And the result ingame:
 
-{% include gfycat.html id=SkeletalIcyDalmatian %}
+{% include gfycat.html id="SkeletalIcyDalmatian" %}
 
 
 

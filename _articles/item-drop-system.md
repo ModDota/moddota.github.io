@@ -11,7 +11,7 @@ There are multiple ways to do this, for example [Warchasers uses a pure datadriv
 
 The best way for this is to have a text file to configure what items can drop from each unit, how many, its chances, etc, then whenever a unit dies, if it has an entry for item drops, handle the chances and drops accordingly, with a couple of choices that can be further extended if necessary.
 
-{% include gfycat.html id=PowerlessCourageousAsiantrumpetfish %}
+{% include gfycat.html id="PowerlessCourageousAsiantrumpetfish" %}
 
 ---
 ### 1. Key Values Table

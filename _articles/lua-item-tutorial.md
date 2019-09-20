@@ -161,7 +161,7 @@ end
 ~~~
 IMPORTANT: We are using sounds and particle effects already precached by default. If you wish to use particle effects and sounds from other heroes or your custom ones then you have to do precaching for those resources.<br>
 This is what our item should do right now:
-{% include gfycat.html id=RepentantYellowishDiscus %}
+{% include gfycat.html id="RepentantYellowishDiscus" %}
 ### Cast on Allied
 Now we are going to create the part that makes this item unique compared to blink dagger. First we if statement in our cast function that distinguishes how it should act depending on the target. Also at same time we make sure that double tapping the item works like it does with blink dagger (self targeting blinks towards base)
 <br>
@@ -569,7 +569,7 @@ Open it up and lets add following lines to the mix.
 		"DOTA_Tooltip_item_blink_staff_effect_modifier_Description"                                 "Targeted by Blink Staff"
 ~~~
 Lets see what we have now:
-{% include gfycat.html id=FrankBleakChihuahua %}
+{% include gfycat.html id="FrankBleakChihuahua" %}
 
 Now there are still some things we need to do but first lets fix the most obvious problem. Currently there is a bug where the:<br>
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1005,4 +1005,4 @@ Big thanks to all who have contributed to https://github.com/Pizzalol/SpellLibra
 <br>
 <br>
 Happy Blinking!
-{% include gfycat.html id=AthleticEminentAnnashummingbird %}
+{% include gfycat.html id="AthleticEminentAnnashummingbird" %}

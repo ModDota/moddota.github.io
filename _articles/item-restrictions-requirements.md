@@ -7,7 +7,7 @@ category: general
 
 This implements the following mechanic:
 
-{% include gfycat.html id=OfficialAdorableJabiru %}
+{% include gfycat.html id="OfficialAdorableJabiru" %}
 
 ### 1. Key Values Table
 
