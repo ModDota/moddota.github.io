@@ -5,7 +5,7 @@ steamId: 76561198055627364
 ---
 
 <p>
-If you are new to particle creation, you should read <a href="https://moddota.com/forums/discussion/110/particles-creation-series">this particle basic</a> first because I will not explain in detail these functions in detail. I will instead explain the thought process that comes in my mind during each creation. Now let's get started.
+If you are new to particle creation, you should read <a href="/articles/particles-creation-series-particle-basics">this particle basic</a> first because I will not explain in detail these functions in detail. I will instead explain the thought process that comes in my mind during each creation. Now let's get started.
 </p>
 <p>
 I was working on my map the other day in the following image.

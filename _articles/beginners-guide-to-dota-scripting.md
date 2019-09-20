@@ -4,7 +4,7 @@ author: Noya
 steamId: 76561198046984233
 ---
 
-Part 2 of [Getting Started With Dota 2 Modding](https://moddota.com/forums/discussion/142/getting-started-with-dota-2-modding), this tutorial is meant to explain the basics of programming Dota 2 custom mods.
+Part 2 of [Getting Started With Dota 2 Modding](/articles/getting-started-with-dota-2-modding), this tutorial is meant to explain the basics of programming Dota 2 custom mods.
 
 ## Scripting
  
@@ -97,7 +97,7 @@ Extensive documentation and in-depth examples of the datadriven system can be fo
 
 ### [Datadriven Items](http://moddota.com/forums/discussion/4/datadriven-items)
 
-### [Datadriven Units](https://moddota.com/forums/discussion/224/datadriven-units)
+### [Datadriven Units](/articles/datadriven-units)
  
 <br><br>
 

@@ -1,5 +1,5 @@
 ---
-title: Item Restrictions &amp; Requirements
+title: Item Restrictions &amp;amp; Requirements
 author: Noya
 steamId: 76561198046984233
 ---

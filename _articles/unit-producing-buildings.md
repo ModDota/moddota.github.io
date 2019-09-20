@@ -38,7 +38,7 @@ To solve this, we need to use a couple of lines in lua, basically the `SetOwner`
 
 `[CDOTA_BaseNPC] void SetControllableByPlayer( int, bool )` **-- Set this unit controllable by a player.**
 
-To properly call these functions, I'm gonna assume you already know the basics explained under the [Beginners Guide to Scripting](https://moddota.com/forums/discussion/135/beginners-guide-to-dota-scripting) and just explain where should you call these with an example.
+To properly call these functions, I'm gonna assume you already know the basics explained under the [Beginners Guide to Scripting](/articles/beginners-guide-to-dota-scripting) and just explain where should you call these with an example.
 
 A good GameMode hook to call these would be after the dota_player_picked_hero, so given a standard barebones listener like this:
 

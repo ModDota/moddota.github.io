@@ -14,7 +14,7 @@ steamId: 76561198055627364
 
 <a name="intro"></a><h1>Introduction</h1>
 <p>
-This is taken from the project I'm currently working on. The basic idea behind this particle system was that this projectile is a cyclone/tornado in xy-axis travel forward with certain amount of velocity. If you don't have any basic in particle editor, please go to <a href="https://moddota.com/forums/discussion/110/particles-creation-series#particle_basics">this link</a> first. Before you read further, here is the finished product.
+This is taken from the project I'm currently working on. The basic idea behind this particle system was that this projectile is a cyclone/tornado in xy-axis travel forward with certain amount of velocity. If you don't have any basic in particle editor, please go to <a href="/articles/particles-creation-series-particle-basics">this link</a> first. Before you read further, here is the finished product.
 </p>
 <img src="http://i.imgur.com/fwxoB5H.png"></img>
 <p>

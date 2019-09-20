@@ -15,8 +15,8 @@ Also noted that some particles system implementation might have Lua scripting in
 - <a href="#particle_basics">Particle Basics</a><br>
 - <a href="#first_particle">Creating your first particle</a>
 <p>Example in separate threads</p>
-- <a href="https://moddota.com/forums/discussion/111/particle-creation-series-falling-cherry-blossom-petal-for-spring-mood">Example: Falling cherry blossom petal</a><br>
-- <a href="https://moddota.com/forums/discussion/112/particles-creation-series-cyclone-wave">Example: Chaos Wave</a>
+- <a href="/articles/particles-creation-series-falling-cherry-blossom-petal-for-spring-mood">Example: Falling cherry blossom petal</a><br>
+- <a href="/articles/particles-creation-series-chaos-wave">Example: Chaos Wave</a>
 <p>
 Again, let me know what kind of particle system you want to see created so I can keep this tutorial series going.
 </p>

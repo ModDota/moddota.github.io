@@ -16,8 +16,8 @@ This tutorial assumes a basic knowledge of lua scripting.
 I've copied some units from holdout_example for testing, and copied Berserkers Call from [Spell Library](https://github.com/Pizzalol/SpellLibrary). 
 
 If you need help on making your own units or abilities, Noya's documentation is an excellent resource:  
-[Datadriven Units](https://moddota.com/forums/discussion/224/datadriven-units)  
-[DataDriven Ability Breakdown - Documentation](https://moddota.com/forums/discussion/14/datadriven-ability-breakdown-documentation)
+[Datadriven Units](/articles/datadriven-units)  
+[DataDriven Ability Breakdown - Documentation](/articles/datadriven-ability-breakdown-documentation)
 
 ## Hammer Setup
 In Hammer, I've placed an info_target entity named "spawn_loc_test" which can be found in lua. This allows me to place the units spawn location in Hammer without changing the lua scripts around. If you wish to do this, give each entity a unique name and place them where you want the spawn point on your map.
