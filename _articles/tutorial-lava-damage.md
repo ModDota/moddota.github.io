@@ -15,7 +15,7 @@ Today we going to create Lava area when a hero step on that lava he will get dam
 
 Then convert the mesh to Entity and name it plus assign this Entity script to lavatrigger.lua <-- you can name it whatever you want.
 ![enter image description here](https://i.gyazo.com/f4e83a50e4c80ee658042c1dd2a73d2c.png "enter image title here")
-![enter image description here](http://giant.gfycat.com/AntiqueSkinnyKagu.gif "enter image title here")
+{% include gfycat.html id=AntiqueSkinnyKagu %}
 
 next we go to Outputs tabs in top and click on it add the following in the picture.
 
