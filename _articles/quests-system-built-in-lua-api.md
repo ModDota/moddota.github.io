@@ -18,7 +18,7 @@ The first one will be a decreasing timer, while the second requires triggering w
 
 Survive for 30 seconds
 
-[gfy PastelAnnualAnnashummingbird]
+{% include gfycat.html id=PastelAnnualAnnashummingbird %}
 
 First initialize the Quest Entity whenever its supposed to start (could be stepping on a trigger box, killing certain unit, etc)
 ~~~
@@ -82,7 +82,7 @@ end)
 
 Kill some Kobold-units (many types of the same kobold count as 1)
 
-[gfy EarlyEvenAtlanticsharpnosepuffer]
+{% include gfycat.html id=EarlyEvenAtlanticsharpnosepuffer %}
 
 Listener
 ~~~

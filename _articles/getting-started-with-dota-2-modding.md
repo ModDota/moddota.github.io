@@ -46,7 +46,7 @@ Next, start up the Workshop Tools (or restart them if you have them opened alrea
 
 # Step #2: Creating your map in Hammer
 
-[gfy YearlyDismalHuemul]
+{% include gfycat.html id=YearlyDismalHuemul %}
 
 (Credits to DarkMio for the gfy.)
 

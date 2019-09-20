@@ -146,6 +146,6 @@ If you enable Display-> Hitboxes and Hitbox Names you should see something like 
 
 Final result is the finished model with all its animations (hopefully):
 
-[gfy FirmEthicalHylaeosaurus]
+{% include gfycat.html id=FirmEthicalHylaeosaurus %}
 
 ---

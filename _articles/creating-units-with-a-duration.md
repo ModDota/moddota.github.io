@@ -71,7 +71,7 @@ Here is an example of it in KV; one spider spawns without the `modifier_kill` an
 
 and a short video along with it
 
-[gfy AmusedScientificHoneybadger]
+{% include gfycat.html id=AmusedScientificHoneybadger %}
 
 ### Lua example
 

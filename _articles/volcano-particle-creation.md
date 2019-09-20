@@ -9,7 +9,7 @@ Here I'll explain how to modify preexisting particles for the creation of a [Vol
 
 I won't be making the particles from scratch or going really deep into its possibilities, so make sure to read the wonderful [Particle Creation Series](http://moddota.com/forums/discussion/110/particles-creation-series) by kritth to get a deeper understanding than just this example.
 
-[gfy HandsomeImpossibleHyena]
+{% include gfycat.html id=HandsomeImpossibleHyena %}
 
 <br>
 
@@ -45,7 +45,7 @@ http://puu.sh/fzghv/60aacd4e5e.png
 
 It's looking like this now (I forgot to hide the model for this preview)
 
-[gfy OptimalRichDeviltasmanian]
+{% include gfycat.html id=OptimalRichDeviltasmanian %}
 
 <br>
 	
@@ -62,7 +62,7 @@ Now the particle system is kinda filling the entire particle with dust, so we do
 	
 Finally we finished the core base of the volcano:
 
-[gfy ClumsyImpishGardensnake]
+{% include gfycat.html id=ClumsyImpishGardensnake %}
 	
 Because I don't want or need to have additional control points, I'll make sure that all the control points of this particle system are fixed to the CP0.
 
@@ -127,7 +127,7 @@ http://puu.sh/fAcn5/8132f680eb.jpg
 		
 Now after all that mess:
 	
-[gfy FewLeftAcornbarnacle]
+{% include gfycat.html id=FewLeftAcornbarnacle %}
 
 ---
 
@@ -158,7 +158,7 @@ We need to change some initializer functions to decrease the speed and make the 
 	
 Result: 
 
-[gfy FinishedRewardingBactrian]
+{% include gfycat.html id=FinishedRewardingBactrian %}
 
 ---
 
@@ -170,7 +170,7 @@ I'll also add a lone_druid_bear_entangle_ground_soil_cauldron effect in here, to
 
 Finally after getting the particle with the ability together...
 
-[gfy DisastrousRecentBaldeagle]
+{% include gfycat.html id=DisastrousRecentBaldeagle %}
 
 ---
 

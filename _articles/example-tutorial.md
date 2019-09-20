@@ -76,7 +76,7 @@ Test [progress 69%]
 
 `［gfy CelebratedNippyBalloonfish］`  
 makes  
-[gfy CelebratedNippyBalloonFish]
+{% include gfycat.html id=CelebratedNippyBalloonFish %}
 
 note, do not copy it, as I needed to use fancy unicode for it not to parse
 * * *

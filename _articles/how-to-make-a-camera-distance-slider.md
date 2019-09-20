@@ -7,7 +7,7 @@ category: general
 
 There were a lot of WC3 mods that had a camera setting you can set like this: `-cam xxxx`. In this short guide, I'll show you how to add a camera distance slider to your mod. I assume that you've done some basic flash on your mod already, and know how to create MovieClips and TextFields. If you don't, please go through [this guide first.](http://yrrep.me/dota/dota-ui-flash.html)
 
-[gfy LeanTenderAvocet]
+{% include gfycat.html id=LeanTenderAvocet %}
 
 ### 1. Create TextFields and MovieClips
 
