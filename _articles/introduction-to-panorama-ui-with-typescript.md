@@ -8,7 +8,7 @@ category: User Interface
 
 ## What is Typescript and why should I use it
 
-[Typescript](http://web.archive.org/web/20190201023254/https://www.typescriptlang.org/) is a language created by and for people that were unhappy with Javascript and all of its quirks and flaws. Typescript is a language with its own syntax (although similar to Javascript) that compiles to Javascript in a way that avoids a lot of Javascript's issues.
+[Typescript](https://www.typescriptlang.org/) is a language created by and for people that were unhappy with Javascript and all of its quirks and flaws. Typescript is a language with its own syntax (although similar to Javascript) that compiles to Javascript in a way that avoids a lot of Javascript's issues.
 
 The name Typescript comes from the fact that the language is basically Javascript with type checking, but on top of that it supports all of the newest Javascript language construct that are not supported by Panorama.
 
@@ -27,11 +27,11 @@ The name Typescript comes from the fact that the language is basically Javascrip
 
 ## How to install Typescript
 
-Step 1: Install [Node.js](http://web.archive.org/web/20190201023254/https://nodejs.org/en/) which is used to compile Typescript.
+Step 1: Install [Node.js](https://nodejs.org/en/) which is used to compile Typescript.
 
 Step 2: Install TypeScript by opening a command prompt and executing `npm install -g typescript`
 
-Step 3: Install the [Sublime Typescript plugin](http://web.archive.org/web/20190201023254/https://github.com/Microsoft/TypeScript-Sublime-Plugin#installation) (available through Sublime package manager).
+Step 3: Install the [Sublime Typescript plugin](https://github.com/Microsoft/TypeScript-Sublime-Plugin#installation) (available through Sublime package manager).
 
 That's it, after these three steps you are ready to start using Typescript.
 
@@ -53,9 +53,9 @@ There are 4 files required to use Typescript for Panorama, put all of these in y
 
 **Note:** The target setting NEEDS to be es3.
 
-*   The latest Panorama Dota API definition: [https://github.com/ModDota/API/blob/master/declarations/panorama/dota.d.ts](http://web.archive.org/web/20190201023254/https://github.com/ModDota/API/blob/master/declarations/panorama/dota.d.ts)
-*   The latest Panorama Enum API definition: [https://github.com/ModDota/API/blob/master/declarations/panorama/dota_enums.d.ts](http://web.archive.org/web/20190201023254/https://github.com/ModDota/API/blob/master/declarations/panorama/dota_enums.d.ts)
-*   The latest Panorama Panels API definition: [https://github.com/ModDota/API/blob/master/declarations/panorama/dota_panels.d.ts](http://web.archive.org/web/20190201023254/https://github.com/ModDota/API/blob/master/declarations/panorama/dota_panels.d.ts)
+*   The latest Panorama Dota API definition: [https://github.com/ModDota/API/blob/master/declarations/panorama/dota.d.ts](https://github.com/ModDota/API/blob/master/declarations/panorama/dota.d.ts)
+*   The latest Panorama Enum API definition: [https://github.com/ModDota/API/blob/master/declarations/panorama/dota_enums.d.ts](https://github.com/ModDota/API/blob/master/declarations/panorama/dota_enums.d.ts)
+*   The latest Panorama Panels API definition: [https://github.com/ModDota/API/blob/master/declarations/panorama/dota_panels.d.ts](https://github.com/ModDota/API/blob/master/declarations/panorama/dota_panels.d.ts)
 
 Your addon's content directory structure should be something like this:
 
