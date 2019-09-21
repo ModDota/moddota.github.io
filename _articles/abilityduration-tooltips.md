@@ -4,7 +4,6 @@ author: Noya
 steamId: 76561198046984233
 date: 15.12.2014
 category: general
-date: 2018-04-01
 ---
 
 **TL;DR:** AbilityDuration is a fairly useless keyvalue because whoever coded it forgot to make an automatic tooltip like with `AbilityDamage`. Use a "duration" AbilitySpecial and connect it with lua instead.
