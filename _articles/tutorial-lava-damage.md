@@ -3,7 +3,7 @@ title: '[Tutorial] Lava damage'
 author: DiNaSoR
 steamId: 76561197974680917
 date: 20.08.2015
-category: general
+category: Scripting
 ---
 
 Hello, this is a small tutorial giving back to the awesome Moddota community.

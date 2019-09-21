@@ -3,7 +3,7 @@ title: Adding a Very Simple AI to Units
 author: wigguno
 steamId: 76561198004447135
 date: 27.07.2015
-category: general
+category: Scripting
 ---
 
 This tutorial will cover how to issue very simple orders to units. This tutorial uses a move order to make a unit wander inside an area randomly, and a cast order to make a unit cast an untargeted spell randomly.

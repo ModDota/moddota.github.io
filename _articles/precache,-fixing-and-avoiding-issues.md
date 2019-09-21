@@ -3,7 +3,7 @@ title: Precache, Fixing and avoiding issues
 author: Noya
 steamId: 76561198046984233
 date: 07.02.2015
-category: general
+category: Scripting
 ---
 
 When spawning units through KV and Lua, you might have to deal with the precache-dilemma. This also applies to particles and sounds. I talked about it briefly in the [precache section of the datadriven breakdown](http://moddota.com/forums/discussion/14/datadriven-ability-breakdown-documentation##precache) but here I have an straightforward example to help understand the matter.

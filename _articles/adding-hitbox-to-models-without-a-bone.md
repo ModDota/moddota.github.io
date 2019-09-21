@@ -3,7 +3,7 @@ title: Adding Hitbox to Models without a Bone
 author: Noya
 steamId: 76561198046984233
 date: 06.12.2015
-category: general
+category: Assets
 ---
 
 If you tried some of Valve's prop models, you had already noticed that many of them don't have a hitbox, so they can't be used for selectable units.

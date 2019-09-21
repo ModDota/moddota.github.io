@@ -3,7 +3,7 @@ title: Particles Creation Series - Falling cherry blossom petal for spring mood
 author: kritth
 steamId: 76561198055627364
 date: 05.02.2015
-category: general
+category: Assets
 ---
 
 <p>

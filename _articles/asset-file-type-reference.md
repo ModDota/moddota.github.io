@@ -3,7 +3,7 @@ title: Asset File Type Reference
 author: Noya
 steamId: 76561198046984233
 date: 28.05.2015
-category: general
+category: Assets
 ---
 
 This list contains all the info for asset types with its related tools & guides explaining the formats.

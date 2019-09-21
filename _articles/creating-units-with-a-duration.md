@@ -3,7 +3,7 @@ title: Creating units with a duration
 author: Pizzalol
 steamId: 76561198015886976
 date: 15.01.2015
-category: general
+category: Scripting
 ---
 
 This is a quick tutorial on how to create custom units so that they appear with a circular timer next to their health bar and the time remaining on the XP bar

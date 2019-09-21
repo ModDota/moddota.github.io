@@ -3,7 +3,7 @@ title: Invisibility Ability Example
 author: Noya
 steamId: 76561198046984233
 date: 19.12.2014
-category: general
+category: Scripting
 ---
 
 This is a datadriven + lua ability that will apply the invis state and texture, with some extra particles and effects.

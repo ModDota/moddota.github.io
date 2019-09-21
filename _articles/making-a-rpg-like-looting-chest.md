@@ -1,9 +1,9 @@
 ---
-title: Making a \&quot;rpg-like\&quot; looting chest
+title: Making a &quot;rpg-like&quot; looting chest
 author: FrenchDeath
 steamId: 76561198002718302
 date: 18.12.2015
-category: general
+category: Scripting
 ---
 
 Hello , it's the first time i'm making a tutorial here (and on lua too)
@@ -12,7 +12,7 @@ So today i'll teach you how to make a chest you must open , and then you can obt
 
 first off , you need to create you chest item in npc_item_custom.txt :
 
-~~~lua
+~~~
 "item_chest"
 	{
 		// General

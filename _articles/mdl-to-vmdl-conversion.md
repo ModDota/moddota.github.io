@@ -3,7 +3,7 @@ title: MDL to VMDL Conversion
 author: Noya
 steamId: 76561198046984233
 date: 28.05.2015
-category: general
+category: Assets
 ---
 
 This guide will go through the process of making a **.vmdl file** (Source 2 Model) from a **.mdl file** and other model-related files from Source 1. The [Wyvern Hatchling courier](http://gfycat.com/JauntyQuickArcticwolf) will be used as example, but the same process applies to heroes, buildings and any Valve Dota model.

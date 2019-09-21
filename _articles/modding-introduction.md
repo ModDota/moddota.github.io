@@ -3,7 +3,7 @@ title: Modding Introduction
 author: Birdie
 steamId: 76561198072811189
 date: 26.06.2015
-category: general
+category: Beginners
 ---
 
 I made a tutorial at http://youtu.be/ZVyo8g7NyKc covering the absolute basics of modding, as well as setting up Sublime with the DotA 2 plugins, and installing Barebones. 

@@ -3,7 +3,7 @@ title: Beginners Guide to Dota Scripting
 author: Noya
 steamId: 76561198046984233
 date: 18.02.2015
-category: general
+category: Beginners
 ---
 
 Part 2 of [Getting Started With Dota 2 Modding](/articles/getting-started-with-dota-2-modding), this tutorial is meant to explain the basics of programming Dota 2 custom mods.

@@ -3,7 +3,7 @@ title: Useful Console Commands
 author: Noya
 steamId: 76561198046984233
 date: 22.02.2015
-category: general
+category: Beginners
 ---
 
 Here are the console commands useful for modding. If you constantly use one which isn't on this list, please post it 

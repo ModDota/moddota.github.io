@@ -3,7 +3,7 @@ title: Physics Ability Example - Exorcism
 author: Noya
 steamId: 76561198046984233
 date: 02.02.2015
-category: general
+category: Scripting
 ---
 
 Here's in the breakdown of an ability that spawns units and moves them with rotation, making use of the [Physics library](https://github.com/bmddota/barebones/blob/source2/game/dota_addons/barebones/scripts/vscripts/physics.lua)

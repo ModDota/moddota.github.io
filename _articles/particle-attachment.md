@@ -3,7 +3,7 @@ title: Particle Attachment
 author: Noya
 steamId: 76561198046984233
 date: 13.01.2015
-category: general
+category: Scripting
 ---
 
 # How to find and attach particles
@@ -225,7 +225,7 @@ If your attachment is not working with the simple lua method, you need to try th
 ### 4.1 Lua `SetParticleControlEnt`
 
 **Example**: This is the proper lua attachment for Abaddon Aphotic Shield Particle:
-~~~
+~~~lua
 target.ShieldParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 ParticleManager:SetParticleControl(target.ShieldParticle, 1, Vector(shield_size,0,shield_size))
 ParticleManager:SetParticleControl(target.ShieldParticle, 2, Vector(shield_size,0,shield_size))

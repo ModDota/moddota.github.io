@@ -3,7 +3,7 @@ title: Apply Hero and Creep modifier durations
 author: Noya
 steamId: 76561198046984233
 date: 15.01.2015
-category: general
+category: Scripting
 ---
 
 I came up with this method after [kritth](http://moddota.com/forums/profile/1600/kritth) showed us that you can directly add a `"Duration"` key value to an `"ApplyModifier"` block and the use of the `"Target"` block without a Radius (defaulting to 0).
