@@ -6,13 +6,4 @@ title: Tutorials
 
 {% assign articles_by_category = site.articles | group_by: "category" %}
 
-{% for category in articles_by_category %}
-
-<h3>{{ category.name }}</h3>
-<ul>
-    {% for article in category.items %}
-        <li><a href="{{ article.url }}">{{ article.title }}</a></li>
-    {% endfor %}
-</ul>
-
-{% endfor %}
+{% include category = articles_by_category | where:"name","Beginners" | first }

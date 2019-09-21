@@ -1,0 +1,6 @@
+<h3>{{ category.name }}</h3>
+<ul>
+    {% for article in category.items %}
+    <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+    {% endfor %}
+</ul>
