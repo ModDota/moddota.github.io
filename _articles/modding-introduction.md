@@ -2,6 +2,7 @@
 title: Modding Introduction
 author: Birdie
 steamId: 76561198072811189
+date: 26.06.2015
 category: general
 ---
 

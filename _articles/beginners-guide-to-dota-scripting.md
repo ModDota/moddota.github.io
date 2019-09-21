@@ -2,6 +2,7 @@
 title: Beginners Guide to Dota Scripting
 author: Noya
 steamId: 76561198046984233
+date: 18.02.2015
 category: general
 ---
 

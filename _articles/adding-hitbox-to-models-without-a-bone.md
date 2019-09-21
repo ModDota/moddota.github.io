@@ -2,6 +2,7 @@
 title: Adding Hitbox to Models without a Bone
 author: Noya
 steamId: 76561198046984233
+date: 06.12.2015
 category: general
 ---
 

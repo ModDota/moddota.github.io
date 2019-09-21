@@ -2,6 +2,7 @@
 title: Apply Hero and Creep modifier durations
 author: Noya
 steamId: 76561198046984233
+date: 15.01.2015
 category: general
 ---
 

@@ -2,6 +2,7 @@
 title: AbilityDuration tooltips
 author: Noya
 steamId: 76561198046984233
+date: 15.12.2014
 category: general
 date: 2018-04-01
 ---

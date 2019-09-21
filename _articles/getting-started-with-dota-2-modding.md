@@ -2,6 +2,7 @@
 title: Getting Started With Dota 2 Modding
 author: Myll
 steamId: 76561198000729788
+date: 22.02.2015
 category: general
 ---
 

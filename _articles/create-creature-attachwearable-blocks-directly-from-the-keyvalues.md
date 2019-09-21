@@ -2,6 +2,7 @@
 title: Create Creature AttachWearable blocks directly from the keyvalues
 author: Noya
 steamId: 76561198046984233
+date: 15.12.2015
 category: general
 ---
 

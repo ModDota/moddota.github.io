@@ -2,6 +2,7 @@
 title: Scripted Shop Spawning
 author: snippet
 steamId: 76561198017441460
+date: 29.04.2015
 category: general
 ---
 

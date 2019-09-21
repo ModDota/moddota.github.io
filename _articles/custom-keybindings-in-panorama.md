@@ -2,6 +2,7 @@
 title: Custom Keybindings in panorama
 author: ole
 steamId: 76561197966853265
+date: 24.07.2015
 category: general
 ---
 

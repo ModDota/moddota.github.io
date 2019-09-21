@@ -2,6 +2,7 @@
 title: Invisibility Ability Example
 author: Noya
 steamId: 76561198046984233
+date: 19.12.2014
 category: general
 ---
 

@@ -2,6 +2,7 @@
 title: '[Tutorial] Lava damage'
 author: DiNaSoR
 steamId: 76561197974680917
+date: 20.08.2015
 category: general
 ---
 
@@ -11,11 +12,11 @@ Today we going to create Lava area when a hero step on that lava he will get dam
 
 
 **First you need to create a block and assign trigger texture to it**
-![enter image description here](http://giant.gfycat.com/WaterloggedQuarrelsomeDutchshepherddog.gif "enter image title here")
+{% include gfycat.html id="WaterloggedQuarrelsomeDutchshepherddog" %}
 
 Then convert the mesh to Entity and name it plus assign this Entity script to lavatrigger.lua <-- you can name it whatever you want.
 ![enter image description here](https://i.gyazo.com/f4e83a50e4c80ee658042c1dd2a73d2c.png "enter image title here")
-![enter image description here](http://giant.gfycat.com/AntiqueSkinnyKagu.gif "enter image title here")
+{% include gfycat.html id="AntiqueSkinnyKagu" %}
 
 next we go to Outputs tabs in top and click on it add the following in the picture.
 
@@ -45,8 +46,7 @@ end
 ~~~
 
 here is the final result!:smile: 
-![enter image description here](http://giant.gfycat.com/CharmingTestyAlaskanmalamute.gif "enter image title here")
-
+{% include gfycat.html id="CharmingTestyAlaskanmalamute" %}
 
 
 NOTE We can spice this a little bit with particles effect and sound will explain that next time.

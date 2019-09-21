@@ -2,6 +2,7 @@
 title: Item Restrictions &amp;amp; Requirements
 author: Noya
 steamId: 76561198046984233
+date: 13.12.2014
 category: general
 ---
 

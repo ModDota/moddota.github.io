@@ -2,6 +2,7 @@
 title: Lua Item Tutorial
 author: DrTeaSpoon
 steamId: 76561197975484185
+date: 07.08.2015
 category: general
 ---
 

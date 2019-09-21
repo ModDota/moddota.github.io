@@ -2,6 +2,7 @@
 title: Adding a Very Simple AI to Units
 author: wigguno
 steamId: 76561198004447135
+date: 27.07.2015
 category: general
 ---
 

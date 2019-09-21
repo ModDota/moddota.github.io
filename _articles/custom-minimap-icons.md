@@ -2,6 +2,7 @@
 title: Custom Minimap Icons
 author: Noya
 steamId: 76561198046984233
+date: 11.11.2015
 category: general
 ---
 
