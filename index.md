@@ -13,5 +13,6 @@ title: Tutorials
 
 {% include category.html category=beginners %}
 {% include category.html category=scripting %}
+{% include category.html category=user_interface %}
 {% include category.html category=assets %}
 {% include category.html category=other %}
