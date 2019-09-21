@@ -11,7 +11,7 @@ title: Tutorials
 {% assign assets = articles_by_category | where:"name","Assets" | first %}
 {% assign other = articles_by_category | where:"name","Other" | first %}
 
-%{ include category.html category=beginners }
-%{ include category.html category=scripting }
-%{ include category.html category=assets }
-%{ include category.html category=other }
+{% include category.html category=beginners %}
+{% include category.html category=scripting %}
+{% include category.html category=assets %}
+{% include category.html category=other %}
