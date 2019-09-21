@@ -13,6 +13,8 @@ collections:
     output: true
     permalink: /:collection/:name
 
+theme               : minima
+
 # Handling Reading
 safe                : false
 include             : [".htaccess"]
@@ -53,7 +55,12 @@ timezone            : null
 
 quiet               : false
 verbose             : false
-defaults            : []
+defaults            :
+  -
+    scope:
+      type: articles
+    values:
+      layout: post
 
 liquid:
   error_mode        : warn
