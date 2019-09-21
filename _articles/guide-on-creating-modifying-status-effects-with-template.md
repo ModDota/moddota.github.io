@@ -16,11 +16,11 @@ Status Effects are particles that change the surface texture and its parameters 
 
 ### **Examples for Status Effects:**
 
-[http://imgur.com/ViSMwvo](http://imgur.com/ViSMwvo)  
-[http://imgur.com/4UyiXu4](http://imgur.com/4UyiXu4)  
-[http://imgur.com/LMMyBO8](http://imgur.com/LMMyBO8)  
-[http://imgur.com/YRYNesy](http://imgur.com/YRYNesy)  
-[http://imgur.com/z7Et01i](http://imgur.com/z7Et01i)
+![https://i.imgur.com/ViSMwvo.jpg](https://i.imgur.com/ViSMwvo.jpg)  
+![https://i.imgur.com/4UyiXu4.jpg](https://i.imgur.com/4UyiXu4.jpg)  
+![https://i.imgur.com/LMMyBO8.jpg](https://i.imgur.com/LMMyBO8.jpg)  
+![https://i.imgur.com/YRYNesy.jpg](https://i.imgur.com/YRYNesy.jpg)  
+![https://i.imgur.com/z7Et01i.jpg](https://i.imgur.com/z7Et01i.jpg)
 
 ## **Getting Started**
 
@@ -42,7 +42,7 @@ What you need for a basic Status Effect:
 
 **_This is how the functions window should look like in the end when using "Vector component random" (order is not important):_**
 
-[http://imgur.com/aSymXLa](http://imgur.com/aSymXLa)
+![https://i.imgur.com/aSymXLa.jpg](https://i.imgur.com/aSymXLa.jpg)
 
 ## **Step by Step**
 
@@ -135,7 +135,7 @@ I’m not sure what this does. It doesn’t seem to have much impact.
 
 In the properties window you can set what the scalar random function should do. The output field defines what parameter should be changed and the min and max values(which should be most of the time equal) set how much it is changed.
 
-[http://imgur.com/lfiWxVo](http://imgur.com/lfiWxVo)
+![https://i.imgur.com/lfiWxVo.jpg](https://i.imgur.com/lfiWxVo.jpg)
 
 **_For our 9 Scalar random we need:_**
 
@@ -177,13 +177,13 @@ _Note_: You can either use 8 _Vector component random_ or 3 _Vector random_
 
 Here the functionality is defined through the output field and the component field. The output field selects a set of three different parameters (as you can see some of them can be NONE and are just placeholders). The component field chooses what exact parameter from that set should be changed. X Component selects the first, Y Component the second and Z Component the third. Like in Scalar random min and max define how much the parameter is changed.
 
-[http://imgur.com/UtssvMq](http://imgur.com/UtssvMq)
+![https://i.imgur.com/UtssvMq.jpg](https://i.imgur.com/UtssvMq.jpg)
 
 ##### **Vector random**
 
 Has the same purpose as _Vector component random_ but here you can edit all 3 parameters of the set in one function. The first min and max values set the min and max for the first parameter of the chosen set, the second min and max set the values for the second parameter and so on. If you don't need a parameter set it's min and max values to 0 or -1.
 
-[http://imgur.com/1rg3eDr](http://imgur.com/1rg3eDr)
+![https://i.imgur.com/1rg3eDr.jpg](https://i.imgur.com/1rg3eDr.jpg)
 
 **_For our 8 Vector component random or 3 Vector random we need:_**
 
@@ -235,7 +235,7 @@ With _Vector random_ you only need one of each set.
 
 With the Color random function we can define the Rim Light Color and the Specular Color. The only options we need from the properties window are color 1, color 2 and output field. The output field again sets what will be changed and color 1 and 2 set to what color it will be changed.
 
-[http://imgur.com/0Syq2Lb](http://imgur.com/0Syq2Lb)
+![https://i.imgur.com/0Syq2Lb.jpg](https://i.imgur.com/0Syq2Lb.jpg)
 
 **_For our 2 Color random we need:_**
 
