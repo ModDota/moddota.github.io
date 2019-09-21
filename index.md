@@ -1,5 +1,5 @@
 ---
-title: Moddota Knowledge Base
+title: Tutorials
 ---
 
 <h2>Tutorials by category</h2>

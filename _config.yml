@@ -15,6 +15,10 @@ collections:
 
 theme               : minima
 
+header_pages:
+  - contribute.md
+  - ask-a-question.md
+
 # Handling Reading
 safe                : false
 include             : [".htaccess"]
