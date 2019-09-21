@@ -1,5 +1,5 @@
 ---
-title: [Tutorial] Lava damage
+title: '[Tutorial] Lava damage'
 author: DiNaSoR
 steamId: 76561197974680917
 category: general

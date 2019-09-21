@@ -1,5 +1,5 @@
 ---
-title: Particles Creation Series: Particle Basics
+title: 'Particles Creation Series: Particle Basics'
 author: kritth
 steamId: 76561198055627364
 category: general

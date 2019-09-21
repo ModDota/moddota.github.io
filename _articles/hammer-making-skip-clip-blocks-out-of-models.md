@@ -1,5 +1,5 @@
 ---
-title: [Hammer] Making skip/clip blocks out of models
+title: '[Hammer] Making skip/clip blocks out of models'
 author: Noya
 steamId: 76561198046984233
 category: general
