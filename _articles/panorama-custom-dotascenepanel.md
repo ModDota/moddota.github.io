@@ -77,14 +77,14 @@ Important to note, compiling the map again does change the look of the panorama 
 Since the only thing DOTAScenePanel respects is its own layout definition, we will have to provide it from the start. Fortunately we can load layout from string, while altering the definition.
 
 ~~~js
-    var camera = "camera1";
-    var style = "width:400px;height:400px;";
-    if (someCondition) {
-        camera = "camera2";
-    }
+var camera = "camera1";
+var style = "width:400px;height:400px;";
+if (someCondition) {
+    camera = "camera2";
+}
 
-    var sceneContainer = $("#SomeContainer");
-    sceneContainer.BCreateChildren("<DOTAScenePanel style='" + style + "' map='background' camera='" + camera + "'"/>");
+var sceneContainer = $("#SomeContainer");
+sceneContainer.BCreateChildren("<DOTAScenePanel style='" + style + "' map='background' camera='" + camera + "'"/>");
 ~~~
 
 As you might have noticed, you have to wrap the whole thing in '', while also providing the initial container for the layout. Pretty terrible, but for now it seems like the only way.
@@ -106,7 +106,7 @@ Also notice how we've used `DOTAGlobalSceneFireEntityInput` in onactivate as if 
 Example
 
 ~~~js
-    $.DispatchEvent("DOTAGlobalSceneFireEntityInput", "LightBuilder", "donkey", "SetAnimation", "spawn");
+$.DispatchEvent("DOTAGlobalSceneFireEntityInput", "LightBuilder", "donkey", "SetAnimation", "spawn");
 ~~~
 
 ### Scripts? Scripts!
