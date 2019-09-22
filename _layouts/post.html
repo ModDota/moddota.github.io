@@ -11,7 +11,15 @@ layout: default
         {{ page.date | date: date_format }}
       </time>
       {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author | escape }}</span></span>
+        • <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">
+              {%- if page.steamId -%}
+                <a href="https://steamcommunity.com/profiles/{{ page.steamId }}/">{{ page.author | escape }}</a>
+              {%- else -%}
+                {{ page.author | escape }}
+              {%- endif -%}
+            </span>
+          </span>
       {%- endif -%}
 
       {% include edit-button.html url=page.url %}
