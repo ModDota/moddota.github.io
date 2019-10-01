@@ -2,7 +2,7 @@
 title: '[Lua Modifiers I]: Extending Hero/NPC API with lua modifiers'
 author: DrTeaSpoon
 steamId: 76561197975484185
-date: 21.09.2016
+date: 21.08.2016
 category: Scripting
 ---
 
