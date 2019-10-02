@@ -64,4 +64,4 @@ function metamorphosis_mod:AllowIllusionDuplicate() return true end
 
 Thats pretty much it. You can add particle effects and/or animations. Though as a note there are some issues with animations on some heroes. For example phantom lancer's death animation makes the player model vanish so I suggest being careful with chosen animation.  
 
-Next Topic: Enchanting Trees
+Next Topic: [Enchanting Trees](lua-modifiers-4)
