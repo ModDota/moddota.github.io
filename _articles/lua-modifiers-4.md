@@ -122,4 +122,4 @@ function enchant_tree_lua_mod:GetEffectAttachType()
 end
 ```
 
-Next Topic: Stacking Modifiers
+Next Topic: [Stacking Modifiers](lua-modifiers-5)
