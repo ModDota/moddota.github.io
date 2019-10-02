@@ -119,4 +119,4 @@ end
 ```
 
 Now you should be able to use console command `mod_test_spells` to print out the last spell every hero has used.  
-Next topic: Linken Sphere & Lotus Orb.
+Next topic: [Linken Sphere & Lotus Orb.](lua-modifiers-2)
