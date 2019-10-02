@@ -96,4 +96,4 @@ function my_modifier:Blink(hTarget, vPoint, nMaxBlink, nClamp)
 end
 ```
 
-Next Topic: Transformations
+Next Topic: [Transformations](lua-modifiers-3)
