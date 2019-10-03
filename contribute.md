@@ -27,6 +27,7 @@ In the new file window you have to add a descriptive file name and text for your
 
 ![Fill your ](https://i.imgur.com/4CcOl0i.png)
 
+**Tip:** You can use the preview tab at the top to preview the article!
 
 
 #### IMPORTANT: Mandatory fields
