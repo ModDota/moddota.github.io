@@ -47,15 +47,15 @@ category: <category>              # One of: scripting/user_interface/assets/begi
 ---
 ```
 
-The category must be one of the following:
+The category must be one of the following (exact capitalization!):
 
 Category | Description 
 --- | ---
-scripting | Related to Lua/KV 
-user_interface | Related to Panorama 
-assets | Maps / Modelling / Particles 
-beginner | Tutorials meant as beginner guides 
-others | Everything not covered by the above 4 categories 
+Scripting | Related to Lua/KV 
+User Interface | Related to Panorama 
+Assets | Maps / Modelling / Particles 
+Beginner | Tutorials meant as beginner guides 
+Others | Everything not covered by the above 4 categories 
 
 The steam ID field is optional. If you fill it in we will automatically generate a link to your steam profile at the top of the article.
 
