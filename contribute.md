@@ -25,7 +25,7 @@ Next, click the 'Create file' button as indicated:
 
 In the new file window you have to add a descriptive file name and text for your article:
 
-![Fill your ](https://i.imgur.com/4CcOl0i.png)
+![Fill your article](https://i.imgur.com/4CcOl0i.png)
 
 **Tip:** You can use the preview tab at the top to preview the article!
 
