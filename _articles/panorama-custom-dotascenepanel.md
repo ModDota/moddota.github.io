@@ -12,9 +12,13 @@ In this tutorial we'll go through the tricks you can do with the undocumented DO
 
 Now, you might have seen its usage if you looked through the sources in the main menu. This panel allows us to display 3D content in panorama. You might have tried using it yourself. It's pretty easy to setup a simple panel to display a unit, with code like
 
-`<DOTAScenePanel style="width:400px;height:400px;" unit="npc_dota_hero_sven"/>`
+`<DOTAScenePanel style="width:400px;height:400px;" unit="npc_dota_hero_sven" particleonly="false"/>`
+
+Please note `particleonly='false'` is required for `DOTAScenePanel` to display anything other then particles properly.
 
 Code like this is used to display heroes in the armory. This panel is also has no custom dynamic properties, meaning that we can't change the unit after creating a panel.
+
+In armory, heroes models can be rotated, and this behaviour can be enabled with `allowrotation="true"` settled. However, this parameter is not compatible with custom background maps.
 
 # Background maps
 
@@ -24,7 +28,7 @@ But wait, there's more! DOTAScenePanel accepts the "map" parameter, which points
 
 Start up hammer editor and create a new map. Save it in your maps folder as 'background.vmap'. Go to Map -> Map Properties (Ctrl-Shift-P) and check the 'Compile as background map' checkbox.
 
-![http://puu.sh/o3Bdp/93d2d9fed4.png](http://puu.sh/o3Bdp/93d2d9fed4.png)
+![Setting up map type](https://cdn1.imggmi.com/uploads/2019/10/13/0ef2b4fefb98cb8ab504b499311e74a0-full.png)
 
 Use the Entity Tool (Shift-E) and choose the `prop_dynamic` entity, then click somewhere in the world to place it.
 
@@ -34,23 +38,26 @@ Select that newly placed entity in the outliner and change its `World Model` pro
 
 Now you've got your movie star ready to be displayed. You can also change the `Default Animation` field to `idle` or any string from its model entries.
 
-![http://puu.sh/o3Bux/60e800273e.jpg](http://puu.sh/o3Bux/60e800273e.jpg)
+![Setting up default animation](https://cdn1.imggmi.com/uploads/2019/10/13/1c629982fec4cbc34739d458e9857607-full.png)
 
-Now we've got _action_, but still missing _lights_ and _camera_. With the Entity Tool (Shift-E), create a `env_global_light` entity, and `point_camera` entity.
+Now we've got _action_, but still missing _lights_ and _camera_. Let's begin with light - with the Entity Tool (Shift-E), create a `env_global_light` entity. Change it's name to `light`, for example.
 
+![Setting up light source name](https://cdn1.imggmi.com/uploads/2019/10/13/c417d2cd705b2a90f02220ac9444535c-full.png)
+
+Same as `env_global_light`, create a `point_camera` entity.
 Select your newly created camera, move your hammer camera in such way that you can see the donkey and click `View - Align Selection to Active Camera`.
 
-![http://puu.sh/o3C4E/1a8154b302.png](http://puu.sh/o3C4E/1a8154b302.png)
+![Aligning Selection to Active Camera](https://cdn1.imggmi.com/uploads/2019/10/13/d03e1b0b5f0ef42d61272cab3c0ef71e-full.png)
 
-![http://puu.sh/o3CPb/5891357ed3.png](http://puu.sh/o3CPb/5891357ed3.png)
+![Aligned camera example](https://cdn1.imggmi.com/uploads/2019/10/13/518aa2dee6bc9506690502b37380f679-full.png)
 
-As the last step select your camera and give it a name in the properties, like "camera1".
+As the last step select your camera and give it a name in the properties, like `camera1`.
 
 Save your map and build it (F9).
 
 ## Setting up panorama
 
-I won't describe how to set up a basic panorama environment, if you are having issues with displaying simple panels, refer to [https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama) Once you've ready to go, simply add `<DOTAScenePanel style="width:400px;height:400px;" map="background" camera="camera1"/>` to your XML, you should see your donkey movie star in its full glory. Shouldn't take you more than 10 minutes.
+I won't describe how to set up a basic panorama environment, if you are having issues with displaying simple panels, refer to [https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama) Once you've ready to go, simply add `<DOTAScenePanel style="width:400px;height:400px;" map="background" light="light" camera="camera1" particleonly="false"/>` to your XML, you should see your donkey movie star in its full glory. Shouldn't take you more than 10 minutes.
 
 <div itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject"><meta itemprop="name" content="Example Video"> <meta itemprop="description" content="This video shows an example of the created effect"> <meta itemprop="thumbnailURL" content="http://web.archive.org/web/20190210150240im_/http://thumbs.gfycat.com/BlackSameAoudad-poster.jpg"> <meta itemprop="contentURL" content="http://zippy.gfycat.com/BlackSameAoudad.webm"> <meta itemprop="contentURL" content="http://zippy.gfycat.com/BlackSameAoudad.mp4"></div>
 
@@ -84,7 +91,7 @@ if (someCondition) {
 }
 
 var sceneContainer = $("#SomeContainer");
-sceneContainer.BCreateChildren("<DOTAScenePanel style='" + style + "' map='background' camera='" + camera + "'"/>");
+sceneContainer.BCreateChildren("<DOTAScenePanel style='" + style + "' map='background' particleonly='false' light='light' camera='" + camera + "'"/>");
 ~~~
 
 As you might have noticed, you have to wrap the whole thing in '', while also providing the initial container for the layout. Pretty terrible, but for now it seems like the only way.
