@@ -1,13 +1,22 @@
 ---
-title: '[Video] Setting Up Your Addon With GitHub'
-author: Myll
-steamId: 76561198000729788
+title: 'Setting Up Your Addon With GitHub'
+author: Veggiesama
 date: 07.03.2015
 category: Beginners
 ---
 
 # Setting Up Your Addon With GitHub
 
-Edit: Using a Junction instead of a Symbolic Link works too, and gives you some more flexibility.
+Split the game into a game and content folder, then add junctions to link them with the dota files.
 
-https://www.youtube.com/watch?v=7TH8K0LCfO4
+Create the junctions:
+
+mklink /J "C:\Users\Veggiesama\Desktop\HVH\game\hunter_v_hunted\" "C:\Games\steamapps\common\dota 2 beta\game\dota_addons\hunter_v_hunted\"
+
+Junction created for C:\Users\Veggiesama\Desktop\HVH\game\hunter_v_hunted\ <<===>> C:\Games\steamapps\common\dota 2 beta\game\dota_addons\hunter_v_hunted\
+
+mklink /J "C:\Users\Veggiesama\Desktop\HVH\content\hunter_v_hunted\" "C:\Games\steamapps\common\dota 2 beta\content\dota_addons\hunter_v_hunted\"
+
+Junction created for C:\Users\Veggiesama\Desktop\HVH\content\hunter_v_hunted\ <<===>> C:\Games\steamapps\common\dota 2 beta\content\dota_addons\hunter_v_hunted\
+
+Now you can do modifications from the steamapps folder and still use Github for version control from a desktop folder.
