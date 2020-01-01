@@ -25,37 +25,30 @@ The name Typescript comes from the fact that the language is basically Javascrip
 *   Remember to compile
 *   Requires good definitions for Panorama
 
-## How to install Typescript
+## How to install TypeScript
 
-Step 1: Install [Node.js](https://nodejs.org/en/) which is used to compile Typescript.
+1. Install [Node.js](https://nodejs.org/en/) which is used to compile TypeScript.
+2. Create a `package.json` file in the root directory of your project with at least `{}` content.
+3. Install required dependencies by opening a command prompt and executing `npm install -D typescript panorama-types`.
 
-Step 2: Install TypeScript by opening a command prompt and executing `npm install -g typescript`
+That's it, after these three steps you are ready to start using TypeScript.
 
-Step 3: Install the [Sublime Typescript plugin](https://github.com/Microsoft/TypeScript-Sublime-Plugin#installation) (available through Sublime package manager).
-
-That's it, after these three steps you are ready to start using Typescript.
+[Visual Studio Code](https://code.visualstudio.com/) supports TypeScript out of the box. For other editors you might have to install a plugin to get language features (for example [Sublime TypeScript plugin](https://github.com/Microsoft/TypeScript-Sublime-Plugin#installation), available through Sublime Text package manager).
 
 ## How to set up Typescript for your dota addon
 
-There are 4 files required to use Typescript for Panorama, put all of these in your addon's content/panorama directory:
+TypeScript requires a `tsconfig.json` used to configure it for your project. Put it in your addon's `content/panorama` directory. You can adjust all settings yourself, but I usually have this set to the most strict settings. My preferred configuration:
 
-*   A tsconfig.json file used to configure typescript for your project, you can adjust all settings yourself, but I usually have this set to the most strict settings. My preferred configuration:
-
-    {
-        "compilerOptions": {
-            "noImplicitAny" : true,
-            "noImplicitThis" : true,
-            "alwaysStrict" : true,
-            "strictNullChecks" : true,
-            "target": "es3"
-        }
+```json
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "lib": ["es2017"],
+        "types": ["panorama-types"],
+        "strict": true
     }
-
-**Note:** The target setting NEEDS to be es3.
-
-*   The latest Panorama Dota API definition: [https://github.com/ModDota/API/blob/master/declarations/panorama/dota.d.ts](https://github.com/ModDota/API/blob/master/declarations/panorama/dota.d.ts)
-*   The latest Panorama Enum API definition: [https://github.com/ModDota/API/blob/master/declarations/panorama/dota_enums.d.ts](https://github.com/ModDota/API/blob/master/declarations/panorama/dota_enums.d.ts)
-*   The latest Panorama Panels API definition: [https://github.com/ModDota/API/blob/master/declarations/panorama/dota_panels.d.ts](https://github.com/ModDota/API/blob/master/declarations/panorama/dota_panels.d.ts)
+}
+```
 
 Your addon's content directory structure should be something like this:
 
@@ -66,9 +59,6 @@ Your addon's content directory structure should be something like this:
             scripts/
             styles/
             tsconfig.json
-            dota.d.ts
-            dota_enums.d.ts
-            dota_panels.d.ts
 
 ## Your first TypeScript UI
 
