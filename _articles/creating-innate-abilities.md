@@ -9,6 +9,19 @@ category: Scripting
 This article will guide you through creating an ability which is available to the given hero right away, like Earth Spirit's Stone Remnant.
 This guide assumes you already have an ability set up on a hero.
 
+## Lua abilities
+
+Lua abilities can define a `Spawn` method, that is invoked by the engine when ability is cretated.
+
+```lua
+my_innate_ability = my_innate_ability or {}
+function my_innate_ability:Spawn()
+    self:SetLevel(1)
+end
+```
+
+## Datadriven and builtin abilities
+
 The plan is:
 1. Subscribe to the hero spawn event
 2. Determine if the spawned hero has a specific ability
