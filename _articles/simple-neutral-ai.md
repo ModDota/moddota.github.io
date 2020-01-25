@@ -119,12 +119,6 @@ function modifier_ai:OnCreated(params)
     end
 end
 
-function modifier_ai:CheckState()
-    return {
-        [MODIFIER_STATE_BLIND] = true
-    }
-end
-
 function modifier_ai:OnIntervalThink()
     -- Execute action corresponding to the current state
     self.stateActions[self.state](self)    
