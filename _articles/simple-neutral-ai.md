@@ -6,7 +6,7 @@ date: 25.01.2020
 category: Scripting
 ---
 
-**NOTE:** This article is a rewrite of a very old AI tutorial: [](http://yrrep.me/dota/dota-simple-ai.html)
+**NOTE:** This article is a rewrite of a very old AI tutorial: [http://yrrep.me/dota/dota-simple-ai.html](http://yrrep.me/dota/dota-simple-ai.html)
 
 
 
