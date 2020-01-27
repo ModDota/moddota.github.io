@@ -42,16 +42,16 @@ This translates to the following code:
 ```lua
 function modifier_ai:AggressiveThink()
     -- Check if the unit has walked outside its leash range
-	if (self.spawnPos - self.unit:GetAbsOrigin()):Length() > self.leashRange then
-		self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
-		self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
-		return -- Stop processing this state
+    if (self.spawnPos - self.unit:GetAbsOrigin()):Length() > self.leashRange then
+        self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
+        self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
+        return -- Stop processing this state
     end
     
     -- Check if the target has died
     if not self.aggroTarget:IsAlive() then
-		self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
-		self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
+        self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
+        self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
         return -- Stop processing this state
     end
     
@@ -126,7 +126,7 @@ end
 
 function modifier_ai:IdleThink()
     -- Find any enemy units around the AI unit inside the aggroRange
-	local units = FindUnitsInRadius(self.unit:GetTeam(), self.unit:GetAbsOrigin(), nil,
+    local units = FindUnitsInRadius(self.unit:GetTeam(), self.unit:GetAbsOrigin(), nil,
         self.aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
         FIND_ANY_ORDER, false)
 
@@ -144,16 +144,16 @@ end
 
 function modifier_ai:AggressiveThink()
     -- Check if the unit has walked outside its leash range
-	if (self.spawnPos - self.unit:GetAbsOrigin()):Length() > self.leashRange then
-		self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
-		self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
-		return -- Stop processing this state
+    if (self.spawnPos - self.unit:GetAbsOrigin()):Length() > self.leashRange then
+        self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
+        self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
+        return -- Stop processing this state
     end
     
     -- Check if the target has died
     if not self.aggroTarget:IsAlive() then
-		self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
-		self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
+        self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
+        self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
         return -- Stop processing this state
     end
     
@@ -163,7 +163,7 @@ end
 
 function modifier_ai:ReturningThink()
     -- Check if the AI unit has reached its spawn location yet
-	if (self.spawnPos - self.unit:GetAbsOrigin()):Length() < 10 then
+    if (self.spawnPos - self.unit:GetAbsOrigin()):Length() < 10 then
         self.state = AI_STATE_IDLE -- Transition the state to the 'Idle' state(!)
         return -- Stop processing this state
     end
