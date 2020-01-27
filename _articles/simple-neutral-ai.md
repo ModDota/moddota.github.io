@@ -173,5 +173,10 @@ function modifier_ai:ReturningThink()
 end
 ```
 
+## Your next (more complicated) AI
 
+This tutorial only covers a very basic concepts for making your first AI, but if you want to extend this here are some more interesting ideas:
 
+* Since you are using a lua modifier, you do not have to change state in a think function, you can also just register a modifier event listener and change state inside those!
+* Generalize state classes and give each state `OnStateEnter`, `OnStateThink` and `OnStateLeave` functions.
+* You can nest these AIs! You could make the internal behavior of one state be its own AI built in the same way.
