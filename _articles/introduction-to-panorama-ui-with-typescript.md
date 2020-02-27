@@ -171,16 +171,16 @@ class PlayerPortrait {
 
     constructor(parent: Panel, heroName: string, playerName: string) {
         // Create new panel
-        let panel = $.CreatePanel("Panel", parent, "");
+        const panel = $.CreatePanel("Panel", parent, "");
         this.panel = panel;
 
         // Load snippet into panel
         panel.BLoadLayoutSnippet("PlayerPortrait");
 
         // Find components
-        this.heroImage = <ImagePanel>panel.FindChildTraverse("HeroImage");
-        this.playerLabel = <LabelPanel>panel.FindChildTraverse("PlayerName");
-        this.hpBar = panel.FindChildTraverse("HealthBar");
+        this.heroImage = panel.FindChildTraverse("HeroImage") as ImagePanel;
+        this.playerLabel = panel.FindChildTraverse("PlayerName") as LabelPanel;
+        this.hpBar = panel.FindChildTraverse("HealthBar")!;
 
         // Set player name label
         this.playerLabel.text = playerName;
@@ -215,12 +215,12 @@ class ExampleUI {
         this.panel = panel;
 
         // Find container element
-        let container = this.panel.FindChild("HeroPortraits");
+        const container = this.panel.FindChild("HeroPortraits")!;
 
         // Create portrait for player 0, 1 and 2
-        let portrait0 = new PlayerPortrait(container, "npc_dota_hero_juggernaut", "Player0");
-        let portrait1 = new PlayerPortrait(container, "npc_dota_hero_omniknight", "Player1");
-        let portrait2 = new PlayerPortrait(container, "npc_dota_hero_invoker", "Player2");
+        const portrait0 = new PlayerPortrait(container, "npc_dota_hero_juggernaut", "Player0");
+        const portrait1 = new PlayerPortrait(container, "npc_dota_hero_omniknight", "Player1");
+        const portrait2 = new PlayerPortrait(container, "npc_dota_hero_invoker", "Player2");
 
         // Set HP of player 1 and 2 to a different value
         portrait0.SetHealthPercent(80);
@@ -243,7 +243,7 @@ One of the advantages of TypeScript is that you can explicitly define which even
 
 ~~~typescript
 interface HPChangedEvent {
-    playerID: number,
+    playerID: PlayerID,
     hpPercentage: number
 }
 ~~~
@@ -252,23 +252,20 @@ Putting these together our ExampleUI.ts file now looks as follows:
 
 ~~~typescript
 interface HPChangedEvent {
-    playerID: number;
+    playerID: PlayerID;
     hpPercentage: number;
 }
 
 class ExampleUI {
     // Instance variables
     panel: Panel;
-    playerPanels: {[pID: number]: PlayerPortrait}; // A map with number keys and PlayerPortrait values
+    playerPanels: Partial<Record<PlayerID, PlayerPortrait>> = {}; // A map with number keys and PlayerPortrait values
 
     // ExampleUI constructor
     constructor(panel: Panel) {
         this.panel = panel;
 
-        // Initialise map
-        this.playerPanels = {};
-
-        let container = this.panel.FindChild("HeroPortraits");
+        const container = this.panel.FindChild("HeroPortraits")!;
         container.RemoveAndDeleteChildren();
 
         // Create portrait for player 0, 1 and 2
@@ -277,13 +274,13 @@ class ExampleUI {
         this.playerPanels[2] = new PlayerPortrait(container, "npc_dota_hero_invoker", "Player2");
 
         // Listen for health changed event, when it fires, handle it with this.OnHPChanged
-        GameEvents.Subscribe("hp_changed", (event: HPChangedEvent) => { this.OnHPChanged(event); });
+        GameEvents.Subscribe<HPChangedEvent>("hp_changed", (event) => this.OnHPChanged(event));
     }
 
     // Event handler for HP Changed event
     OnHPChanged(event: HPChangedEvent) {
         // Get portrait for this player
-        let playerPortrait = this.playerPanels[event.playerID];
+        const playerPortrait = this.playerPanels[event.playerID];
 
         // Set HP on the player panel
         playerPortrait.SetHealthPercent(event.hpPercentage);
