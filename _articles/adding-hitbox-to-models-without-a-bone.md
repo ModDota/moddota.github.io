@@ -38,7 +38,7 @@ Save and close.
 
 ## Step 3. Add Cube.dmx hitbox
 
-This is a mesh with 1 bone. [Download it directly](https://drive.google.com/file/d/1TJp-jdd-A_irHRQoIvBcr-VgJNuZQule/view?usp=sharing) and put the file in your model folder
+This is a mesh with 1 bone. [Download it directly](https://github.com/ModDota/moddota.github.io/_resources/cube.fbx) and put the file in your model folder
 
 Credits to @Internet_Veteran
 
