@@ -8,13 +8,13 @@ category: Scripting
 
 [![img](http://i.imgur.com/JTVv40S.png)](#datadriven-ability "Get started")
 [![BaseClass](http://i.imgur.com/KI6fmyE.png)](#baseclass "BaseClass ability_datadriven")
-[![Behavior](http://i.imgur.com/ujvVUCw.png)](##type "Main behavior property of the ability")
-[![Ability Type](http://i.imgur.com/far760I.png)](##type "Basic, Ultimate and other Leveling rules")
-[![Icon Texture](http://i.imgur.com/a1Kogu4.png)](##icon "Set the Spell Icon in the interface")
-[![UnitTarget](http://i.imgur.com/8EsWKFO.png)](##target "Targeting options")
-[![Team](http://i.imgur.com/hiWGRJq.png)](##targetTeam "Target Teams")
-[![Type](http://i.imgur.com/jqo3t4O.png)](##targetType "Target Type of units")
-[![Flags](http://i.imgur.com/FC0IEBp.png)](##targetFlags "Ignore or include targets with Flags")
+[![Behavior](http://i.imgur.com/ujvVUCw.png)](#abilitybehavior "Main behavior property of the ability")
+[![Ability Type](http://i.imgur.com/far760I.png)](#abilitytype "Basic, Ultimate and other Leveling rules")
+[![Icon Texture](http://i.imgur.com/a1Kogu4.png)](#abilitytexturename "Set the Spell Icon in the interface")
+[![UnitTarget](http://i.imgur.com/8EsWKFO.png)](#targeting "Targeting options")
+[![Team](http://i.imgur.com/hiWGRJq.png)](#team "Target Teams")
+[![Type](http://i.imgur.com/jqo3t4O.png)](#type "Target Type of units")
+[![Flags](http://i.imgur.com/FC0IEBp.png)](#flags "Ignore or include targets with Flags")
 [![Damage Type](http://i.imgur.com/WwwNkbj.png)](##damage "Damage type of the ability")
 [![Cast Animation](http://i.imgur.com/ewEWcom.png)](##animation "Animation when the spell starts casting")
 [![General Stats](http://i.imgur.com/5mO6j4Z.png)](##stats "General numeric values")
@@ -206,7 +206,7 @@ To use your own icons, place them in `resources/flash3/images/spellicons` in you
 ~~~
 ![img](https://i.imgur.com/PvTBUis.png)
 
-# Recject Self-Cast
+## Reject Self-Cast
 
 Added in Reborn:
 
@@ -221,6 +221,205 @@ Added in Reborn:
 ~~~
 "IsCastableWhileHidden" "1"
 ~~~
+
+# Targeting
+
+3 key elements set the rules for target selection: **Team**, **Type**, and **Flags**.
+
+## [AbilityUnitTargetTeam](#team)
+## [AbilityUnitTargetType](#type)
+## [AbilityUnitTargetFlags](#flags)
+
+## Team
+
+|**AbilityUnitTargetTeam**|**Description**|
+|-|-|
+|DOTA_UNIT_TARGET_TEAM_BOTH|All|
+|DOTA_UNIT_TARGET_TEAM_ENEMY|Enemy|
+|DOTA_UNIT_TARGET_TEAM_FRIENDLY|Allied|
+|DOTA_UNIT_TARGET_TEAM_NONE|Default value by omission.|
+|DOTA_UNIT_TARGET_TEAM_CUSTOM|(?)|
+
+## Type
+
+|**AbilityUnitTargetType**|**Targets**|
+|-|-|
+|DOTA_UNIT_TARGET_ALL|Everything, including hidden entities.|
+|DOTA_UNIT_TARGET_HERO|npc_dota_hero Heroes.<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO|
+|DOTA_UNIT_TARGET_BASIC	|Basic units, including summons.|
+|DOTA_UNIT_TARGET_MECHANICAL|npc_dota_creep_siege<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_SIEGE|
+|DOTA_UNIT_TARGET_BUILDING|npc_dota_tower, npc_dota_building<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING|
+|DOTA_UNIT_TARGET_TREE|ent_dota_tree<br/>Examples: Tangos, Quelling Blade.|
+|DOTA_UNIT_TARGET_CREEP|npc_dota_creature, npc_dota_creep<br/>Same as BASIC, but *might* not include things like some summons.<br/>Examples: Death Pact, Devour.|
+|DOTA_UNIT_TARGET_COURIER|npc_dota_courier, npc_dota_flying_courier<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER|
+|DOTA_UNIT_TARGET_NONE|Nothing!|
+|DOTA_UNIT_TARGET_OTHER|Everything not included in the previous types.|
+|DOTA_UNIT_TARGET_CUSTOM|Not exposed?<br/>Examples: Replicate, Sunder, Demonic Conversion, Tether, Infest...|
+
+## Flags
+
+Flags allow targeting units that are ignored by default (for example, magic immune enemies,) or to ignore specific types of units that will otherwise be targetable (like Ancients, or magic immune allies.)
+
+|**AbilityUnitTargetFlags**|**Targets / Ignores**|
+|-|-|
+|DOTA_UNIT_TARGET_FLAG_NONE|Default value by omission.|
+|DOTA_UNIT_TARGET_FLAG_DEAD|Dead units, which are otherwise ignored.|
+|DOTA_UNIT_TARGET_FLAG_MELEE_ONLY|Units with AttackCapabilities DOTA_UNIT_CAP_MELEE_ATTACK.|
+|DOTA_UNIT_TARGET_FLAG_RANGED_ONLY|Units with AttackCapabilities DOTA_UNIT_CAP_RANGED_ATTACK.|
+|DOTA_UNIT_TARGET_FLAG_MANA_ONLY|Units with mana, without `"StatusMana" "0"` in the npc_units file.|
+|DOTA_UNIT_TARGET_FLAG_CHECK_DISABLE_HELP|Units with Disable Help on.<br/>Not sure how to make a DataDriven ability use it?|
+|DOTA_UNIT_TARGET_FLAG_NO_INVIS|Ignores invisible units (with MODIFIER_STATE_INVISIBLE.)|
+|DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES|Targets ENEMY units with `MODIFIER_STATE_MAGIC_IMMUNE`.<br/>Examples: Ensnare, Culling Blade, Primal Roar...|
+|DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES|Ignores FRIENDLY units with `MODIFIER_STATE_MAGIC_IMMUNE`.<br/>Example: Bane's Nightmare.|
+|DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE|Ignores units with `MODIFIER_STATE_ATTACK_IMMUNE`.|
+|DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE|Breaks when the unit goes into the fog of war.<br/>Examples: Mana Drain, Life Drain.|
+|DOTA_UNIT_TARGET_FLAG_INVULNERABLE|Units with `MODIFIER_STATE_INVULNERABLE`.<br/>Examples: Assassinate, Recall, Boulder Smash...|
+|DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS|Ignores units with `"IsAncient" "1"` defined.<br/>Example: Hand of Midas.|
+|DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO|Ignores units with `"ConsideredHero" "1"` defined.<br/>Examples: Astral Imprisonment, Disruption, Sunder.|
+|DOTA_UNIT_TARGET_FLAG_NOT_DOMINATED|Ignores units with `MODIFIER_STATE_DOMINATED`.|
+|DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS|Ignores untis with `MODIFIER_PROPERTY_IS_ILLUSION`.|
+|DOTA_UNIT_TARGET_FLAG_NOT_NIGHTMARED|Ignores units with `MODIFIER_STATE_NIGHTMARED`.|
+|DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED|Ignores units created through the `SpawnUnit` [action](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven#Actions).|
+|DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD|Units with `MODIFIER_STATE_OUT_OF_GAME`.|
+|DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED|Units controllable by a player, accesible with [Lua](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API)'s `IsControllableByAnyPlayer()`.|
+|DOTA_UNIT_TARGET_FLAG_PREFER_ENEMIES|Prioritizes units over trees when both are selectable.|
+
+**Clean list**:
+
+* DOTA_UNIT_TARGET_FLAG_NONE
+* DOTA_UNIT_TARGET_FLAG_DEAD
+* DOTA_UNIT_TARGET_FLAG_MELEE_ONLY
+* DOTA_UNIT_TARGET_FLAG_RANGED_ONLY
+* DOTA_UNIT_TARGET_FLAG_MANA_ONLY
+* DOTA_UNIT_TARGET_FLAG_CHECK_DISABLE_HELP
+* DOTA_UNIT_TARGET_FLAG_NO_INVIS
+* DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+* DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES
+* DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE
+* DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE
+* DOTA_UNIT_TARGET_FLAG_INVULNERABLE
+* DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS
+* DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO
+* DOTA_UNIT_TARGET_FLAG_NOT_DOMINATED
+* DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS
+* DOTA_UNIT_TARGET_FLAG_NOT_NIGHTMARED
+* DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED
+* DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD
+* DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
+* DOTA_UNIT_TARGET_FLAG_PREFER_ENEMIES
+
+### Fun with Flags
+
+Flags were seen as AbilityUnitTargetFlags completions, but this is not their sole application.
+
+The same applies to Team and Types.
+
+ * `"Flags"` and `"ExcludeFlags"` in a `"Target"` block gives control over how to target units to apply actions on them later:
+ 
+~~~
+"Target"
+{
+    "Center"    "CASTER"
+    "Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
+}
+~~~
+
+ * `"TargetFlags"` in a `"LinearProjectile"` action allows a `LinearProjectile` to ignore units that would otherwise be included by default in the Team+Type values, for example those with `MODIFIER_STATE_INVISIBLE`.
+ * `"Aura_Flags"` in a modifier with the other `"Aura"` keys can be used, for example, to make an [aura modifier](http://web.archive.org/web/20181130135800/http://moddota.com/forums/discussion/comment/29#Comment_29) only affect ranged units by adding `DOTA_UNIT_TARGET_FLAG_RANGED_ONLY`.
+ 
+The same applies for **Teams** and **Types**.
+
+*Example*: Targets all friendly units in a radius of the caster, including couriers, buildings, and siege units. Excludes heroes, summons, and other player controlled units.
+
+~~~
+"Target"
+{
+    "Center"        "CASTER"
+    "Radius"        "%radius"
+    
+    // AbilityUnitTargetTeam values.
+    "Teams"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    
+    // AbilityUnitTargetTypes
+    "Types"         "DOTA_UNIT_TARGET_ALL"
+    "ExcludeTypes"  "DOTA_UNIT_TARGET_HERO"
+    
+    // AbilityUnitTargetFlags
+    "Flags"         "DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED"
+    "ExcludeFlags"  "DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED"
+}
+~~~
+
+*Example*: Mirana's Arrow projectile rewrite that only hits heroes, including those that are magic immune:
+
+~~~
+"LinearProjectile"
+{
+    "Target"            "POINT"
+    "EffectName"        "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+    "MoveSpeed"         "857"
+    "StartRadius"       "115"
+    "EndRadius"         "115"
+    "StartPosition"     "attach_attack1"
+    "FixedDistance"     "3000"
+    "TargetTeams"       "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "TargetTypes"       "DOTA_UNIT_TARGET_HERO"
+    "TargetFlags"       "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    "HasFrontalCone"    "0"
+    "ProvidesVision"    "1"
+    "VisionRadius"      "650"
+}
+~~~
+
+With `DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES`, and with `DOTA_UNIT_TARGET_FLAG_NONE`: [comparison gfy](https://gfycat.com/floweryunevenhorseshoebat).
+
+## Other keyvalues of the Action Target block
+
+### Line
+
+To target units in a line between the caster and the targeted point.
+
+Instead of the `"Radius"` keyvalue, which only takes one parameter, `Line` takes `Length` and `Thickness` integer values in a block like this:
+
+~~~
+"Line"
+{
+    "Length"    "600"
+    "Thickness" "250"
+}
+~~~
+
+### Limiting the amount of targets
+
+`MaxTargets` takes an integer value to limit the amount of targets the Target block will select.
+
+~~~
+"MaxTargets"    "10"
+~~~
+
+`Random` also takes an integer to be as "take up to this number of units randomly."
+
+~~~
+"Random"    "1"
+~~~
+
+(For more complex targeting, Lua scripting is the answer.)
+
+### ScriptSelectPoints
+
+Its use is very rare, normally when the targeting is complex we would just use `RunScript` lua and do all the acitons inside the script.
+
+~~~
+ScriptSelectPoints
+{
+    ScriptFile
+    Function
+    Radius
+    Count
+}
+~~~
+
+A more in-depth explanation is needed to explain the complete usage of the Target block, as understanding the *scope* of the "Target" "TARGET" keyvalue is one of the most difficult things of the datadriven system.
 
 **Sources**
 
