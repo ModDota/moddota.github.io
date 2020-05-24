@@ -391,7 +391,7 @@ http://puu.sh/g2yTG/93f1641866.png
 
 Just make sure it's actually Dota Lua and not another game API, as some of the functions might share names with other engines.
 
-That's all for the Scripting basics. I expect you to have more questions than when you started reading, feel free to drop all your doubts at the community's #dota2modhelpdesk IRC @GameSurge, you'll find help there 24/7. I recommend getting [HexChat IRC client] for this purpose, but it's also possible to access from a web browser using the [Chat Tab on the nav-bar](https://moddota.com/forums/chat).
+That's all for the Scripting basics. I expect you to have more questions than when you started reading, feel free to drop all your doubts at the community's [Discord channel](https://discord.com/invite/tPvHaRz), you'll find help there 24/7. 
 
 ---
  
