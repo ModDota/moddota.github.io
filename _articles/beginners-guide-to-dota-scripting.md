@@ -39,7 +39,7 @@ Start a new document in Sublime and make sure you are using Dota KV as the Synta
  
 We’ll be making a very simple ability that does single target damage. Start by writing the name of the ability between "" and no spaces. Then write BaseClass... and press Enter to insert the completion. Move through the different fields with Tab.
  
-http://puu.sh/g1Aks/252bb32b2d.png
+![img](http://puu.sh/g1Aks/252bb32b2d.png)
  
 A `"BaseClass"` is essential to every datadriven definition, it orders the game to interpret this ability/item/unit in a certain way- in this case as a datadriven ability. Stock Dota 2 Items, units and heroes have their own base classes which have "hard-coded" behavior that we as modders can't change much.
  
@@ -47,9 +47,9 @@ AbilityTextureName can be a custom icon or any internal name of a dota ability, 
  
 Other essential KV is the AbilityBehavior, write down AbilityB and use the autocomplete
 
-http://puu.sh/g1AtQ/cda16f7138.png
+![img](http://puu.sh/g1AtQ/cda16f7138.png)
  
-http://puu.sh/g1Avn/65fe86524c.png
+![img](http://puu.sh/g1Avn/65fe86524c.png)
  
 Then we need an ability **event**, this is a trigger for when certain event happens to the owner of the ability. The most basic one is `OnSpellStart`, add one with the completions and you’ll see a new "level" within { } is created, this is known as a block. In [ACTIONS], write down a "Damage" action, some keys and a `%AbilityDamage` will appear. A % represents a value to be taken from somewhere else, in this case, an AbilityDamage KV. Add this last key and this first basic spell should be like this:
  
@@ -124,7 +124,7 @@ In every single gamemode, a file named addon_game_mode.lua must be present. Whil
 - `Precache`, when the game starts and players pick their heroes, the engine will try to load the associated models/particles/sounds to those heroes. If we’re dynamically using a resource in Lua before preloading it won’t be displayed properly.
 - `Activate`, creates the base game mode entity and calls the initialize function.
 
-http://puu.sh/g2pUC/ca4413cc48.png <br> Precache function was folded in sublime
+![img](http://puu.sh/g2pUC/ca4413cc48.png) <br> Precache function was folded in sublime
 
 Using our barebones, you don’t need to touch this file apart from very specific situations, and all the core game logic will be coded in barebones.lua, which has been already required. We’ll call this your *main lua file* from now on.
  
@@ -387,7 +387,7 @@ If you want to check the scripts of a certain game on the [Custom Games Workshop
 
 Whenever you have a doubt about how to use a particular GameAPI function, its possible to find examples all over GitHub by just writing the name of it, additionally filtering by lua like this:
 
-http://puu.sh/g2yTG/93f1641866.png
+![img](http://puu.sh/g2yTG/93f1641866.png)
 
 Just make sure it's actually Dota Lua and not another game API, as some of the functions might share names with other engines.
 
