@@ -9,7 +9,7 @@ category: Assets
 This list contains all the info for asset types with its related tools & guides explaining the formats.
 
 Type | .Extension | S1 Equivalent | Info, Format, Decompiler
---|--|--|
+--|--|--|--
 Animation|vanim|smd|*.smd* files are added to a *.vmdl* through the Model Editor to make *.vanim* files.
 Animation Sequence|vgarp|?|??
 Map|vmap|vmf|Hammer Files.<br />No decompiler known to humans yet, but it is rumored that a magical penguin is working on it 

@@ -33,7 +33,8 @@ In the example source file, I quickly made this transparent image from [this sou
 
 ![img](http://i.imgur.com/78Z3kaV.png)
 
-The suggested image size is **64x64**.<br />If you want to use a different image size it **must be a power of two**.
+The suggested image size is **64x64**.<br />
+If you want to use a different image size it **must be a power of two**.
 
 **Important**: You need to have an Alpha layer filled with the transparent figure you want to display:
 

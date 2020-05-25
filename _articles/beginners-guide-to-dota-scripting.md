@@ -95,13 +95,9 @@ in chat, unit_name being one of the available hero names pickable or just any un
  
 Extensive documentation and in-depth examples of the datadriven system can be found in the following links spread over various moddota tutorials.
  
-### [Datadriven Ability Breakdown](http://moddota.com/forums/discussion/14/datadriven-ability-breakdown-documentation)
-
-### [Datadriven Items](http://moddota.com/forums/discussion/4/datadriven-items)
-
-### [Datadriven Units](/articles/datadriven-units)
- 
-<br /><br />
+- [Datadriven Ability Breakdown](/articles/datadriven-ability-breakdown-documentation)
+- [Datadriven Items](/articles/datadriven-items)
+- [Datadriven Units](/articles/datadriven-units)
 
 ## Lua Scripting
  
@@ -169,8 +165,6 @@ You can then trace the error to that line and attempt to solve it, writing **scr
 A DataDriven syntax error will usually look like this:
 
 ![img](http://puu.sh/g3HVp/27ef775669.png)
-
-<br />
 
 ### Engine Events
   
@@ -367,8 +361,6 @@ end
 ~~~
 
 This will kill the targeted unit if its Health percent is less than half, and credits the kill to the caster entity.
-
-<br />
 
 ## Scripting Examples and Sources
 

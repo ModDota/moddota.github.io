@@ -57,9 +57,6 @@ The prefix of the command defines when the command will trigger.
 `"Name"`
 Name of the command, used for debugging purposes.
 
-<br />
-<br />
-
 ####Command Prefixes
 
 | Prefix        | Example    | Description                                             |
