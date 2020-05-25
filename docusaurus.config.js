@@ -7,10 +7,7 @@ module.exports = {
     themeConfig: {
         navbar: {
             title: "ModDota",
-            links: [
-                { to: "articles", label: "Tutorials", position: "left" },
-                { href: "https://discord.gg/gRmZgvz", label: "Discord", position: "right" },
-            ],
+            links: [{ href: "https://discord.gg/gRmZgvz", label: "Discord", position: "right" }],
         },
         prism: {
             theme: require("prism-react-renderer/themes/github"),
@@ -23,7 +20,7 @@ module.exports = {
             {
                 docs: {
                     path: "_articles",
-                    routeBasePath: "articles",
+                    routeBasePath: "/",
                     sidebarPath: require.resolve("./sidebars.json"),
                     editUrl: "https://github.com/ModDota/moddota.github.io/edit/source/",
                     remarkPlugins: [require("./docusaurus/remark-component-provider")],
