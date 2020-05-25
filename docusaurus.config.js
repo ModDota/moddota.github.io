@@ -26,8 +26,6 @@ module.exports = {
                     routeBasePath: "articles",
                     sidebarPath: require.resolve("./sidebars.json"),
                     editUrl: "https://github.com/ModDota/moddota.github.io/edit/source/",
-                    // TODO: Remove after migration
-                    include: ["_index.md", "ask-a-question.md", "contribute.md"],
                 },
                 pages: {
                     include: ["index.tsx"],

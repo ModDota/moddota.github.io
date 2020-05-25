@@ -7,10 +7,10 @@ category: Assets
 ---
 
 <h2>Table of content</h2>
-- <a href="#intro">Introduction</a><br>
-- <a href="#wave">Part one: Wave Particle</a><br>
-- <a href="#static">Part two: Spark Particle</a><br>
-- <a href="#ground">Part three: Ground Particle (Optional)</a><br>
+- <a href="#intro">Introduction</a><br />
+- <a href="#wave">Part one: Wave Particle</a><br />
+- <a href="#static">Part two: Spark Particle</a><br />
+- <a href="#ground">Part three: Ground Particle (Optional)</a><br />
 - <a href="#final">Part four: Finalize the system</a>
 - <a href="#lua">Part five: Implement in-game</a>
 
@@ -77,9 +77,9 @@ Ground (optional)
 <p>
 Now let's start making this particle system.
 </p>
-- Open particle editor and create new Particle.<br>
-- Add <b>"Render sprites"</b> in Renderer.<br>
-- Add <b>"Emit continuously"</b> in Emitter.<br>
+- Open particle editor and create new Particle.<br />
+- Add <b>"Render sprites"</b> in Renderer.<br />
+- Add <b>"Emit continuously"</b> in Emitter.<br />
 - Add <b>"Lifespan Decay"</b> in Operator.
 <p>
 Now don't worry too much about particle count yet. That can be adjusted later before you actually finish this particle system. Let's change the value of Render sprites to:
@@ -116,12 +116,12 @@ We don't need to change anything here since it's just reference point for emitte
 <p>
 Well it shouldn't keep lying on the floor like that. Now we want to rotate it to the direction that it should face. But before we get to that, we have to set up something first.
 </p>
-- Add <b>"Movement basic"</b> in Initializer.<br>
+- Add <b>"Movement basic"</b> in Initializer.<br />
 - Add <b>"Remap control point to velocity"</b> in Initializer. (Default control point will be 1)
 <p>
 I will leave these two functions as default since I don't need anything special about velocity in this system. Now if we adjust the Control Point #1 on the right hand side, you can freely adjust the velocity as if it is a control point in-game, so you can see result immediately. My particle now moves but it faces upward, and I don't want that. Let's rotate our particle with following functions.
 </p>
-- Add <b>"Rotation orient to 2d direction"</b> in Operator.<br>
+- Add <b>"Rotation orient to 2d direction"</b> in Operator.<br />
 - Add <b>"Rotation from CP forward orientation"</b> in Operator.
 <p>
 With following values:
@@ -148,8 +148,8 @@ These two functions will automatically adjust your sprite so it faces the direct
 <p>
 Now basic functionality is done, I will adjust the outlook of the particle by following function.
 </p>
-- Add <b>"Color random"</b> in Initializer.<br>
-- Add <b>"Rotation random"</b> in Initializer.<br>
+- Add <b>"Color random"</b> in Initializer.<br />
+- Add <b>"Rotation random"</b> in Initializer.<br />
 - Add <b>"Position modify offset random"</b> in Initializer.
 <p>
 Now change the color to the color you like, leave the rotation random as is, and adjust third function as follow:
@@ -167,7 +167,7 @@ This is so that our particles will start in the air instead of on the ground. Yo
 <p>
 Now that is done, we will start assigning the rest of the control points as followed:
 </p>
-- Add "Remap control point to scalar" in Initializer.<br>
+- Add "Remap control point to scalar" in Initializer.<br />
 - Add "Remap control point to scalar" in Initializer. (Yes twice)
 <p>
 And adjust the value to the following.
@@ -214,8 +214,8 @@ Now those are all the initializers you need, let's now adjust the detail while o
 <p>
 Since I feel like the tornado should grow larger as it goes and there should be fade in and out effect, I add the following functions to the system.
 </p>
-- Add <b>"Radius scale"</b> in Operator.<br>
-- Add <b>"Alpha fade out simple"</b> in Operator.<br>
+- Add <b>"Radius scale"</b> in Operator.<br />
+- Add <b>"Alpha fade out simple"</b> in Operator.<br />
 - Add <b>"Alpha fade in simple"</b> in Operator.
 <p>
 Adjust these values as you like. I left them as default except one which is:
@@ -233,8 +233,8 @@ Now your particle should look like this. (I just adjust the color random, so it 
 <p>
 Since it is kinda power wave, I want to add the feeling of being unstable to the system. So I add these functions.
 </p>
-- Add <b>"Ramp scalar linear simple"</b> in Operator.<br>
-- Add <b>"Ramp scalar linear simple"</b> in Operator. (Yes twice)<br>
+- Add <b>"Ramp scalar linear simple"</b> in Operator.<br />
+- Add <b>"Ramp scalar linear simple"</b> in Operator. (Yes twice)<br />
 - Add <b>"Noise vector"</b> in Operator.
 <p>
 Adjust its value to the following:
@@ -292,13 +292,13 @@ With this, the particle count should be below 60 at all time since I want them t
 <p>
 Now that I have my wave particle working, I feel like it needs something like an electric spark during the duration. However, since this particle is based on the wave particle, we need to make some adjustments to the wave particle.
 </p>
-- Create new particle for static and save it.<br>
+- Create new particle for static and save it.<br />
 - In wave particle, add newly created particle as a children.
 <p>
 First off as usual, you want to start rendering your sprite and emitter and decay.
 </p>
-- Add <b>"Render sprites"</b> in Renderer.<br>
-- Add <b>"Emit continuously"</b> in Emitter.<br>
+- Add <b>"Render sprites"</b> in Renderer.<br />
+- Add <b>"Emit continuously"</b> in Emitter.<br />
 - Add <b>"Lifespan decay"</b> in Operator.
 <p>
 Change your render sprites' texture to,
@@ -309,10 +309,10 @@ materials/particle/electrical_arc_smooth/electrical_arc_smooth.vtex
 <p>
 Now think about the actual electric spark, it needs to be fast, colorful, looks different all the time, and a little bit of transparency. From those idea, I add following functions.
 </p>
-- Add <b>"Lifetime random"</b> in Initializer.<br>
-- Add <b>"Color random"</b> in Initializer.<br>
-- Add <b>"Rotation random"</b> in Initializer.<br>
-- Add <b>"Sequence random"</b> in Initializer.<br>
+- Add <b>"Lifetime random"</b> in Initializer.<br />
+- Add <b>"Color random"</b> in Initializer.<br />
+- Add <b>"Rotation random"</b> in Initializer.<br />
+- Add <b>"Sequence random"</b> in Initializer.<br />
 - Add <b>"Alpha random"</b> in Initializer.
 <p>
 Adjust the color accordingly for Color random, and leave Rotation random as default. For other functions, change the value to following.
@@ -345,7 +345,7 @@ Now you should have something similar to this.
 <p>
 When that's done, we want to change our radius accordingly as we already had control point in wave particles and make the spark scatter from the center.
 </p>
-- Add <b>"Remap control point to scalar"</b> in Initializer.<br>
+- Add <b>"Remap control point to scalar"</b> in Initializer.<br />
 - Add <b>"Position modify offset random"</b> in Initializer.
 <p>
 Now we adjust the value to the following:
@@ -372,8 +372,8 @@ Now we adjust the value to the following:
 <p>
 As you can see, now our particles are huge! Sparks are supposed to be small so let's resize it with this, add a little bit more movement to our sparks, and also add some fade decay to our particle.
 </p>
-- Add <b>"Movement basic"</b> in Operator.<br>
-- Add <b>"Radius Scale"</b> in Operator.<br>
+- Add <b>"Movement basic"</b> in Operator.<br />
+- Add <b>"Radius Scale"</b> in Operator.<br />
 - Add <b>"Alpha fade and decay"</b> in Operator.
 <p>
 Adjust the values to the following.
@@ -512,15 +512,15 @@ This particle borrows most of the value from wave particle except one function. 
 <p>
 Our system is almost finished. Now we are going to add multiple layer of wave.
 </p>
-- Open your wave particle.<br>
-- Remove the children.<br>
-- Save as a new particle for an outer layer (this should have no children).<br>
+- Open your wave particle.<br />
+- Remove the children.<br />
+- Save as a new particle for an outer layer (this should have no children).<br />
 - Save as a new particle again for the outline (this should also have no children).
 <p>
 These three layer will behave the same, there are only three different between each layer.
 </p>
-1. Radius<br>
-2. Color<br>
+1. Radius<br />
+2. Color<br />
 3. Sequence number
 <p>
 Let's set our 3 layers (or more if you want to) as following.
@@ -541,8 +541,8 @@ Now we combine the two outer layer into our core layer by adding children. Your 
 <p>
 If you don't have ground particle, you should be done at this point. However, if you have ground particle then:
 </p>
-- Create new particle.<br>
-- Add ground particle as children.<br>
+- Create new particle.<br />
+- Add ground particle as children.<br />
 - Add wave particle as children.
 <p>
 It is important that ground particle is above wave particle. This is the order in which your particle will be rendered. If ground particle is below wave particle, it will be on top of wave particle and that's not how we want it.
@@ -555,15 +555,18 @@ Now that the particle is ready, we have to put it to use in game. Note that this
 <p>
 In the ability you want to use, put these lines in.
 </p>
+
 ~~~
 "precache"
 {
     "particle"		"particles/custom/tutorial/cyclone.vpcf"
 }
 ~~~
+
 <p>
 Now when you want to launch particles in lua, you do the following
 </p>
+
 ~~~lua
 local info = {
     ...
@@ -591,6 +594,7 @@ Timers:CreateTimer( 6.0, function()
     end
 )		
 ~~~
+
 <p>
 With those implemented, your particles should show up in-game now.
 </p>

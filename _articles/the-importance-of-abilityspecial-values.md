@@ -20,7 +20,7 @@ There's **2 problems** with doing this
 
   Changing a key value won't only affect the datadriven but also the scripts and its easy to make a change and forget to extend this change to the .lua file. Doing proper references to the Specials also eliminates this problem.
 
-<br>
+<br />
 **TL;DR**: Use as many AbilitySpecial values as possible, then modifying/balancing your abilities can be done just by changing these variables and it will extend to the rest of the game mode.
 
 ---

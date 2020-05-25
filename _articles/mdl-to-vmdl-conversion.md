@@ -72,7 +72,7 @@ Result ([IrfanView](http://www.irfanview.com/) is an oldschool image viewer that
 
 ![img](http://puu.sh/i3cQg/76e8c16b46.png)
 
-Create new folders on each or just drop the files over the respective directories. Make sure to use the content folder (not the /game/). <br>The location of the reference mesh in /content/models/ will determine the location where the .vmdl file will be saved.
+Create new folders on each or just drop the files over the respective directories. Make sure to use the content folder (not the /game/). <br />The location of the reference mesh in /content/models/ will determine the location where the .vmdl file will be saved.
 
 ### 5. Generate a .vmat file from the TGA files. 
 
@@ -131,7 +131,7 @@ Finally, we have usable animations:
 
 ![img](http://puu.sh/i3yyc/2bde52de31.png)
 
-**Note:** This is also useful to be able to have access to some of the ACT_DOTA_ACTIVITY+**string** activities that some of the Taunt and Alternative animations use which currently can't be used for abilities and other purposes (as it just ignores the **+string** part). <br>Knowing this, it's possible to assign some unused activity string like "ACT_DOTA_MINI_TAUNT" and force its usage trough the `OverrideAnimation` KV.
+**Note:** This is also useful to be able to have access to some of the ACT_DOTA_ACTIVITY+**string** activities that some of the Taunt and Alternative animations use which currently can't be used for abilities and other purposes (as it just ignores the **+string** part). <br />Knowing this, it's possible to assign some unused activity string like "ACT_DOTA_MINI_TAUNT" and force its usage trough the `OverrideAnimation` KV.
 
 ### 9. Add the Hitboxes
 

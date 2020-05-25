@@ -27,7 +27,7 @@ category: Scripting
 [![States Block](http://i.imgur.com/ACfQMmq.png)](##states "Enable or Disable certain states on units")
 [![Modifier Events](http://i.imgur.com/LWPALN8.png)](#modifierevents "Triggers on the modifier to perform Actions")
 
-<br><br>
+<br /><br />
 
 # DataDriven Ability
 A DataDriven ability is a collection *KeyValues*. KeyValues are simple, tree-based structures used for storing nested sections containing key/value pairs.

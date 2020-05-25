@@ -1,3 +1,96 @@
 {
-    "docs": ["ask-a-question", "contribute"]
+    "docs": [
+        {
+            "type": "category",
+            "label": "Beginners",
+            "items": [
+                "beginners-guide-to-dota-scripting",
+                "getting-started-with-dota-2-modding",
+                "useful-console-commands",
+                "video-setting-up-your-addon-with-github",
+                "modding-introduction",
+                "video-tutorials"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Scripting",
+            "items": [
+                "custom-mana-system",
+                "datadriven-items",
+                "datadriven-ability-breakdown-documentation",
+                "datadriven-ability-events-modifiers",
+                "passing-abilityspecial-values-into-lua",
+                "the-importance-of-abilityspecial-values",
+                "item-restrictions-requirements",
+                "abilityduration-tooltips",
+                "invisibility-ability-example",
+                "calling-spells-with-setcursor",
+                "illusion-ability-example",
+                "particle-attachment",
+                "apply-hero-and-creep-modifier-durations",
+                "creating-units-with-a-duration",
+                "channeling-animations",
+                "reutilizing-built-in-modifiers",
+                "all-about-the-target",
+                "rotate-ability-example",
+                "point-channeling-aoe-ability-example",
+                "physics-ability-example-exorcism",
+                "precache-fixing-and-avoiding-issues",
+                "unit-producing-buildings",
+                "datadriven-units",
+                "scripted-shop-spawning",
+                "item-drop-system",
+                "simple-custom-ability",
+                "adding-a-very-simple-ai-to-units",
+                "lua-item-tutorial",
+                "tutorial-lava-damage",
+                "create-creature-attachwearable-blocks-directly-from-the-keyvalues",
+                "making-a-rpg-like-looting-chest",
+                "making-any-ability-use-charges",
+                "combining-kv-files-using-base",
+                "using-dota-filters",
+                "lua-modifiers-1",
+                "lua-modifiers-2",
+                "lua-modifiers-3",
+                "lua-modifiers-4",
+                "creating-innate-abilities",
+                "simple-neutral-ai"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "User Interface",
+            "items": [
+                "hiding-hud-with-sethudvisible",
+                "custom-keybindings-in-panorama",
+                "custom-minimap-icons",
+                "panorama-custom-dotascenepanel",
+                "introduction-to-panorama-ui-with-typescript"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Assets",
+            "items": [
+                "extracting-and-compiling-vtex-files",
+                "importing-custom-model-into-the-map-without-any-cosmetics",
+                "particles-creation-series-chaos-wave",
+                "particles-creation-series-falling-cherry-blossom-petal-for-spring-mood",
+                "particles-creation-series-particle-basics",
+                "volcano-particle-creation",
+                "adding-and-playing-custom-sounds",
+                "asset-file-type-reference",
+                "mdl-to-vmdl-conversion",
+                "hammer-making-skip-clip-blocks-out-of-models",
+                "adding-hitbox-to-models-without-a-bone",
+                "guide-on-creating-modifying-status-effects-with-template"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Other",
+            "items": ["new-api-wiki-pages", "ask-a-question", "contribute", "example-tutorial"]
+        }
+    ]
 }

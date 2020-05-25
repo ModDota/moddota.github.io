@@ -25,7 +25,6 @@ This document covers every keyvalue of the npc_units_custom file
 * [Creature Block](#Comment_763)
   * [AttachWearables](##wearables)
 
-<a name="#general"/></a>
 ## General
 
 Most unit names start with "npc_" but this isn't necessary. A basic unit definition looks like this:
@@ -53,14 +52,14 @@ There are a lot of classes for units, the [complete list can be found in here](h
   * Invulnerable by default. Very annoying, it can be removed through Lua with `building_handle:RemoveModifierByName("modifier_invulnerable")`
   * Visible through fog. This is troublesome, and forces any game that wants to have building strategies to use npc_dota_creature and define custom building damage, with some other downsides.
   * No visual turning, even if internally the unit is actually changing its forward vector. Usually a good thing, the creature equivalent behavior for this is the stunned state.
-<br>
+<br />
   Worth mentioning `npc_dota_tower` is a subclass of building, and is coded to trigger stuff like the announcers, team gold sharing and aggro AI. Use npc_dota_building with attack to make towers that aren't forced to use those mechanics.
   
 * ***npc_dota_thinker***
 
   For dummy units. More on this later
 
-<br>
+<br />
 For the rest of this guide, we'll be assuming a `"BaseClass" "npc_dota_creature"`
 
 ### Level
@@ -102,8 +101,6 @@ Produces:
 
 This can be any name, its only useful purpose is to use with Lua `GetUnitLabel()` which can work as an easy method of tagging units.
 
-<br>
-<a name="#flags"/></a>
 ## Boolean Values and Flags
 
 ~~~
@@ -121,7 +118,7 @@ Associated Lua functions: `HasInventory()` and `SetHasInventory(bool)`
 
 Self explanatory, the default values are 0 for summoned (so the lua IsSummoned will always return false unless you set this), and 1 for dominated creaturesl
 
-<br>
+<br />
 ~~~
 "ConsideredHero"		"1"
 ~~~
@@ -130,35 +127,35 @@ Self explanatory, the default values are 0 for summoned (so the lua IsSummoned w
 
 ![img](http://puu.sh/ho2pt/c687566db4.jpg)
 
-<br>    
+<br />    
 ~~~
 "IsAncient"                    "1"
 ~~~
   
-Associated Lua function: `IsAncient()`<br>`"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"` datadriven flag. 
+Associated Lua function: `IsAncient()`<br />`"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"` datadriven flag. 
 
-<br>
+<br />
 ~~~
 "IsNeutralUnitType"            "1"
 ~~~
 
 Associated Lua function: `IsNeutralUnitType()`
  
-<br> 
+<br /> 
 ~~~
 "CanBeDominated"               "0"
 ~~~
 
 Helm of the Dominator specific. No associated Lua function, but it's easy to make one to read from this value if you wish.
 
-<br>
+<br />
 ~~~
 "AutoAttacksByDefault"         "0"
 ~~~
 
 Ignores Auto Attack Behavior setting, forces to not autoattack. Used on Visage Familiars.
 
-<br>
+<br />
 ~~~
 "ShouldDoFlyHeightVisual"      "0"
 ~~~
@@ -167,14 +164,13 @@ Ignores Auto Attack Behavior setting, forces to not autoattack. Used on Visage F
 
 Seems broken, no noticeable difference.
 
-<br>
+<br />
 ~~~
 "WakesNeutrals"                "1"
 ~~~
 
 Unit won't aggro units on the Neutral team within their acquisition range.
 
-<a name="#selection"/></a>
 ## Selection properties
 
 ~~~
@@ -192,8 +188,6 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 
 * **IgnoreAddSummonedToSelection** if set to 1, makes the "Auto Select Summoned Units" ignore this unit when it spawns. It's used on Brewmaster Primal Split units.
 
-<br>
-<a name="#sounds"/></a>
 ## Sounds
 
 ~~~    
@@ -206,8 +200,6 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 
 * **IdleSoundLoop** will be played constantly after the unit spawns. Some heroes don't have a loop sound defined, but as in the example above it's possible to use this as an Spawn sound for the unit if you add the string of a non-loopable sound.
 
-<br>
-<a name="#abilities"/></a>   
 ## Abilities
 
 ~~~
@@ -220,8 +212,6 @@ The unit can hold up to 16 abilities at any time being.
 
 `"AbilityLayout"` is used for the built-in Flash UI to change how many abilities it can display, and currently its limited to 4, 5 and 6 (anything else will malfunction)
 
-<br>    
-<a name="#stats"/></a>    
 ## Stats    
 
 Because of :valve: - reasons  , unit stats aren't hover-able, but they are there.
@@ -299,8 +289,6 @@ If you want to make any complex rule for XP/Gold, for example, give less XP from
 "BountyGoldMax"                "0"           // Gold earned max.
 ~~~
 
-<br>
-<a name="#bounds"/></a>
 ## Bounds
 
 This defines the unit collision with other units.
@@ -342,8 +330,6 @@ The height from the ground at which the Health Bar should be placed. By default 
 
 ![img](http://puu.sh/ho2CK/8ae5a734d8.jpg)
 
-<br>
-<a name="#movement"/></a>
 ## Movement
 
 ~~~
@@ -372,8 +358,6 @@ Plays alternate idle/run animation when near enemies, e.g. Abaddon model
 
 Distance to keep when following. Healing Ward/Sigil have it set at 250.
 
-<br>
-<a name="#healthmana"/></a>
 ## Health and Mana
 
 ~~~
@@ -397,8 +381,6 @@ Distance to keep when following. Healing Ward/Sigil have it set at 250.
 
 -1 means default to full mana, which is the default. It can be changed to any integer value so the units don't spawn with a filled pool.
 
-<br>
-<a name="#armorattack"/></a>
 ## Armor and Attack Types
 
 The Table of Physical Attacks vs Armor Types can be found [here in this link to the dota wiki](http://dota2.gamepedia.com/Damage_types#Effective_Physical_Damage_by_Attack_Type_and_Armor_Type)
@@ -429,8 +411,6 @@ The Table of Physical Attacks vs Armor Types can be found [here in this link to 
 | Fortified |  DOTA_COMBAT_CLASS_DEFEND_STRUCTURE
 | Hero      | DOTA_COMBAT_CLASS_DEFEND_HERO
 
-<br>
-<a name="#vision"/></a>
 ## Vision
 
 ~~~
@@ -440,7 +420,7 @@ The Table of Physical Attacks vs Armor Types can be found [here in this link to 
 
 Vision on any unit can't exceed 1800, any value above that will just default to 1800.
 
-<br>
+<br />
 ## Unit Relationship Class
 
 This doesn't seem to make any difference, might be deprecated or just used for tagging stuff internally.
@@ -459,8 +439,6 @@ List:
 * `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_SIEGE`
 * `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD`
 
-<br>
-<a name="#AI"/></a>
 ## Lua VScript AI
 
 ~~~

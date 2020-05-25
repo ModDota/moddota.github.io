@@ -36,7 +36,7 @@ The Full List of Built-In Modifiers can be found [on the the wiki](https://devel
 
 However this isn't more than a shortcut to avoid creating a new modifier with the state. The real strength of this method is in applying modifiers that have very custom properties that aren't easily reproduced with the basic Properties/States/etc.
 
-<br>
+<br />
 
 For example, in the `alchemist_chemical_rage` ability, Alchemist changes its attack/idle/run animation, model effect, attack sound and also gets the ability bonus. 
 
@@ -44,7 +44,7 @@ If we wanted to get all the cosmetic properties but with different ability effec
 
 Instead, we can make use of the `"modifier_alchemist_chemical_rage_transform"` which will handle everything, transforming the hero and applying a `"modifier_alchemist_chemical_rage"` with the exact ability we want.
 
-<br>
+<br />
 
 Now to find out the field names and pass values to the modifier, follow these steps:
 
@@ -52,7 +52,7 @@ Now to find out the field names and pass values to the modifier, follow these st
 
 Go to the original ability that uses the modifier you want to reuse form the list. The [SpellLibrary](https://github.com/Pizzalol/SpellLibrary/tree/SpellLibrary/game/dota_addons/spelllibrary/scripts/npc/abilities) contains a split list of all Dota Abilities with its own names, it's very easy to find the fields there.
 
-<br>
+<br />
 
 #### Step 2 - Setting the AbilitySpecial fields
 
@@ -84,7 +84,7 @@ Copy the ability specials from the main ability into your datadriven AbilitySpec
     }
 }
 ~~~
-<br>
+<br />
 
 #### Step 3 - Applying the modifier
 
@@ -100,7 +100,7 @@ On the desired Ability or Modifier Event, add the ApplyModifier action:
 
 **Without a Duration field**, the modifier might be applied for duration = nil, meaning infinite duration.
 
-<br>
+<br />
 
 #### Step 4 - Adjusting the Tooltip
 
@@ -125,7 +125,7 @@ Note that you cannot refer to a new custom %dMODIFIER_PROPERTY_[CONSTANT_LIST](h
 
 Instead you can make those tooltips in the separate modifier, or directly add the numbers to the original modifier tooltip if they are static values (like in this cause I could've written 50 and 322). Sadly, you can't set the built-in modifier as hidden either.
 
-<br>
+<br />
 
 #### Full Example
 ~~~
@@ -217,7 +217,7 @@ Instead you can make those tooltips in the separate modifier, or directly add th
 }
 ~~~
 
-<br>
+<br />
 
 Hopefully this will help you have more options if the ability you want to modify hasn't been rewritten yet, or to get a particular effect which is hard to replicate by normal means.
 

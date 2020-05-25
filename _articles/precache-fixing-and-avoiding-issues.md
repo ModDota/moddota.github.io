@@ -84,7 +84,7 @@ Final note, some cosmetics you might want to use have their own particles and it
 
 http://puu.sh/fBxWT/83cceac063.png
 
-<br>
+<br />
 
 Now after adding that particle (which I just looked up on the Asset Browser and copied the path to the .vpcf), everything is displaying properly:
 

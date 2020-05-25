@@ -12,7 +12,7 @@ Part 2 of [Getting Started With Dota 2 Modding](/articles/getting-started-with-d
  
 So now you have your freshly created gamemode running and have played around the map editor a bit, it’s time to move into the programming realm of Dota 2 custom maps.
  
-Go into your <addonName>/scripts/ folder. The 2 main script folders are **npc** and **vscripts**. The first holds the following .txt files:
+Go into your &lt;addonName&gt;/scripts/ folder. The 2 main script folders are **npc** and **vscripts**. The first holds the following .txt files:
  
 * npc_**abilities**_custom.txt - Contains all the custom abilities of the gamemode.
 * npc_**heroes**_custom.txt - Heroes with its abilities and stats
@@ -101,7 +101,7 @@ Extensive documentation and in-depth examples of the datadriven system can be fo
 
 ### [Datadriven Units](/articles/datadriven-units)
  
-<br><br>
+<br /><br />
 
 ## Lua Scripting
  
@@ -124,7 +124,7 @@ In every single gamemode, a file named addon_game_mode.lua must be present. Whil
 - `Precache`, when the game starts and players pick their heroes, the engine will try to load the associated models/particles/sounds to those heroes. If we’re dynamically using a resource in Lua before preloading it won’t be displayed properly.
 - `Activate`, creates the base game mode entity and calls the initialize function.
 
-http://puu.sh/g2pUC/ca4413cc48.png <br> Precache function was folded in sublime
+http://puu.sh/g2pUC/ca4413cc48.png <br /> Precache function was folded in sublime
 
 Using our barebones, you don’t need to touch this file apart from very specific situations, and all the core game logic will be coded in barebones.lua, which has been already required. We’ll call this your *main lua file* from now on.
  
@@ -170,7 +170,7 @@ A DataDriven syntax error will usually look like this:
 
 ![img](http://puu.sh/g3HVp/27ef775669.png)
 
-<br>
+<br />
 
 ### Engine Events
   
@@ -244,7 +244,7 @@ Here we make use of the Timers library for a simple 1.0 second delay, there are 
 {% include gfycat.html id="DigitalDefinitiveChimpanzee" %}
  
  
-### Tables. <a name="tables">
+### Tables.
  
 Tables are the most important structure we will have to use. As mentioned before, all the info on entities can be seen as a table (even though it's technically a pointer to a C++ object), and you Get and Set the values through the various Game API functions.
 
@@ -368,9 +368,8 @@ end
 
 This will kill the targeted unit if its Health percent is less than half, and credits the kill to the caster entity.
 
-<br>
+<br />
 
-<a name="#examples"/></a>
 ## Scripting Examples and Sources
 
 There are plenty of examples spread all across GitHub and with the contents of this guide you should now be able to understand the scripting flow of game logic and scripted abilities. The best GitHub repo to look for ability scripts is [SpellLibrary](https://github.com/Pizzalol/SpellLibrary), a community project to rewrite every dota ability using KV and Lua.

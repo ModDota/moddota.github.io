@@ -28,9 +28,9 @@ The entire lua file has comments for every decision. I hope it helps understand 
 
 I'll just leave the lines related to physics here, special thanks to BMD for helping me through the entire process of rewriting this ability.
 
-First step is to make each spawned unit a physics units and apply the properties. <br>[Physics Readme](https://github.com/bmddota/barebones/blob/source2/PhysicsReadme.txt) to know what these do.
+First step is to make each spawned unit a physics units and apply the properties. <br />[Physics Readme](https://github.com/bmddota/barebones/blob/source2/PhysicsReadme.txt) to know what these do.
 
-<pre lang="php">
+```lua
 -- Make the spirit a physics unit
 Physics:Unit(unit)
 
@@ -44,11 +44,11 @@ unit:SetPhysicsVelocity(spirit_speed * RandomVector(1))
 unit:SetPhysicsFriction(0)
 unit:Hibernate(false)
 unit:SetGroundBehavior(PHYSICS_GROUND_LOCK)
-</pre>	
+```
 
 After this, we want to control the units behavior on each frame, making use of the OnPhysicsFrame function. 
 
-<pre lang="php">
+```lua
 -- This is set to repeat on each frame
 unit:OnPhysicsFrame(function(unit)
 
@@ -86,14 +86,14 @@ unit:OnPhysicsFrame(function(unit)
     -- STATE DEPENDENT LOGIC
     -- Damage, Healing and Targeting are state dependent.
     -- Check the full script on SpellLibrary
-</pre>
+```
 
 Last is to stop the units, very simple with this:
 
-<pre lang="php">
+```lua
 unit:SetPhysicsVelocity(Vector(0,0,0))
 unit:OnPhysicsFrame(nil)
-</pre>
+```
 
 ---
 

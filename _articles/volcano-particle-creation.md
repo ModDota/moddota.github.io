@@ -12,7 +12,7 @@ I won't be making the particles from scratch or going really deep into its possi
 
 {% include gfycat.html id="HandsomeImpossibleHyena" %}
 
-<br>
+<br />
 
 First we want a ~250 AoE radius volcano earth cone.
 
@@ -30,7 +30,7 @@ Now we need to adjust its child to fit the parent size and duration, making it l
 - Radius from 16 to 25, make the place on ground 0
 - Lifetime random, on the max value, change it to 0. This will make the earth move constantly and randomly.
 
-<br>
+<br />
 
 Let's repeat the same steps on the other childs to make the dust-debris effect repeat
 
@@ -48,7 +48,7 @@ It's looking like this now (I forgot to hide the model for this preview)
 
 {% include gfycat.html id="OptimalRichDeviltasmanian" %}
 
-<br>
+<br />
 	
 Moving onto _grounddustbdust, we see that the particle already has an Emit continuously, but it isn't actually looping as we'd want to, it's just emitting a single cloud.
 
@@ -85,7 +85,7 @@ Now, lets add fire to it! :fire:
 
 In case you don't have the latest decompiled particles (which should include Techies and SF Arcana particles), download them from here: **[Decompiled Particles](http://moddota.com/resources/decompiled_particles.zip)**. There should also be a link in the [Resources Page](http://moddota.com/forums/resources)
 
-<br>
+<br />
 
 Back to the particle editor, open the recently forked, sf_fire_arcana_wings system
 

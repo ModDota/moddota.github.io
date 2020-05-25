@@ -484,7 +484,7 @@ local particle_name = "particles/units/heroes/hero_abaddon/abaddon_death_coil.vp
     ProjectileManager:CreateTrackingProjectile( info )
 ~~~
 
-<br>
+<br />
 
 **Note**: You can't generally use a particle designed to be Linear in a Tracking action and vice versa. 
 

@@ -43,19 +43,19 @@ category: Scripting
 }
 ~~~
 
-<br>
+<br />
 
 **Pitch** Rotation, 15 every frame (0.03 interval)
 
 {% include gfycat.html id="BothImpureHeterodontosaurus" %}
 
-<br>
+<br />
 
 **Yaw** Rotation, 15 every frame
 
 {% include gfycat.html id="MemorableAcceptableDikdik" %}
 
-<br>
+<br />
 
 **Roll** Rotation, 15 every frame
 

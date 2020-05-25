@@ -156,7 +156,7 @@ local building = CreateUnitByName("human_barracks", position, true, hero, hero, 
     building:RemoveModifierByName("modifier_invulnerable")
 ~~~
 
-<br>
+<br />
 
 ## Step 3: Scripting the unit-spawning ability inside the building
 
@@ -239,5 +239,5 @@ end
 
 ---
 
-<br>
+<br />
 That's it for now, post any doubts about anything below. Thanks for reading!

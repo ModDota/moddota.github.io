@@ -85,7 +85,7 @@ A texture that is repeatedly overlaid on the model. You can basically use any te
 
 Results with different Detail 2 Textures(Blend Mode: 5):  
 
-<div itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject"><meta itemprop="name" content="Example Video"> <meta itemprop="description" content="This video shows an example of the created effect"> <meta itemprop="thumbnailURL" content="http://web.archive.org/web/20181120031547im_/http://thumbs.gfycat.com/PowerfulBlueBilby-poster.jpg"> <meta itemprop="contentURL" content="http://zippy.gfycat.com/PowerfulBlueBilby.webm"> <meta itemprop="contentURL" content="http://zippy.gfycat.com/PowerfulBlueBilby.mp4"></div>
+<div itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject"><meta itemprop="name" content="Example Video" /> <meta itemprop="description" content="This video shows an example of the created effect" /> <meta itemprop="thumbnailURL" content="http://web.archive.org/web/20181120031547im_/http://thumbs.gfycat.com/PowerfulBlueBilby-poster.jpg" /> <meta itemprop="contentURL" content="http://zippy.gfycat.com/PowerfulBlueBilby.webm" /> <meta itemprop="contentURL" content="http://zippy.gfycat.com/PowerfulBlueBilby.mp4" /></div>
 
 _Associated Parameters_:
 
@@ -117,7 +117,7 @@ Determines where the specular reflection occurs. Specular reflection is a mirror
 
 Results with different amounts of Specular Reflection:
 
-<div itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject"><meta itemprop="name" content="Example Video"> <meta itemprop="description" content="This video shows an example of the created effect"> <meta itemprop="thumbnailURL" content="http://web.archive.org/web/20181120031547im_/http://thumbs.gfycat.com/SkeletalEmptyArieltoucan-poster.jpg"> <meta itemprop="contentURL" content="http://zippy.gfycat.com/SkeletalEmptyArieltoucan.webm"> <meta itemprop="contentURL" content="http://zippy.gfycat.com/SkeletalEmptyArieltoucan.mp4"></div>
+<div itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject"><meta itemprop="name" content="Example Video" /> <meta itemprop="description" content="This video shows an example of the created effect" /> <meta itemprop="thumbnailURL" content="http://web.archive.org/web/20181120031547im_/http://thumbs.gfycat.com/SkeletalEmptyArieltoucan-poster.jpg" /> <meta itemprop="contentURL" content="http://zippy.gfycat.com/SkeletalEmptyArieltoucan.webm" /> <meta itemprop="contentURL" content="http://zippy.gfycat.com/SkeletalEmptyArieltoucan.mp4" /></div>
 
 _Associated Parameters_:
 

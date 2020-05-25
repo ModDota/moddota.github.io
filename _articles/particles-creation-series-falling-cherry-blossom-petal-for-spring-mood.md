@@ -40,18 +40,18 @@ Emit continuously
 <p>
 Now if you want to know further detail on this system then
 </p>
-- open up particle editor<br>
+- open up particle editor<br />
 - create a new particle.
 <p>
 Now I want petals to show up.
 </p>
-- Add <b>"Render Sprites"</b> in Renderer since there is no self-animation involved in this system.<br>
-- Now I check orientation type, it's already set to "Screen Align" so it's good to go.<br>
+- Add <b>"Render Sprites"</b> in Renderer since there is no self-animation involved in this system.<br />
+- Now I check orientation type, it's already set to "Screen Align" so it's good to go.<br />
 - Scroll down to the texture field, you can see the circle sprite.
 <p>
 But I want petal sprite for this situation, falling circle might be able to work as snow but not for spring.
 </p>
-- Click on Magnifying glass to open up browser.<br>
+- Click on Magnifying glass to open up browser.<br />
 - In this point, you can use your custom vtex material as a texture but in this tutorial, materials/particle/flower/flower.vtex will do the job.
 <p>
 Now that renderer is up, I need an emitter to show my petal.
@@ -64,7 +64,7 @@ Now that renderer is up, I need an emitter to show my petal.
 <p>
 Now that it shows the petal, but there is nothing going on yet. Since I want these petals to move and disappear at some points, I continue on to next step:
 </p>
-- Add <b>"Lifespan decay"</b> in Operator since I want them to disappear at some points.<br>
+- Add <b>"Lifespan decay"</b> in Operator since I want them to disappear at some points.<br />
 - Add <b>"Movement basic"</b> in Operator since I want them to move at some points.
 <p>
 Now I do feel like this scene somewhat needs a gravity since petal will be falling down in some directions. So I make some changes to the value in Movement basic as followed:
@@ -86,7 +86,7 @@ Now I have the petals showing up and move due to gravity, I want them to spread 
 <p>
 Now, there are two ways to approach how you initialize this function.
 </p>
-- First way is to manually adjust the value in particle editor.<br>
+- First way is to manually adjust the value in particle editor.<br />
 - Second way is to bind it to the control point.
 <p>
 I will explain the first way since I will use it statically in my hammer (adjusting these control points in hammer is hell.)
@@ -112,9 +112,9 @@ If you want to bind these value to control point, simply change <b>scale CP</b>,
 <p>
 Now I feel like these petals lack natural feeling to it. So I add the randomness to this system by following functions.
 </p>
-- Add <b>"Rotation random"</b> in Initializer.<br>
-- Add <b>"Alpha random"</b> in Initializer.<br>
-- Add <b>"Lifetime random"</b> in Initializer.<br>
+- Add <b>"Rotation random"</b> in Initializer.<br />
+- Add <b>"Alpha random"</b> in Initializer.<br />
+- Add <b>"Lifetime random"</b> in Initializer.<br />
 - Add <b>"Radius random"</b> in Initializer.
 <p>
 Now you have to go in each function and adjust the value to your taste. The followings are the settings I use in this tutorial.
@@ -158,7 +158,7 @@ Once those are all set, you should see the result similar to below.
 <p>
 Now that you see randomness at creation, but the sudden pop in and out is kinda annoying to me. So I get rid of them by:
 </p>
-- Add <b>"Alpha fade in simple"</b> in Operator.<br>
+- Add <b>"Alpha fade in simple"</b> in Operator.<br />
 - Add <b>"Alpha fade out simple"</b> in Operator.
 <p>
 I left those value as default as I think it's already much better than earlier. You can freely adjust those values as you like.
@@ -166,7 +166,7 @@ I left those value as default as I think it's already much better than earlier. 
 <p>
 Now the petals fall and fade in and out, we want them to rotate as they go so it looks more natural. To do so, add the following function.
 </p>
-- Add <b>"Rotation basic"</b> in Operator.<br>
+- Add <b>"Rotation basic"</b> in Operator.<br />
 - Add <b>"Rotation spin roll"</b> in Operator.
 <p>
 And now adjust the values of Rotation spin roll and leave Rotation basic as default.
