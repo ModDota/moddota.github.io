@@ -8,7 +8,7 @@ category: Scripting
 
 This implements the following mechanic:
 
-{% include gfycat.html id="OfficialAdorableJabiru" %}
+<Gfycat id="OfficialAdorableJabiru" />
 
 ### 1. Key Values Table
 

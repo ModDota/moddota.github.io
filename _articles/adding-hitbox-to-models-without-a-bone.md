@@ -69,4 +69,4 @@ https://puu.sh/lLIJ3/bed9e07b6f.jpg
 
 That's all! Now your model will have a hitbox ingame:
 
-{% include gfycat.html id="FrightenedBareAlbino" %}
+<Gfycat id="FrightenedBareAlbino" />

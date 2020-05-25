@@ -371,7 +371,7 @@ The same applies for **Teams** and **Types**.
 
 With `DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES`, and with `DOTA_UNIT_TARGET_FLAG_NONE`: 
 
-{% include gfycat.html id="FloweryUnevenHorseshoeBat" %}.
+<Gfycat id="FloweryUnevenHorseshoeBat" />
 
 ## Other keyvalues of the Action Target block
 

@@ -39,7 +39,7 @@ ApplyModifier with short duration in a OnThinkInterval, channeling modifier has 
 
 ### Full Version
 
-!{% include gfycat.html id="FlusteredBigBoa" %}
+!<Gfycat id="FlusteredBigBoa" />
 
 Instead of trying to find the desired animation in the Action List on the wiki, you can view the animations on the model you are trying to use and their respective names.
 

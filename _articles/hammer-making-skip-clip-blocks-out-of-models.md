@@ -14,10 +14,10 @@ When you drag a prop model into the map, it won't have any collision, so if you 
 2. Selected props -> Convert into Editable Mesh (Ctrl+Shift+T with the newly selected pasted model)
 3. Apply material (Shift+T)
 
-{% include gfycat.html id="RemarkableWetDotterel" %}
+<Gfycat id="RemarkableWetDotterel" />
 
 That's it.
 
-{% include gfycat.html id="CarefreeScarceEthiopianwolf" %}
+<Gfycat id="CarefreeScarceEthiopianwolf" />
 
 Thanks BMD for the gyfs

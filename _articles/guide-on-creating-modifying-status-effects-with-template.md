@@ -73,7 +73,7 @@ _Note:_ Only colorwarp textures will work for this.
 
 Results with different Colorwarp textures:  
 
-{% include gfycat.html id="UnkemptFarawayGossamerwingedbutterfly" %}
+<Gfycat id="UnkemptFarawayGossamerwingedbutterfly" />
 
 _Associated Parameters_:
 

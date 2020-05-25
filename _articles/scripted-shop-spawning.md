@@ -24,7 +24,7 @@ local newshop = SpawnEntityFromTableSynchronous('trigger_shop', {origin = unit:G
 ~~~
 
 Example:
-{% include gfycat.html id="DimwittedGlisteningAmericanmarten" %}
+<Gfycat id="DimwittedGlisteningAmericanmarten" />
 
 Recommended reading:
 [Creating a custom shop in Dota 2](http://www.reddit.com/r/Dota2Modding/comments/2dpts1/tutorial_creating_a_custom_shop_step_by_step/)

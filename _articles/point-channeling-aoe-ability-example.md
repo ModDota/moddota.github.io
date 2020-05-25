@@ -8,7 +8,7 @@ category: Scripting
 
 Here I'll explain a method to do this type of abilities effectively, based on this Earthquake Example:
 
-{% include gfycat.html id="CarefreeAridBantamrooster" %}
+<Gfycat id="CarefreeAridBantamrooster" />
 
 We will review each important section of the code with comments on it, including how to get the particles to show.
 

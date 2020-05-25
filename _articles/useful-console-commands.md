@@ -32,4 +32,6 @@ Here are the console commands useful for modding. If you constantly use one whic
 
 `host_timescale <float>`: Speeds the game up to that number
 
-{% include gfycat.html id="OddPaleIbadanmalimbe" %}*host_timescale 10*
+<Gfycat id="OddPaleIbadanmalimbe" />
+
+_host_timescale 10_

@@ -8,7 +8,7 @@ category: Scripting
 
 This is a datadriven + lua ability that will apply the invis state and texture, with some extra particles and effects.
 
-{% include gfycat.html id="MajesticDimpledIrishwaterspaniel" %}
+<Gfycat id="MajesticDimpledIrishwaterspaniel" />
 
 (Some effects might not be from this example, as this video shows the Assassin hero, find it in the repository later on)
 

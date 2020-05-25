@@ -80,15 +80,15 @@ Once your tutorial is merged it is automatically released to the website.
 
 To embed https://gfycat.com/remarkableimportantant:
 
-Use `{{ '{% include gfycat.html id="remarkableimportantant" ' }}%}`
+Use `<Gfycat id="remarkableimportantant" />`
 
 
 
-**To add a Youtube player to the page use the following:**
+**To add a YouTube player to the page use the following:**
 
 To embed https://www.youtube.com/watch?v=GMvmdnNM6Sc:
 
-Use `{{ '{% include youtube.html id="GMvmdnNM6Sc" ' }}%}`
+Use `<YouTube id="GMvmdnNM6Sc" />`
 
 
 
