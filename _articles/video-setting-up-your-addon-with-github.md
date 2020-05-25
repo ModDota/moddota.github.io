@@ -5,8 +5,6 @@ date: 07.03.2015
 category: Beginners
 ---
 
-# Setting Up Your Addon With GitHub
-
 Split the game into a game and content folder, then add junctions to link them with the dota files.
 
 Create the junctions:

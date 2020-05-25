@@ -24,7 +24,7 @@ There are currently 9 filters available in the lua API, namely:
 
 These filters are set using functions like `CDOTABaseGameMode:SetExecuteOrderFilter(function, context)`, check the [API declarations](https://github.com/TypeScriptToLua/Dota2Declarations/blob/master/dota-api.d.ts#L1193) for the exact function name for each function. The filters can then be cleared again using functions like `CDOTABaseGameMode:ClearExecuteOrderFilter()` and similar functions - again, see the [API declarations](https://github.com/TypeScriptToLua/Dota2Declarations/blob/master/dota-api.d.ts#L1193) .
 
-# The general idea
+## The general idea
 
 **(This is the most important section of this entire tutorial)**
 

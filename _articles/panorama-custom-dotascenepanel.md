@@ -6,8 +6,6 @@ date: 02.04.2016
 category: User Interface
 ---
 
-# Introduction
-
 In this tutorial we'll go through the tricks you can do with the undocumented DOTAScenePanel class in panorama.
 
 Now, you might have seen its usage if you looked through the sources in the main menu. This panel allows us to display 3D content in panorama. You might have tried using it yourself. It's pretty easy to setup a simple panel to display a unit, with code like
@@ -20,11 +18,11 @@ Code like this is used to display heroes in the armory. This panel is also has n
 
 In armory, heroes models can be rotated, and this behaviour can be enabled with `allowrotation="true"` settled. However, this parameter is not compatible with custom background maps.
 
-# Background maps
+## Background maps
 
 But wait, there's more! DOTAScenePanel accepts the "map" parameter, which points to a specific type of vmaps - background maps. You can find them in asset browser in background folder. Those vmaps only accept a specific set of entities and are shown in panorama using cameras. Let's follow up by creating a simple background map.
 
-## Setting up the map
+### Setting up the map
 
 Start up hammer editor and create a new map. Save it in your maps folder as 'background.vmap'. Go to Map -> Map Properties (Ctrl-Shift-P) and check the 'Compile as background map' checkbox.
 
@@ -55,7 +53,7 @@ As the last step select your camera and give it a name in the properties, like `
 
 Save your map and build it (F9).
 
-## Setting up panorama
+### Setting up panorama
 
 I won't describe how to set up a basic panorama environment, if you are having issues with displaying simple panels, refer to [https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama) Once you've ready to go, simply add `<DOTAScenePanel style="width:400px;height:400px;" map="background" light="light" camera="camera1" particleonly="false"/>` to your XML, you should see your donkey movie star in its full glory. Shouldn't take you more than 10 minutes.
 
@@ -63,15 +61,15 @@ I won't describe how to set up a basic panorama environment, if you are having i
 
 Now let's get to the advanced part.
 
-# The part where magic gets real
+## The part where magic gets real
 
-## Units with cosmetics
+### Units with cosmetics
 
 We can easily build up a "unit" like scene, using the `portrait_world_unit` entity type. This entity supports all kinds of units and also cosmetic item definitions. The quirk here is that you have to enter the raw properties editing mode to set displayed entity to a hero. Item definitions property all refer to different loadout slots and accept item IDs. Item ID list can be found [here](https://github.com/dotabuff/d2vpk/blob/master/dota_pak01/scripts/items/items_game.txt).
 
 ![Lina is awesome](http://dg-lab.com/renuz "Example")
 
-## Multiple cameras
+### Multiple cameras
 
 This is pretty straightforward, `DOTAScenePanel` also accepts the `camera` parameter in the definition, which will try to find the camera with the provided name.
 
@@ -79,7 +77,7 @@ This is pretty straightforward, `DOTAScenePanel` also accepts the `camera` param
 
 Important to note, compiling the map again does change the look of the panorama panel without restarting the map, but you can't change it at runtime. You'll understand how to achieve the same result in the following parts.
 
-## Dynamic layout loading
+### Dynamic layout loading
 
 Since the only thing DOTAScenePanel respects is its own layout definition, we will have to provide it from the start. Fortunately we can load layout from string, while altering the definition.
 
@@ -96,9 +94,9 @@ sceneContainer.BCreateChildren("<DOTAScenePanel style='" + style + "' map='backg
 
 As you might have noticed, you have to wrap the whole thing in '', while also providing the initial container for the layout. Pretty terrible, but for now it seems like the only way.
 
-## Firing IO events
+### Firing IO events
 
-### Animation
+#### Animation
 
 Now the REAL fun starts. Dashboard source code uses the `DOTAGlobalSceneFireEntityInput` event which starts the particles on the home button, for example. This event is basically a `DoEntFire` specifically for DOTAScenePanel.
 
@@ -116,7 +114,7 @@ Example
 $.DispatchEvent("DOTAGlobalSceneFireEntityInput", "LightBuilder", "donkey", "SetAnimation", "spawn");
 ~~~
 
-### Scripts? Scripts!
+#### Scripts? Scripts!
 
 If you were a good boy, you might have noticed the `RunScriptFile` and `RunScriptCode` inputs.
 
@@ -128,7 +126,7 @@ Notice the lack of file extension. Press the button again. You should see the me
 
 But don't get too excited. Yes, you can execute lua from panorama. But it's _clientside_-lua and it's _very_ limited. You can't even move things there. The only good thing I could think to do is particles. A recent patch added ParticleManager support to clientside lua. So theoretically you can create, destroy and move different particles there, and particles are very powerful.
 
-### Entity parenting
+#### Entity parenting
 
 The way cosmetics in dota works is that every cosmetic item is a separate entity which is parented to a hero, attached to a specific attach point with specific offsets and offset angles. And we can do that too! (Well, partly, at least)
 

@@ -9,7 +9,7 @@ category: Other
 ##Example Tutorial  
 The purpose of this tutorial is to teach people how to make tutorials
 
-# Markdown Rundown
+## Markdown Rundown
 
 \# is for H1 Headings  
 \## is for H2 Headings  
@@ -42,8 +42,7 @@ Text
 
 * * *
 
-<a name="#table"/>
-# Table
+## Table
 
 ~~~
 |Example|Table  |Is Effective|
@@ -71,14 +70,9 @@ Note, it doesn't need to be straight or neat, it'll still work
 `![Alt Text](http://moddota.com/static/images/moddota_80x80.png "This is an image")` makes ![Alt Text](http://moddota.com/static/images/moddota_80x80.png "This is an image")
 
 
-`Test ［progress 69%］`  
-makes  
-Test [progress 69%]
-
-`［gfy CelebratedNippyBalloonfish］`  
-makes  
+`<Gfycat id="CelebratedNippyBalloonFish" />`
+makes
 <Gfycat id="CelebratedNippyBalloonFish" />
 
-note, do not copy it, as I needed to use fancy unicode for it not to parse
 * * *
 

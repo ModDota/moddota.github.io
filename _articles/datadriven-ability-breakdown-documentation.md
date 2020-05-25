@@ -27,7 +27,7 @@ category: Scripting
 [![States Block](http://i.imgur.com/ACfQMmq.png)](##states "Enable or Disable certain states on units")
 [![Modifier Events](http://i.imgur.com/LWPALN8.png)](#modifierevents "Triggers on the modifier to perform Actions")
 
-# DataDriven Ability
+## DataDriven Ability
 A DataDriven ability is a collection *KeyValues*. KeyValues are simple, tree-based structures used for storing nested sections containing key/value pairs.
 
 DataDriven abilities are defined inside scripts/npc/npc_abilities_custom.txt under a game addon folder.
@@ -73,7 +73,7 @@ This skeleton contains many keyvalues which will be expanded upon in this docume
 }
 ~~~
 
-# BaseClass
+## BaseClass
 
 BaseClass can be any default dota ability name or "ability_datadriven", which allows the use of the entire data driven ability system.
 
@@ -81,7 +81,7 @@ Using a dota ability as the BaseClass can be done either as an override of the a
 
 Here we'll focus on everything that concerns writing custom abilities from scratch, using the `"BaseClass" "ability_datadriven"`.
 
-# AbilityBehavior
+## AbilityBehavior
 
 This describes how the ability works, the general behavior to perform when it is executed.
 
@@ -91,7 +91,7 @@ Example:
 ~~~
 "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 ~~~
-## List of every possible AbilityBehavior
+### List of every possible AbilityBehavior
 
 |**AbilityBehavior**|**Description**  |
 |-------|-------|
@@ -124,7 +124,7 @@ Example:
 |DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET|Bottle and Wards.|
 |DOTA_ABILITY_BEHAVIOR_OPTIONAL_NO_TARGET|(?)|
 
-## Behavior Tooltips
+### Behavior Tooltips
 
 The following behaviors will generate a line in the ability tooltip. You want at least one of 1 behavior of this list. The rest of the ability behaviors don't have any UI support yet.
 
@@ -149,7 +149,7 @@ will be shown like this:
 
 ![img](https://i.imgur.com/xYjIXM8.jpg)
 
-# AbilityType
+## AbilityType
 
 Omitting this will default to DOTA_ABILITY_TYPE_BASIC.
 
@@ -162,7 +162,7 @@ Omitting this will default to DOTA_ABILITY_TYPE_BASIC.
 
 Additionally, ability level intervals and limits can be directly changed with these keyvalues inside the ability block:
 
-## MaxLevel
+### MaxLevel
 
 The UI currently supports the following ability level displays: 1, 3, 4, and 7.
 
@@ -173,11 +173,11 @@ You can still use any integer value as MaxLevel, and it will assign the proper l
 "MaxLevel" "10"
 ~~~
 
-## RequiredLevel
+### RequiredLevel
 
 At which level the ability can first be learned. This takes negative values, to enable for skills to be skilled at any point, because the next value sets the levels between ranks of the ability, including the first one.
 
-## LevelsBetweenUpgrades
+### LevelsBetweenUpgrades
 
 How many levels to wait to be able to learnt he next rank.
 
@@ -192,7 +192,7 @@ Results in an ability that can be first skilled at levels 3/10/17/24/31/38/45.
 
 Max level of the heroes can be changed using the Lua `SetCustomHeroMaxLevel(MAX_LEVEL)` [API function](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API).
 
-# AbilityTextureName
+## AbilityTextureName
 
 The icon file name that should be used in the UI for this ability. You can reutilize the icon from another just by putting that ability name here if desired. The internal name of every default dota ability can be found in: [Built-In Ability Names](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Ability_Names).
 
@@ -204,7 +204,7 @@ To use your own icons, place them in `resources/flash3/images/spellicons` in you
 ~~~
 ![img](https://i.imgur.com/PvTBUis.png)
 
-## Reject Self-Cast
+### Reject Self-Cast
 
 Added in Reborn:
 
@@ -212,7 +212,7 @@ Added in Reborn:
 "CastFilterRejectCaster" "1"
 ~~~
 
-## Cast While Hidden
+### Cast While Hidden
 
 Added in Reborn:
 
@@ -220,15 +220,11 @@ Added in Reborn:
 "IsCastableWhileHidden" "1"
 ~~~
 
-# Targeting
+## Targeting
 
-3 key elements set the rules for target selection: **Team**, **Type**, and **Flags**.
+3 key elements set the rules for target selection: [**Team**](#team), [**Type**](#type), and [**Flags**](#flags).
 
-## [AbilityUnitTargetTeam](#team)
-## [AbilityUnitTargetType](#type)
-## [AbilityUnitTargetFlags](#flags)
-
-## Team
+### Team
 
 |**AbilityUnitTargetTeam**|**Description**|
 |-|-|
@@ -238,7 +234,7 @@ Added in Reborn:
 |DOTA_UNIT_TARGET_TEAM_NONE|Default value by omission.|
 |DOTA_UNIT_TARGET_TEAM_CUSTOM|(?)|
 
-## Type
+### Type
 
 |**AbilityUnitTargetType**|**Targets**|
 |-|-|
@@ -254,7 +250,7 @@ Added in Reborn:
 |DOTA_UNIT_TARGET_OTHER|Everything not included in the previous types.|
 |DOTA_UNIT_TARGET_CUSTOM|Not exposed?<br/>Examples: Replicate, Sunder, Demonic Conversion, Tether, Infest...|
 
-## Flags
+### Flags
 
 Flags allow targeting units that are ignored by default (for example, magic immune enemies,) or to ignore specific types of units that will otherwise be targetable (like Ancients, or magic immune allies.)
 
@@ -306,7 +302,7 @@ Flags allow targeting units that are ignored by default (for example, magic immu
 * DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
 * DOTA_UNIT_TARGET_FLAG_PREFER_ENEMIES
 
-### Fun with Flags
+#### Fun with Flags
 
 Flags were seen as AbilityUnitTargetFlags completions, but this is not their sole application.
 
@@ -373,9 +369,9 @@ With `DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES`, and with `DOTA_UNIT_TARGET_FL
 
 <Gfycat id="FloweryUnevenHorseshoeBat" />
 
-## Other keyvalues of the Action Target block
+### Other keyvalues of the Action Target block
 
-### Line
+#### Line
 
 To target units in a line between the caster and the targeted point.
 
@@ -389,7 +385,7 @@ Instead of the `"Radius"` keyvalue, which only takes one parameter, `Line` takes
 }
 ~~~
 
-### Limiting the amount of targets
+#### Limiting the amount of targets
 
 `MaxTargets` takes an integer value to limit the amount of targets the Target block will select.
 
@@ -405,7 +401,7 @@ Instead of the `"Radius"` keyvalue, which only takes one parameter, `Line` takes
 
 (For more complex targeting, Lua scripting is the answer.)
 
-### ScriptSelectPoints
+#### ScriptSelectPoints
 
 Its use is very rare, normally when the targeting is complex we would just use `RunScript` lua and do all the acitons inside the script.
 

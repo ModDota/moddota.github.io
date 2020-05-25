@@ -6,8 +6,6 @@ date: 13.01.2015
 category: Scripting
 ---
 
-# How to find and attach particles
-
 ## Particle Types
 
   Each particle system in Dota is designed for a certain purpose, for example: 
@@ -96,9 +94,9 @@ Attach to an specific bone | attach_attack1 | You can check these by opening the
 With Reborn, now the default dota particles can be opened directly with the Particle Editor and make copies of them. Read more about this on the wiki in [Particle Copy Tool](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Particle_Copy_Tool)
 
 
-# Examples
+## Examples
 
-## 1. Simple buff particles, datadriven
+### 1. Simple buff particles, datadriven
 
 This type of particles is the easiest to attach. They are tied to a modifier and automatically stop after the modifier is destroyed.
 
@@ -118,7 +116,7 @@ For this to, the particle system duration usually needs to be infinite, designed
 
 Status Effects are a particular type of particle that is generally applied to change the texture color of the hero, for things like illusions, ghosts, etc.
 
-## 2. Basic attachment
+### 2. Basic attachment
 
 When you want more than one particle attached to a modifier or the particle needs additional control points, you need to do it in a `"FireEffect"` or `"AttachEffect"` block instead.
 
@@ -139,7 +137,7 @@ When you want more than one particle attached to a modifier or the particle need
 
 `"Target"` uses the same target rules as any datadriven block
 
-## 3. Control Points
+### 3. Control Points
 
 When the easy attachment procedure fails, it means the particle has Control Points to control certain properties like radius, position of multiple elements, color, etc.
 
@@ -148,7 +146,7 @@ To know what each CP controls, you need to open the particle in the Particle Edi
 Control Points can be either set in the datadriven `"AttachEffect"` or in lua. 
 Doing it in Lua has the advantage that you can dynamically reload the control points by doing script_reload after changing the code.
 
-### 3.1 Lua Particle Attachment with `SetParticleControl`
+#### 3.1 Lua Particle Attachment with `SetParticleControl`
 
 **Example**
 ~~~lua
@@ -177,7 +175,7 @@ ParticleManager:SetParticleControl( particle, 1, target:GetAbsOrigin() )
 
 In this particular case, we are using `CreateParticleForPlayer` to only display it to one particular player. Could also use PATTACH_OVERHEAD_FOLLOW
 
-### 3.2 Datadriven `"ControlPoints"` block
+#### 3.2 Datadriven `"ControlPoints"` block
 
 The same can be translated to datadriven, except if you need the control points to be decided at runtime (like, doing a radius * some variable)
 
@@ -217,12 +215,12 @@ Keep in mind that a `"FireEffect"` or `"AttachEffect"` action can be inside any 
 }
 ~~~
 
-## 4. Control Point Entities
+### 4. Control Point Entities
 
 Some times, particle attach points can get even more complicated when they need to be attached on specific locations or entities.
 If your attachment is not working with the simple lua method, you need to try the next level of control point setup, the **Control Point Entities**, in either Lua or Keyvalues.
 
-### 4.1 Lua `SetParticleControlEnt`
+#### 4.1 Lua `SetParticleControlEnt`
 
 **Example**: This is the proper lua attachment for Abaddon Aphotic Shield Particle:
 ~~~lua
@@ -241,7 +239,7 @@ Note the partice being defined under the `target.` handle, this is because we wi
 will not stop the particle effect by itself after the modifier is destroyed, as we are just tying the particle to a target.
 This is not a concern if the particle is meant for a short duration (unlike the buff particles that last forever until removed)
 
-### 4.2 DataDriven `"ControlPointEntities"`
+#### 4.2 DataDriven `"ControlPointEntities"`
 
 This works by setting each CP in order to its key. If you need to set the CP8 to a Targets hitloc, you **need** 8 "TARGET" (or "CASTER" or anything) lines.
 
@@ -338,7 +336,7 @@ Custom bones!
 ControlPointEntities is the hardest method of Particle Attachment. Use it with caution and pride.
 
 
-## 5. Stopping a Lua Particle
+### 5. Stopping a Lua Particle
 
 If the entity dies, it will normally destroy the particle.
 
@@ -361,7 +359,7 @@ end)
 ~~~
 
 
-## 6. Difference between "FireEffect" and "AttachEffect"
+### 6. Difference between "FireEffect" and "AttachEffect"
 
 When used inside a modifier, *AttachEffect* will automatically stop the particle after the modifier is destroyed, while *FireEffect* won't (if the particle duration is infinite)
 
@@ -371,7 +369,7 @@ So if you FireEffect with a particle of infinite duration inside a modifier, it 
  
 If the particle duration has a short duration, using any of the 2 Effect actions has the same results.
 
-## 7. Projectile Particles
+### 7. Projectile Particles
 
 There are two types of projectile particles: Linear and Tracking. 
 
@@ -380,7 +378,7 @@ Linear follow a straight line and collide with anything in its path.
 
 Tracking can curve and follow a target movement. Every ranged attack particle is of this type.
 
-### LinearProjectile
+#### LinearProjectile
 
 **DataDriven Example**
 ~~~
@@ -447,7 +445,7 @@ end
 ~~~
 
 
-### TrackingProjectile
+#### TrackingProjectile
 
 **DataDriven Example**
 ~~~

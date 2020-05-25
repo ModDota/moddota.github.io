@@ -6,15 +6,13 @@ date: 22.02.2015
 category: Beginners
 ---
 
-### Edit 9/25/15: Please note that this guide is somewhat out of date and lacking in content. I invite any decent Dota 2 modder to take the reigns and rewrite this guide proper.
-
-# Getting Started With Dota 2 Modding
+**Edit 9/25/15**: Please note that this guide is somewhat out of date and lacking in content. I invite any decent Dota 2 modder to take the reigns and rewrite this guide proper.
 
 So you're completely new to Dota 2 modding? Don't know where in the hell to begin? This is the guide for you, the future Dota 2 modder!
 
 Note: “Addon”, "mod", and “custom game” are all synonymous throughout this guide (and likely the entire website).
 
-# The Facets of Dota 2 Modding
+## The Facets of Dota 2 Modding
 
 The [Workshop Tools Wiki Homepage](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools) does a good job with subdividing all the possible aspects of Dota 2 modding:
 
@@ -25,7 +23,7 @@ The [Workshop Tools Wiki Homepage](https://developer.valvesoftware.com/wiki/Dota
 * Particles (Editing existing particles or creating your own using the Particle Editor Tool (PET))
 * Custom UI (Creating Panorama scripts to extend or modify the existing Dota 2 UI)
 
-# Step #0: Installing the Dota 2 Workshop Tools
+## Step #0: Installing the Dota 2 Workshop Tools
 
 You can't mod Dota without the Workshop Tools!
 
@@ -35,7 +33,7 @@ taken from [How to install the Dota 2 Workshop Tools](https://developer.valvesof
 * Check the box in the Install column next to Dota 2 Workshop Tools DLC.
 * Click Close. The required content will begin downloading.
 
-# Step #1: Creating a New Addon From The 'Barebones' Template
+## Step #1: Creating a New Addon From The 'Barebones' Template
 
 To start off on a good foot, you’re going to want to create a new addon based off of the Barebones template, which is a community made alternative to Valve’s default addon templates (i.e. Holdout). This is the link to the updated BMD Barebones: https://github.com/bmddota/barebones <br /> After downloading it as a zip, you want to browse to your `.../Steam/SteamApps/dota 2 beta/` and merge the `game` and `content` folders from the .zip into the that /dota 2 beta/ folder (which should already have folders in it called `game` and `content`)
 
@@ -45,7 +43,7 @@ Next, start up the Workshop Tools (or restart them if you have them opened alrea
 
 [Gfy Demo of Step #1](http://gfycat.com/NarrowIncredibleBongo). NOTE: Workshop tools now are launched through the same link in steam as the main dota client, and not the "Tools" list in steam. Otherwise this image is roughly still accurate.
 
-# Step #2: Creating your map in Hammer
+## Step #2: Creating your map in Hammer
 
 <Gfycat id="YearlyDismalHuemul" />
 
@@ -63,7 +61,7 @@ BMD has made some rather nice beginner Hammer tutorial videos:
 * [part 2: Mesh Basics](https://www.youtube.com/watch?v=grLUv2hUDRY)
 * [part 3: entity basics](https://www.youtube.com/watch?v=ln3ep-k__dk)
 
-# Step #3: Scripting and beyond...
+## Step #3: Scripting and beyond...
 
 Scripting is the next most important part of your addon. It is divided into Lua scripting, and KeyValue scripting. I'm going to go ahead and redirect you to [Noya's Beginner Scripting Guide](/articles/beginners-guide-to-dota-scripting), since it has essentially the same information that would go in this section. 
 

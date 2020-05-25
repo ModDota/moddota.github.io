@@ -18,7 +18,7 @@ A comprehensive guide to npc_items_custom and coding items
 - [Restrictions](##restrictions)
 - [Alt-Click on Inventory and Ground](##altclick)
 
-# General
+## General
 
 Start with "item_" and your item name. If you **don't** put `item_` at the begging of an item, bad things happen
   
@@ -62,7 +62,7 @@ ItemKillable lets both allies and enemies destroy the dropped item by attacking 
 "ItemStockInitial" "3"
 ~~~
 
-###Ownership
+### Ownership
   
 If you omit the following, its behavior will be NOT_SHAREABLE
 ~~~
@@ -139,7 +139,7 @@ If you don't, the item will till be combinable but it won't show the neat lines 
                       "DOTA_ITEM_DISASSEMBLE_NEVER"
 ~~~
 
-# Common Modifier Key Values for items
+## Common Modifier Key Values for items
 
 We now have an item, but it doesn't do anything on its own.
 To make it add stats or buffs, we need to set modifiers inside the item definition
@@ -174,7 +174,7 @@ For more on Modifiers, check the [Constants in the wiki]
   
 ~~~
 
-# Adding spell functionality
+## Adding spell functionality
 Apart from this values specially related to items, you can add ***everything*** that could be part of a datadriven ability, for example:
 
 ~~~
@@ -193,7 +193,7 @@ You need at least set the AbilityBehavior for your item to not be active (if you
 
 See more on the complete [DataDriven Ability Breakdown](http://moddota.com/forums/discussion/comment/54)
 
-#Icons and Custom Shops
+## Icons and Custom Shops
 
 For your item to have an icon you'll need to go to your addon folder under this path: 
 
@@ -234,7 +234,7 @@ To make an actual shop area inside your map on Hammer, check this other tutorial
 
 To disable your dota items, use [this npc_abillities_override.txt](http://pastebin.com/pGExrS4A) inside the scripts/npc folder.
 
-#Cosmetic Values: Models, Effects, Tags and others.
+## Cosmetic Values: Models, Effects, Tags and others.
 These values are optional but greatly improve the quality of your item
 
 ### Sounds when Picked, Dropped
@@ -293,12 +293,12 @@ For the Scripted, more powerful version, read more on [Item Restrictions & Requi
 
 ------
 
-### Alt-Click
+## Alt-Click
 
 Alt-click text on items in Inventory and dropped on the ground. Takes the strings from resource/addon_english.txt
  or any other languages.
 
-#### PingOverrideText
+### PingOverrideText
 
 Overrides the default "[ALLIES] **ItemName** dropped here".
  It will look for *#DOTA_Chat_Text_String* (*Text_String* can be whatever) in your addon strings. 
@@ -315,7 +315,7 @@ In addon_english.txt:
 "DOTA_Chat_Text_String" "[VOLVO] Giff"
 ~~~
 
-#### ItemAlertable
+### ItemAlertable
 
 Displays "[ALLIES] Gather for **ItemName** here."
 

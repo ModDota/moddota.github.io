@@ -6,15 +6,13 @@ date: 09.10.2016
 category: Assets
 ---
 
-# **Guide on creating/modifying Status Effects (with Template)**
-
 This is a basic guide on how to create/modify status effect particles in the particle editor. This is my first tutorial so any feedback is welcome. A template file is at the bottom of the tutorial if you want to create a status effect quickly.
 
-## **What is a Status Effect?**
+## What is a Status Effect?
 
 Status Effects are particles that change the surface texture and its parameters of a model. They distinguish themselves from normal particles by not needing an emitter and are mostly used for buffs/debuffs and effigies.
 
-### **Examples for Status Effects:**
+**Examples:**
 
 ![https://i.imgur.com/ViSMwvo.jpg](https://i.imgur.com/ViSMwvo.jpg)  
 ![https://i.imgur.com/4UyiXu4.jpg](https://i.imgur.com/4UyiXu4.jpg)  
@@ -22,7 +20,7 @@ Status Effects are particles that change the surface texture and its parameters 
 ![https://i.imgur.com/YRYNesy.jpg](https://i.imgur.com/YRYNesy.jpg)  
 ![https://i.imgur.com/z7Et01i.jpg](https://i.imgur.com/z7Et01i.jpg)
 
-## **Getting Started**
+## Getting Started
 
 Create a new File in the Particle Editor and Save it. Now before you start make sure you turn on „**view as DOTA Status Effect**“ in the Particle Editor under the view tab. This is important otherwise you can’t make any sense out of the functions.
 
@@ -44,28 +42,28 @@ What you need for a basic Status Effect:
 
 ![https://i.imgur.com/aSymXLa.jpg](https://i.imgur.com/aSymXLa.jpg)
 
-## **Step by Step**
+## Step by Step
 
 _Note:_ Since i’m not too experienced in modeling and texturing i cannot exactly tell what type of texture or parameter does what but i can show you how to modify it.  
 Please also note that your Status Effect will not be visible in the particle editor. You will have to go ingame to see it.
 
-### **Base Properties**
+### Base Properties
 
 In the base properties set initial particles and max particles to 1\. Leave the rest as it is.
 
-### **Lifespan endcap timed decay**
+### Lifespan endcap timed decay
 
 Just leave this as it is.
 
-### **Render status effect**
+### Render status effect
 
 This function will have the most impact on how the status effect looks. It selects what type of texture is replaced with what .vtex/.vmat file. In Valve’s Status effects those textures are defined through multiple „Vector component random“. They basically do the same thing but we are choosing „Render status effect“ because it is much easier to handle and understand.
 
-[https://imgur.com/gallery/jIhkOve](https://imgur.com/gallery/jIhkOve)
+![https://i.imgur.com/jIhkOve.jpg](https://i.imgur.com/jIhkOve.jpg)
 
 _Note:_ The ones that will probably have the most impact are: color warp texture and detail 2 texture.
 
-##### **Color warp texture**
+##### Color warp texture
 
 A 3D texture that applies a color transformation like hue shift or contrast adjustments to the original colors. Click on the magnifying glass and type colorwarp in the searchbar to see all the color warp textures.
 
@@ -79,7 +77,7 @@ _Associated Parameters_:
 
 *   ColorWarpBlendFactor
 
-##### **Detail 2 texture**
+##### Detail 2 texture
 
 A texture that is repeatedly overlaid on the model. You can basically use any texture for this. You can even use your own(just look up how to convert .tga to .vtex on google). Make sure you select an appropriate blend mode for your texture with **D_DETAIL_2** (will be covered later on). If you don't need this set Detail2BlendFactor to 0.
 
@@ -93,7 +91,7 @@ _Associated Parameters_:
 *   D_DETAIL_2
 *   Detail2TexCoordScale
 
-##### **Diffuse warp texture**
+##### Diffuse warp texture
 
 Determines where diffuse reflections occur. This is mostly obsolete since it is not enabled on most heroes. If you don't need this set DiffuseWarpBlendToFull to 0.
 
@@ -101,17 +99,17 @@ _Associated Parameters_:
 
 *   DiffuseWarpBlendToFull
 
-##### **Fresnel color warp texture**
+##### Fresnel color warp texture
 
 Applies a colortransfromation around the edges of the model. Use color warp textures for this.
 
 _Note_: You don't need to have this.
 
-##### **Fresnel warp texture**
+##### Fresnel warp texture
 
 Determines where the fresnel color warp is applied.
 
-##### **Specular warp texture**
+##### Specular warp texture
 
 Determines where the specular reflection occurs. Specular reflection is a mirror-like reflection of the Light. If you don't need this set SpecularScale to 0.
 
@@ -127,11 +125,11 @@ _Associated Parameters_:
 *   SpecularExponentBlendToFull
 *   SpecularBlendToFull
 
-##### **Environment map texture**
+##### Environment map texture
 
 I’m not sure what this does. It doesn’t seem to have much impact.
 
-### **Scalar random**
+### Scalar random
 
 In the properties window you can set what the scalar random function should do. The output field defines what parameter should be changed and the min and max values(which should be most of the time equal) set how much it is changed.
 
@@ -169,17 +167,17 @@ _Note_: In this guide min and max will always be equal. If you don’t know what
     *   Defines how much the Fresnel Colorwarp Texture is blended in. (I‘m not sure on this)
     *   _Values_: 0 to 1\.
 
-### **Vector component random/Vector random**
+### Vector component random/Vector random
 
 _Note_: You can either use 8 _Vector component random_ or 3 _Vector random_
 
-##### **Vector component random**
+##### Vector component random
 
 Here the functionality is defined through the output field and the component field. The output field selects a set of three different parameters (as you can see some of them can be NONE and are just placeholders). The component field chooses what exact parameter from that set should be changed. X Component selects the first, Y Component the second and Z Component the third. Like in Scalar random min and max define how much the parameter is changed.
 
 ![https://i.imgur.com/UtssvMq.jpg](https://i.imgur.com/UtssvMq.jpg)
 
-##### **Vector random**
+##### Vector random
 
 Has the same purpose as _Vector component random_ but here you can edit all 3 parameters of the set in one function. The first min and max values set the min and max for the first parameter of the chosen set, the second min and max set the values for the second parameter and so on. If you don't need a parameter set it's min and max values to 0 or -1.
 
@@ -190,7 +188,7 @@ Has the same purpose as _Vector component random_ but here you can edit all 3 pa
 _Note_: Again just play around with the values to see yourself what is changed.  
 With _Vector random_ you only need one of each set.
 
-#### **2x/1x SpecularScale +NONE+DiffuseWarpBlendToFull**
+#### 2x/1x SpecularScale +NONE+DiffuseWarpBlendToFull
 
 *   **SpecularScale**  
 
@@ -201,7 +199,7 @@ With _Vector random_ you only need one of each set.
     *   Defines how much the Diffuse Warp Texture is blended in.
     *   _Values_: 1 = Fully blended in, 0 = Fully transparent.
 
-#### **3x/1x SpecularExponent+SpecularExponentBlendToFull+SpecularBlendToFull**
+#### 3x/1x SpecularExponent+SpecularExponentBlendToFull+SpecularBlendToFull
 
 *   **SpecularExponent**  
 
@@ -216,7 +214,7 @@ With _Vector random_ you only need one of each set.
     *   Defines how much the Specular is blended in.
     *   _Values_: 1 = Fully blended in, 0 = Fully transparent.
 
-#### **3x/1x ReflectionsTintBaseBlendToNone+MetalnessBlendToFull+SelfIllumBlendToFull**
+#### 3x/1x ReflectionsTintBaseBlendToNone+MetalnessBlendToFull+SelfIllumBlendToFull
 
 *   **ReflectionsTintBaseBlendToNone**  
 
@@ -231,7 +229,7 @@ With _Vector random_ you only need one of each set.
     *   Sets How much self illumination the status effect will have.
     *   _Values_: 0 = no self Illumination, 1 = full self Illumination.
 
-### **Color random**
+### Color random
 
 With the Color random function we can define the Rim Light Color and the Specular Color. The only options we need from the properties window are color 1, color 2 and output field. The output field again sets what will be changed and color 1 and 2 set to what color it will be changed.
 
@@ -248,7 +246,7 @@ _Note_: Color 1 and 2 don’t need to be the same but in most cases they should 
 
     *   Sets the Specular Color.
 
-## **Template**
+## Template
 
 Here you can download a template of a basic status effect particle file:  
 [https://dl.dropboxusercontent.com/u/32606308/status_effect_template.vpcf](https://dl.dropboxusercontent.com/u/32606308/status_effect_template.vpcf) (right click --> save target as)  

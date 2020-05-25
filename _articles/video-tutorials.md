@@ -6,8 +6,6 @@ date: 19.10.2019
 category: Beginners
 ---
 
-# Video Tutorials
-
 ![img](https://i.imgur.com/wLzYrUE.png)
 
  Hopefully this will a useful resource to learn for anyone who is starting out or stuck with certain aspects of creating custom games. 
