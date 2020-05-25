@@ -25,6 +25,9 @@ module.exports = {
                     editUrl: "https://github.com/ModDota/moddota.github.io/edit/source/",
                     remarkPlugins: [require("./docusaurus/remark-component-provider")],
                 },
+                theme: {
+                    customCss: require.resolve("./src/custom.scss"),
+                },
                 pages: {
                     include: ["index.tsx"],
                 },
