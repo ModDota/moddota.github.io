@@ -1,5 +1,5 @@
 ---
-title: Volcano Particle Creation
+title: Volcano Particle
 author: Noya
 steamId: 76561198046984233
 date: 07.02.2015
