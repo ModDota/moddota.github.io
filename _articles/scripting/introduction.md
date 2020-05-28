@@ -1,7 +1,7 @@
 ---
 title: Introduction to Dota Scripting
 author: Noya
-steamId: 76561198046984233
+steamId: '76561198046984233'
 date: 18.02.2015
 ---
 

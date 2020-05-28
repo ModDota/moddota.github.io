@@ -1,7 +1,7 @@
 ---
 title: Getting Started
 author: Myll
-steamId: 76561198000729788
+steamId: '76561198000729788'
 date: 22.02.2015
 ---
 

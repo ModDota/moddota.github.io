@@ -1,7 +1,7 @@
 ---
 title: Extracting and Compiling VTEX files
 author: HMFD
-steamId: 76561198053730418
+steamId: '76561198053730418'
 date: 21.01.2015
 ---
 

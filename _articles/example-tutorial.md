@@ -1,7 +1,7 @@
 ---
 title: Example Tutorial
 author: SinZ
-steamId: 76561198039302883
+steamId: '76561198039302883'
 date: 01.12.2014
 ---
 

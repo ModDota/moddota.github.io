@@ -1,7 +1,7 @@
 ---
 title: The importance of AbilitySpecial values
 author: Noya
-steamId: 76561198046984233
+steamId: '76561198046984233'
 date: 12.12.2014
 ---
 

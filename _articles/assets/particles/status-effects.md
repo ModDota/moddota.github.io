@@ -1,7 +1,7 @@
 ---
 title: Status Effects
 author: TheRisen41
-steamId: 76561198078268404
+steamId: '76561198078268404'
 date: 09.10.2016
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Making any ability use charges
 author: DoctorGester
-steamId: 76561198046920629
+steamId: '76561198046920629'
 date: 28.12.2015
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Introduction to Panorama UI with Typescript'
 author: Perry
-steamId: 76561198046986723
+steamId: '76561198046986723'
 date: 26.07.2017
 ---
 

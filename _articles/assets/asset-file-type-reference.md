@@ -1,7 +1,7 @@
 ---
 title: Asset File Type Reference
 author: Noya
-steamId: 76561198046984233
+steamId: '76561198046984233'
 date: 28.05.2015
 ---
 

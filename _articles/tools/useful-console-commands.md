@@ -1,7 +1,7 @@
 ---
 title: Useful Console Commands
 author: Noya
-steamId: 76561198046984233
+steamId: '76561198046984233'
 date: 22.02.2015
 ---
 

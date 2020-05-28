@@ -38,16 +38,16 @@ First, you need to set a file name. Choose a descriptive name, words separated b
 
 Second, you need to set some basic article information at the top, the layout is always the same (including dashes):
 
-```
+```yaml
 ---
-title: <Title of your article>    # Title of your article
+title: <Title of your article>    # Title of your article (required)
 author: <your name>               # Your name
-steamId: <your steam ID>          # (Optional) your steam ID to link to your steam profile
+steamId: '<your steam ID>'        # Your steam ID to link to your steam profile
 date: <date>                      # The date of writing
 ---
 ```
 
-The steam ID field is optional. If you fill it in we will automatically generate a link to your steam profile at the top of the article.
+The only required field is `title`, all other fields can be safely omitted.
 
 ### Submit your article for review
 

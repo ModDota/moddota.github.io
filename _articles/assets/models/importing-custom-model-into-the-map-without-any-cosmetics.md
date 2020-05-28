@@ -1,7 +1,7 @@
 ---
 title: Importing custom model into the map without any cosmetics
 author: kritth
-steamId: 76561198055627364
+steamId: '76561198055627364'
 date: 28.01.2015
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Lava damage'
 author: DiNaSoR
-steamId: 76561197974680917
+steamId: '76561197974680917'
 date: 20.08.2015
 ---
 
