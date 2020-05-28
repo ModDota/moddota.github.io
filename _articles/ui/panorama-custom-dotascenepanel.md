@@ -3,7 +3,6 @@ title: 'Panorama - Custom DOTAScenePanel'
 author: DoctorGester
 steamId: 76561198046920629
 date: 02.04.2016
-category: User Interface
 ---
 
 In this tutorial we'll go through the tricks you can do with the undocumented DOTAScenePanel class in panorama.

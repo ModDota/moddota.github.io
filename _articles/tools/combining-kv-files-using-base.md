@@ -3,7 +3,6 @@ title: 'Combining KV files using #base'
 author: Perry
 steamId: 76561198046986723
 date: 06.04.2016
-category: Scripting
 ---
 
 Having one kv file containing every unit or ability definition as is default in the mod interface can become very annoying very quickly. Splitting up this one file into several smaller KV files makes it easier to keep an overview and manage your files. Usually people would use modkit for this, but:

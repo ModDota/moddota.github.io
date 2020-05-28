@@ -3,7 +3,6 @@ title: Getting Started
 author: Myll
 steamId: 76561198000729788
 date: 22.02.2015
-category: Beginners
 ---
 
 **Edit 9/25/15**: Please note that this guide is somewhat out of date and lacking in content. I invite any decent Dota 2 modder to take the reigns and rewrite this guide proper.

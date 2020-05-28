@@ -3,7 +3,6 @@ title: Point Channeling AoE Ability Example
 author: Noya
 steamId: 76561198046984233
 date: 27.01.2015
-category: Scripting
 ---
 
 Here I'll explain a method to do this type of abilities effectively, based on this Earthquake Example:

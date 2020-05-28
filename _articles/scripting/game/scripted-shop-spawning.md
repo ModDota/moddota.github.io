@@ -3,7 +3,6 @@ title: Scripted Shop Spawning
 author: snippet
 steamId: 76561198017441460
 date: 29.04.2015
-category: Scripting
 ---
 
 A feature commonly asked about is how to dynamically create shops. Turns out it's actually quite easy! Here's what to do.

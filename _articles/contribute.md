@@ -44,19 +44,8 @@ title: <Title of your article>    # Title of your article
 author: <your name>               # Your name
 steamId: <your steam ID>          # (Optional) your steam ID to link to your steam profile
 date: <date>                      # The date of writing
-category: <category>              # One of: Scripting/User Interface/Assets/Beginners/Other
 ---
 ```
-
-The category must be one of the following (exact capitalization!):
-
-Category | Description 
---- | ---
-Scripting | Related to Lua/KV 
-User Interface | Related to Panorama 
-Assets | Maps / Modelling / Particles 
-Beginners | Tutorials meant as beginner guides 
-Other | Everything not covered by the above 4 categories 
 
 The steam ID field is optional. If you fill it in we will automatically generate a link to your steam profile at the top of the article.
 

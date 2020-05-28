@@ -3,7 +3,6 @@ title: Making a &quot;rpg-like&quot; looting chest
 author: FrenchDeath
 steamId: 76561198002718302
 date: 18.12.2015
-category: Scripting
 ---
 
 Hello , it's the first time i'm making a tutorial here (and on lua too)

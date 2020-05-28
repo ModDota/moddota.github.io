@@ -3,7 +3,6 @@ title: Falling cherry blossom petal for spring mood particle
 author: kritth
 steamId: 76561198055627364
 date: 05.02.2015
-category: Assets
 ---
 
 <p>

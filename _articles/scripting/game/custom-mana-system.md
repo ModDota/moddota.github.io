@@ -3,7 +3,6 @@ title: Custom Mana System
 author: Noya
 steamId: 76561198046984233
 date: 01.12.2014
-category: Scripting
 ---
 
 This is a guide to make a simple custom mana system. A working barebones addon is assumed. 

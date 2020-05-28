@@ -3,7 +3,6 @@ title: Passing AbilitySpecial values into Lua
 author: Noya
 steamId: 76561198046984233
 date: 12.12.2014
-category: Scripting
 ---
 
 Given this "AbilitySpecial" block in the ability:

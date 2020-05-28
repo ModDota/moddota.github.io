@@ -3,7 +3,6 @@ title: Importing custom model into the map without any cosmetics
 author: kritth
 steamId: 76561198055627364
 date: 28.01.2015
-category: Assets
 ---
 
 <p>Many people probably have the idea of using custom models into the map but having a hard time with importing models into the engine, importing animation for the models, importing texture for the model, creating up your hero without cosmetic problem, and especially, doing this with .mdx format which is originally from Warcraft 3 since many people seems to want to port maps from warcraft 3 to source 2. Here is the tutorial on how to do so.</p>

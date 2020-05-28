@@ -3,7 +3,6 @@ title: Illusion Ability Example
 author: Noya
 steamId: 76561198046984233
 date: 11.01.2015
-category: Scripting
 ---
 
 This is a lua script to properly create an illusion.

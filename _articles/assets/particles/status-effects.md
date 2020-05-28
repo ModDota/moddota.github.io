@@ -3,7 +3,6 @@ title: Status Effects
 author: TheRisen41
 steamId: 76561198078268404
 date: 09.10.2016
-category: Assets
 ---
 
 This is a basic guide on how to create/modify status effect particles in the particle editor. This is my first tutorial so any feedback is welcome. A template file is at the bottom of the tutorial if you want to create a status effect quickly.

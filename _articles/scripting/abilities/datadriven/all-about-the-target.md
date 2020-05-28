@@ -3,7 +3,6 @@ title: All about the Target
 author: Noya
 steamId: 76561198046984233
 date: 23.01.2015
-category: Scripting
 ---
 
 I wanted to review a [very old thread](http://moddota.com/cmsinternal/index.php/tet/pre-empting-problems-in-dota) which was posted almost one year ago but still isn't completely well documented anywhere:

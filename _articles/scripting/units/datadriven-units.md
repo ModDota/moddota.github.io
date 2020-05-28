@@ -3,7 +3,6 @@ title: Datadriven Units
 author: Noya
 steamId: 76561198046984233
 date: 22.04.2015
-category: Scripting
 ---
 
 This document covers every keyvalue of the npc_units_custom file

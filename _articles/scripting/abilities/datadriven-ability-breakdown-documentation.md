@@ -3,7 +3,6 @@ title: DataDriven Ability Breakdown - Documentation
 author: Noya
 steamId: 76561198046984233
 date: 10.12.2014
-category: Scripting
 ---
 
 [![img](http://i.imgur.com/JTVv40S.png)](#datadriven-ability "Get started")

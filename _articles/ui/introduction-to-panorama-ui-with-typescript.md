@@ -3,7 +3,6 @@ title: 'Introduction to Panorama UI with Typescript'
 author: Perry
 steamId: 76561198046986723
 date: 26.07.2017
-category: User Interface
 ---
 
 ## What is Typescript and why should I use it

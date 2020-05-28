@@ -3,7 +3,6 @@ title: 'Creating innate (available from level 1) abilities'
 author: DoctorGester
 steamId: 76561198046920629
 date: 27.09.2019
-category: Scripting
 ---
 
 This article will guide you through creating an ability which is available to the given hero right away, like Earth Spirit's Stone Remnant.

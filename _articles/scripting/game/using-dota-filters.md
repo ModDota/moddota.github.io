@@ -3,7 +3,6 @@ title: 'Using the order filter and other filters'
 author: Perry
 steamId: 76561198046986723
 date: 26.06.2016
-category: Scripting
 ---
 
 ## Filters in general
