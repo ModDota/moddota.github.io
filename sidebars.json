@@ -1,8 +1,7 @@
 {
     "docs": [
-        { "type": "link", "label": "Getting Started", "href": "/" },
-        "modding-introduction",
-        "video-tutorials",
+        { "type": "link", "label": "Introduction", "href": "/" },
+        "getting-started",
         {
             "type": "category",
             "label": "Scripting",
