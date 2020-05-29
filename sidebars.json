@@ -135,7 +135,7 @@
         {
             "type": "category",
             "label": "Other",
-            "items": ["new-api-wiki-pages", "contribute", "example-tutorial"]
+            "items": ["new-api-wiki-pages", "contribute"]
         }
     ]
 }

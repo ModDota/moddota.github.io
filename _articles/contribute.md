@@ -2,14 +2,6 @@
 title: Contribute
 ---
 
-**Table of contents**
-
-- [Suggest an article on GitHub](#suggest-an-article-on-github)
-- [Gfycat/Youtube content](#gfycatyoutube-content)
-- [Using a git fork](#using-a-git-fork)
-
-
-
 ## Suggest an article on GitHub
 
 To suggest a new article go to the [/_articles directory of the ModDota GitHub](https://github.com/ModDota/moddota.github.io/tree/master/_articles)
@@ -61,9 +53,23 @@ Someone will check if the article is not broken on the website and is not missin
 
 Once your tutorial is merged it is automatically released to the website.
 
+## Writing tutorials
 
+Tutorials can be written in Markdown markup language, with some extra features from GitHub Flavored Markdown supported. To get familiar with the syntax, you can visit GitHub's [Mastering Markdown](https://guides.github.com/features/mastering-markdown/) page.
 
-## Gfycat/Youtube Content
+In addition, this website supports markdown extensions provided by [Docusaurus](https://v2.docusaurus.io/docs/markdown-features):
+
+```lua title="named-code-example.lua" {2}
+function foo() {
+  -- Highlighted line
+}
+```
+
+:::note
+Admonitions
+:::
+
+### Embeds
 
 **To add a Gfycat gif to the page use the following format:**
 
@@ -71,14 +77,11 @@ To embed https://gfycat.com/remarkableimportantant:
 
 Use `<Gfycat id="remarkableimportantant" />`
 
-
-
 **To add a YouTube player to the page use the following:**
 
 To embed https://www.youtube.com/watch?v=GMvmdnNM6Sc:
 
 Use `<YouTube id="GMvmdnNM6Sc" />`
-
 
 
 ## Using a git fork
@@ -104,4 +107,3 @@ ask-a-question.md  # The 'Ask-A-Question' page
 contribute.md      # This page
 index.md           # Homepage
 ```
-
