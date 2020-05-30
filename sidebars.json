@@ -13,10 +13,15 @@
                 "abilities/passing-abilityspecial-values-into-lua",
                 "abilities/abilityduration-tooltips",
                 "abilities/simple-custom-ability",
-                "abilities/lua-item-tutorial",
                 "abilities/creating-innate-abilities",
                 "abilities/making-any-ability-use-charges",
                 "abilities/calling-spells-with-setcursor",
+                {
+                    "type": "link",
+                    "label": "Lua Abilities and Modifiers",
+                    "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Lua_Abilities_and_Modifiers"
+                },
+                "abilities/lua-item-tutorial",
                 {
                     "type": "category",
                     "label": "Lua Modifiers",
@@ -69,16 +74,31 @@
                 "scripting/lava-damage",
                 "scripting/using-dota-filters",
                 "scripting/particle-attachment",
-                "scripting/precache-fixing-and-avoiding-issues"
+                "scripting/precache-fixing-and-avoiding-issues",
+                {
+                    "type": "link",
+                    "label": "Custom NetTables",
+                    "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Custom_Nettables"
+                }
             ]
         },
         {
             "type": "category",
             "label": "Panorama UI",
             "items": [
+                {
+                    "type": "link",
+                    "label": "Introduction",
+                    "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama"
+                },
                 "panorama/introduction-to-panorama-ui-with-typescript",
                 "panorama/keybindings",
                 "panorama/dotascenepanel",
+                {
+                    "type": "link",
+                    "label": "Custom Game Setup",
+                    "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Custom_Game_Setup"
+                },
                 "panorama/hiding-hud-with-sethudvisible"
             ]
         },
@@ -126,10 +146,6 @@
                 "tools/combining-kv-files-using-base"
             ]
         },
-        {
-            "type": "category",
-            "label": "Other",
-            "items": ["new-api-wiki-pages", "contribute"]
-        }
+        "contribute"
     ]
 }

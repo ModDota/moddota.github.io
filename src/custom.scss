@@ -30,6 +30,18 @@
     }
 }
 
+.menu__link[href^="https://developer.valvesoftware.com/"]
+{
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 1.25rem;
+        width: 1.25rem;
+        background-image: url("/images/valve-developer-community.ico");
+        background-size: 1.25rem;
+    }
+}
+
 .table-of-contents::before {
     content: url("/images/table-of-contents.png");
     filter: drop-shadow(0px 0px 1px #444);
