@@ -30,9 +30,19 @@
     }
 }
 
-.menu__link[href^="https://developer.valvesoftware.com/"]
-{
-    &::after {
+:not(.navbar-sidebar__items) > .menu .menu__link {
+    &[href="/"]::after,
+    &[href="/abilities/simple-custom-ability"]::after {
+        content: "";
+        display: inline-block;
+        height: 1.25rem;
+        width: 1.25rem;
+        background-image: url("/images/youtube.svg");
+        background-size: 1.25rem;
+    }
+
+    &[href^="https://developer.valvesoftware.com/"]::after
+    {
         content: "";
         display: inline-block;
         height: 1.25rem;
