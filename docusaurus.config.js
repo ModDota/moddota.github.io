@@ -10,6 +10,12 @@ module.exports = {
             logo: { src: "images/logo-80x80.png" },
             links: [
                 { position: "left", label: "Tutorials", to: "/" },
+                { position: "left", label: "Lua API", href: "https://dota.tools/vscripts/" },
+                {
+                    position: "left",
+                    label: "Panorama API",
+                    href: "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama/Javascript/API",
+                },
                 { position: "right", label: "Discord", href: "https://discord.gg/gRmZgvz" },
             ],
         },
