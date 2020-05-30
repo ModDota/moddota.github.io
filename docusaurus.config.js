@@ -7,7 +7,11 @@ module.exports = {
     themeConfig: {
         navbar: {
             title: "ModDota",
-            links: [{ href: "https://discord.gg/gRmZgvz", label: "Discord", position: "right" }],
+            logo: { src: "images/logo-80x80.png" },
+            links: [
+                { position: "left", label: "Tutorials", to: "/" },
+                { position: "right", label: "Discord", href: "https://discord.gg/gRmZgvz" },
+            ],
         },
         prism: {
             additionalLanguages: ["lua"],
