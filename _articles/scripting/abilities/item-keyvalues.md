@@ -7,16 +7,6 @@ date: 01.12.2014
 
 A comprehensive guide to npc_items_custom and coding items
 
-![img](http://i.imgur.com/T7W828Q.png)
-
-- [General](##general)
-- [Common Modifier Key Values for items](##modifiers)
-- [Adding spell functionality](##spells)
-- [Icons and Custom Shops](##shops)
-- [Cosmetic Values: Models, Effects, Tags](##cosmetics)
-- [Restrictions](##restrictions)
-- [Alt-Click on Inventory and Ground](##altclick)
-
 ## General
 
 Start with "item_" and your item name. If you **don't** put `item_` at the begging of an item, bad things happen

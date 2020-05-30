@@ -5,14 +5,6 @@ steamId: '76561198055627364'
 date: 05.02.2015
 ---
 
-<h2>Table of content</h2>
-- <a href="#intro">Introduction</a><br />
-- <a href="#wave">Part one: Wave Particle</a><br />
-- <a href="#static">Part two: Spark Particle</a><br />
-- <a href="#ground">Part three: Ground Particle (Optional)</a><br />
-- <a href="#final">Part four: Finalize the system</a>
-- <a href="#lua">Part five: Implement in-game</a>
-
 <a name="intro"></a><h1>Introduction</h1>
 <p>
 This is taken from the project I'm currently working on. The basic idea behind this particle system was that this projectile is a cyclone/tornado in xy-axis travel forward with certain amount of velocity. If you don't have any basic in particle editor, please go to <a href="/articles/particles-creation-series-particle-basics">this link</a> first. Before you read further, here is the finished product.

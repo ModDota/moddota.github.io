@@ -11,13 +11,6 @@ So I was asked by many people about particle creation and work flow since the tu
 <p>
 Also noted that some particles system implementation might have Lua scripting involved if it is very complicated system. So a little of basic lua scripting will help you every now and then.
 </p>
-<h2>Table of Content</h2>
-<p>In this thread</p>
-- <a href="#particle_basics">Particle Basics</a><br />
-- <a href="#first_particle">Creating your first particle</a>
-<p>Example in separate threads</p>
-- <a href="/articles/particles-creation-series-falling-cherry-blossom-petal-for-spring-mood">Example: Falling cherry blossom petal</a><br />
-- <a href="/articles/particles-creation-series-chaos-wave">Example: Chaos Wave</a>
 <p>
 Again, let me know what kind of particle system you want to see created so I can keep this tutorial series going.
 </p>

@@ -5,15 +5,8 @@ steamId: '76561198046984233'
 date: 10.12.2014
 ---
 
-[![img](http://i.imgur.com/JTVv40S.png)](#datadriven-ability "Get started")
-[![BaseClass](http://i.imgur.com/KI6fmyE.png)](#baseclass "BaseClass ability_datadriven")
-[![Behavior](http://i.imgur.com/ujvVUCw.png)](#abilitybehavior "Main behavior property of the ability")
-[![Ability Type](http://i.imgur.com/far760I.png)](#abilitytype "Basic, Ultimate and other Leveling rules")
-[![Icon Texture](http://i.imgur.com/a1Kogu4.png)](#abilitytexturename "Set the Spell Icon in the interface")
-[![UnitTarget](http://i.imgur.com/8EsWKFO.png)](#targeting "Targeting options")
-[![Team](http://i.imgur.com/hiWGRJq.png)](#team "Target Teams")
-[![Type](http://i.imgur.com/jqo3t4O.png)](#type "Target Type of units")
-[![Flags](http://i.imgur.com/FC0IEBp.png)](#flags "Ignore or include targets with Flags")
+<!--
+TODO: Some categories are missing:
 [![Damage Type](http://i.imgur.com/WwwNkbj.png)](##damage "Damage type of the ability")
 [![Cast Animation](http://i.imgur.com/ewEWcom.png)](##animation "Animation when the spell starts casting")
 [![General Stats](http://i.imgur.com/5mO6j4Z.png)](##stats "General numeric values")
@@ -25,6 +18,7 @@ date: 10.12.2014
 [![Properties Block](http://i.imgur.com/HFXTmij.png)](##properties "Give numeric stat values for the duration of the modifier")
 [![States Block](http://i.imgur.com/ACfQMmq.png)](##states "Enable or Disable certain states on units")
 [![Modifier Events](http://i.imgur.com/LWPALN8.png)](#modifierevents "Triggers on the modifier to perform Actions")
+-->
 
 ## DataDriven Ability
 A DataDriven ability is a collection *KeyValues*. KeyValues are simple, tree-based structures used for storing nested sections containing key/value pairs.
