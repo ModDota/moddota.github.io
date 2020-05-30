@@ -35,10 +35,10 @@ Open the Model Editor and select **New VMDL From Mesh File** option, and choose 
 
 Save and close.
 
-## Step 3. Add Cube.dmx hitbox
+## Step 3. Add Cube.fbx hitbox
 
 
-This is a mesh with 1 bone. [Download it directly](https://github.com/ModDota/moddota.github.io/blob/master/_resources/cube.fbx) and put the file in your model folder
+This is a mesh with 1 bone. [Download it directly](/cube.fbx) and put the file in your model folder
 
 
 Credits to @Internet_Veteran
