@@ -1,24 +1,24 @@
 ---
-title: 'Introduction to Panorama UI with Typescript'
+title: Introduction to Panorama UI with TypeScript
 author: Perry
 steamId: '76561198046986723'
 date: 26.07.2017
 ---
 
-## What is Typescript and why should I use it
+## What is TypeScript and why should I use it
 
-[Typescript](https://www.typescriptlang.org/) is a language created by and for people that were unhappy with Javascript and all of its quirks and flaws. Typescript is a language with its own syntax (although similar to Javascript) that compiles to Javascript in a way that avoids a lot of Javascript's issues.
+[TypeScript](https://www.typescriptlang.org/) is a language created by and for people that were unhappy with Javascript and all of its quirks and flaws. TypeScript is a language with its own syntax (although similar to Javascript) that compiles to Javascript in a way that avoids a lot of Javascript's issues.
 
-The name Typescript comes from the fact that the language is basically Javascript with type checking, but on top of that it supports all of the newest Javascript language construct that are not supported by Panorama.
+The name TypeScript comes from the fact that the language is basically Javascript with type checking, but on top of that it supports all of the newest Javascript language construct that are not supported by Panorama.
 
-**Pros of using Typescript:**
+**Pros of using TypeScript:**
 
 *   Type checking
 *   Code completion based on type (also for API!)
 *   Prevents scoping issues
 *   Proper OOP constructs (such as classes, interfaces, inheritance...)
 
-**Cons of using Typescript:**
+**Cons of using TypeScript:**
 
 *   Requires some setup
 *   Remember to compile
@@ -34,7 +34,7 @@ That's it, after these three steps you are ready to start using TypeScript.
 
 [Visual Studio Code](https://code.visualstudio.com/) supports TypeScript out of the box. For other editors you might have to install a plugin to get language features (for example [Sublime TypeScript plugin](https://github.com/Microsoft/TypeScript-Sublime-Plugin#installation), available through Sublime Text package manager).
 
-## How to set up Typescript for your dota addon
+## How to set up TypeScript for your dota addon
 
 TypeScript requires a `tsconfig.json` used to configure it for your project. Put it in your addon's `content/panorama` directory. You can adjust all settings yourself, but I usually have this set to the most strict settings. My preferred configuration:
 
@@ -63,7 +63,7 @@ Your addon's content directory structure should be something like this:
 
 To illustrate why I like using TypeScript for modular UI I will walk through a small example. We will be making some hero portraits with player name and a healh bar: ![What we are making](http://web.archive.org/web/20190201023254im_/http://i.imgur.com/ZrqqlFo.png "Example UI")
 
-Since this tutorial is about Typescript I will just quickly give the xml and css, this is standard stuff:
+Since this tutorial is about TypeScript I will just quickly give the xml and css, this is standard stuff:
 
 ~~~xml
 <root>

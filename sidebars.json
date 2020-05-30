@@ -11,13 +11,16 @@
                     "type": "category",
                     "label": "Abilities, items, modifiers",
                     "items": [
-                        "scripting/abilities/datadriven-ability-breakdown-documentation",
-                        "scripting/abilities/datadriven-items",
+                        "scripting/abilities/ability-keyvalues",
+                        "scripting/abilities/item-keyvalues",
                         "scripting/abilities/the-importance-of-abilityspecial-values",
                         "scripting/abilities/passing-abilityspecial-values-into-lua",
                         "scripting/abilities/abilityduration-tooltips",
                         "scripting/abilities/simple-custom-ability",
                         "scripting/abilities/lua-item-tutorial",
+                        "scripting/abilities/creating-innate-abilities",
+                        "scripting/abilities/making-any-ability-use-charges",
+                        "scripting/abilities/calling-spells-with-setcursor",
                         {
                             "type": "category",
                             "label": "Lua Modifiers",
@@ -28,9 +31,6 @@
                                 "scripting/abilities/lua-modifiers/4"
                             ]
                         },
-                        "scripting/abilities/creating-innate-abilities",
-                        "scripting/abilities/making-any-ability-use-charges",
-                        "scripting/abilities/calling-spells-with-setcursor",
                         "scripting/abilities/reutilizing-built-in-modifiers",
                         {
                             "type": "category",
@@ -53,7 +53,7 @@
                     "type": "category",
                     "label": "Units",
                     "items": [
-                        "scripting/units/datadriven-units",
+                        "scripting/units/unit-keyvalues",
                         "scripting/units/unit-producing-buildings",
                         "scripting/units/creating-units-with-a-duration",
                         "scripting/units/adding-a-very-simple-ai-to-units",
@@ -83,8 +83,8 @@
             "label": "Panorama UI",
             "items": [
                 "panorama/introduction-to-panorama-ui-with-typescript",
-                "panorama/custom-keybindings-in-panorama",
-                "panorama/panorama-custom-dotascenepanel",
+                "panorama/keybindings",
+                "panorama/dotascenepanel",
                 "panorama/hiding-hud-with-sethudvisible"
             ]
         },
@@ -102,7 +102,7 @@
                     "type": "category",
                     "label": "Models",
                     "items": [
-                        "assets/models/importing-custom-model-into-the-map-without-any-cosmetics",
+                        "assets/models/importing-custom-models",
                         "assets/models/mdl-to-vmdl-conversion",
                         "assets/models/adding-hitbox-to-models-without-a-bone"
                     ]
@@ -118,7 +118,7 @@
                         "assets/particles/status-effects"
                     ]
                 },
-                "assets/adding-and-playing-custom-sounds",
+                "assets/custom-sounds",
                 "assets/extracting-and-compiling-vtex-files",
                 "assets/custom-minimap-icons"
             ]

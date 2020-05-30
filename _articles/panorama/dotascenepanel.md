@@ -1,5 +1,5 @@
 ---
-title: 'Panorama - Custom DOTAScenePanel'
+title: DOTAScenePanel
 author: DoctorGester
 steamId: '76561198046920629'
 date: 02.04.2016

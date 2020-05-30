@@ -1,5 +1,5 @@
 ---
-title: DataDriven Ability Events &amp;amp; Modifiers
+title: DataDriven Ability Events & Modifiers
 author: Noya
 steamId: '76561198046984233'
 date: 10.12.2014
