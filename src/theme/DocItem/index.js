@@ -58,7 +58,7 @@ function DocMetadata({ content: DocContent }) {
     }
 
     return (
-        <div className="margin-vert--xl">
+        <div style={{ marginTop: "-10px", marginBottom: "10px" }}>
             <div className="row">
                 <div className="col">
                     {editUrl && (
@@ -198,6 +198,7 @@ function DocItem(props) {
                                         <span className="badge badge--secondary">Version: {version}</span>
                                     </div>
                                 )}
+                                <DocMetadata content={DocContent} />
                                 {!hideTitle && (
                                     <header>
                                         <h1 className={styles.docTitle}>{title}</h1>
@@ -207,7 +208,6 @@ function DocItem(props) {
                                     <DocContent />
                                 </div>
                             </article>
-                            <DocMetadata content={DocContent} />
                             <div className="margin-vert--lg">
                                 <DocPaginator metadata={metadata} />
                             </div>
