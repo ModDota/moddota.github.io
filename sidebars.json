@@ -2,78 +2,72 @@
     "docs": [
         { "type": "link", "label": "Introduction", "href": "/" },
         "getting-started",
+        "scripting-introduction",
+        {
+            "type": "category",
+            "label": "Abilities, items, modifiers",
+            "items": [
+                "abilities/ability-keyvalues",
+                "abilities/item-keyvalues",
+                "abilities/the-importance-of-abilityspecial-values",
+                "abilities/passing-abilityspecial-values-into-lua",
+                "abilities/abilityduration-tooltips",
+                "abilities/simple-custom-ability",
+                "abilities/lua-item-tutorial",
+                "abilities/creating-innate-abilities",
+                "abilities/making-any-ability-use-charges",
+                "abilities/calling-spells-with-setcursor",
+                {
+                    "type": "category",
+                    "label": "Lua Modifiers",
+                    "items": [
+                        "abilities/lua-modifiers/1",
+                        "abilities/lua-modifiers/2",
+                        "abilities/lua-modifiers/3",
+                        "abilities/lua-modifiers/4"
+                    ]
+                },
+                "abilities/reutilizing-built-in-modifiers",
+                {
+                    "type": "category",
+                    "label": "Datadriven",
+                    "items": [
+                        "abilities/datadriven/datadriven-ability-events-modifiers",
+                        "abilities/datadriven/all-about-the-target",
+                        "abilities/datadriven/channeling-animations",
+                        "abilities/datadriven/invisibility-ability-example",
+                        "abilities/datadriven/illusion-ability-example",
+                        "abilities/datadriven/rotate-ability-example",
+                        "abilities/datadriven/point-channeling-aoe-ability-example",
+                        "abilities/datadriven/apply-hero-and-creep-modifier-durations",
+                        "abilities/datadriven/physics-ability-example-exorcism"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Units",
+            "items": [
+                "units/unit-keyvalues",
+                "units/unit-producing-buildings",
+                "units/creating-units-with-a-duration",
+                "units/adding-a-very-simple-ai-to-units",
+                "units/simple-neutral-ai",
+                "units/create-creature-attachwearable-blocks-directly-from-the-keyvalues"
+            ]
+        },
         {
             "type": "category",
             "label": "Scripting",
             "items": [
-                "scripting/introduction",
-                {
-                    "type": "category",
-                    "label": "Abilities, items, modifiers",
-                    "items": [
-                        "scripting/abilities/ability-keyvalues",
-                        "scripting/abilities/item-keyvalues",
-                        "scripting/abilities/the-importance-of-abilityspecial-values",
-                        "scripting/abilities/passing-abilityspecial-values-into-lua",
-                        "scripting/abilities/abilityduration-tooltips",
-                        "scripting/abilities/simple-custom-ability",
-                        "scripting/abilities/lua-item-tutorial",
-                        "scripting/abilities/creating-innate-abilities",
-                        "scripting/abilities/making-any-ability-use-charges",
-                        "scripting/abilities/calling-spells-with-setcursor",
-                        {
-                            "type": "category",
-                            "label": "Lua Modifiers",
-                            "items": [
-                                "scripting/abilities/lua-modifiers/1",
-                                "scripting/abilities/lua-modifiers/2",
-                                "scripting/abilities/lua-modifiers/3",
-                                "scripting/abilities/lua-modifiers/4"
-                            ]
-                        },
-                        "scripting/abilities/reutilizing-built-in-modifiers",
-                        {
-                            "type": "category",
-                            "label": "Datadriven",
-                            "items": [
-                                "scripting/abilities/datadriven/datadriven-ability-events-modifiers",
-                                "scripting/abilities/datadriven/all-about-the-target",
-                                "scripting/abilities/datadriven/channeling-animations",
-                                "scripting/abilities/datadriven/invisibility-ability-example",
-                                "scripting/abilities/datadriven/illusion-ability-example",
-                                "scripting/abilities/datadriven/rotate-ability-example",
-                                "scripting/abilities/datadriven/point-channeling-aoe-ability-example",
-                                "scripting/abilities/datadriven/apply-hero-and-creep-modifier-durations",
-                                "scripting/abilities/datadriven/physics-ability-example-exorcism"
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "category",
-                    "label": "Units",
-                    "items": [
-                        "scripting/units/unit-keyvalues",
-                        "scripting/units/unit-producing-buildings",
-                        "scripting/units/creating-units-with-a-duration",
-                        "scripting/units/adding-a-very-simple-ai-to-units",
-                        "scripting/units/simple-neutral-ai",
-                        "scripting/units/create-creature-attachwearable-blocks-directly-from-the-keyvalues"
-                    ]
-                },
-                {
-                    "type": "category",
-                    "label": "Game Logic",
-                    "items": [
-                        "scripting/game/custom-mana-system",
-                        "scripting/game/item-restrictions-requirements",
-                        "scripting/game/item-drop-system",
-                        "scripting/game/making-a-rpg-like-looting-chest",
-                        "scripting/game/scripted-shop-spawning",
-                        "scripting/game/lava-damage",
-                        "scripting/game/using-dota-filters"
-                    ]
-                },
+                "scripting/custom-mana-system",
+                "scripting/item-restrictions-requirements",
+                "scripting/item-drop-system",
+                "scripting/making-a-rpg-like-looting-chest",
+                "scripting/scripted-shop-spawning",
+                "scripting/lava-damage",
+                "scripting/using-dota-filters",
                 "scripting/particle-attachment",
                 "scripting/precache-fixing-and-avoiding-issues"
             ]
