@@ -80,13 +80,12 @@
         },
         {
             "type": "category",
-            "label": "User Interface",
+            "label": "Panorama UI",
             "items": [
-                "ui/introduction-to-panorama-ui-with-typescript",
-                "ui/custom-keybindings-in-panorama",
-                "ui/panorama-custom-dotascenepanel",
-                "ui/hiding-hud-with-sethudvisible",
-                "ui/custom-minimap-icons"
+                "panorama/introduction-to-panorama-ui-with-typescript",
+                "panorama/custom-keybindings-in-panorama",
+                "panorama/panorama-custom-dotascenepanel",
+                "panorama/hiding-hud-with-sethudvisible"
             ]
         },
         {
@@ -119,8 +118,9 @@
                         "assets/particles/status-effects"
                     ]
                 },
+                "assets/adding-and-playing-custom-sounds",
                 "assets/extracting-and-compiling-vtex-files",
-                "assets/adding-and-playing-custom-sounds"
+                "assets/custom-minimap-icons"
             ]
         },
         {
