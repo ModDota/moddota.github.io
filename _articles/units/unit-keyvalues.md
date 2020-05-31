@@ -63,9 +63,9 @@ For the rest of this guide, we'll be assuming a `"BaseClass" "npc_dota_creature"
 
 ### Level
 
-~~~
+```
 "Level"                        "32"
-~~~
+```
 
 ![img](http://puu.sh/ho10S/fe733ccd2e.jpg)
 
@@ -73,10 +73,10 @@ This level can be accessed and modified with Lua though various creature functio
 
 ### Model and Scale
 
-~~~    
+```    
 "Model"                        "models/heroes/dragon_knight/dragon_knight.vmdl"
 "ModelScale"                    "0.8"
-~~~
+```
 
 Self explanatory, get the models through the asset browser and set its size (it will use "1" by omission).
 
@@ -84,99 +84,99 @@ Creatures using models that are broken down for cosmetic equipment will be 'nake
 
 ### Minimap Icons
 
-~~~
+```
 "MinimapIcon" 				"minimap_candybucket"
 "MinimapIconSize" 			"1000"
-~~~
+```
 
 Produces:
 ![img](http://puu.sh/ho19t/c5c7f7bb39.jpg)
 
 ### Unit Label
 
-~~~
+```
 "UnitLabel"                    "healing_ward"
-~~~
+```
 
 This can be any name, its only useful purpose is to use with Lua `GetUnitLabel()` which can work as an easy method of tagging units.
 
 ## Boolean Values and Flags
 
-~~~
+```
 "HasInventory"                "1"
-~~~
+```
 
 Associated Lua functions: `HasInventory()` and `SetHasInventory(bool)`
 
 **Note:** `SetHasInventory(true)` won't work on units that didn't have `"HasInventory"  "1"` previously defined.
 
-~~~
+```
 "IsSummoned"				"1"
 "CanBeDominated"			"0"
-~~~
+```
 
 Self explanatory, the default values are 0 for summoned (so the lua IsSummoned will always return false unless you set this), and 1 for dominated creaturesl
 
 <br />
-~~~
+```
 "ConsideredHero"		"1"
-~~~
+```
 
 `"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"` datadriven flag. Gives the unit a hero styled health bar:
 
 ![img](http://puu.sh/ho2pt/c687566db4.jpg)
 
 <br />    
-~~~
+```
 "IsAncient"                    "1"
-~~~
+```
   
 Associated Lua function: `IsAncient()`<br />`"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"` datadriven flag. 
 
 <br />
-~~~
+```
 "IsNeutralUnitType"            "1"
-~~~
+```
 
 Associated Lua function: `IsNeutralUnitType()`
  
 <br /> 
-~~~
+```
 "CanBeDominated"               "0"
-~~~
+```
 
 Helm of the Dominator specific. No associated Lua function, but it's easy to make one to read from this value if you wish.
 
 <br />
-~~~
+```
 "AutoAttacksByDefault"         "0"
-~~~
+```
 
 Ignores Auto Attack Behavior setting, forces to not autoattack. Used on Visage Familiars.
 
 <br />
-~~~
+```
 "ShouldDoFlyHeightVisual"      "0"
-~~~
+```
 
 ![img](http://puu.sh/ho2MV/7f3e6d0fd8.jpg)
 
 Seems broken, no noticeable difference.
 
 <br />
-~~~
+```
 "WakesNeutrals"                "1"
-~~~
+```
 
 Unit won't aggro units on the Neutral team within their acquisition range.
 
 ## Selection properties
 
-~~~
+```
 "SelectionGroup"               "string"              
 "SelectOnSpawn"                "1"
 "IgnoreAddSummonedToSelection" "1"
-~~~
+```
 
 * **SelectionGroup** will make it so that all the units of this type are in a group which can be accessed through tab.
 
@@ -189,11 +189,11 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 
 ## Sounds
 
-~~~    
+```    
 "SoundSet"                     "Hero_DragonKnight"
 "GameSoundsFile"               "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
 "IdleSoundLoop"                "Hero_DragonKnight.Tutorial_Intro"
-~~~
+```
 
 * **SoundSet** with the correct **GameSoundsFile** associated takes care of sounds like attacks and walking footsteps. The SoundSet string should be the first part of each of the hero sounds, which can be easily seen through the [Dota 2 Sound Editor](https://github.com/pingzing/dota2-sound-editor). [Example](http://puu.sh/ho4KA/f7ad0ff2ca.png)
 
@@ -201,11 +201,11 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 
 ## Abilities
 
-~~~
+```
 "AbilityLayout"               "4"
 "Ability1"                    ""            // Ability 1.
 //"Ability2" ... up to "Ability16"
-~~~
+```
 
 The unit can hold up to 16 abilities at any time being.
 
@@ -217,16 +217,16 @@ Because of :valve: - reasons  , unit stats aren't hover-able, but they are there
     
 ### Physical and Magical protection
 
-~~~
+```
 "ArmorPhysical"                "0"
 "MagicalResistance"            "0"
-~~~
+```
 
 ### Attack Capabilities
 
-~~~
+```
 "AttackCapabilities"         "DOTA_UNIT_CAP_NO_ATTACK"
-~~~
+```
    
 List of Attack Capabilities:
 
@@ -236,7 +236,7 @@ List of Attack Capabilities:
 
 ####  Other Attack Stats:
 
-~~~
+```
 "AttackDamageMin"            "50"       // Damage range min.
 "AttackDamageMax"            "40"       // Damage range max.
 "AttackRate"                 "1.7"     // Speed of attack.
@@ -244,14 +244,14 @@ List of Attack Capabilities:
 "AttackAcquisitionRange"     "800"     // Range within a target can be acquired.
 "AttackRange"                "600"     // Range within a target can be attacked.
 "AttackRangeBuffer"          "250"     // Extra range the target can move without canceling the attack
-~~~
+```
 
 #### Ranged Attack Projectiles
 
-~~~
+```
 "ProjectileModel"            "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
 "ProjectileSpeed"            "900"
-~~~
+```
 
 Find hero/unit attack particles with the asset browser, filtering for the hero name + "attack vpcf" 
 
@@ -259,9 +259,9 @@ If you have any "Melee to Ranged" mechanic, the unit definition should have a pr
 
 #### The things we could do...
 
-~~~
+```
 "AttackDamageType"           "DAMAGE_TYPE_ArmorPhysical"
-~~~
+```
 
 This is seen in every unit file, but worthless/unsupported. In the future, we could see it being used to easily define Air/Ground attacks, Magic Attacks, etc, which currently require scripted abilities to simulate those behaviors.
 
@@ -282,19 +282,19 @@ Attributes are ignored for anything that isn't a hero unit, but because anything
 
 If you want to make any complex rule for XP/Gold, for example, give less XP from this unit to heroes at a certain level, it's better to leave the values at 0 and grant it through lua.
 
-~~~
+```
 "BountyXP"                    "0"            // Experience earn.
 "BountyGoldMin"                "0"           // Gold earned min.
 "BountyGoldMax"                "0"           // Gold earned max.
-~~~
+```
 
 ## Bounds
 
 This defines the unit collision with other units.
 
-~~~
+```
 "BoundsHullName"            "DOTA_HULL_SIZE_HERO"
-~~~
+```
 
 Bound Size Reference:
 
@@ -313,17 +313,17 @@ Bound Size Reference:
 * Lua `SetHullRadius(float)` can change this to any value in between or even above 144.
 
 
-~~~
+```
 "RingRadius"                "70"
-~~~
+```
 
   The visible selection ring when the unit is selected
 
 ![img](http://puu.sh/ho2lF/02ab15803e.jpg)
 
-~~~
+```
 "HealthBarOffset"           "250"
-~~~
+```
 
 The height from the ground at which the Health Bar should be placed. By default this value is set to "-1" to use the models default height. The bigger the Model and ModelScale, this should be adjusted to a higher number so it doesn't look weird.
 
@@ -331,11 +331,11 @@ The height from the ground at which the Health Bar should be placed. By default 
 
 ## Movement
 
-~~~
+```
 "MovementCapabilities"        "DOTA_UNIT_CAP_MOVE_NONE"
 "MovementSpeed"               "300"       // Speed
 "MovementTurnRate"            "0.5"       // Turning rate.
-~~~
+```
 
 List of Movement Capabilities
 
@@ -345,26 +345,26 @@ List of Movement Capabilities
 
 ##### Less used movement-related values:
 
-~~~
+```
 "HasAggressiveStance"         "0"
-~~~
+```
 
 Plays alternate idle/run animation when near enemies, e.g. Abaddon model
 
-~~~
+```
 "FollowRange"                 "100"
-~~~
+```
 
 Distance to keep when following. Healing Ward/Sigil have it set at 250.
 
 ## Health and Mana
 
-~~~
+```
 "StatusHealth"                "150"       // Base health.
 "StatusHealthRegen"           "0"         // Health regeneration rate.
 "StatusMana"                  "0"         // Base mana.
 "StatusManaRegen"             "0"         // Mana regeneration rate.
-~~~
+```
 
 **Notes:**
 
@@ -374,9 +374,9 @@ Distance to keep when following. Healing Ward/Sigil have it set at 250.
 
 ### Rarely used:
 
-~~~
+```
 "StatusStartingMana"          "-1"
-~~~
+```
 
 -1 means default to full mana, which is the default. It can be changed to any integer value so the units don't spawn with a filled pool.
 
@@ -384,10 +384,10 @@ Distance to keep when following. Healing Ward/Sigil have it set at 250.
 
 The Table of Physical Attacks vs Armor Types can be found [here in this link to the dota wiki](http://dota2.gamepedia.com/Damage_types#Effective_Physical_Damage_by_Attack_Type_and_Armor_Type)
 
-~~~lua
+```lua
 "CombatClassAttack"           "DOTA_COMBAT_CLASS_ATTACK_HERO"
 "CombatClassDefend"           "DOTA_COMBAT_CLASS_DEFEND_HERO"
-~~~
+```
 
 ### Attack Types Table
 
@@ -412,10 +412,10 @@ The Table of Physical Attacks vs Armor Types can be found [here in this link to 
 
 ## Vision
 
-~~~
+```
 "VisionDaytimeRange"        "1200"        // Range of vision during day light.
 "VisionNighttimeRange"      "1800"        // Range of vision at night time.
-~~~
+```
 
 Vision on any unit can't exceed 1800, any value above that will just default to 1800.
 
@@ -424,9 +424,9 @@ Vision on any unit can't exceed 1800, any value above that will just default to 
 
 This doesn't seem to make any difference, might be deprecated or just used for tagging stuff internally.
 
-~~~
+```
 "UnitRelationshipClass"       "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-~~~
+```
 
 List:
 
@@ -440,9 +440,9 @@ List:
 
 ## Lua VScript AI
 
-~~~
+```
 "vscripts"                    "path_to_ai_script.lua"
-~~~
+```
 
 This will load a lua script file as soon as the unit is spawned. With a Spawn ( entityKeyValues ) function one can initiate a thinker to do any sort of logic, this is a very simple example for a unit that goes through a series of waypoints while casting spells anytime its possible: [ai_tank_miniboss.lua](https://github.com/MNoya/Warchasers/blob/master/game/dota_addons/warchasers/scripts/vscripts/ai_tank_miniboss.lua).
 
@@ -450,6 +450,6 @@ This will load a lua script file as soon as the unit is spawned. With a Spawn ( 
 
 When you add a creep to the map and set it to the neutral team, the default is to turn it to a neutral. If you wan't to use a custom behavior, turn it off:
 
-~~~
+```
 "UseNeutralCreepBehavior" 	"0"
-~~~
+```

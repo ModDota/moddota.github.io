@@ -13,7 +13,7 @@ This is a datadriven + lua ability that will apply the invis state and texture, 
 
 **KV:**
 
-~~~
+```
  "assassin_walk_the_shadows"
  {
   // General
@@ -130,12 +130,12 @@ This is a datadriven + lua ability that will apply the invis state and texture, 
    }
   
  }
-~~~
+```
 
 
 **Lua Scripts:**
 
-~~~lua
+```lua
 function walk_the_shadows_cast( event )
   event.ability:ApplyDataDrivenModifier(event.caster, event.caster, "assassin_walk_the_shadows_buff", nil)
   event.caster:AddNewModifier(event.caster, event.ability, "modifier_invisible", {duration = 25}) 
@@ -154,7 +154,7 @@ function walk_the_shadows_attack( event )
  ApplyDamage({ victim = event.target, attacker = event.caster, damage = event.ability:GetAbilityDamage(), damage_type = event.ability:GetAbilityDamageType(), ability = event.ability	})
 
 end
-~~~
+```
 
 The line that takes care of applying the "transparency" is AddNewModifier with modifier_invisible.
 

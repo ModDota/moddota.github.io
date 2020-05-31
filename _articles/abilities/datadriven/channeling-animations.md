@@ -10,7 +10,7 @@ date: 18.01.2015
 ApplyModifier with short duration in a OnThinkInterval, channeling modifier has an OverrideAnimation with a ACT_ from the [Action List](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Actions_List) or with the method explained later.
 
 **Short Version Example:**
-~~~
+```
 "Modifiers"
 {
     "modifier_channeling"
@@ -34,7 +34,7 @@ ApplyModifier with short duration in a OnThinkInterval, channeling modifier has 
         "OverrideAnimation" "ACT_DOTA_CAST_ABILITY_2"
     }
 }
-~~~
+```
 
 ### Full Version
 
@@ -53,7 +53,7 @@ After this, you can select any animation and it will animate the white blocks at
 **Note**: Ignore the +string.
 
 **Full Example**:
-~~~
+```
 "dark_ranger_life_drain"
 {
     "BaseClass" "ability_datadriven"
@@ -168,4 +168,4 @@ After this, you can select any animation and it will animate the white blocks at
         }
     }
 }
-~~~
+```

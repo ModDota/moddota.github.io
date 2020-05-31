@@ -11,9 +11,9 @@ Imagine you want to have an ability apply a modifier for some seconds, duration 
 
 You can fall for the trap and do this:
 
-~~~
+```
 "AbilityDuration" "3 2 2"
-~~~
+```
 
 And then have your modifier refer to %AbilityDuration in the "Duration" modifier key. All fine for now.
 
@@ -29,7 +29,7 @@ Suboptimal but decent solution, as it allows you to use ability:GetAbilityDurati
 
 **Option 3.** Remove AbilityDuration, only keep the AbilitySpecial. Best way as far as I can tell.
 
-~~~
+```
 "AbilitySpecial"
 {
     "01"
@@ -38,17 +38,17 @@ Suboptimal but decent solution, as it allows you to use ability:GetAbilityDurati
         "duration" "3 2 2"
     }
 }
-~~~
+```
 
 And then do this in a Lua Script if needed.
 
-~~~lua
+```lua
 function HowToTooltip(event)
    local ability = event.ability
    local duration = ability:GetLevelSpecialValueFor("duration", (ability:GetLevel() - 1))
    local damage = ability:GetAbilityDamage()
 end
-~~~
+```
 
 Has the same results and works for every scenario.
 

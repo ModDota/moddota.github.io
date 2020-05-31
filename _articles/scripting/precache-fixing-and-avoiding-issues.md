@@ -19,7 +19,7 @@ Missing particles are indicated by red crosses:
 
 First, the datadriven `"SpawnUnit"` Action will always precache the "UnitName" custom unit and whatever cosmetics you have attached to it. For example in this [Avatar of Vengeance ability](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/warden_avatar_of_vengeance.txt), I'll be spawning a Spectre with some hats:
 
-~~~
+```
 "SpawnUnit"
 {
     "UnitName"	"npc_avatar_of_vengeance"
@@ -36,20 +36,20 @@ First, the datadriven `"SpawnUnit"` Action will always precache the "UnitName" c
 	}
     }
 }
-~~~
+```
 
 Now there will be many many times that SpawnUnit doesn't cut it, and you need to spawn units in lua, using the `CreateUnitByName` function.
 
 If I went ahead and just spawned my unit in lua (simplified example of [this script](https://github.com/MNoya/DotaCraft/blob/master/scripts/vscripts/heroes/warden/avatar_of_vengeance.lua#L35)):
 
-~~~lua
+```lua
 function SpiritOfVengeanceSpawn( event )
     local caster = event.caster
     local unit_name = "npc_spirit_of_vengeance"
     local origin = caster:GetAbsOrigin()
     local spirit = CreateUnitByName(unit_name, origin, true, caster, caster, caster:GetTeamNumber())
 end
-~~~
+```
 
 Without any previous precache I'll get something like the ERROR model like before, or if this isn't the first I run the tools (because after the 1st run it attempts to store some models to keep on the cache), something like this:
 
@@ -61,7 +61,7 @@ So yeah, that's bad, here's how to fix it:
 
 In this case, I precache all the models and the ambient particles I'm using, inside the main datadriven ability.
 
-~~~
+```
 "precache"
 {
 	"soundfile"	"soundevents/game_sounds_heroes/game_sounds_spectre.vsndevts"
@@ -73,7 +73,7 @@ In this case, I precache all the models and the ambient particles I'm using, ins
 	"particle"      "particles/units/heroes/hero_vengeful/vengeful_ambient.vpcf"
 	"particle"      "particles/econ/items/vengeful/vengeful_wing_fallenprincess/venge_wingsoffallenprincess_ambient.vpcf"
 }
-~~~
+```
 
 Now all the models will load properly.
 

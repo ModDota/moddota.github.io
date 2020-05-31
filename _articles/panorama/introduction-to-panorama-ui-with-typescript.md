@@ -65,7 +65,7 @@ To illustrate why I like using TypeScript for modular UI I will walk through a s
 
 Since this tutorial is about TypeScript I will just quickly give the xml and css, this is standard stuff:
 
-~~~xml
+```xml
 <root>
     <styles>
         <include src="file://{resources}/styles/custom_game/example.css" />
@@ -92,11 +92,11 @@ Since this tutorial is about TypeScript I will just quickly give the xml and css
         <Panel id="HeroPortraits" />
     </Panel>
 </root>
-~~~
+```
 
 CSS:
 
-~~~css
+```css
 #HeroPortraits {
     width: 300px;
     height: 650px;
@@ -133,7 +133,7 @@ CSS:
 
     background-color: green;
 }
-~~~
+```
 
 As you can see the XML of this part of the UI has a snippet containing the XML of a player portrait containing a hero image, a label for the player name and a health container and health bar inside that container. The CSS applies some simple layout to this.
 
@@ -141,7 +141,7 @@ As you can see the XML of this part of the UI has a snippet containing the XML o
 
 First we want to define a class of our UI and to link that to the XML. We do this by taking an existing panel and wrapping it into a typescript class, as follows:
 
-~~~typescript
+```typescript
 class ExampleUI {
     // Instance variables
     panel: Panel;
@@ -154,13 +154,13 @@ class ExampleUI {
 }
 
 let ui = new ExampleUI($.GetContextPanel());
-~~~
+```
 
 Nothing too exciting, we basically create a new ExampleUI object in ExampleUI.ts from the context panel, so this entire XML file is now an instance of the ExampleUI class. If you build this by pressing **ctrl+b** in Sublime, you will see it creates a new compiled ExampleUI.js file with the same name. This compiled file is loaded by Panorama. If you load your game mode at this point you should see a print in console printing your UI panel.
 
 Now let's create a class for a hero portrait. In this case we do not wrap an existing element, but instead create a panel in the constructor. To do this we do still need a parent panel, so we require that as parameter for the constructor, as well as the hero name and player name. After creating a panel and loading the snippet into it we look up some of its child elements and store them for later.
 
-~~~typescript
+```typescript
 class PlayerPortrait {
     // Instance variables
     panel: Panel;
@@ -196,7 +196,7 @@ class PlayerPortrait {
         this.hpBar.style.width = Math.floor(percentage) + "%";
     }
 }
-~~~
+```
 
 This is saved in a second file **PlayerPortrait.ts** which compiles to PlayerPortrait.js. Therefore this file is also included in the scripts section of the xml (see above).
 
@@ -204,7 +204,7 @@ The constructor simply creates a new panel and loads a snippet into it, and then
 
 Now we go back to the ExampleUI class and make a couple PlayerPortrait instances to the PlayerPortraits element:
 
-~~~typescript
+```typescript
 class ExampleUI {
     // Instance variables
     panel: Panel;
@@ -228,7 +228,7 @@ class ExampleUI {
 }
 
 let ui = new ExampleUI($.GetContextPanel());
-~~~
+```
 
 Your UI should now look like the screenshot we set out to make at the start.
 
@@ -240,16 +240,16 @@ We do this by adding another instance variable to the ExampleUI, a map that maps
 
 One of the advantages of TypeScript is that you can explicitly define which events you receive and what their contents are. We define the HPChanged event as follows:
 
-~~~typescript
+```typescript
 interface HPChangedEvent {
     playerID: PlayerID,
     hpPercentage: number
 }
-~~~
+```
 
 Putting these together our ExampleUI.ts file now looks as follows:
 
-~~~typescript
+```typescript
 interface HPChangedEvent {
     playerID: PlayerID;
     hpPercentage: number;
@@ -287,7 +287,7 @@ class ExampleUI {
 }
 
 let ui = new ExampleUI($.GetContextPanel());
-~~~
+```
 
 We simply bound a handler for the `hp_changed` event in the constructor of our ExampleUI, and whenever that happens OnHPChanged is called, which looks up the player portrait in the map and calls SetHealthPercent on the portrait.
 

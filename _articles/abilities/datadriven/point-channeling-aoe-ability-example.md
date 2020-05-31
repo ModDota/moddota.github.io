@@ -12,7 +12,7 @@ Here I'll explain a method to do this type of abilities effectively, based on th
 We will review each important section of the code with comments on it, including how to get the particles to show.
 
 ### General Definition:
-~~~
+```
 "far_seer_earthquake"
 {
     "BaseClass"          "ability_datadriven"
@@ -36,7 +36,7 @@ We will review each important section of the code with comments on it, including
     "AOERadius"          "%radius"
 
 //...
-~~~
+```
 
 Target Team/Type and DamageType are just there to show the tooltips.
 
@@ -47,7 +47,7 @@ Note the `"AOERadius"` which accepts a `"%radius"` from AbilitySpecial in its va
 ---
 
 ### Ability Special block:
-~~~ 
+``` 
 "AbilitySpecial"
 {
     "01"
@@ -76,14 +76,14 @@ Note the `"AOERadius"` which accepts a `"%radius"` from AbilitySpecial in its va
         "wave_interval"	"1.0"
     }
 }
-~~~
+```
 
 Nothing interesting except remarking that `"%duration"` **cannot** be used as a value for `"AbilityChannelTime"` (doing so makes it loop forever), so the ability will just refer to the duration and when changing the value, also change the channel time.
 
 ---
 
 ### Precache block:
-~~~
+```
 
 "precache" 
 {
@@ -95,7 +95,7 @@ Nothing interesting except remarking that `"%duration"` **cannot** be used as a 
   "particle" "particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_egset.vpcf"
   "soundfile"	"soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
 }
-~~~
+```
 
 Has all the particles used and leshrac soundfile loaded. 
 
@@ -106,7 +106,7 @@ Paths were copied directly from the asset browser, unmodified particles. I'll ex
 ### Spell Start
 
 When the cast point is complete, perform the following actions:
-~~~
+```
 "OnSpellStart"
 {
     "RunScript"
@@ -117,7 +117,7 @@ When the cast point is complete, perform the following actions:
     }
 
 //...
-~~~
+```
 
 This calls a very simple Lua script which creates a dummy unit to apply a thinker modifier which does the "waves". 
 
@@ -125,7 +125,7 @@ When using an `"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"`, you can pass th
  on the event.
 
 **Lua**
-~~~lua
+```lua
 function EarthquakeStart( event )
     -- Variables
     local caster = event.caster
@@ -134,13 +134,13 @@ function EarthquakeStart( event )
     caster.earthquake_dummy = CreateUnitByName("dummy_unit", point, false, caster, caster, caster:GetTeam())
     event.ability:ApplyDataDrivenModifier(caster, caster.earthquake_dummy, "modifier_earthquake_thinker", nil)
 end
-~~~
+```
 
 There is a Datadriven function to do something similar, **"CreateThinker"**, but because we need to stop the ability from casting the waves if the hero stops channeling the ability, its better to have the dummy "indexed" on the *caster handle* so that we can run another script to remove it without the need to do a search for it.
 
 Back to the dummy unit, this is its definition:
 
-~~~
+```
 "dummy_unit_vulnerable"
 {
     "BaseClass"            "npc_dota_creature"
@@ -151,10 +151,10 @@ Back to the dummy unit, this is its definition:
     "MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
     "Ability1"             "dummy_passive_vulnerable"
 }
-~~~
+```
 
 And the passive ability:
-~~~
+```
 "dummy_passive_vulnerable"
 {
     "BaseClass"       "ability_datadriven"
@@ -179,14 +179,14 @@ And the passive ability:
         }
     }
 }
-~~~
+```
 
 **IMPORTANT:** The dummy doesn't have `MODIFIER_STATE_INVULNERABLE` enabled, because that state is a bitch, usually preventing from applying modifiers even if they have `MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE`. That's why I called it _vulnerable even tho it can't take damage.
 
 ---
 
 Back to the OnSpellStart, 2 more actions:
-~~~
+```
 "OnSpellStart"
 {   //...
 
@@ -209,7 +209,7 @@ Back to the OnSpellStart, 2 more actions:
         }
     }	
  }
-~~~
+```
 
 First action will destroy the trees around the POINT targeted and the second action applies a modifier that takes care of the channeling animation, using the same method explained in the [Channeling Animations Tutorial](http://moddota.com/forums/discussion/77/channeling-animations)
 
@@ -220,7 +220,7 @@ Animation needs to start half a second later to sync with the damage, this is a 
 ### Channel Finish
 
 When the ability finishes channeling either because the channel time has finished or it was cancelled, we need to stop the animation and the dummy thinker:
-~~~
+```
 "OnChannelFinish"
 {
     "RunScript"
@@ -235,17 +235,17 @@ When the ability finishes channeling either because the channel time has finishe
         "Target"       "CASTER"
     } 
 }
-~~~
+```
 
 The 2nd lua function is even shorter, only has 1 API call to instantly remove the dummy:
 
-~~~lua
+```lua
 function EarthquakeEnd( event )
     local caster = event.caster
 
     caster.earthquake_dummy:RemoveSelf()
 end
-~~~
+```
 
 ---
 
@@ -253,7 +253,7 @@ end
 
 Now lets move to the the Modifiers block, the first couple handles the animation:
 
-~~~
+```
 "Modifiers"
 {
     "modifier_earthquake_channelling"
@@ -279,12 +279,12 @@ Now lets move to the the Modifiers block, the first couple handles the animation
     }
 
 //...
-~~~
+```
 
 
 "modifier_earthquake_thinker" is the modifier applied in Lua to the dummy, and has the main logic for all the damage, particles, sounds and other effects needed. It has a lot bunch of actions, so I'll break it up
 
-~~~
+```
 "modifier_earthquake_thinker"
 {
     "Aura"        "modifier_eartquake_slow"
@@ -293,11 +293,11 @@ Now lets move to the the Modifiers block, the first couple handles the animation
     "Aura_Types"  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
 
 //...
-~~~
+```
 
 This constantly applies another modifier effect to all units around a radius of the targeted point, in this ability its a simple slow effect:
 
-~~~
+```
 "modifier_eartquake_slow"
 {
    "IsDebuff"	"1"
@@ -306,7 +306,7 @@ This constantly applies another modifier effect to all units around a radius of 
        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_speed_slow_pct" 
    }	
 }
-~~~
+```
 
 ---
 
@@ -314,7 +314,7 @@ Back to the "modifier_earthquake_thinker", we have to have actions on 2 instance
 
 #### Main modifier created
 
-~~~
+```
 "OnCreated"
 {
     "FireSound"
@@ -346,13 +346,13 @@ Back to the "modifier_earthquake_thinker", we have to have actions on 2 instance
     }
 
 //...
-~~~
+```
 
 "TARGET" in all this scope will refer to the unit that has the modifier, i.e. the dummy.
 
 I used one extra particle that needs to have the Control Point 1 attached to the target, else it will show on the middle of the map.
 
-~~~
+```
     "AttachEffect" 
     {
         "Target"           "TARGET"
@@ -364,7 +364,7 @@ I used one extra particle that needs to have the Control Point 1 attached to the
             "TARGET"	"attach_origin"
         }
     }
-~~~
+```
 
 "ControlPointEntities" will set the CP0 to the origin of the dummy, and do the same for CP1.
 
@@ -394,7 +394,7 @@ To realize that the CP1 needs to be set else the particle will fail to display p
 
 Still following this? Great, it's almost finished, only missing the `"OnIntervalThink"` actions which do the damage +effects every `"wave_interval"`
 
-~~~
+```
 "ThinkInterval" "%wave_interval"
 "OnIntervalThink"
 {
@@ -431,13 +431,13 @@ Still following this? Great, it's almost finished, only missing the `"OnInterval
         "Target"           "TARGET"
     }  
 //...
-~~~
+```
 
 There's a couple of specific particle firing that need a separate explanation:
 
 To find what each control point does, follow the same method as with the espirit_spawn.vpcf, but knowing this particles were designed for AoE effects, you should instead write radius-range numbers on the control points and see the effect on the particle editor.
 
-~~~
+```
     "AttachEffect"
     {
         "Target"           "TARGET"
@@ -471,7 +471,7 @@ To find what each control point does, follow the same method as with the espirit
         }	
     }
 }
-~~~
+```
 
 Not gonna lie, it's mostly trial and error and just a bit of reading whatever the PET info has to enlighten you:
 

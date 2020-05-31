@@ -6,16 +6,16 @@ date: 23.01.2015
 ---
 
 **Block**
-~~~
+```
 "Rotate"
 {
     "Target"       "TARGET"
     "PitchYawRoll"	"0 0 0" //x y z values
 }
-~~~
+```
 
 **Example:** Rotate the caster every interval
-~~~
+```
 "OnSpellStart"
 {
     "ApplyModifier"
@@ -40,7 +40,7 @@ date: 23.01.2015
         }
     }
 }
-~~~
+```
 
 <br />
 

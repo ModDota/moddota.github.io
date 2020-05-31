@@ -15,7 +15,7 @@ First create a text file to write down your item properties. File Name, extensio
 
 For this example, we will use this path: **scripts**/**maps**/**item_info**.kv
 
-~~~
+```
 "Items"
 {
     "item_name_here" //change it to a custom items
@@ -29,13 +29,13 @@ For this example, we will use this path: **scripts**/**maps**/**item_info**.kv
         "levelRequired"	"25"
     }
 }
-~~~
+```
 
 To load a table into your game mode, you need to use the `LoadKeyValues( "path/to/file" ) lua function. This can be called at GameMode:InitGameMode() inside your main lua addon. GameMode = self
 
-~~~
+```
 self.ItemInfoKV = LoadKeyValues( "scripts/maps/item_info.kv" ) 
-~~~
+```
 
 If your table is badly formed (e.g. you missed a quotation mark or a bracket), this will fail and you'll get a lua console error when starting the game.
 
@@ -43,7 +43,7 @@ Note how I didn't add a "classRequired" to the 2nd item. When trying to access t
 
 There are many ways to set a class, the most basic one is indexing `.class` in the hero handle the first time the hero is in game (using the barebones.lua default calls)
 
-~~~lua
+```lua
 function GameMode:OnHeroInGame(hero)
 
     if heroName == "npc_dota_hero_axe" then
@@ -52,7 +52,7 @@ function GameMode:OnHeroInGame(hero)
     end
     
 end
-~~~
+```
 
 ### 2. OnEquip Ability Event
 
@@ -62,7 +62,7 @@ Add this datadriven event on every item that needs to do a check for restriction
 This is needed because the listener for inventory changed is broken, and the Lua `OnItemPickedUp` event hook doesn't account for someone dragging an item into another players inventory
 .
 
-~~~
+```
 "OnEquip" 
 {   
     "RunScript"
@@ -71,7 +71,7 @@ This is needed because the listener for inventory changed is broken, and the Lua
         "Function"	"ItemCheck"
     }
 }
-~~~
+```
 
 ### 3. Lua Script
 
@@ -81,7 +81,7 @@ Make use of the [CustomError Flash UI by zedor](https://github.com/zedor/CustomE
 
 There are some `DeepPrintTable` and `print` to check that the table is being reviewed as you expect.
 
-~~~lua
+```lua
 function ItemCheck( event )
     local itemName = event.ability:GetAbilityName()
     local hero = EntIndexToHScript( event.caster_entindex )
@@ -150,7 +150,7 @@ function DropItem( item, hero )
     hero:RemoveItem(item)
 end
 
-~~~
+```
 
 ---
 

@@ -45,7 +45,7 @@ For better results, add strong black borders to the image as an outline (and rem
 
 Open the vmat with any code editor and make sure to change minimap_icon.psd for the name of your choice. Keep the rest unchanged
 
-~~~
+```
 "Layer0"
 {
     "Shader"            "ui.vfx"
@@ -53,13 +53,13 @@ Open the vmat with any code editor and make sure to change minimap_icon.psd for 
     "Texture"           "materials/vgui/hud/minimap_icon.psd" //EDIT THIS
     "F_TRANSLUCENT"     "1"
 }
-~~~
+```
 
 ### Texture KV File
 
 Same process in the addon_hud_textures.txt file
 
-~~~
+```
 ""
 {
     "TextureData"
@@ -74,7 +74,7 @@ Same process in the addon_hud_textures.txt file
         }
     }
 }
-~~~
+```
 
 For more icons, just copy the minimap_icon block again with another name inside TextureData
 
@@ -93,11 +93,11 @@ Go into the asset browser, write the name of your icon, open the vmat by double 
 ### Step 5: Set your unit to use the new icon
 
 In the unit definition, add these lines:
-~~~
+```
 "MinimapIcon"        "minimap_icon"
 "MinimapIconSize"    "1000"
 "MinimapDisableTint" "1"
-~~~
+```
 
 `MinimapIconSize` determines the relative size of the minimap icon, while `MinimapDisableTint` can be 0 or omitted if you want the creature to use different team colors.
 

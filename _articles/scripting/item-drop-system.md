@@ -18,7 +18,7 @@ The best way for this is to have a text file to configure what items can drop fr
 
 I recommend having a *kv* folder under scripts to store this and other similar table files. The file can have any extension, but using *.kv* is a good convention.
 
-~~~
+```
 "Drops" 
 { 
     "creature_name1"
@@ -28,15 +28,15 @@ I recommend having a *kv* folder under scripts to store this and other similar t
         "item_name3" "100"
     }
 }
-~~~
+```
 
 This table will set a creature to drop the first item with 10% chance, 50% on the second, and the third item will be dropped every time.
 
 After saving and naming the file, this table has to be loaded in Lua, ideally in the initialization of the game mode, using the `LoadKeyValues("relative/path/to/file")` this way:
 
-~~~
+```
 GameRules.DropTable = LoadKeyValues("scripts/kv/item_drops.kv")
-~~~
+```
 
 In this initial version, each item drop chance is independent from the others. From the same creature there might be 1 drop, all of them, or none (if the chances are all less than 100). This behavior will be expanded later to provide some of the classic drop options.
 
@@ -44,18 +44,18 @@ In this initial version, each item drop chance is independent from the others. F
 
 Simply listen to `entity_killed` and call a custom RollDrops function with the killed unit as a parameter.
 
-~~~
+```
 ListenToGameEvent('entity_killed', Dynamic_Wrap(GameMode, 'OnEntityKilled'), self)
-~~~
+```
 
-~~~lua
+```lua
 function GameMode:OnEntityKilled( keys )
     local killedUnit = EntIndexToHScript( keys.entindex_killed )
     if killedUnit:IsCreature() then
         RollDrops(killedUnit)
     end
 end
-~~~
+```
 
 ### 3. RollDrops Lua Script
 
@@ -63,7 +63,7 @@ Now given the subtable of the unit name contained in the main Drop Table, if it 
 
 If the Roll succeeds, proceed to create an item handle with the name, and `LaunchLoot` it with some fancy parameters (could also just use a `CreateItemOnPositionSync` to drop the item instantly at the death position)
 
-~~~lua
+```lua
 function RollDrops(unit)
     local DropInfo = GameRules.DropTable[unit:GetUnitName()]
     if DropInfo then
@@ -79,7 +79,7 @@ function RollDrops(unit)
         end
     end
 end
-~~~
+```
 
 ### 4. Extending the solution to allow multiple drops of the same item
 
@@ -87,7 +87,7 @@ The way Lua KV tables work, it's not possible to have more than 1 of the same in
 
 To get around this, the table has to use another level and have each possible item drop of the unit be a table by itself:
 
-~~~
+```
 "Drops" 
 { 
     "creature_name1"
@@ -106,13 +106,13 @@ To get around this, the table has to use another level and have each possible it
         }
     }
 }
-~~~
+```
 
 This structure along with the Multiple value will allow an item to be dropped more than once from the same creature. *"Multiple" "1"* will just be 1 drop max.
 
 The RollDrops function needs to be adjusted to read the subtables and the Item/Chance in a slightly different way:
 
-~~~lua
+```lua
 function RollDrops(unit)
     local DropInfo = GameRules.DropTable[unit:GetUnitName()]
     if DropInfo then
@@ -134,7 +134,7 @@ function RollDrops(unit)
         end
     end
 end
-~~~
+```
 
 The 'or 100' and 'or 1' are just to make sure that if the "Chance" or "Multiple" lines are missing, a default value ('drop always' and 'drop 1') will be used.
 
@@ -144,7 +144,7 @@ Sometimes doing "50% of item 1 and 50% of item 2" is too random, because it will
 
 To do this, instead of tying a single item to each item table, there will be yet another table of the { possible Set of items } that we want this creature to drop:
 
-~~~
+```
 "Drops" 
 { 
     "creature_name1"
@@ -167,13 +167,13 @@ To do this, instead of tying a single item to each item table, there will be yet
         }
     }
 }
-~~~
+```
 
 The ItemSets entry could also have a "Multiple" kv if we wanted an scenario like "2 of these 3", but this can't guarantee that the 2nd roll won't drop the same item than the first, if it did.
 
 And the RollDrops now looks like this:
 
-~~~lua
+```lua
 function RollDrops(unit)
     local DropInfo = GameRules.DropTable[unit:GetUnitName()]
     if DropInfo then
@@ -209,7 +209,7 @@ function RollDrops(unit)
         end
     end
 end
-~~~
+```
 
 ---
 

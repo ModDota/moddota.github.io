@@ -31,7 +31,7 @@ Create one if there isn't. Here is the place where text files with the **.vsndev
 
 The structure of the file is quite simple, it's a KV list with a sound string name as the first value of each sound block and then many values that control different properties of the sounds which aren't really important most of the times if you use this code:
 
-~~~
+```
 "SoundStringName"
 {
     "operator_stacks"
@@ -63,7 +63,7 @@ The structure of the file is quite simple, it's a KV list with a sound string na
         }
     }
 }
-~~~
+```
 
 First **`"AddonName.FileName"`**, which is your desired sound string and will be used to Fire/Emit it
 

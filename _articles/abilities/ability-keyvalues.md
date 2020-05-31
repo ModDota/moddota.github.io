@@ -27,7 +27,7 @@ DataDriven abilities are defined inside scripts/npc/npc_abilities_custom.txt und
 
 This skeleton contains many keyvalues which will be expanded upon in this documentation.
 
-~~~
+```
 "datadriven_skeleton"
 {
     // General  
@@ -64,7 +64,7 @@ This skeleton contains many keyvalues which will be expanded upon in this docume
 
     // ...
 }
-~~~
+```
 
 ## BaseClass
 
@@ -81,9 +81,9 @@ This describes how the ability works, the general behavior to perform when it is
 You can use different behaviors together, separated by spaces and | pipes.
 
 Example:
-~~~
+```
 "DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-~~~
+```
 ### List of every possible AbilityBehavior
 
 |**AbilityBehavior**|**Description**  |
@@ -135,9 +135,9 @@ The UI can only show one behavior tooltip, but internally it will behave as expe
 |DOTA_ABILITY_BEHAVIOR_AUTOCAST|**Auto-Cast**|UNIT_TARGET|
 
 For example, an ability with 
-~~~
+```
 "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
-~~~
+```
 will be shown like this:
 
 ![img](https://i.imgur.com/xYjIXM8.jpg)
@@ -162,9 +162,9 @@ The UI currently supports the following ability level displays: 1, 3, 4, and 7.
 You can still use any integer value as MaxLevel, and it will assign the proper level values internally, but it will use a combination of these UI display numbers, then "start again" to another UI.
 
 *Example*:
-~~~
+```
 "MaxLevel" "10"
-~~~
+```
 
 ### RequiredLevel
 
@@ -175,11 +175,11 @@ At which level the ability can first be learned. This takes negative values, to 
 How many levels to wait to be able to learnt he next rank.
 
 *Example*:
-~~~
+```
 "MaxLevel"              "7"
 "RequiredLevel"         "-4"
 "LevelsBetweenUpgrades" "7"
-~~~
+```
 
 Results in an ability that can be first skilled at levels 3/10/17/24/31/38/45.
 
@@ -192,26 +192,26 @@ The icon file name that should be used in the UI for this ability. You can reuti
 To use your own icons, place them in `resources/flash3/images/spellicons` in you game addon folder, and just directly refer to the image name without the path or the extension.
 
 **Format**: 128x128 PNG
-~~~
+```
 "AbilityTextureName" "warchasers_buff"
-~~~
+```
 ![img](https://i.imgur.com/PvTBUis.png)
 
 ### Reject Self-Cast
 
 Added in Reborn:
 
-~~~
+```
 "CastFilterRejectCaster" "1"
-~~~
+```
 
 ### Cast While Hidden
 
 Added in Reborn:
 
-~~~
+```
 "IsCastableWhileHidden" "1"
-~~~
+```
 
 ## Targeting
 
@@ -303,13 +303,13 @@ The same applies to Team and Types.
 
  * `"Flags"` and `"ExcludeFlags"` in a `"Target"` block gives control over how to target units to apply actions on them later:
  
-~~~
+```
 "Target"
 {
     "Center"    "CASTER"
     "Flags"     "DOTA_UNIT_TARGET_FLAG_DEAD"
 }
-~~~
+```
 
  * `"TargetFlags"` in a `"LinearProjectile"` action allows a `LinearProjectile` to ignore units that would otherwise be included by default in the Team+Type values, for example those with `MODIFIER_STATE_INVISIBLE`.
  * `"Aura_Flags"` in a modifier with the other `"Aura"` keys can be used, for example, to make an [aura modifier](http://web.archive.org/web/20181130135800/http://moddota.com/forums/discussion/comment/29#Comment_29) only affect ranged units by adding `DOTA_UNIT_TARGET_FLAG_RANGED_ONLY`.
@@ -318,7 +318,7 @@ The same applies for **Teams** and **Types**.
 
 *Example*: Targets all friendly units in a radius of the caster, including couriers, buildings, and siege units. Excludes heroes, summons, and other player controlled units.
 
-~~~
+```
 "Target"
 {
     "Center"        "CASTER"
@@ -335,11 +335,11 @@ The same applies for **Teams** and **Types**.
     "Flags"         "DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED"
     "ExcludeFlags"  "DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED"
 }
-~~~
+```
 
 *Example*: Mirana's Arrow projectile rewrite that only hits heroes, including those that are magic immune:
 
-~~~
+```
 "LinearProjectile"
 {
     "Target"            "POINT"
@@ -356,7 +356,7 @@ The same applies for **Teams** and **Types**.
     "ProvidesVision"    "1"
     "VisionRadius"      "650"
 }
-~~~
+```
 
 With `DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES`, and with `DOTA_UNIT_TARGET_FLAG_NONE`: 
 
@@ -370,27 +370,27 @@ To target units in a line between the caster and the targeted point.
 
 Instead of the `"Radius"` keyvalue, which only takes one parameter, `Line` takes `Length` and `Thickness` integer values in a block like this:
 
-~~~
+```
 "Line"
 {
     "Length"    "600"
     "Thickness" "250"
 }
-~~~
+```
 
 #### Limiting the amount of targets
 
 `MaxTargets` takes an integer value to limit the amount of targets the Target block will select.
 
-~~~
+```
 "MaxTargets"    "10"
-~~~
+```
 
 `Random` also takes an integer to be as "take up to this number of units randomly."
 
-~~~
+```
 "Random"    "1"
-~~~
+```
 
 (For more complex targeting, Lua scripting is the answer.)
 
@@ -398,7 +398,7 @@ Instead of the `"Radius"` keyvalue, which only takes one parameter, `Line` takes
 
 Its use is very rare, normally when the targeting is complex we would just use `RunScript` lua and do all the acitons inside the script.
 
-~~~
+```
 ScriptSelectPoints
 {
     ScriptFile
@@ -406,7 +406,7 @@ ScriptSelectPoints
     Radius
     Count
 }
-~~~
+```
 
 A more in-depth explanation is needed to explain the complete usage of the Target block, as understanding the *scope* of the "Target" "TARGET" keyvalue is one of the most difficult things of the datadriven system.
 

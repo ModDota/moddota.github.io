@@ -9,7 +9,7 @@ This is a lua script to properly create an illusion.
 
 Note: Datadriven Modifiers with "AllowIllusionDuplicate" aren't automatically created with this method and need to be added manually in lua. In this same script we also attempt to add the datadriven version of `modifier_metamorphosis` which can also be found [here in the SpellLibrary](https://github.com/Pizzalol/SpellLibrary/blob/SpellLibrary/game/dota_addons/spelllibrary/scripts/npc/abilities/terrorblade_metamorphosis_datadriven.txt)
 
-~~~lua
+```lua
 -- Creates an Illusion, making use of the built in modifier_illusion
 function ConjureImage( event )
  print("Conjure Image")
@@ -70,6 +70,6 @@ function ConjureImage( event )
  illusion:MakeIllusion()
 
 end
-~~~
+```
 
 The entire ability (with its datadriven code) can be found at the SpellLibrary in github

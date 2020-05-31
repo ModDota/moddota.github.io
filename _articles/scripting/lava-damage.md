@@ -22,7 +22,7 @@ next we go to Outputs tabs in top and click on it add the following in the pictu
 ![enter image description here](https://i.gyazo.com/bcea6b60046512109f121aa0164f7cd2.png "enter image title here")
 
 Now go to your vscript folder and create a file called lavatrigger.lua and put this script inside.
-~~~lua
+```lua
 local LAVA_DAMAGE_TICK_RATE = 2
 local LAVA_DAMAGE_AMOUNT = 100
 
@@ -42,7 +42,7 @@ function lavatrigger(trigger)
 
     return LAVA_DAMAGE_TICK_RATE
 end
-~~~
+```
 
 here is the final result!:smile: 
 <Gfycat id="CharmingTestyAlaskanmalamute" />

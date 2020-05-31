@@ -52,7 +52,7 @@ Other essential KV is the AbilityBehavior, write down AbilityB and use the autoc
  
 Then we need an ability **event**, this is a trigger for when certain event happens to the owner of the ability. The most basic one is `OnSpellStart`, add one with the completions and you’ll see a new "level" within { } is created, this is known as a block. In [ACTIONS], write down a "Damage" action, some keys and a `%AbilityDamage` will appear. A % represents a value to be taken from somewhere else, in this case, an AbilityDamage KV. Add this last key and this first basic spell should be like this:
  
-~~~
+```
 "test_ability"
 {
         "BaseClass"             "ability_datadriven"
@@ -76,7 +76,7 @@ Then we need an ability **event**, this is a trigger for when certain event happ
                 }
         }
 }
-~~~
+```
  
 Now, this ability has to be added to the npc_abilities_custom.txt file for a hero or unit to be able to use it. To do this, you can either edit the file directly, or use modkit.
 
@@ -183,7 +183,7 @@ Enough theory, let’s see how this all comes together. We’ll add some simple 
  
 Let’s analyze the contents of the `OnNPCSpawned` default function:
  
-~~~lua
+```lua
 -- An NPC has spawned somewhere in game.  This includes heroes
 function GameMode:OnNPCSpawned(keys)
         print("[BAREBONES] NPC Spawned")
@@ -195,7 +195,7 @@ function GameMode:OnNPCSpawned(keys)
                 GameMode:OnHeroInGame(npc)
         end
 end
-~~~
+```
  
 First line will print the string under "" in the VConsole. The print function is native to Lua, and accepts multiple parameters separated by commas, and concatenation of strings with `".."` like this:
  
@@ -217,7 +217,7 @@ The next line is a conditional, first it checks if the npc is a real hero (this 
  
 To finish this basic Dota Lua tutorial, let’s modify the OnNPCSpawned function so that if a unit named npc_dota_neutral_kobold is spawned, wait 1 seconds and then kill itself. Added to the first if statement there’s this else-if condition:
  
-~~~lua
+```lua
 function GameMode:OnNPCSpawned(keys)
    local npc = EntIndexToHScript(keys.entindex)
  
@@ -230,7 +230,7 @@ function GameMode:OnNPCSpawned(keys)
        end)
     end
 end
-~~~
+```
  
 Here we make use of the Timers library for a simple 1.0 second delay, there are many different timer functions included and explained in timers.lua. The bool on ForceKill is to enable the death animation.
 
@@ -259,20 +259,20 @@ As for the cache parameters, just leave it nil and false, they aren't of much us
 
 The complete function call to get the heroes in 500 radius from the spawned kobold would be:
 
-~~~lua
+```lua
 local units = FindUnitsInRadius( npc:GetTeamNumber(), npc:GetAbsOrigin(), nil, 500, 
                                  DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 
 			         DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-~~~
+```
 
 The use of extra break lines is just to make it more readable. Now we want to **iterate over the entities of this table**, which is done like this:
 
-~~~lua
+```lua
 for key,unit in pairs(units) do
     print(key,value)
     unit:ForceKill(true)
 end
-~~~
+```
 
 The key,unit are the chosen names to refer to the position and value inside the *units* table, which will be read in pairs. Using '_' as the name of the key is a good convention when you want to make it clear that the first parameter wont be used. The 2nd parameter, unit, is used to itea handles of the units found.
 
@@ -280,7 +280,7 @@ There is one more thing to consider: the "wait one frame" issue. Because all uni
 
 So, `OnNPCSpawned` is looking like this:
 
-~~~lua
+```lua
 function GameMode:OnNPCSpawned(keys)
     local npc = EntIndexToHScript(keys.entindex)
  
@@ -300,7 +300,7 @@ function GameMode:OnNPCSpawned(keys)
         end)
     end
 end
-~~~
+```
 
 And the result ingame:
 
@@ -328,13 +328,13 @@ Let's go back to the [super basic datadriven ability](##basicability) and add a 
 
 Adding this block to a DD Event like OnSpellStart will make a new instance of the example_script and execute the lines defined in function ScriptedAbility.
 
-~~~
+```
 "RunScript"
 {
     "ScriptFile"	"heroes/example_script.lua"
     "Function"		"ScriptedAbility"
 }
-~~~
+```
 
 In your vscripts folder, make a heroes folder and a example_script file with a .lua extension. I recommend setting these files to automatically open with Sublime, and set the syntax to Dota Lua.
 
@@ -348,7 +348,7 @@ In the body, most ability scripts start by defining the local variables for the 
 * **.target**, the target of the ability (can be same as the caster in some cases)
 
 **Example**
-~~~lua
+```lua
 function ScriptedAbility( event )
     local caster = event.caster
     local target = event.target
@@ -357,7 +357,7 @@ function ScriptedAbility( event )
         target:Kill(nil, caster) -- Kills this NPC, with the params Ability and Attacker
     end
 end
-~~~
+```
 
 This will kill the targeted unit if its Health percent is less than half, and credits the kill to the caster entity.
 

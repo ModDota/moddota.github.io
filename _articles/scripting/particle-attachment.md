@@ -24,12 +24,12 @@ You can browse particles in the asset browser, for filtering just write keywords
 
 Also every time you use a particle, remember to add them in a datadriven precache block on the ability:
 
-~~~
+```
 "precache"
 {
     "particle"  "particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
 }
-~~~
+```
 
 Else you won't see them unless they belonged originally to the hero that is casting them.
 
@@ -102,7 +102,7 @@ This type of particles is the easiest to attach. They are tied to a modifier and
 For this to, the particle system duration usually needs to be infinite, designed as a simple buff, internally they have a single control point which is set with the `EffectAttachType` key.
 
 **Example**
-~~~
+```
 "modifier_borrowed_time"
 {
     "EffectName" "particles/units/heroes/hero_abaddon/abaddon_borrowed_time.vpcf"
@@ -111,7 +111,7 @@ For this to, the particle system duration usually needs to be infinite, designed
     "StatusEffectName" "particles/status_fx/status_effect_abaddon_borrowed_time.vpcf"
     "StatusEffectPriority" "15"
 }
-~~~
+```
 
 Status Effects are a particular type of particle that is generally applied to change the texture color of the hero, for things like illusions, ghosts, etc.
 
@@ -119,7 +119,7 @@ Status Effects are a particular type of particle that is generally applied to ch
 
 When you want more than one particle attached to a modifier or the particle needs additional control points, you need to do it in a `"FireEffect"` or `"AttachEffect"` block instead.
 
-~~~
+```
 "modifier_stampede"
 {
     "OnCreated"
@@ -132,7 +132,7 @@ When you want more than one particle attached to a modifier or the particle need
         }
     }
 }
-~~~
+```
 
 `"Target"` uses the same target rules as any datadriven block
 
@@ -148,11 +148,11 @@ Doing it in Lua has the advantage that you can dynamically reload the control po
 #### 3.1 Lua Particle Attachment with `SetParticleControl`
 
 **Example**
-~~~lua
+```lua
 local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
 ParticleManager:SetParticleControl(particle, 1, Vector(particle_radius,0,0))
-~~~
+```
 
 CP0 is not really needed (because this type of attachment already sets the particle to follow the AbsOrigin) but its nice to have.
 
@@ -163,14 +163,14 @@ CP1.x controls the radius of the particle, as seen in the Particle Editor after 
 Hovering over the button tells us its a "Position along ring" 
 
 **Example**
-~~~lua
+```lua
 local target = event.unit
 local player = PlayerResource:GetPlayer( caster:GetPlayerID() )
 local particleName = "particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf" 
 local particle = ParticleManager:CreateParticleForPlayer( particleName, PATTACH_ABSORIGIN, target, player )
 ParticleManager:SetParticleControl( particle, 0, target:GetAbsOrigin() )
 ParticleManager:SetParticleControl( particle, 1, target:GetAbsOrigin() )
-~~~
+```
 
 In this particular case, we are using `CreateParticleForPlayer` to only display it to one particular player. Could also use PATTACH_OVERHEAD_FOLLOW
 
@@ -178,7 +178,7 @@ In this particular case, we are using `CreateParticleForPlayer` to only display 
 
 The same can be translated to datadriven, except if you need the control points to be decided at runtime (like, doing a radius * some variable)
 
-~~~
+```
 "FireEffect"
 {
     "Target" "TARGET"
@@ -191,12 +191,12 @@ The same can be translated to datadriven, except if you need the control points 
         "01" "%radius %radius %radius"
     }
 }
-~~~
+```
 
 Keep in mind that a `"FireEffect"` or `"AttachEffect"` action can be inside any Ability or Modifier Event, not only on the `"OnCreated"` / `"OnDestroy"` Modifier Events.
 
 **Example:**
-~~~
+```
 "OnSpellStart"
 {
     "FireEffect"
@@ -212,7 +212,7 @@ Keep in mind that a `"FireEffect"` or `"AttachEffect"` action can be inside any 
         }
     }
 }
-~~~
+```
 
 ### 4. Control Point Entities
 
@@ -222,7 +222,7 @@ If your attachment is not working with the simple lua method, you need to try th
 #### 4.1 Lua `SetParticleControlEnt`
 
 **Example**: This is the proper lua attachment for Abaddon Aphotic Shield Particle:
-~~~lua
+```lua
 target.ShieldParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 ParticleManager:SetParticleControl(target.ShieldParticle, 1, Vector(shield_size,0,shield_size))
 ParticleManager:SetParticleControl(target.ShieldParticle, 2, Vector(shield_size,0,shield_size))
@@ -230,7 +230,7 @@ ParticleManager:SetParticleControl(target.ShieldParticle, 4, Vector(shield_size,
 ParticleManager:SetParticleControl(target.ShieldParticle, 5, Vector(shield_size,0,0))
 
 ParticleManager:SetParticleControlEnt(target.ShieldParticle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-~~~
+```
 
 PATTACH_POINT_FOLLOW puts the particle at the targets body in this case. PATTACH_ABSORIGIN_FOLLOW will put it at its feet, and PATTACH_OVERHEAD_FOLLOW at its head.
 
@@ -244,7 +244,7 @@ This works by setting each CP in order to its key. If you need to set the CP8 to
 
 **Example**
 
-~~~
+```
 "modifier_aphotic_shield"
 {
     "OnDestroy"
@@ -262,11 +262,11 @@ This works by setting each CP in order to its key. If you need to set the CP8 to
         }
     }
 }
-~~~
+```
 
 **Example 2**
 
-~~~
+```
 "modifier_return"
 {
     "Passive" "1"
@@ -290,11 +290,11 @@ This works by setting each CP in order to its key. If you need to set the CP8 to
         }
     } 
 }
-~~~
+```
 
 **Example 3**
 
-~~~
+```
 "OnProjectileHitUnit"
 {
     "FireEffect"
@@ -311,13 +311,13 @@ This works by setting each CP in order to its key. If you need to set the CP8 to
         } 
     }
 }
-~~~
+```
 
 **Example 4**
 
 Custom bones!
 
-~~~
+```
 "AttachEffect"
 {
     "Target" "CASTER"
@@ -330,7 +330,7 @@ Custom bones!
         "CASTER" "attach_sword"
     }
 }
-~~~
+```
 
 ControlPointEntities is the hardest method of Particle Attachment. Use it with caution and pride.
 
@@ -341,21 +341,21 @@ If the entity dies, it will normally destroy the particle.
 
 To stop something like we created in the Aphotic Shield example, add a `"OnDestroy"` of the modifier with a RunScript that calls something like this:
 
-~~~lua
+```lua
 function EndShieldParticle( event )
     local target = event.target
     target:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
     ParticleManager:DestroyParticle(target.ShieldParticle,false)
 end
-~~~
+```
 
 If the particle has a fixed duration you can also easily use BMD Timers:
 
-~~~lua
+```lua
 Timers:CreateTimer(duration, function() 
     ParticleManager:DestroyParticle(particle,false))
 end)
-~~~
+```
 
 
 ### 6. Difference between "FireEffect" and "AttachEffect"
@@ -380,7 +380,7 @@ Tracking can curve and follow a target movement. Every ranged attack particle is
 #### LinearProjectile
 
 **DataDriven Example**
-~~~
+```
 "LinearProjectile"
 {
     "Target" "POINT"
@@ -395,10 +395,10 @@ Tracking can curve and follow a target movement. Every ranged attack particle is
     "ProvidesVision" "0"
     "HasFrontalCone" "0"
 }
-~~~
+```
 
 **Lua Example**
-~~~lua
+```lua
 --[[
     Author: kritth
     Date: 10.01.2015
@@ -441,13 +441,13 @@ function ghostship_start_traverse( keys )
     ProjectileManager:CreateLinearProjectile( projectileTable )
 
 end
-~~~
+```
 
 
 #### TrackingProjectile
 
 **DataDriven Example**
-~~~
+```
 "TrackingProjectile"
 {
     "Target" "TARGET"
@@ -458,10 +458,10 @@ end
     "MoveSpeed" "%movement_speed"
     "SourceAttachment" "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 }
-~~~
+```
 
 **Lua Example**
-~~~lua
+```lua
 local projectile_speed = ability:GetSpecialValueFor( "projectile_speed" )
 local particle_name = "particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
 
@@ -479,7 +479,7 @@ local particle_name = "particles/units/heroes/hero_abaddon/abaddon_death_coil.vp
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
     }
     ProjectileManager:CreateTrackingProjectile( info )
-~~~
+```
 
 <br />
 

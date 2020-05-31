@@ -13,7 +13,7 @@ This is taken from the project I'm currently working on. The basic idea behind t
 <p>
 Don't worry too much about the statue model, I put it there just to check height reference before porting into the map itself. There are many ways to approach this but here is how I approach it.
 </p>
-~~~lua
+```lua
 Wave
 - Render sprites
 - Lifespan decay
@@ -63,7 +63,7 @@ Ground (optional)
 - Remap control point to scalar (Radius, CP2)
 - Alpha random
 - Emit continuously
-~~~
+```
 <a name="wave"></a><h1>Part one: Wave particle</h1>
 <p>
 Now let's start making this particle system.
@@ -294,9 +294,9 @@ First off as usual, you want to start rendering your sprite and emitter and deca
 <p>
 Change your render sprites' texture to,
 </p>
-~~~
+```
 materials/particle/electrical_arc_smooth/electrical_arc_smooth.vtex
-~~~
+```
 <p>
 Now think about the actual electric spark, it needs to be fast, colorful, looks different all the time, and a little bit of transparency. From those idea, I add following functions.
 </p>
@@ -547,18 +547,18 @@ Now that the particle is ready, we have to put it to use in game. Note that this
 In the ability you want to use, put these lines in.
 </p>
 
-~~~
+```
 "precache"
 {
     "particle"		"particles/custom/tutorial/cyclone.vpcf"
 }
-~~~
+```
 
 <p>
 Now when you want to launch particles in lua, you do the following
 </p>
 
-~~~lua
+```lua
 local info = {
     ...
     EffectName = "",
@@ -584,7 +584,7 @@ Timers:CreateTimer( 6.0, function()
         return nil
     end
 )		
-~~~
+```
 
 <p>
 With those implemented, your particles should show up in-game now.

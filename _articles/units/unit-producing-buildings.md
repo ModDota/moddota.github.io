@@ -43,9 +43,9 @@ To properly call these functions, I'm gonna assume you already know the basics e
 
 A good GameMode hook to call these would be after the dota_player_picked_hero, so given a standard barebones listener like this:
 
-~~~
+```
 ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(GameMode, 'OnPlayerPickHero'), self)
-~~~
+```
 
 In OnPlayerPickHero you need to **find the handle of the BaseEntity/BaseNPC**, that is, the unit you want to change ownership and control state.
 
@@ -55,15 +55,15 @@ This can be done in a couple of ways, for example, using the functions defined u
 
 Now you can search the building and get a local variable to it with this line:
 
-~~~lua
+```lua
 local building = Entities:FindByName(nil, "building_barracks1")
-~~~
+```
 
 Note: **Remember to select Entities when building the map**!
 
 The OnPlayerPickHero function should then look like this:
 
-~~~lua
+```lua
 function GameMode:OnPlayerPickHero(keys)
     local hero = EntIndexToHScript(keys.heroindex)
     local player = EntIndexToHScript(keys.player)
@@ -73,7 +73,7 @@ function GameMode:OnPlayerPickHero(keys)
     building:SetOwner(hero)
     building:SetControllableByPlayer(playerID, true)
 end
-~~~
+```
 
 Now your building should be fully controllable for ability usage, and even subtract gold from the player if you use abilities with gold cost.
 
@@ -88,20 +88,20 @@ There is a fully scripted method for placing units on the map, which is done by 
 
 Still working inside the same OnPlayerPickHero, we can either make an static position for each playerID, such as *Vector(450,322,128)*, doing random positions with named info_target entities in Hammer, or a dynamic position based on the hero spawn location. Let's do the latter:
 
-~~~lua
+```lua
 local origin = hero:GetAbsOrigin() -- Spawn position
 local fv = hero:GetForwardVector() -- Vector the hero is facing
 local distance = 300 
 local position = origin + fv * distance
-~~~
+```
 
 This will define a Vector facing 300 units to the direction the hero is facing.
 
 Now, CreateUnitByName should then be called in this way:
 
-~~~lua
+```lua
 local building = CreateUnitByName("human_barracks", position, true, hero, hero, hero:GetTeamNumber())
-~~~
+```
 
 Even though we set the hNPCOwner and hUnitOwner, the SetOwner and SetControllableByPlayer are still necessary.
 
@@ -109,17 +109,17 @@ Even though we set the hNPCOwner and hUnitOwner, the SetOwner and SetControllabl
 
 There's an small issue with npc_dota_building baseclass which is that they spawn with "modifier_invulnerable" by default, to get rid of this, run this line:
 
-~~~
+```
 building:RemoveModifierByName("modifier_invulnerable")
-~~~
+```
 
 #### Did I mention Buildings are retarded?
 
 There's another issue, buildings will sometimes be not created where you want them to be, and instead be stuck to the (0,0,0) position, so, if this happens, add this:
 
-~~~lua
+```lua
 Timers:CreateTimer(function() building:SetAbsOrigin(position) end)
-~~~
+```
 
 Wait 1 frame, and using BMD's timers4life, your building will finally appear in the correct position
 
@@ -127,15 +127,15 @@ Wait 1 frame, and using BMD's timers4life, your building will finally appear in 
 
 Last thing is the Unit's Precache requirement. Unlike units dropped on Hammer, lua CreateUnitByName won't run the precache {} blocks of the unit abilities nor Model, so we need to do it manually in either addon_game_mode.lua or in PostLoadPrecache() if you are worried about your clients not loading properly. I'll just go with the first method in this case:
 
-~~~lua
+```lua
 function Precache( context ) -- Find this in addon_game_mode.lua
     PrecacheUnitByNameSync("human_barracks", context)
 end
-~~~
+```
 
 Done! Full code of the building spawning on front of the hero looks like this:
 
-~~~lua
+```lua
 function GameMode:OnPlayerPickHero(keys)
     local hero = EntIndexToHScript(keys.heroindex)
     local player = EntIndexToHScript(keys.player)
@@ -153,7 +153,7 @@ local building = CreateUnitByName("human_barracks", position, true, hero, hero, 
     building:SetControllableByPlayer(playerID, true)
     building:SetAbsOrigin(position)
     building:RemoveModifierByName("modifier_invulnerable")
-~~~
+```
 
 <br />
 
@@ -171,7 +171,7 @@ Of course you could listen to the game event of unit spawned and do your OnSpawn
 
 SpawnUnit should be used as it follows, and is included in the Sublime Dota KV snippets:
 
-~~~
+```
 "SpawnUnit"
 {
     "UnitName"       "npc_name"
@@ -193,7 +193,7 @@ SpawnUnit should be used as it follows, and is included in the Sublime Dota KV s
         [ACTIONS]
     }
 }
-~~~
+```
 
 Applying "modifier_phased" for 1 frame is to prevent units getting stuck, for example if you cast the ability directly on the caster, without the phasing, it will be stuck on the same point and both units will be unable to move. This is similar to running the Lua `FindClearSpaceForUnit`, because once the phasing ends, units will try to find an empty position.
 
@@ -217,7 +217,7 @@ Try to use the `ExecuteOrderFromTable` to avoid dropping orders because the unit
 
 Also, the Ownership of the unit needs to be changed to the **hero handle**, because the caster is a creature and those can't gain gold!
 
-~~~lua
+```lua
 function MoveToRallyPoint( event )
     local caster = event.caster
     local target = event.target
@@ -234,7 +234,7 @@ function MoveToRallyPoint( event )
     local hero = player:GetAssignedHero()
     target:SetOwner(hero)
 end
-~~~
+```
 
 ---
 

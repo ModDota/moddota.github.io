@@ -11,11 +11,11 @@ This has many uses, as sometimes it's impossible to replicate some effects that 
 
 In a previous example, the [Illusion Ability Example](http://moddota.com/forums/discussion/62/illusion-ability-example) made use of the `"modifier_illusion modifier"` in Lua like this:
 
-~~~
+```
 illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, 
                                                                 outgoing_damage = outgoingDamage, 
                                                                 incoming_damage = incomingDamage })
-~~~
+```
 
 The fields between { } are **Very** specific. For that particular modifier, I took the values from [this magic list](http://moddota.com/resources/modifier_keys.txt), but this isn't the only way of acquiring them, as this list is very incomplete.
 
@@ -24,14 +24,14 @@ The Full List of Built-In Modifiers can be found [on the the wiki](https://devel
 `AddNewModifier` can be replaced by the datadriven `"ApplyNewModifier"` Action block like this:
 
 **Basic Example:** This will apply 1 frame of MODIFIER_STATE_NO_UNIT_COLLISION
-~~~
+```
 "ApplyModifier" 
 {
     "ModifierName"	"modifier_phased"
     "Target"       "TARGET"
     "Duration"     "0.03"
 }
-~~~
+```
 
 However this isn't more than a shortcut to avoid creating a new modifier with the state. The real strength of this method is in applying modifiers that have very custom properties that aren't easily reproduced with the basic Properties/States/etc.
 
@@ -58,7 +58,7 @@ Go to the original ability that uses the modifier you want to reuse form the lis
 Copy the ability specials from the main ability into your datadriven AbilitySpecial block. If the custom ability doesn't have the field, the modifier will default to 0, so you can remove those that you want to ignore.
 
 **Example:** [alchemist_chemical_rage](https://github.com/Pizzalol/SpellLibrary/blob/SpellLibrary/game/dota_addons/spelllibrary/scripts/npc/abilities/alchemist_chemical_rage_datadriven.txt#L30) AbilitySpecial block, with 2 added values and most of its ability bonus removed.
-~~~
+```
 "AbilitySpecial"
 {
     "01"
@@ -82,20 +82,20 @@ Copy the ability specials from the main ability into your datadriven AbilitySpec
         "bonus_attack_speed"       "322"
     }
 }
-~~~
+```
 <br />
 
 #### Step 3 - Applying the modifier
 
 On the desired Ability or Modifier Event, add the ApplyModifier action:
-~~~
+```
 "ApplyModifier" 
 {
     "ModifierName" "modifier_alchemist_chemical_rage_transform"
     "Target"       "CASTER"
     "Duration"     "%transformation_time"
 }
-~~~
+```
 
 **Without a Duration field**, the modifier might be applied for duration = nil, meaning infinite duration.
 
@@ -111,10 +111,10 @@ The modifier_alchemist_chemical_rage tooltip needs to be adjusted to ignore Abil
 
 2. Find the modifier tooltip of the spell we want to modify, copy them into your addon_english and edit them:
 
-~~~
+```
 "DOTA_Tooltip_modifier_alchemist_chemical_rage"             "Legacy Chemical Rage"
 "DOTA_Tooltip_modifier_alchemist_chemical_rage_Description"	"Increasing attack and movement speed."
-~~~
+```
 
 After modifying the addon_english.txt:
 
@@ -127,7 +127,7 @@ Instead you can make those tooltips in the separate modifier, or directly add th
 <br />
 
 #### Full Example
-~~~
+```
 "alchemist_chemical_rage_warcraft"
 {
     "BaseClass"            "ability_datadriven"
@@ -214,7 +214,7 @@ Instead you can make those tooltips in the separate modifier, or directly add th
         }
     }
 }
-~~~
+```
 
 <br />
 

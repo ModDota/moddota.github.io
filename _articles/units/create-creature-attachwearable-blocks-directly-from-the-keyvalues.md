@@ -9,7 +9,7 @@ For those still Ctrl+F'ing and copying from [items_game.txt](https://raw.githubu
 
 First, "Map" the valid wearables from items_game:
 
-~~~lua
+```lua
 function MapWearables()
     GameRules.items = LoadKeyValues("scripts/items/items_game.txt")['items']
     GameRules.modelmap = {}
@@ -19,7 +19,7 @@ function MapWearables()
         end
     end
 end
-~~~
+```
 
 Then, there's 2 options:
 
@@ -32,7 +32,7 @@ Then, there's 2 options:
 * For generating a bundle set, run: `GenerateBundleBlock(set_name)`
 
 **Code, using 4 space indents**
-~~~lua
+```lua
 function GenerateDefaultBlock( heroName )
     print("    \"Creature\"")
     print("    {")
@@ -81,4 +81,4 @@ end
 function GenerateItemDefLine( i, itemID, comment )
     print("            \""..tostring(i).."\" { ".."\"ItemDef\" \""..itemID.."\" } // "..comment)
 end
-~~~
+```

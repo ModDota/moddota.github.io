@@ -11,7 +11,7 @@ So today i'll teach you how to make a chest you must open , and then you can obt
 
 first off , you need to create you chest item in npc_item_custom.txt :
 
-~~~
+```
 "item_chest"
 	{
 		// General
@@ -48,9 +48,9 @@ first off , you need to create you chest item in npc_item_custom.txt :
 		    }
 		}
 	}
-~~~
+```
 then your script in lua_datadriven/chest.lua 
-~~~lua
+```lua
 function chest_open(keys)
 	local item_list = LoadKeyValues("scripts/kv/chest_result.kv") --Here we load a kv file where we will put all the item you can find in chest
 	local caster = keys.caster
@@ -86,11 +86,11 @@ function chest_open(keys)
 		end
 	end
 end
-~~~
+```
 
 and finaly we create our kv file where we put all the item for each chest 
 "scripts/kv/chest_result.kv"
-~~~
+```
 "put_the_name_you_wanna" 
 { 
     "chest_1"
@@ -105,7 +105,7 @@ and finaly we create our kv file where we put all the item for each chest
         "1" "item_youritem"
     }
 }
-~~~
+```
 
 Now you can easely make a chest for your rpg game :D
 If you want to make the chest loot on ennemy death , look this another tuto from Noya about drop system : 

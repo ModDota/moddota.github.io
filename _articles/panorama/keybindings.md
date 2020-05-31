@@ -16,7 +16,7 @@ Although this method is not nescessarily limited to panorama this tutorial will 
 ### Setup
 Start by adding a couple of lines to your `addoninfo.txt` file located in `/game/<your addon>/addoninfo.txt`
 
-~~~
+```
 "AddonInfo"
 {
   "TeamCount" "10"
@@ -42,7 +42,7 @@ Start by adding a couple of lines to your `addoninfo.txt` file located in `/game
         }
     }
 }
-~~~
+```
 
 The important parts are of course what is defined in `"Default_Keys"`
 
@@ -69,7 +69,7 @@ The prefixes do not lock the command to be triggered only in that event. But is 
 ### Panorama
 Catching the keybind commands in Panorama is easy:
 
-~~~lua
+```lua
 function OnExecuteAbility1ButtonPressed()
 {
   $.Msg("'S' Pressed or Released");
@@ -90,6 +90,6 @@ function OnTestButtonReleased()
   Game.AddCommand( "+CustomGameTestButton", OnTestButtonPressed, "", 0 );
   Game.AddCommand( "-CustomGameTestButton", OnTestButtonReleased, "", 0 );
 })();
-~~~
+```
 
 Note how the prefixes are used again. Even though we only defined `CustomGameTestButton` to be fired on *key down*, we can easily catch the release event in our JS aswell.

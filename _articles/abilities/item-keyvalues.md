@@ -21,10 +21,10 @@ Do not override Dota IDs, use IDs between 1000~2000
 
 Next is the BaseClass. It can be DataDriven, or overriding an existing item from the [default dota item_names](https://github.com/dotabuff/d2vpk/blob/master/dota_pak01/scripts/npc/items.txt).
 
-~~~
+```
 "BaseClass" "item_datadriven"
             "item_aegis"
-~~~
+```
 
 If you want to override an item, you won't be able to change/add abilities, you'll be limited to change values from items.txt (and some values can't even be changed)
 So it's recommended to always try to make a datadriven version of the item if you want to have complete freedom on what your item does.
@@ -33,40 +33,40 @@ Now that we settled that, I'll review the most common key values seen in items.
 
 ### Basic Rules
   
-~~~
+```
 "ItemCost" "322"
 "ItemKillable" "0" 
 "ItemSellable" "1"
 "ItemPurchasable" "1"
 "ItemDroppable" "1"
-~~~
+```
 
 ItemKillable lets both allies and enemies destroy the dropped item by attacking it.
 
 
 ### Stock
-~~~
+```
 "ItemStockMax" "1" 
 "ItemStockTime" "100"
 "ItemStockInitial" "3"
-~~~
+```
 
 ### Ownership
   
 If you omit the following, its behavior will be NOT_SHAREABLE
-~~~
+```
 "ItemShareability" "ITEM_NOT_SHAREABLE"             //Rapier
                    "ITEM_PARTIALLY_SHAREABLE"       //Ring of Regen
                    "ITEM_FULLY_SHAREABLE"           //Gem
                    "ITEM_FULLY_SHAREABLE_STACKING"  //Consumables
-~~~
+```
 
 ### Charges
-~~~
+```
 "ItemInitialCharges" "1" //How many charges should the item start with - Tango x3 
 "ItemDisplayCharges" "1" //Hide the charges of the item - Aegis 
 "ItemRequiresCharges" "1" //The active ability needs charges to be used - Urn
-~~~
+```
 
 Also remember to add this somewhere, normally at the beginning of a OnSpellStart block
   
@@ -74,10 +74,10 @@ Also remember to add this somewhere, normally at the beginning of a OnSpellStart
 
 ### Stacking, Consumable
   
-~~~
+```
 "ItemStackable" "1"
 "ItemPermanent" "0"
-~~~
+```
 
 If "ItemPermanent" is set to 1, charged items won't disappear when they hit 0 charges (Bottle, Urn, etc)
 By omitting it will also default to 1.
@@ -89,13 +89,13 @@ This value is the key for Tomes of Stats and other consumable items:
 `"ItemCastOnPickup" "1"`
 
 ### Upgradeable items
-~~~
+```
 "MaxUpgradeLevel" "5" // Dagon - 5
 "ItemBaseLevel" "1" //You'll need 5 different items, and change each accordingly
-~~~
+```
 
 ### Recipes
-~~~
+```
 "item_recipe_custom" 
 {
     "ID" "1200"
@@ -109,12 +109,12 @@ This value is the key for Tomes of Stats and other consumable items:
         "02" "item_ingredient_1;item_ingredient_2;item_ingredient_alternative_3"
     }
 }
-~~~
+```
 
 **IMPORTANT NOTE:** Your item name for the recipe to be recognized by the Dota Shop UI NEEDS to have this format: 
-~~~
+```
 "item_recipe_(name of your item)"
-~~~
+```
 
 Meaning if the ItemResult you want to get is called *"item_capuchino"*, your recipe would be: *"item_recipe_capuchino"*
 
@@ -123,10 +123,10 @@ Meaning if the ItemResult you want to get is called *"item_capuchino"*, your rec
 If you don't, the item will till be combinable but it won't show the neat lines to the possible upgrades.
 
 ### Disassembling
-~~~
+```
 "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
                       "DOTA_ITEM_DISASSEMBLE_NEVER"
-~~~
+```
 
 ## Common Modifier Key Values for items
 
@@ -134,7 +134,7 @@ We now have an item, but it doesn't do anything on its own.
 To make it add stats or buffs, we need to set modifiers inside the item definition
 For more on Modifiers, check the [Constants in the wiki]
 
-~~~
+```
 "Modifiers"
 {
     "item_custom_modifier"
@@ -161,12 +161,12 @@ For more on Modifiers, check the [Constants in the wiki]
     }
 }
   
-~~~
+```
 
 ## Adding spell functionality
 Apart from this values specially related to items, you can add ***everything*** that could be part of a datadriven ability, for example:
 
-~~~
+```
 "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_BOTH"
 "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -174,7 +174,7 @@ Apart from this values specially related to items, you can add ***everything*** 
 "AbilityManaCost" "100"
 "AbilitySpecial"
 { ... }
-~~~
+```
 
 **[Ability Events](http://moddota.com/forums/discussion/13/datadriven-ability-events-modifiers)** like `"OnSpellStart"`, `"OnOwnerDied"` or `"OnEquip"` also go here in the main block.
 
@@ -211,10 +211,10 @@ A template shop file can be copied from here: http://pastebin.com/KZrtm1xQ
 
 In addition to this file, your item can have key value rules for where it can be bought
 
-~~~
+```
 "SideShop" "1"  
 "SecretShop" "0"
-~~~
+```
 
 At the moment of writing this guide, we can only set up 3 different shops (Home, Side and Secret).
 You can change categories and shop tab names, with [addon_english modding]
@@ -227,56 +227,56 @@ To disable your dota items, use [this npc_abillities_override.txt](http://pasteb
 These values are optional but greatly improve the quality of your item
 
 ### Sounds when Picked, Dropped
-~~~
+```
 "UIPickupSound" "Item.PickUpRingShop" //Sound when adquiring the item
 "UIDropSound" "Item.DropRecipeShop" //Sound when dropping the item manually
 "WorldDropSound" "Item.DropGemWorld" //Sound when dropping the item on death (?)
-~~~
+```
 
 ### Model and Glow in the world. 
 VMDL and Particle files can be seen through the [Asset Browser]
 
-~~~
+```
 "Model" "models/chest_worlddrop.vmdl"
 "Effect" "particles/generic_gameplay/dropped_item.vpcf"
-~~~
+```
 You can find good models in /props_gameplay, /econ or use your own customs
 
 Important: If you create the item through lua [CreateItemOnPositionSync], you need to provide vision of the world position where the item is being created, at least briefly, to properly display the particle effect.
 
 ### Change the displayed color of the item
-~~~ 
+``` 
 "ItemQuality"    "artifact" //Orange 
                  "epic" //Purple
                  "rare" //Blue
                  "common" //Green
                  "component" //White
                  "consumable" //White
-~~~
+```
 
 ### Tags & Alias
 
 Tags are defined in addon_english, find them in [dota_english] under *// Tags*
 Aliases help the search bar to find the item quickly with abreviations
 
-~~~
+```
 "ItemShopTags" "int;str;agi;mana_pool;health_pool;hard_to_tag"
 "ItemAliases" "this;appears_in;search"
-~~~
+```
 
 Omit to not announce.
-~~~
+```
 "ItemDeclarations" "DECLARE_PURCHASES_TO_TEAMMATES"
                    "DECLARE_PURCHASES_IN_SPEECH"
                    "DECLARE_PURCHASES_TO_SPECTATORS"
-~~~
+```
 
 ### Restrictions
 
 This is how Basher is disallowed for certain heroes
-~~~
+```
 "InvalidHeroes" "npc_dota_hero_spirit_breaker;npc_dota_hero_faceless_void"
-~~~
+```
 
 For the Scripted, more powerful version, read more on [Item Restrictions & Requirements](http://moddota.com/forums/discussion/20/item-restrictions-requirements)
 
@@ -295,14 +295,14 @@ Overrides the default "[ALLIES] **ItemName** dropped here".
 <Gfycat id="RemarkableImportantAnt" />
 
 In the item_datadriven:
-~~~
+```
 "PingOverrideText" "DOTA_Chat_Text_String" 
-~~~
+```
 
 In addon_english.txt:
-~~~
+```
 "DOTA_Chat_Text_String" "[VOLVO] Giff"
-~~~
+```
 
 ### ItemAlertable
 
@@ -310,9 +310,9 @@ Displays "[ALLIES] Gather for **ItemName** here."
 
 ![img](http://puu.sh/duiGf/025d66f1cd.jpg)
 
-~~~~
+```~
 "ItemAlertable"	"1" 
-~~~~  
+```~  
 
 
 ---

@@ -28,7 +28,7 @@ In the InitGameMode() function we do a few things: seed the random number genera
 
 Settings which aren't relevant to this tutorial have been omitted, but in this function you can set up things like GameRules for your game mode. 
 
-~~~lua
+```lua
 function CAITesting:InitGameMode()
 	print( "Loading AI Testing Game Mode." )
 	-- SEEDING RNG IS VERY IMPORTANT
@@ -48,12 +48,12 @@ function CAITesting:InitGameMode()
 	-- Set the unit thinker function
 	GameRules:GetGameModeEntity():SetThink( "OnUnitThink", self, "UnitThink", 1 )
 end
-~~~
+```
 
 ## Spawning a Wanderer
 This function will spawn a unit with wandering behaviour. The bounds which the unit wanders between are hard coded. An easy way to determine these bounds is to spawn a simple entity in Hammer (such as info_target), move it about and read the coordinates. In this example, my info_target entity is named "spawn_loc_test".
 
-~~~lua
+```lua
 function CAITesting:SpawnAIUnitWanderer()
 	--Start an iteration finding each entity with this name
 	--If you've named everything with a unique name, this will return your entity on the first go
@@ -83,12 +83,12 @@ function CAITesting:SpawnAIUnitWanderer()
 	-- finally, insert the unit into the table
 	table.insert(self.UnitThinkerList, spawnedUnit)
 end
-~~~
+```
 
 ## Spawning a Caster
 This function will spawn a unit with casting behaviour. The bounds which the unit is spawned in are hard coded. The spell is an untargeted spell which requires no additional variables to cast.
 
-~~~lua
+```lua
 function CAITesting:SpawnAIUnitCaster()
 	-- Generate a random location inside the neutrals area
 	local spawnVector = Vector(math.random(-768, 768), math.random(-64, 768), 128)
@@ -110,12 +110,12 @@ function CAITesting:SpawnAIUnitCaster()
 	-- finally, insert the unit into the table
 	table.insert(self.UnitThinkerList, spawnedUnit)
 end
-~~~
+```
 
 ## Thinker Function
 This function gets called every second. It will read each of the units and determine if they should be issued with a new order, then issue that order.
 
-~~~lua
+```lua
 function CAITesting:OnUnitThink()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 
@@ -184,7 +184,7 @@ function CAITesting:OnUnitThink()
 	-- returning nil will cause the thinker to terminate and no longer be called
 	return 1
 end
-~~~
+```
 
 ## Finishing Up
 If you need more advanced behaviour, an AI script should be used. The method covered in this tutorial can be extended up to a point however, for example casting a ground-targeted ability in a random area would be possible using only code posted here.

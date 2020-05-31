@@ -21,7 +21,7 @@ Gratz, you've successfully installed it!
 
 Now you can add charges to any ability with this code:
 
-~~~
+```
 unit:AddNewModifier(unit, unit:FindAbilityByName("ability_name"), "modifier_charges",
         {
             max_count = 2,
@@ -29,7 +29,7 @@ unit:AddNewModifier(unit, unit:FindAbilityByName("ability_name"), "modifier_char
             replenish_time = 6
         }
     )
-~~~
+```
 
 The settings in the end are pretty self-explanatory. You can omit the start_count if you want.
 

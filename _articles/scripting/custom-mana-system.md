@@ -22,14 +22,14 @@ Hope this is enough for most systems, let me know if you have another concept th
  For this you'll need to set the following in your hero definition
 
 
-~~~
+```
 //KV code inside npc_heroes_custom.txt
 "AttributeBaseIntelligence" "0" // Base intelligence
 "AttributeIntelligenceGain" "0" // Intelligence bonus per level.
    
 "StatusMana"	"50"    // Initial Max Mana
 "StatsManaRegen"	"0"	// Base Mana Regen (KV doesn't like negative numbers here) 
-~~~
+```
 
 If you need to keep your Int stat but still have 0 natural mana regen, you'll need to apply modifiers for each Int point with negative mana regen to compensate. 
 
@@ -38,7 +38,7 @@ I won't be following this process in this guide, but you can check the guide [on
 For your mana to start at 0, we'll begin by making the passive hidden ability which will be the base for our Rage system:
 
 
-~~~
+```
 //KV code inside npc_abilities_custom.txt
 "barbarian_rage" 
 {
@@ -66,13 +66,13 @@ For your mana to start at 0, we'll begin by making the passive hidden ability wh
         }
     }
 }
-~~~
+```
 
 
 This requires a barbarian.lua script inside *your_addon/scripts/vscripts* folder.
 The script is very simple:
 
-~~~lua
+```lua
  -- lua code inside barbarian.lua
     function ZeroManaOnSpawn( event ) 
         local hero = event.caster
@@ -81,7 +81,7 @@ The script is very simple:
         hero:SetMana(0)
     end)
  end
-~~~
+```
 
 We need to do a wait a bit for the hero to be properly spawned else it might fail. Notice the use of [BMD's Timers](https://github.com/bmddota/barebones/blob/source2/game/dota_addons/barebones/scripts/vscripts/timers.lua).
 
@@ -90,7 +90,7 @@ Right now our spell is not even available on the hero, and we want it to be lear
  For this we'll need to add the following in our `OnHeroInGame`* listener (*function hook of npc_spawned, see [barebones Event Hooks](https://github.com/bmddota/barebones/blob/source2/game/dota_addons/barebones/scripts/vscripts/barebones.lua#L443) )
 
 
-~~~lua
+```lua
 -- lua code inside OnHeroInGame(hero)
 local heroName = hero:GetUnitName()
 if heroName == "npc_dota_hero_beastmaster" then
@@ -99,7 +99,7 @@ if heroName == "npc_dota_hero_beastmaster" then
     -- Level it up
     hero:FindAbilityByName("barbarian_rage"):SetLevel(1)
 end
-~~~
+```
 
 The if is not exactly neccessary but you'll need to filter your desired hero somehow. We'll use Beastmaster for our example
 
@@ -108,7 +108,7 @@ The if is not exactly neccessary but you'll need to filter your desired hero som
 
 Our rage_modifier block gains another modifier event:
 
-~~~
+```
 "OnAttackLanded"
 {
     "RunScript"
@@ -117,12 +117,12 @@ Our rage_modifier block gains another modifier event:
         "Function"	"ManaOnAttack"
     }
 } 
-~~~
+```
 
 I'll use a basic formula for it, which gives a base mana per attack but also scales with levels slightly.
 Keep in mind this function is used for a 200 hero level system, so if you have something different of bigger mana costs, you need to adjust to your liking.
 
-~~~lua
+```lua
 -- lua code inside barbarian.lua
 function ManaOnAttack( event )
     local hero = event.caster
@@ -130,13 +130,13 @@ function ManaOnAttack( event )
 
     hero:GiveMana(0.01 * level + 3)
 end
-~~~
+```
 
 
 ## Gain mana after being attacked, scaling with level
 
 Our modifier block gains another modifier event:
-~~~
+```
 "OnAttacked"
 {
    "RunScript"
@@ -145,23 +145,23 @@ Our modifier block gains another modifier event:
         "Function"	"ManaOnAttacked"
     }
 }
-~~~
+```
 
 Same as befefore, another different formula can be used, we will give a bit less mana on attacked
 
-~~~lua
+```lua
 function ManaOnAttacked( event )
    local hero = event.caster
    local level = hero:GetLevel()
 
    hero:GiveMana(0.01 * level + 0.4)
 end
-~~~
+```
 
 
 ## Gain mana on particular spell cast
 
-~~~
+```
 "OnSpellStart" 
 {
     "RunScript"
@@ -170,20 +170,20 @@ end
         "Function"	"leap"
     }
 }
-~~~
+```
 
 Then in your lua spell script we need to have this somewhere:
 
-~~~lua
+```lua
 local manaGain = event.ability:GetLevelSpecialValueFor("mana_gain", (event.ability:GetLevel()-1))
 event.caster:GiveMana(manaGain)
-~~~
+```
 
 Note the relatively complicated GetLevelSpecialValueFor with a GetLevel()-1! 
 
 This will take your "mana_gain" from AbilitySpecial, in my leap example it would be:
 
-~~~
+```
 "AbilitySpecial"
 {
     "01"
@@ -192,7 +192,7 @@ This will take your "mana_gain" from AbilitySpecial, in my leap example it would
         "mana_gain"	"8 16 25 35 47 60 72 85"
     }
 }
-~~~
+```
 
 We need to use GetLevelSpecialValueFor because GetSpecialValueFor("mana_gain") only takes the first parameter (so it is only useful for non scaling specials)
 
@@ -205,7 +205,7 @@ Base Mana Regen will need to be updated when the hero spawns `OnHeroInGame`, and
 
 For this we create a local function somewhere inside our main addon lua file and call it whenever we need (at least once `OnHeroInGame`):
 
-~~~lua
+```lua
 function AdjustWarriorClassMana( hero ) 
     Timers:CreateTimer(0.1,function() 
         local heroLevel = hero:GetLevel()
@@ -214,7 +214,7 @@ function AdjustWarriorClassMana( hero )
     end)
 end
 
-~~~
+```
 
 With this, our hero's mana will decrease over time by ~0.3 and slightly faster on higher levels.
 

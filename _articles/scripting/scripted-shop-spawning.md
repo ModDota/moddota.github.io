@@ -17,10 +17,10 @@ Turn the block into a entity by selecting it and pressing **ctrl+t**. Change the
 
 ## Step 3.
 Now simply add the following code to create a shop at your desired location! I added this to OnConstructionCompleted in building helper.
-~~~lua
+```lua
 local shopEnt = Entities:FindByName(nil, "my_new_shop") -- entity name in hammer
 local newshop = SpawnEntityFromTableSynchronous('trigger_shop', {origin = unit:GetAbsOrigin(), shoptype = 1, model=shopEnt:GetModelName()}) -- shoptype is 0 for a "home" shop, 1 for a side shop and 2 for a secret shop
-~~~
+```
 
 Example:
 <Gfycat id="DimwittedGlisteningAmericanmarten" />

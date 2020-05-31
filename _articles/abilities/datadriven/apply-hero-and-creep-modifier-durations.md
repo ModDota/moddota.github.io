@@ -9,7 +9,7 @@ I came up with this method after [kritth](http://moddota.com/forums/profile/1600
 
 Basically, abusing the datadriven system we can do this on any event:
 
-~~~
+```
 "ApplyModifier"
 {
     "ModifierName"	"modifier_name"
@@ -31,7 +31,7 @@ Basically, abusing the datadriven system we can do this on any event:
     }
     "Duration"	"%creep_duration"
 }
-~~~
+```
 
 modifier_name being any modifier **without a "Duration"** specified directly in its block.
 

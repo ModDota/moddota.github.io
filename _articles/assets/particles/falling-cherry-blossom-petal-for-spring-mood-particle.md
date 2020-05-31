@@ -19,7 +19,7 @@ I feel like it lacks some kind of "spring" mood to it. So I feel like there shou
 <p>
 If you know what to do, you can simply add these functions to your system. I will also explain in detail on my thought process and steps on creating this as well.
 </p>
-~~~lua
+```lua
 Render sprites
 Lifespan decay
 Alpha fade out simple
@@ -35,7 +35,7 @@ Alpha random
 Lifetime random
 Radius random
 Emit continuously
-~~~
+```
 <p>
 Now if you want to know further detail on this system then
 </p>
