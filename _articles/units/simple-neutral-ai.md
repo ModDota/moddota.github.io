@@ -1,5 +1,5 @@
 ---
-title: 'Writing a simple AI for neutrals'
+title: Writing a simple AI for neutrals
 author: Perry
 steamId: '76561198046986723'
 date: 25.01.2020

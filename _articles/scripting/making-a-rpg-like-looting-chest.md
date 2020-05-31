@@ -1,5 +1,5 @@
 ---
-title: Making a &quot;rpg-like&quot; looting chest
+title: Making a "rpg-like" looting chest
 author: FrenchDeath
 steamId: '76561198002718302'
 date: 18.12.2015

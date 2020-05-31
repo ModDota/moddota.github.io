@@ -1,5 +1,5 @@
 ---
-title: 'Setting Up Your Addon With GitHub'
+title: Setting Up Your Addon With GitHub
 author: Veggiesama
 date: 07.03.2015
 ---

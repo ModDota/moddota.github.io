@@ -1,5 +1,5 @@
 ---
-title: 'Creating innate (available from level 1) abilities'
+title: Creating innate (available from level 1) abilities
 author: DoctorGester
 steamId: '76561198046920629'
 date: 27.09.2019
