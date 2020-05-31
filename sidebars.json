@@ -147,6 +147,7 @@
                 "tools/combining-kv-files-using-base"
             ]
         },
-        "contribute"
+        "contribute",
+        "tutorials"
     ]
 }

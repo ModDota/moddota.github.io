@@ -39,9 +39,6 @@ module.exports = {
                 theme: {
                     customCss: require.resolve("./src/custom.scss"),
                 },
-                pages: {
-                    include: ["index.tsx"],
-                },
             },
         ],
     ],
