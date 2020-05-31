@@ -8,8 +8,8 @@ ModDota is an English-speaking community for Dota 2 Custom Game developers. This
 
 New to modding? Check out our [Getting Started](getting-started) guide.
 
-Or follow a video tutorial:
+Or follow a video tutorial series:
 
 </div>
 
-<YouTube id="kzj9yM_9zAw" />
+<YouTube playlistId="PL7yysLaMSd3uY4iJKJdRrTkN1gYePkMz2" />

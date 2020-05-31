@@ -1,10 +1,23 @@
 import React from "react";
 
-export function YouTube({ id, aspectRatio = 16 / 9 }: { id: string; aspectRatio: number }) {
+export function YouTube({
+    id,
+    playlistId,
+    aspectRatio = 16 / 9,
+}: {
+    id?: string;
+    playlistId?: string;
+    aspectRatio: number;
+}) {
+    const embedUrl =
+        playlistId !== undefined
+            ? `https://www.youtube.com/embed/videoseries?list=${playlistId}`
+            : `https://www.youtube.com/embed/${id}`;
+
     return (
         <p style={{ position: "relative", paddingBottom: `${(1 / aspectRatio) * 100}%` }}>
             <iframe
-                src={`https://www.youtube.com/embed/${id}`}
+                src={embedUrl}
                 frameBorder="0"
                 allowFullScreen={true}
                 width="100%"
