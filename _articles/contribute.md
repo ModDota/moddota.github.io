@@ -83,6 +83,17 @@ To embed https://www.youtube.com/watch?v=GMvmdnNM6Sc:
 
 Use `<YouTube id="GMvmdnNM6Sc" />`
 
+### Headings
+
+In Docusaurus, Markdown's [headings] get an additional meaning - they are used to generate Table of Contents, which you can see on the right side from the article.
+
+:::info
+Only headings of levels 2 (##) and 3 (###) would appear in the Table of Contents.
+:::
+
+:::caution
+Do not use headings of the first level (#) in tutorials. It would be automatically added based on the `title` field.
+:::
 
 ## Using a git fork
 
