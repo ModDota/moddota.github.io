@@ -23,9 +23,11 @@ Given this "AbilitySpecial" block in the ability:
 
 There are 2 functions to connect these with ua. `GetSpecialValueFor` and `GetLevelSpecialValueFor`. Both are applied over an ability.
 
-    local event.ability = ability
-    local radius = ability:GetSpecialValueFor("radius") 
-    local mana_per_second = ability:GetLevelSpecialValueFor("mana_per_second", (ability:GetLevel() - 1))
+```lua
+local event.ability = ability
+local radius = ability:GetSpecialValueFor("radius") 
+local mana_per_second = ability:GetLevelSpecialValueFor("mana_per_second", (ability:GetLevel() - 1))
+```
 
 The first one can be used **only for single level values**. If you use `GetSpecialValueFor` (no `Level`) on "mana_per_second" it will only get the value for the first level.
 

@@ -16,10 +16,11 @@ This is a powerful way to interact with Valve's spells in particular. This allow
 
 This is easy to use, easy to configure and easy to think about. Here is an example that casts Tether on a hidden dummy unit, activated by a datadriven spell:
 
-    local tether = caster:FindAbilityByName("trollsandelves_hidden_tether")
-    tether:SetLevel(4)
-    tether:EndCooldown()
-    caster:SetCursorCastTarget(dummy)
-    tether:OnSpellStart()
-
+```lua
+local tether = caster:FindAbilityByName("trollsandelves_hidden_tether")
+tether:SetLevel(4)
+tether:EndCooldown()
+caster:SetCursorCastTarget(dummy)
+tether:OnSpellStart()
+```
  

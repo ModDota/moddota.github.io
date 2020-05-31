@@ -11,7 +11,7 @@ This has many uses, as sometimes it's impossible to replicate some effects that 
 
 In a previous example, the [Illusion Ability Example](http://moddota.com/forums/discussion/62/illusion-ability-example) made use of the `"modifier_illusion modifier"` in Lua like this:
 
-```
+```lua
 illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, 
                                                                 outgoing_damage = outgoingDamage, 
                                                                 incoming_damage = incomingDamage })

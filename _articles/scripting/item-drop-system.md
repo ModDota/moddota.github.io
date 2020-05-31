@@ -34,7 +34,7 @@ This table will set a creature to drop the first item with 10% chance, 50% on th
 
 After saving and naming the file, this table has to be loaded in Lua, ideally in the initialization of the game mode, using the `LoadKeyValues("relative/path/to/file")` this way:
 
-```
+```lua
 GameRules.DropTable = LoadKeyValues("scripts/kv/item_drops.kv")
 ```
 
@@ -44,7 +44,7 @@ In this initial version, each item drop chance is independent from the others. F
 
 Simply listen to `entity_killed` and call a custom RollDrops function with the killed unit as a parameter.
 
-```
+```lua
 ListenToGameEvent('entity_killed', Dynamic_Wrap(GameMode, 'OnEntityKilled'), self)
 ```
 

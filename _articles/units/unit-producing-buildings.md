@@ -43,7 +43,7 @@ To properly call these functions, I'm gonna assume you already know the basics e
 
 A good GameMode hook to call these would be after the dota_player_picked_hero, so given a standard barebones listener like this:
 
-```
+```lua
 ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(GameMode, 'OnPlayerPickHero'), self)
 ```
 
@@ -109,7 +109,7 @@ Even though we set the hNPCOwner and hUnitOwner, the SetOwner and SetControllabl
 
 There's an small issue with npc_dota_building baseclass which is that they spawn with "modifier_invulnerable" by default, to get rid of this, run this line:
 
-```
+```lua
 building:RemoveModifierByName("modifier_invulnerable")
 ```
 

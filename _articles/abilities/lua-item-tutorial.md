@@ -423,11 +423,11 @@ Now to save time and sanity you might want to add 'Special' values to your scrip
 		}
 ```
 Now to use these values you use this function in your ability:
-```
+```lua
 self:GetSpecialValueFor( "max_blink" )
 ```
 Or in your modifier you have to get the handle for your ability first:
-```
+```lua
 self:GetAbility():GetSpecialValueFor( "max_blink" )
 ```
 Now we find and replace all those values with correct retrieval of a special value and we should end up with following result:
@@ -947,7 +947,7 @@ Because there is some odd bugs here and there, the MaxLevel value that we would 
 			}
 ```
 Back to the lua script, we need to upgrade the item only when ally is teleported and not when we simply tag our ally for teleport. First find this line:
-```
+```lua
 self:Blink(hTarget, vPoint, nMaxBlink, nClamp) --BLINK!
 ```
 Under it lets add the upgrade part. Note that we have to check we don't upgrade the item when it's fully upgraded.
@@ -963,7 +963,7 @@ if self:GetLevel() < self:GetSpecialValueFor( "max_level" ) and GameRules:IsDayt
 end
 ```
 Now if we want to let our hero refresh the help range levels then we can either script some event where we reset the item's level with:
-```
+```lua
 self:SetLevel(1)
 ```
 Or we can use more elegant choice of modifying our recipe to act like charge refresh for drums of endurance.

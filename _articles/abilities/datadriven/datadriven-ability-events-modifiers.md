@@ -81,9 +81,11 @@ To test if your Event is actually happening when you expect, you can add the fol
 
 The Function called can have this:
 
-    function Test( event )
-        print("It works!")
-    end
+```lua
+function Test( event )
+    print("It works!")
+end
+```
 
 This will display to the Console the values passed (usually a huge table) if your event trigger is being detected correctly.
 

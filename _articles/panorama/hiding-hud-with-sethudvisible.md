@@ -30,7 +30,7 @@ Note that changing it once doesn't let you change it back without restarting too
 **Usage**
 
 Somewhere in a game started event, I used `player_connect_full`
-```
+```lua
 mode = GameRules:GetGameModeEntity()
 mode:SetHUDVisible(hud_component_value, false)
 ```

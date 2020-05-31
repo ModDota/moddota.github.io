@@ -33,7 +33,7 @@ For this example, we will use this path: **scripts**/**maps**/**item_info**.kv
 
 To load a table into your game mode, you need to use the `LoadKeyValues( "path/to/file" ) lua function. This can be called at GameMode:InitGameMode() inside your main lua addon. GameMode = self
 
-```
+```lua
 self.ItemInfoKV = LoadKeyValues( "scripts/maps/item_info.kv" ) 
 ```
 
@@ -56,11 +56,9 @@ end
 
 ### 2. OnEquip Ability Event
 
-Add this datadriven event on every item that needs to do a check for restrictions
-. It calls a lua script to do the logic check against the table.
+Add this datadriven event on every item that needs to do a check for restrictions. It calls a lua script to do the logic check against the table.
 
-This is needed because the listener for inventory changed is broken, and the Lua `OnItemPickedUp` event hook doesn't account for someone dragging an item into another players inventory
-.
+This is needed because the listener for inventory changed is broken, and the Lua `OnItemPickedUp` event hook doesn't account for someone dragging an item into another players inventory.
 
 ```
 "OnEquip" 

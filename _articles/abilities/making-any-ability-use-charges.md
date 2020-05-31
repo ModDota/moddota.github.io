@@ -11,24 +11,26 @@ First, add save this [file](https://gist.github.com/DoctorGester/1939e277e677e93
 
 Then, add an initialization line to your addon_game_mode.lua:
 
-    LinkLuaModifier("modifier_charges", LUA_MODIFIER_MOTION_NONE)
+```lua
+LinkLuaModifier("modifier_charges", LUA_MODIFIER_MOTION_NONE)
+```
 
 If your file is into a subfolder you can do it like that
 
-    LinkLuaModifier("modifier_charges", "subfolder/anothersubfolder/modifier_charges", LUA_MODIFIER_MOTION_NONE)
+```lua
+LinkLuaModifier("modifier_charges", "subfolder/anothersubfolder/modifier_charges", LUA_MODIFIER_MOTION_NONE)
+```
 
 Gratz, you've successfully installed it!
 
 Now you can add charges to any ability with this code:
 
-```
-unit:AddNewModifier(unit, unit:FindAbilityByName("ability_name"), "modifier_charges",
-        {
-            max_count = 2,
-            start_count = 1,
-            replenish_time = 6
-        }
-    )
+```lua
+unit:AddNewModifier(unit, unit:FindAbilityByName("ability_name"), "modifier_charges", {
+    max_count = 2,
+    start_count = 1,
+    replenish_time = 6
+})
 ```
 
 The settings in the end are pretty self-explanatory. You can omit the start_count if you want.
