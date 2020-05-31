@@ -269,14 +269,15 @@ This is seen in every unit file, but worthless/unsupported. In the future, we co
 
 Attributes are ignored for anything that isn't a hero unit, but because anything used to define units can also be used for npc_heroes_custom, these are the keyvalues, all self explanatory:
 
-    "AttributePrimary"             "DOTA_ATTRIBUTE_STRENGTH"
-    "AttributeBaseStrength"        "0"            // Base strength
-    "AttributeStrengthGain"        "0"            // Strength bonus per level.
-    "AttributeBaseAgility"         "0"            // Base agility
-    "AttributeAgilityGain"         "0"            // Agility bonus per level.
-    "AttributeBaseIntelligence"    "0"            // Base intelligence
-    "AttributeIntelligenceGain"    "0"            // Intelligence bonus per level.
-
+```
+"AttributePrimary"             "DOTA_ATTRIBUTE_STRENGTH"
+"AttributeBaseStrength"        "0"            // Base strength
+"AttributeStrengthGain"        "0"            // Strength bonus per level.
+"AttributeBaseAgility"         "0"            // Base agility
+"AttributeAgilityGain"         "0"            // Agility bonus per level.
+"AttributeBaseIntelligence"    "0"            // Base intelligence
+"AttributeIntelligenceGain"    "0"            // Intelligence bonus per level.
+```
 
 ### Bounty
 

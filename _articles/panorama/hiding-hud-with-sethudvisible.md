@@ -39,7 +39,9 @@ mode:SetHUDVisible(hud_component_value, false)
 
 #### DOTA_HUD_VISIBILITY_TOP_TIMEOFDAY
 
-    mode:SetHUDVisible(0, false)
+```lua
+mode:SetHUDVisible(0, false)
+```
 
 http://puu.sh/fAOer/20a271530e.jpg 
 
@@ -47,7 +49,9 @@ http://puu.sh/fAOer/20a271530e.jpg
 
 #### DOTA_HUD_VISIBILITY_TOP_HEROES
 
-    mode:SetHUDVisible(1, false)
+```lua
+mode:SetHUDVisible(1, false)
+```
 
 http://puu.sh/fAOiv/1035acf865.jpg 
 
@@ -55,7 +59,9 @@ http://puu.sh/fAOiv/1035acf865.jpg
 
 #### DOTA_HUD_VISIBILITY_TOP_SCOREBOARD
 
-    mode:SetHUDVisible(2, false)
+```lua
+mode:SetHUDVisible(2, false)
+```
 
 http://puu.sh/fAOpV/887d94d3b1.jpg 
 
@@ -63,7 +69,9 @@ http://puu.sh/fAOpV/887d94d3b1.jpg
 
 #### DOTA_HUD_VISIBILITY_ACTION_PANEL
 
-    mode:SetHUDVisible(3, false) 
+```lua
+mode:SetHUDVisible(3, false) 
+```
 
 http://puu.sh/fAOuF/dfe961a286.jpg 
 
@@ -73,7 +81,9 @@ http://puu.sh/fAOuF/dfe961a286.jpg
 
 #### DOTA_HUD_VISIBILITY_ACTION_MINIMAP
 
-    mode:SetHUDVisible(4, false)
+```lua
+mode:SetHUDVisible(4, false)
+```
 
 http://puu.sh/fAOBz/e1018a097b.jpg 
 
@@ -81,7 +91,9 @@ http://puu.sh/fAOBz/e1018a097b.jpg
 
 #### DOTA_HUD_VISIBILITY_INVENTORY_PANEL
 
-    mode:SetHUDVisible(5, false) 
+```lua
+mode:SetHUDVisible(5, false) 
+```
 
 http://puu.sh/fAPiT/e6b2af6fd8.jpg 
 
@@ -89,7 +101,9 @@ http://puu.sh/fAPiT/e6b2af6fd8.jpg
 
 #### DOTA_HUD_VISIBILITY_INVENTORY_SHOP
 
-    mode:SetHUDVisible(6, false) 
+```lua
+mode:SetHUDVisible(6, false) 
+```
 
 http://puu.sh/fAP4b/4159ddae39.jpg 
 
@@ -97,7 +111,9 @@ http://puu.sh/fAP4b/4159ddae39.jpg
 
 #### DOTA_HUD_VISIBILITY_INVENTORY_ITEMS 
 
-    mode:SetHUDVisible(7, false) 
+```lua
+mode:SetHUDVisible(7, false) 
+```
 
  http://puu.sh/g9Ywi/56095d4467.jpg
 
@@ -105,7 +121,9 @@ http://puu.sh/fAP4b/4159ddae39.jpg
 
 #### DOTA_HUD_VISIBILITY_INVENTORY_QUICKBUY
 
-    mode:SetHUDVisible(8, false) 
+```lua
+mode:SetHUDVisible(8, false) 
+```
 
  http://puu.sh/fAOQx/7ff8fddbc1.jpg
 
@@ -115,7 +133,9 @@ http://puu.sh/fAP4b/4159ddae39.jpg
 
 :success: This one is fairly useful if your map doesn't use courier.
 
-    mode:SetHUDVisible(9, false) 
+```lua
+mode:SetHUDVisible(9, false) 
+```
 
 http://puu.sh/g9YoK/096d9a4a95.jpg
 
@@ -125,7 +145,9 @@ http://puu.sh/g9YoK/096d9a4a95.jpg
 
 :question: Nothing changed?
 
-    mode:SetHUDVisible(10, false) 
+```lua
+mode:SetHUDVisible(10, false) 
+```
 
 http://puu.sh/fAPAp/5e003ec96f.jpg 
 
@@ -133,7 +155,9 @@ http://puu.sh/fAPAp/5e003ec96f.jpg
 
 #### DOTA_HUD_VISIBILITY_INVENTORY_GOLD 
 
-    mode:SetHUDVisible(11, false) 
+```lua
+mode:SetHUDVisible(11, false) 
+```
 
 http://puu.sh/fAPEV/8b3e7d0808.jpg 
 
@@ -145,7 +169,9 @@ muh shekels are gone! :biblethump:
 
 :success: This one actually disables that mostly useless window, unlike `SetRecommendedItemsDisabled(bool)`
 
-    mode:SetHUDVisible(12, false) 
+```lua
+mode:SetHUDVisible(12, false) 
+```
 
 http://puu.sh/fAPKp/6e8f843dda.jpg
 

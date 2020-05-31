@@ -45,37 +45,40 @@ There are 2 types, **Ability Events** and **Modifier Events**.
 Ability Events go on the "first level" of the ability. Modifier Events need to be inside a modifier block.
 
 Basic Skeleton looks like this:
-    
-    "ability_custom"
+```    
+"ability_custom"
+{
+    // AbilityBehavior and General values
+    // AbilitySpecial block 
+    // precache block
+
+    // Ability Events
+    "OnSpellStart"
+    { [ACTIONS] }
+
+    "Modifiers"
     {
-        // AbilityBehavior and General values
-        // AbilitySpecial block 
-        // precache block
-
-        // Ability Events
-        "OnSpellStart"
-        { [ACTIONS] }
-
-        "Modifiers"
-        {
-            "modifier_custom" 
-             {
-                // Modifier Events
-                "OnCreated"
-                { [ACTIONS] }
-            }
+        "modifier_custom" 
+          {
+            // Modifier Events
+            "OnCreated"
+            { [ACTIONS] }
         }
     }
+}
+```
 
 When the Event triggers, all the Actions defined in its block will be executed.
 
 To test if your Event is actually happening when you expect, you can add the following Action block inside it:
 
-    "RunScript"
-    {
-        "ScriptFile" "utilities.lua"
-        "Function" "Test"
-    }
+```
+"RunScript"
+{
+    "ScriptFile" "utilities.lua"
+    "Function" "Test"
+}
+```
 
 `RunScript` is one of the most common and potent Actions you'll use for creating complex abilities. For it to work, you need to have a Script File, in this case *utilities.lua*, inside the vscripts folder. 
 

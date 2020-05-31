@@ -14,7 +14,9 @@ Hello everybody. Recently, I've been looking through the .VTEX files used by mos
 
 2) Next, go to your dota_ugc\game\bin\win64 directory (the tools aren't present in the win32 directory, for some reason). Type the following:
 
-    resourceinfo.exe -i <your vtex_c file> -debug tga -mip
+```
+resourceinfo.exe -i <your vtex_c file> -debug tga -mip
+```
 
 This extracts the various mip maps and stores them as individual TGA images. If everything goes well, you should get something like this:
 
@@ -45,7 +47,9 @@ Once you have the .mks file, replace the filename as mentioned above with the na
 
 3) Go back to dota_ugc\game\bin\win64, and type the following:
 
-    resourcecompiler -i <your vtex file>
+```
+resourcecompiler -i <your vtex file>
+```
 
 If everything goes well, you should see something like this:
 

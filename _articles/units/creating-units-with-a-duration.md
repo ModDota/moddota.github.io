@@ -21,53 +21,55 @@ Here is an example of it in KV; one spider spawns without the `modifier_kill` an
 
 ***Note:*** In this example there is no difference between applying `modifier_kill` or using the inbuilt `Duration` parameter of the `SpawnUnit` action block
 
-    "test_ability"
+```
+"test_ability"
+{
+    // General        
+    "BaseClass"                "ability_datadriven"
+    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+    "AbilityType"                    "DOTA_ABILITY_TYPE_BASIC"
+    // Time         
+    "AbilityCooldown"                "0.0"
+    // Cost        
+    "AbilityManaCost"                "0"
+    // Special        
+    "AbilitySpecial"
     {
-        // General        
-        "BaseClass"                "ability_datadriven"
-        "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "AbilityType"                    "DOTA_ABILITY_TYPE_BASIC"
-        // Time         
-        "AbilityCooldown"                "0.0"
-        // Cost        
-        "AbilityManaCost"                "0"
-        // Special        
-        "AbilitySpecial"
+        "01"
         {
-            "01"
-            {
-                "var_type"                    "FIELD_FLOAT"
-                "duration"                    "10.0"
-            }
-        }
-        "OnSpellStart"
-        {
-            "SpawnUnit"
-            {
-                "UnitName"    "npc_dota_broodmother_spiderling"
-                "UnitCount"    "1"
-                "SpawnRadius"    "200"
-                "Target"        "CASTER"
-
-                "OnSpawn"
-                {
-                    "ApplyModifier"
-                    {
-                        "ModifierName"    "modifier_kill"
-                        "Target"        "TARGET"
-                        "Duration"        "%duration"
-                    }
-                }
-            }
-            "SpawnUnit"
-            {
-                "UnitName"    "npc_dota_broodmother_spiderling"
-                "UnitCount"    "1"
-                "SpawnRadius"    "200"
-                "Target"        "CASTER"
-            }
+            "var_type"                    "FIELD_FLOAT"
+            "duration"                    "10.0"
         }
     }
+    "OnSpellStart"
+    {
+        "SpawnUnit"
+        {
+            "UnitName"    "npc_dota_broodmother_spiderling"
+            "UnitCount"    "1"
+            "SpawnRadius"    "200"
+            "Target"        "CASTER"
+
+            "OnSpawn"
+            {
+                "ApplyModifier"
+                {
+                    "ModifierName"    "modifier_kill"
+                    "Target"        "TARGET"
+                    "Duration"        "%duration"
+                }
+            }
+        }
+        "SpawnUnit"
+        {
+            "UnitName"    "npc_dota_broodmother_spiderling"
+            "UnitCount"    "1"
+            "SpawnRadius"    "200"
+            "Target"        "CASTER"
+        }
+    }
+}
+```
 
 and a short video along with it
 
@@ -79,8 +81,10 @@ This is a really simple example on how to use it with Lua
 
 this function will apply the `modifier_kill` modifier with a duration of 10 seconds after which the caster will die
 
-    function KillCaster( keys )
-        local caster = keys.caster
+```lua
+function KillCaster( keys )
+    local caster = keys.caster
 
-        caster:AddNewModifier(caster, nil, "modifier_kill", {duration = 10})
-    end
+    caster:AddNewModifier(caster, nil, "modifier_kill", {duration = 10})
+end
+```

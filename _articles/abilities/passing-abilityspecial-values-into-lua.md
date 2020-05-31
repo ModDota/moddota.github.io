@@ -7,19 +7,21 @@ date: 12.12.2014
 
 Given this "AbilitySpecial" block in the ability:
 
-    "AbilitySpecial"
+```
+"AbilitySpecial"
+{
+    "01"
     {
-        "01"
-        {
-            "var_type"	"FIELD_INTEGER"
-            "radius"	"300"
-        }
-        "02"
-        {
-            "var_type"	"FIELD_INTEGER"
-            "mana_per_second"	"5 10 15 20"
-        }
+        "var_type"	"FIELD_INTEGER"
+        "radius"	"300"
     }
+    "02"
+    {
+        "var_type"	"FIELD_INTEGER"
+        "mana_per_second"	"5 10 15 20"
+    }
+}
+```
 
 There are 2 functions to connect these with ua. `GetSpecialValueFor` and `GetLevelSpecialValueFor`. Both are applied over an ability.
 

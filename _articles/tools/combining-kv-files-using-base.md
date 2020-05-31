@@ -21,43 +21,49 @@ Thanks to some detective work done in #steamdb and some testing on my part, we d
 
 Assume we start with one file at path `scripts/npc/npc_abilities_custom.txt` with the following content:
 
-    "DOTAAbilities"
+```
+"DOTAAbilities"
+{
+    "Ability1"
     {
-        "Ability1"
-        {
-            "SomeProperty1"    "1"
-            "SomeProperty2"    "2"
-        }
-
-        "Ability2"
-        {
-            "SomeProperty1"    "1"
-            "SomeProperty2"    "2"
-        }
+        "SomeProperty1"    "1"
+        "SomeProperty2"    "2"
     }
+
+    "Ability2"
+    {
+        "SomeProperty1"    "1"
+        "SomeProperty2"    "2"
+    }
+}
+```
 
 Now let's say we want to split this up into two files, we can create another file `scripts/npc/abilities_2.txt`. This file has to have a root element just like the other files, we can just copy DOTAAbilities. Also copy the content to be separated so this is the result:
 
-    "DOTAAbilities"
+```
+"DOTAAbilities"
+{
+    "Ability2"
     {
-        "Ability2"
-        {
-            "SomeProperty1"    "1"
-            "SomeProperty2"    "2"
-        }
+        "SomeProperty1"    "1"
+        "SomeProperty2"    "2"
     }
+}
+```
 
 Now edit the main file to include this new abilities_2.txt file by adding `#base "[relativePath]"`, this results in:
 
-    #base "abilities_2.txt"
-    "DOTAAbilities"
+```
+#base "abilities_2.txt"
+"DOTAAbilities"
+{
+    "Ability1"
     {
-        "Ability1"
-        {
-            "SomeProperty1"    "1"
-            "SomeProperty2"    "2"
-        }
+        "SomeProperty1"    "1"
+        "SomeProperty2"    "2"
     }
+}
+```
 
 When loading this KV file, the engine will now automatically add the contents of abilities_2.txt to npc_abilities_custom.txt by combining the two root objects in both files. This means that the name of the root object does not matter, so instead of `"DOTAAbilities"` you could have `"MYOTHERFILE"`, or even just empty string `""`. You should not have identical keys in both root objects, but if you do then the ones defined later (think of #base happening before the rest of the file) will override already defined ones.
 

@@ -51,13 +51,15 @@ TypeScript requires a `tsconfig.json` used to configure it for your project. Put
 
 Your addon's content directory structure should be something like this:
 
-    content/dota_addons/[addon]/
-        ...
-        panorama/
-            layout/
-            scripts/
-            styles/
-            tsconfig.json
+```
+content/dota_addons/[addon]/
+    ...
+    panorama/
+        layout/
+        scripts/
+        styles/
+        tsconfig.json
+```
 
 ## Your first TypeScript UI
 
