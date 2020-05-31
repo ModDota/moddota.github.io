@@ -32,7 +32,9 @@
 
 :not(.navbar-sidebar__items) > .menu .menu__link {
     &[href="/"]::after,
-    &[href="/abilities/simple-custom-ability"]::after {
+    &[href="/abilities/simple-custom-ability"]::after,
+    &[href="/panorama/inclusive-panorama-ui"]::after,
+    &[href="/assets/maps/hammer-tutorials"]::after {
         content: "";
         display: inline-block;
         height: 1.25rem;

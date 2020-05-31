@@ -91,6 +91,7 @@
                     "label": "Introduction",
                     "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama"
                 },
+                "panorama/inclusive-panorama-ui",
                 "panorama/introduction-to-panorama-ui-with-typescript",
                 "panorama/keybindings",
                 "panorama/dotascenepanel",
@@ -110,7 +111,7 @@
                 {
                     "type": "category",
                     "label": "Maps",
-                    "items": ["assets/maps/making-skip-clip-blocks-out-of-models"]
+                    "items": ["assets/maps/hammer-tutorials", "assets/maps/making-skip-clip-blocks-out-of-models"]
                 },
                 {
                     "type": "category",
