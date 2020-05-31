@@ -55,7 +55,7 @@ Once your tutorial is merged it is automatically released to the website.
 
 ## Writing tutorials
 
-Tutorials can be written in Markdown markup language, with some extra features from GitHub Flavored Markdown supported. To get familiar with the syntax, you can visit GitHub's [Mastering Markdown](https://guides.github.com/features/mastering-markdown/) page.
+Tutorials can be written in Markdown markup language, with some extra features from GitHub Flavored Markdown supported. To get familiar with the syntax, you can visit [this page](https://commonmark.org/help/).
 
 In addition, this website supports markdown extensions provided by [Docusaurus](https://v2.docusaurus.io/docs/markdown-features):
 
