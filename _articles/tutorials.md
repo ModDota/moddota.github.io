@@ -1,5 +1,5 @@
 ---
-title: Tutorials
+title: Tutorial overview
 ---
 
 <TutorialList />
