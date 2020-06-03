@@ -1,0 +1,153 @@
+{
+    "docs": [
+        { "type": "link", "label": "Introduction", "href": "/" },
+        "getting-started",
+        "scripting-introduction",
+        {
+            "type": "category",
+            "label": "Abilities, items, modifiers",
+            "items": [
+                "abilities/ability-keyvalues",
+                "abilities/item-keyvalues",
+                "abilities/the-importance-of-abilityspecial-values",
+                "abilities/passing-abilityspecial-values-into-lua",
+                "abilities/abilityduration-tooltips",
+                "abilities/simple-custom-ability",
+                "abilities/creating-innate-abilities",
+                "abilities/making-any-ability-use-charges",
+                "abilities/calling-spells-with-setcursor",
+                {
+                    "type": "link",
+                    "label": "Lua Abilities and Modifiers",
+                    "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Lua_Abilities_and_Modifiers"
+                },
+                "abilities/lua-item-tutorial",
+                {
+                    "type": "category",
+                    "label": "Lua Modifiers",
+                    "items": [
+                        "abilities/lua-modifiers/1",
+                        "abilities/lua-modifiers/2",
+                        "abilities/lua-modifiers/3",
+                        "abilities/lua-modifiers/4"
+                    ]
+                },
+                "abilities/reutilizing-built-in-modifiers",
+                {
+                    "type": "category",
+                    "label": "Datadriven",
+                    "items": [
+                        "abilities/datadriven/datadriven-ability-events-modifiers",
+                        "abilities/datadriven/all-about-the-target",
+                        "abilities/datadriven/channeling-animations",
+                        "abilities/datadriven/invisibility-ability-example",
+                        "abilities/datadriven/illusion-ability-example",
+                        "abilities/datadriven/rotate-ability-example",
+                        "abilities/datadriven/point-channeling-aoe-ability-example",
+                        "abilities/datadriven/apply-hero-and-creep-modifier-durations",
+                        "abilities/datadriven/physics-ability-example-exorcism"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Units",
+            "items": [
+                "units/unit-keyvalues",
+                "units/unit-producing-buildings",
+                "units/creating-units-with-a-duration",
+                "units/adding-a-very-simple-ai-to-units",
+                "units/simple-neutral-ai",
+                "units/create-creature-attachwearable-blocks-directly-from-the-keyvalues"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Scripting",
+            "items": [
+                "scripting/custom-mana-system",
+                "scripting/item-restrictions-requirements",
+                "scripting/item-drop-system",
+                "scripting/making-a-rpg-like-looting-chest",
+                "scripting/scripted-shop-spawning",
+                "scripting/lava-damage",
+                "scripting/using-dota-filters",
+                "scripting/particle-attachment",
+                "scripting/precache-fixing-and-avoiding-issues",
+                {
+                    "type": "link",
+                    "label": "Custom NetTables",
+                    "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Custom_Nettables"
+                }
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Panorama UI",
+            "items": [
+                {
+                    "type": "link",
+                    "label": "Introduction",
+                    "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama"
+                },
+                "panorama/inclusive-panorama-ui",
+                "panorama/introduction-to-panorama-ui-with-typescript",
+                "panorama/keybindings",
+                "panorama/dotascenepanel",
+                {
+                    "type": "link",
+                    "label": "Custom Game Setup",
+                    "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Custom_Game_Setup"
+                },
+                "panorama/hiding-hud-with-sethudvisible"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Assets",
+            "items": [
+                "assets/asset-file-type-reference",
+                {
+                    "type": "category",
+                    "label": "Maps",
+                    "items": ["assets/maps/hammer-tutorials", "assets/maps/making-skip-clip-blocks-out-of-models"]
+                },
+                {
+                    "type": "category",
+                    "label": "Models",
+                    "items": [
+                        "assets/models/importing-custom-models",
+                        "assets/models/mdl-to-vmdl-conversion",
+                        "assets/models/adding-hitbox-to-models-without-a-bone"
+                    ]
+                },
+                {
+                    "type": "category",
+                    "label": "Particles",
+                    "items": [
+                        "assets/particles/particle-basics",
+                        "assets/particles/chaos-wave-particle",
+                        "assets/particles/falling-cherry-blossom-petal-for-spring-mood-particle",
+                        "assets/particles/volcano-particle",
+                        "assets/particles/status-effects"
+                    ]
+                },
+                "assets/custom-sounds",
+                "assets/extracting-and-compiling-vtex-files",
+                "assets/custom-minimap-icons"
+            ]
+        },
+        {
+            "type": "category",
+            "label": "Tools",
+            "items": [
+                "tools/useful-console-commands",
+                "tools/setting-up-your-addon-with-github",
+                "tools/combining-kv-files-using-base"
+            ]
+        },
+        "contribute",
+        "tutorials"
+    ]
+}
