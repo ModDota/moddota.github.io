@@ -120,9 +120,9 @@
                         "assets/models/importing-custom-models",
                         "assets/models/mdl-to-vmdl-conversion",
                         "assets/models/adding-hitbox-to-models-without-a-bone",
-                        "assets/models/importing-models-and-using-material-editor.md",
-                        "assets/models/exporting-models-and-materials-textures.md",
-                        "assets/models/custom-hero-models-materials-animations.md"
+                        "assets/models/importing-models-and-using-material-editor",
+                        "assets/models/exporting-models-and-materials-textures",
+                        "assets/models/custom-hero-models-materials-animations"
                     ]
                 },
                 {
