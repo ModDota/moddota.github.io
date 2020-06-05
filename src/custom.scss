@@ -34,7 +34,10 @@
     &[href="/"]::after,
     &[href="/abilities/simple-custom-ability"]::after,
     &[href="/panorama/inclusive-panorama-ui"]::after,
-    &[href="/assets/maps/hammer-tutorials"]::after {
+    &[href="/assets/maps/hammer-tutorials"]::after,
+    &[href="/assets/models/importing-models-and-using-material-editor"]::after,
+    &[href="/assets/models/exporting-models-and-materials-textures"]::after,
+    &[href="/assets/models/custom-hero-models-materials-animations"]::after {
         content: "";
         display: inline-block;
         height: 1.25rem;
