@@ -44,6 +44,7 @@
         width: 1.25rem;
         background-image: url("/images/youtube.svg");
         background-size: 1.25rem;
+        flex-shrink: 0;
     }
 
     &[href^="https://developer.valvesoftware.com/"]::after
