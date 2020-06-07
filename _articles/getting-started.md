@@ -36,8 +36,6 @@ taken from [How to install the Dota 2 Workshop Tools](https://developer.valvesof
 
 To start off on a good foot, you’re going to want to create a new addon based off of the Barebones template, which is a community made alternative to Valve’s default addon templates (i.e. Holdout). This is the link to the updated BMD Barebones: https://github.com/bmddota/barebones <br /> After downloading it as a zip, you want to browse to your `.../Steam/SteamApps/dota 2 beta/` and merge the `game` and `content` folders from the .zip into the that /dota 2 beta/ folder (which should already have folders in it called `game` and `content`)
 
-~Alternatively, you can use [Dota 2 ModKit](https://github.com/Myll/Dota-2-ModKit/releases) and go to `File > New Addon > BMD's Barebones`.~
-
 Next, start up the Workshop Tools (or restart them if you have them opened already), and double click your new addon. Set it as the default addon. Then, go into Hammer -> File -> Open -> barebones.vmap -> Press F9 to begin building the map. After Hammer finishes building your map, your custom game will automatically load in Dota. 
 
 [Gfy Demo of Step #1](http://gfycat.com/NarrowIncredibleBongo). NOTE: Workshop tools now are launched through the same link in steam as the main dota client, and not the "Tools" list in steam. Otherwise this image is roughly still accurate.
@@ -56,12 +54,12 @@ Once you get to the point of having a rough layout blocked out for your map, it'
 
 BMD has made some rather nice beginner Hammer tutorial videos:
 
-* [part 1: Tile Editor](https://www.youtube.com/watch?v=GMvmdnNM6Sc)
-* [part 2: Mesh Basics](https://www.youtube.com/watch?v=grLUv2hUDRY)
-* [part 3: entity basics](https://www.youtube.com/watch?v=ln3ep-k__dk)
+* [Part 1: Tile Editor](https://www.youtube.com/watch?v=GMvmdnNM6Sc)
+* [Part 2: Mesh Basics](https://www.youtube.com/watch?v=grLUv2hUDRY)
+* [Part 3: entity basics](https://www.youtube.com/watch?v=ln3ep-k__dk)
 
 ## Step #3: Scripting and beyond...
 
-Scripting is the next most important part of your addon. It is divided into Lua scripting, and KeyValue scripting. I'm going to go ahead and redirect you to [Noya's Beginner Scripting Guide](/articles/beginners-guide-to-dota-scripting), since it has essentially the same information that would go in this section. 
+Scripting is the next most important part of your addon. It is divided into Lua scripting, and KeyValue scripting. I'm going to go ahead and redirect you to [Noya's Beginner Scripting Guide](https://github.com/ModDota/moddota.github.io/blob/source/_articles/scripting-introduction.md), since it has essentially the same information that would go in this section. 
 
-Now I'm going keep this short and sweet. I've already presented a ton of information for you to begin delving yourself into Dota 2 modding! Becoming good at Hammer mapping and good at Lua and KeyValue scripting will go a very long way in making successful, fun Dota 2 custom games. Please don't hesitate to ask questions in [the #dota2modhelpdesk IRC channel](https://moddota.com/forums/chat) or in the [Questions subforum](https://moddota.com/forums/categories/development).
+Now I'm going keep this short and sweet. I've already presented a ton of information for you to begin delving yourself into Dota 2 modding! Becoming good at Hammer mapping and good at Lua and KeyValue scripting will go a very long way in making successful, fun Dota 2 custom games. Please don't hesitate to ask questions in [the Moddota Discord channel](https://discord.gg/Mvn4gww).
