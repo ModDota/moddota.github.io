@@ -13,3 +13,5 @@ Or follow a video tutorial series:
 </div>
 
 <YouTube playlistId="PL7yysLaMSd3uY4iJKJdRrTkN1gYePkMz2" />
+
+<YouTube playlistId="PLyIBVOr2Rw7H5e8JkEF9C9GCf3RsODsuD" />
