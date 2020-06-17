@@ -20,9 +20,9 @@
     },
     "devDependencies": {
         "@ark120202/typescript-config": "^2.1.0",
-        "@docusaurus/core": "^2.0.0-alpha.55",
-        "@docusaurus/module-type-aliases": "^2.0.0-alpha.55",
-        "@docusaurus/preset-classic": "^2.0.0-alpha.55",
+        "@docusaurus/core": "^2.0.0-alpha.56",
+        "@docusaurus/module-type-aliases": "^2.0.0-alpha.56",
+        "@docusaurus/preset-classic": "^2.0.0-alpha.56",
         "fork-ts-checker-webpack-plugin": "^4.1.4",
         "prettier": "^2.0.5",
         "sass": "^1.26.5",

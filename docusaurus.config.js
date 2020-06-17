@@ -24,6 +24,10 @@ module.exports = {
             theme: require("prism-react-renderer/themes/github"),
             darkTheme: require("prism-react-renderer/themes/dracula"),
         },
+        algolia: {
+            apiKey: "5c91053fa708fac220dfd06a4a04fee9",
+            indexName: "moddota",
+        },
     },
     presets: [
         [
