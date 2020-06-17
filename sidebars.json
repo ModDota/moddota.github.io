@@ -1,6 +1,6 @@
 {
     "docs": [
-        "_index",
+        { "type": "link", "label": "Introduction", "href": "/" },
         "getting-started",
         "scripting-introduction",
         {
