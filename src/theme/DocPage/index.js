@@ -43,7 +43,7 @@ function DocPage(props) {
                     </div>
                 )}
                 <main className={styles.docMainContainer}>
-                    <SidebarContext.Provider value={docsSidebars[sidebar]}>
+                    <SidebarContext.Provider value={docsSidebars}>
                         <MDXProvider components={MDXComponents}>
                             {isHomePage ? <DocItem content={content} /> : renderRoutes(baseRoute.routes)}
                         </MDXProvider>

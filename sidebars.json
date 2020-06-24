@@ -1,5 +1,5 @@
 {
-    "docs": [
+    "tutorials": [
         "_index",
         "getting-started",
         "scripting-introduction",
@@ -150,7 +150,6 @@
                 "tools/combining-kv-files-using-base"
             ]
         },
-        "contribute",
-        "tutorials"
+        "contribute"
     ]
 }

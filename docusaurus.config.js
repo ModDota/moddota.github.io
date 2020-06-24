@@ -14,7 +14,7 @@ module.exports = {
             title: "ModDota",
             logo: { src: "images/logo-80x80.png" },
             links: [
-                { position: "left", label: "Tutorials", to: "/" },
+                { position: "left", label: "Tutorials", to: "tutorials" },
                 { position: "left", label: "Lua API", href: "https://dota.tools/vscripts/" },
                 {
                     position: "left",
