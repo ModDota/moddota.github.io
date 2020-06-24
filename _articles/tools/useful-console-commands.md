@@ -11,23 +11,23 @@ Here are the console commands useful for modding. If you constantly use one whic
 
 `entityreport`:  prints all the spawned entities as a list of index and class
 
-![img](http://puu.sh/g7Tp0/950028a084.png)
+![img](https://puu.sh/g7Tp0/950028a084.png)
 
 `entitysummary`: prints a summary with the percentage of each entity class
 
-![img](http://puu.sh/g7TmQ/9dd2962c89.png)
+![img](https://puu.sh/g7TmQ/9dd2962c89.png)
 
 `soundlist`: all the sounds playing at the current time, and total memory used
 
-![img](http://puu.sh/g7TlG/cd98c96995.png)
+![img](https://puu.sh/g7TlG/cd98c96995.png)
 
 `script_help2`: shows the list of all the Game API functions
 
-![img](http://puu.sh/g7U5Z/a72fc9be17.jpg)
+![img](https://puu.sh/g7U5Z/a72fc9be17.jpg)
 
 `dota_modifier_dump`: shows a list of all the modifiers currently applied to every entity
 
-![img](http://puu.sh/g7U53/ad13d17fae.jpg)
+![img](https://puu.sh/g7U53/ad13d17fae.jpg)
 
 `host_timescale <float>`: Speeds the game up to that number
 

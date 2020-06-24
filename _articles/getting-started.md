@@ -40,7 +40,7 @@ To start off on a good foot, you’re going to want to create a new addon based 
 
 Next, start up the Workshop Tools (or restart them if you have them opened already), and double click your new addon. Set it as the default addon. Then, go into Hammer -> File -> Open -> barebones.vmap -> Press F9 to begin building the map. After Hammer finishes building your map, your custom game will automatically load in Dota. 
 
-[Gfy Demo of Step #1](http://gfycat.com/NarrowIncredibleBongo). NOTE: Workshop tools now are launched through the same link in steam as the main dota client, and not the "Tools" list in steam. Otherwise this image is roughly still accurate.
+[Gfy Demo of Step #1](https://gfycat.com/NarrowIncredibleBongo). NOTE: Workshop tools now are launched through the same link in steam as the main dota client, and not the "Tools" list in steam. Otherwise this image is roughly still accurate.
 
 ## Step #2: Creating your map in Hammer
 

@@ -7,7 +7,7 @@ date: 15.01.2015
 
 This is a quick tutorial on how to create custom units so that they appear with a circular timer next to their health bar and the time remaining on the XP bar
 
-If you are not sure to what I am referring to then look at these images ![img](http://i.imgur.com/NL1Gqmr.png) and ![img](http://i.imgur.com/GOeKyp7.png)
+If you are not sure to what I am referring to then look at these images ![img](https://i.imgur.com/NL1Gqmr.png) and ![img](https://i.imgur.com/GOeKyp7.png)
 
 The thing that we will need is `modifier_kill`
 

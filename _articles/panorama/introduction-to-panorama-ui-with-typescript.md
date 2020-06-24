@@ -63,7 +63,7 @@ content/dota_addons/[addon]/
 
 ## Your first TypeScript UI
 
-To illustrate why I like using TypeScript for modular UI I will walk through a small example. We will be making some hero portraits with player name and a healh bar: ![What we are making](http://web.archive.org/web/20190201023254im_/http://i.imgur.com/ZrqqlFo.png "Example UI")
+To illustrate why I like using TypeScript for modular UI I will walk through a small example. We will be making some hero portraits with player name and a healh bar: ![What we are making](http://web.archive.org/web/20190201023254im_/https://i.imgur.com/ZrqqlFo.png "Example UI")
 
 Since this tutorial is about TypeScript I will just quickly give the xml and css, this is standard stuff:
 

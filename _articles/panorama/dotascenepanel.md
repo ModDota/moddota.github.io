@@ -31,7 +31,7 @@ Use the Entity Tool (Shift-E) and choose the `prop_dynamic` entity, then click s
 
 Select that newly placed entity in the outliner and change its `World Model` property to `models/courier/donkey_unicorn/donkey_unicorn.vmdl`.
 
-![http://puu.sh/o3BmY/2d6181c281.png](http://puu.sh/o3BmY/2d6181c281.png)
+![https://puu.sh/o3BmY/2d6181c281.png](https://puu.sh/o3BmY/2d6181c281.png)
 
 Now you've got your movie star ready to be displayed. You can also change the `Default Animation` field to `idle` or any string from its model entries.
 
@@ -72,7 +72,7 @@ We can easily build up a "unit" like scene, using the `portrait_world_unit` enti
 
 This is pretty straightforward, `DOTAScenePanel` also accepts the `camera` parameter in the definition, which will try to find the camera with the provided name.
 
-![http://puu.sh/o3Gv7/783de89488.jpg](http://puu.sh/o3Gv7/783de89488.jpg)
+![https://puu.sh/o3Gv7/783de89488.jpg](https://puu.sh/o3Gv7/783de89488.jpg)
 
 Important to note, compiling the map again does change the look of the panorama panel without restarting the map, but you can't change it at runtime. You'll understand how to achieve the same result in the following parts.
 

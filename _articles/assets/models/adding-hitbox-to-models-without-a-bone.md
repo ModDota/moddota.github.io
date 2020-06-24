@@ -47,7 +47,7 @@ Credits to @Internet_Veteran
 
 This is the critical part. Basically you'll be adding the cube mesh into the exported model. You can do this on the model editor (**Animation -> Add Animation**, or by editing the .vmdl file with a text editor and coping the following lines:
 
-http://pastebin.com/qryMBaPz
+https://pastebin.com/qryMBaPz
 
 Just replace everything on your vmdl except for the first big *m_meshList* block
 

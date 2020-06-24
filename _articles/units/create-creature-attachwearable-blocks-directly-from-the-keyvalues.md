@@ -24,7 +24,7 @@ end
 Then, there's 2 options:
 
 * Generate a default set for a hero name (internal `npc_dota_hero_name`)
-* Generate a bundle set, you can use this list for set names: http://dota2.gamepedia.com/Equipment
+* Generate a bundle set, you can use this list for set names: https://dota2.gamepedia.com/Equipment
 
 **Usage**
 

@@ -372,19 +372,19 @@ To realize that the CP1 needs to be set else the particle will fail to display p
 
 1. Open the particle system on the Particle Editor, double clicking on it (needs **decompiled particles**!) 
 
-  ![img](http://puu.sh/f61DF/2ed8e1c122.jpg)
+  ![img](https://puu.sh/f61DF/2ed8e1c122.jpg)
 
 2. Select Control Point #1 on the Control Points List:
 
-  ![img](http://puu.sh/f61JZ/8593db279d.png)
+  ![img](https://puu.sh/f61JZ/8593db279d.png)
 
 3. Hold and drag the control point to somewhere else by clicking on the blue rectangle:
 
-  ![img](http://puu.sh/f61MV/9d913ef133.jpg)
+  ![img](https://puu.sh/f61MV/9d913ef133.jpg)
 
 4. Notice that there's some dust that moved with the Control Point.
 
-  ![img](http://puu.sh/f61pF/1c83b2e5cc.jpg)
+  ![img](https://puu.sh/f61pF/1c83b2e5cc.jpg)
 
 **This means you need to set it!** Else it will stay unattached and originate on the (0,0,0) position at the map.
 
@@ -475,7 +475,7 @@ To find what each control point does, follow the same method as with the espirit
 
 Not gonna lie, it's mostly trial and error and just a bit of reading whatever the PET info has to enlighten you:
 
-![img](http://puu.sh/f62Ph/2d34e46b46.png)
+![img](https://puu.sh/f62Ph/2d34e46b46.png)
 
 ---
 

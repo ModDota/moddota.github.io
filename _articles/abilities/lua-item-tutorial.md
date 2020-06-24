@@ -32,7 +32,7 @@ Next we need an image for the item. For that we use "AbilityTextureName" as item
  dota 2 beta\game\dota_addons\{your addon name}\resource\flash3\images\items\blink_staff.png
 ```
 note that the file name is 'blink_staff.png' instead of 'item_blink_staff.png'. This is because dota will read ability texture name of 'item_blink_staff' as 'item\blink_staff.png'<br />It is also important to note that using same name for your ability texture is doubly important as the image in shop doesn't appear correctly if you use different name.<br />
-The image I will be using for this item is this one: ![enter image description here](http://i.imgur.com/yz4ghPc.png "blink_staff.png")<br />
+The image I will be using for this item is this one: ![enter image description here](https://i.imgur.com/yz4ghPc.png "blink_staff.png")<br />
 ```
 "DOTAAbilities"
 {

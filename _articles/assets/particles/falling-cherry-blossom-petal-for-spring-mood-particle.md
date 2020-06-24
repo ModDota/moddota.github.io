@@ -11,11 +11,11 @@ If you are new to particle creation, you should read <a href="/articles/particle
 <p>
 I was working on my map the other day in the following image.
 </p>
-<img src="http://i.imgur.com/chIqYgk.jpg"></img>
+<img src="https://i.imgur.com/chIqYgk.jpg"></img>
 <p>
 I feel like it lacks some kind of "spring" mood to it. So I feel like there should be petal falling down. Since it's pretty simple to do, I feel like I should include this as example in the tutorial. The end result will be like following image. You might not see much with static picture, but after you are finished, there will be those petals flying around in your map.
 </p>
-<img src="http://i.imgur.com/lIl4maG.jpg"></img>
+<img src="https://i.imgur.com/lIl4maG.jpg"></img>
 <p>
 If you know what to do, you can simply add these functions to your system. I will also explain in detail on my thought process and steps on creating this as well.
 </p>
@@ -59,7 +59,7 @@ Now that renderer is up, I need an emitter to show my petal.
 <p>
 <b>Don't forget to change your max particles number in Base Properties and emission rate accordingly so your particle system will not overflow with too many particles.</b> In this tutorial, I set mine to 160 as I think that should do the job. Now your screen should have something similar to this.
 </p>
-<img src="http://i.imgur.com/y3wMAMp.png"></img>
+<img src="https://i.imgur.com/y3wMAMp.png"></img>
 <p>
 Now that it shows the petal, but there is nothing going on yet. Since I want these petals to move and disappear at some points, I continue on to next step:
 </p>
@@ -77,7 +77,7 @@ Now I do feel like this scene somewhat needs a gravity since petal will be falli
 <p>
 The gravity is freely adjustable to your taste, but I like mine to go in this direction. Your result should be something similar to this.
 </p>
-<img src="http://i.imgur.com/aFNmLNT.png"></img>
+<img src="https://i.imgur.com/aFNmLNT.png"></img>
 <p>
 Now I have the petals showing up and move due to gravity, I want them to spread around in the area not just start from origin. So I do this
 </p>
@@ -107,7 +107,7 @@ Now I want them to start within certain radius and start with certain speed. I c
 <p>
 If you want to bind these value to control point, simply change <b>scale CP</b>, in which (x, y, z) will represent (distance, speed, local speed), to desired control point and set all the above value to 1.0 except distance min and distance bias absolute value. Now that it is done, you should see something similar to the following.
 </p>
-<img src="http://i.imgur.com/7qvk253.png"></img>
+<img src="https://i.imgur.com/7qvk253.png"></img>
 <p>
 Now I feel like these petals lack natural feeling to it. So I add the randomness to this system by following functions.
 </p>
@@ -153,7 +153,7 @@ In reality, petals are not the same size every where, so I set the values as fol
 <p>
 Once those are all set, you should see the result similar to below.
 </p>
-<img src="http://i.imgur.com/VhuUzL9.png"></img>
+<img src="https://i.imgur.com/VhuUzL9.png"></img>
 <p>
 Now that you see randomness at creation, but the sudden pop in and out is kinda annoying to me. So I get rid of them by:
 </p>
@@ -193,7 +193,7 @@ However, I don't want them to start right away and the petals don't just go back
 <p>
 Now you should have something looking similar to this.
 </p>
-<img src="http://i.imgur.com/ioODWyt.png"></img>
+<img src="https://i.imgur.com/ioODWyt.png"></img>
 <p>
 Now it almost looks natural but it lacks wind. Normally when petals fall down, it should somewhat be affected by the wind. To achieve this, I add the following function:
 </p>
@@ -213,7 +213,7 @@ You should now see your petals blinking with different color. Don't panic. We ha
 <p>
 Now with this, your falling petals should look very natural, and you can adjust all those values as you desire. The result particles should be similar to the following.
 </p>
-<img src="http://i.imgur.com/ajnc7uu.png"></img>
+<img src="https://i.imgur.com/ajnc7uu.png"></img>
 <p>
 This reaches the end of this tutorial. If you have any question, comment, or improvement to the guide, please don't hesitate to leave a comment or send me a message. Let me know what you want to see created next!.
 </p>

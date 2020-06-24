@@ -118,7 +118,7 @@ This value is the key for Tomes of Stats and other consumable items:
 
 Meaning if the ItemResult you want to get is called *"item_capuchino"*, your recipe would be: *"item_recipe_capuchino"*
 
-![img](http://puu.sh/dyDFL/f0a814100d.jpg)
+![img](https://puu.sh/dyDFL/f0a814100d.jpg)
 
 If you don't, the item will till be combinable but it won't show the neat lines to the possible upgrades.
 
@@ -207,7 +207,7 @@ mapName should be the name of YOUR MAP (.vmap file in Hammer or content folder),
 
 Adding "_shops" to the mapName is also mandatory.
 
-A template shop file can be copied from here: http://pastebin.com/KZrtm1xQ
+A template shop file can be copied from here: https://pastebin.com/KZrtm1xQ
 
 In addition to this file, your item can have key value rules for where it can be bought
 
@@ -219,9 +219,9 @@ In addition to this file, your item can have key value rules for where it can be
 At the moment of writing this guide, we can only set up 3 different shops (Home, Side and Secret).
 You can change categories and shop tab names, with [addon_english modding]
 
-To make an actual shop area inside your map on Hammer, check this other tutorial [tutorial_creating_a_custom_shop_step_by_step](http://www.reddit.com/r/Dota2Modding/comments/2dpts1/tutorial_creating_a_custom_shop_step_by_step/)
+To make an actual shop area inside your map on Hammer, check this other tutorial [tutorial_creating_a_custom_shop_step_by_step](https://www.reddit.com/r/Dota2Modding/comments/2dpts1/tutorial_creating_a_custom_shop_step_by_step/)
 
-To disable your dota items, use [this npc_abillities_override.txt](http://pastebin.com/pGExrS4A) inside the scripts/npc folder.
+To disable your dota items, use [this npc_abillities_override.txt](https://pastebin.com/pGExrS4A) inside the scripts/npc folder.
 
 ## Cosmetic Values: Models, Effects, Tags and others.
 These values are optional but greatly improve the quality of your item
@@ -308,7 +308,7 @@ In addon_english.txt:
 
 Displays "[ALLIES] Gather for **ItemName** here."
 
-![img](http://puu.sh/duiGf/025d66f1cd.jpg)
+![img](https://puu.sh/duiGf/025d66f1cd.jpg)
 
 ```~
 "ItemAlertable"	"1" 

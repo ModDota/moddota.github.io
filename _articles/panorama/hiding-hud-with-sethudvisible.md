@@ -43,7 +43,7 @@ mode:SetHUDVisible(hud_component_value, false)
 mode:SetHUDVisible(0, false)
 ```
 
-http://puu.sh/fAOer/20a271530e.jpg 
+https://puu.sh/fAOer/20a271530e.jpg
 
 <br />
 
@@ -53,7 +53,7 @@ http://puu.sh/fAOer/20a271530e.jpg
 mode:SetHUDVisible(1, false)
 ```
 
-http://puu.sh/fAOiv/1035acf865.jpg 
+https://puu.sh/fAOiv/1035acf865.jpg
 
 <br />
 
@@ -63,7 +63,7 @@ http://puu.sh/fAOiv/1035acf865.jpg
 mode:SetHUDVisible(2, false)
 ```
 
-http://puu.sh/fAOpV/887d94d3b1.jpg 
+https://puu.sh/fAOpV/887d94d3b1.jpg
 
 <br />
 
@@ -73,9 +73,9 @@ http://puu.sh/fAOpV/887d94d3b1.jpg
 mode:SetHUDVisible(3, false) 
 ```
 
-http://puu.sh/fAOuF/dfe961a286.jpg 
+https://puu.sh/fAOuF/dfe961a286.jpg
 
-:bug: Hiding the action panel has this issue: http://puu.sh/fAOSh/9fc90dc654.jpg
+:bug: Hiding the action panel has this issue: https://puu.sh/fAOSh/9fc90dc654.jpg
 
 <br />
 
@@ -85,7 +85,7 @@ http://puu.sh/fAOuF/dfe961a286.jpg
 mode:SetHUDVisible(4, false)
 ```
 
-http://puu.sh/fAOBz/e1018a097b.jpg 
+https://puu.sh/fAOBz/e1018a097b.jpg
 
 <br />
 
@@ -95,7 +95,7 @@ http://puu.sh/fAOBz/e1018a097b.jpg
 mode:SetHUDVisible(5, false) 
 ```
 
-http://puu.sh/fAPiT/e6b2af6fd8.jpg 
+https://puu.sh/fAPiT/e6b2af6fd8.jpg
 
 <br />
 
@@ -105,7 +105,7 @@ http://puu.sh/fAPiT/e6b2af6fd8.jpg
 mode:SetHUDVisible(6, false) 
 ```
 
-http://puu.sh/fAP4b/4159ddae39.jpg 
+https://puu.sh/fAP4b/4159ddae39.jpg
 
 <br />
 
@@ -115,7 +115,7 @@ http://puu.sh/fAP4b/4159ddae39.jpg
 mode:SetHUDVisible(7, false) 
 ```
 
- http://puu.sh/g9Ywi/56095d4467.jpg
+ https://puu.sh/g9Ywi/56095d4467.jpg
 
 <br />
 
@@ -125,7 +125,7 @@ mode:SetHUDVisible(7, false)
 mode:SetHUDVisible(8, false) 
 ```
 
- http://puu.sh/fAOQx/7ff8fddbc1.jpg
+ https://puu.sh/fAOQx/7ff8fddbc1.jpg
 
 <br />
 
@@ -137,7 +137,7 @@ mode:SetHUDVisible(8, false)
 mode:SetHUDVisible(9, false) 
 ```
 
-http://puu.sh/g9YoK/096d9a4a95.jpg
+https://puu.sh/g9YoK/096d9a4a95.jpg
 
 <br />
 
@@ -149,7 +149,7 @@ http://puu.sh/g9YoK/096d9a4a95.jpg
 mode:SetHUDVisible(10, false) 
 ```
 
-http://puu.sh/fAPAp/5e003ec96f.jpg 
+https://puu.sh/fAPAp/5e003ec96f.jpg
 
 <br />
 
@@ -159,7 +159,7 @@ http://puu.sh/fAPAp/5e003ec96f.jpg
 mode:SetHUDVisible(11, false) 
 ```
 
-http://puu.sh/fAPEV/8b3e7d0808.jpg 
+https://puu.sh/fAPEV/8b3e7d0808.jpg
 
 muh shekels are gone! :biblethump: 
 
@@ -173,7 +173,7 @@ muh shekels are gone! :biblethump:
 mode:SetHUDVisible(12, false) 
 ```
 
-http://puu.sh/fAPKp/6e8f843dda.jpg
+https://puu.sh/fAPKp/6e8f843dda.jpg
 
 <br />
 
