@@ -25,28 +25,16 @@ But wait, there's more! DOTAScenePanel accepts the "map" parameter, which points
 
 Start up hammer editor and create a new map. Save it in your maps folder as 'background.vmap'. Go to Map -> Map Properties (Ctrl-Shift-P) and check the 'Compile as background map' checkbox.
 
-![Setting up map type](https://cdn1.imggmi.com/uploads/2019/10/13/0ef2b4fefb98cb8ab504b499311e74a0-full.png)
-
 Use the Entity Tool (Shift-E) and choose the `prop_dynamic` entity, then click somewhere in the world to place it.
 
 Select that newly placed entity in the outliner and change its `World Model` property to `models/courier/donkey_unicorn/donkey_unicorn.vmdl`.
 
-![https://puu.sh/o3BmY/2d6181c281.png](https://puu.sh/o3BmY/2d6181c281.png)
-
 Now you've got your movie star ready to be displayed. You can also change the `Default Animation` field to `idle` or any string from its model entries.
-
-![Setting up default animation](https://cdn1.imggmi.com/uploads/2019/10/13/1c629982fec4cbc34739d458e9857607-full.png)
 
 Now we've got _action_, but still missing _lights_ and _camera_. Let's begin with light - with the Entity Tool (Shift-E), create a `env_global_light` entity. Change it's name to `light`, for example.
 
-![Setting up light source name](https://cdn1.imggmi.com/uploads/2019/10/13/c417d2cd705b2a90f02220ac9444535c-full.png)
-
 Same as `env_global_light`, create a `point_camera` entity.
 Select your newly created camera, move your hammer camera in such way that you can see the donkey and click `View - Align Selection to Active Camera`.
-
-![Aligning Selection to Active Camera](https://cdn1.imggmi.com/uploads/2019/10/13/d03e1b0b5f0ef42d61272cab3c0ef71e-full.png)
-
-![Aligned camera example](https://cdn1.imggmi.com/uploads/2019/10/13/518aa2dee6bc9506690502b37380f679-full.png)
 
 As the last step select your camera and give it a name in the properties, like `camera1`.
 
