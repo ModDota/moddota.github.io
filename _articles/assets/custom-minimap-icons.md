@@ -28,7 +28,7 @@ The 3 minimap_icon files are used together, and should be renamed to the name yo
 
 Use a graphic editor such as Photoshop or GIMP to edit the PSD file. 
 
-In the example source file, I quickly made this transparent image from [this source](https://static.ongamers.com/uploads/ignore_jpg_scale_super/0/22/12584-dota2_courier_skippy03.png):
+In the example source file, I quickly made this transparent image from [this source](https://i.imgur.com/x3L74Hw.png):
 
 ![img](https://i.imgur.com/78Z3kaV.png)
 

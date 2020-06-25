@@ -383,7 +383,7 @@ Distance to keep when following. Healing Ward/Sigil have it set at 250.
 
 ## Armor and Attack Types
 
-The Table of Physical Attacks vs Armor Types can be found [here in this link to the dota wiki](https://dota2.gamepedia.com/Damage_types#Effective_Physical_Damage_by_Attack_Type_and_Armor_Type)
+The Table of Physical Attacks vs Armor Types can be found [here in this link to the dota wiki](https://dota2.gamepedia.com/Attack_damage#Attack_damage_types)
 
 ```
 "CombatClassAttack"           "DOTA_COMBAT_CLASS_ATTACK_HERO"

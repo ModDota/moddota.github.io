@@ -14,12 +14,14 @@ Today we going to create Lava area when a hero step on that lava he will get dam
 <Gfycat id="WaterloggedQuarrelsomeDutchshepherddog" />
 
 Then convert the mesh to Entity and name it plus assign this Entity script to lavatrigger.lua <-- you can name it whatever you want.
-![enter image description here](https://i.gyazo.com/f4e83a50e4c80ee658042c1dd2a73d2c.png "enter image title here")
+
+![](https://i.imgur.com/5eZycip.png)
+
 <Gfycat id="AntiqueSkinnyKagu" />
 
 next we go to Outputs tabs in top and click on it add the following in the picture.
 
-![enter image description here](https://i.gyazo.com/bcea6b60046512109f121aa0164f7cd2.png "enter image title here")
+![](https://i.imgur.com/gPZY3Us.png)
 
 Now go to your vscript folder and create a file called lavatrigger.lua and put this script inside.
 ```lua

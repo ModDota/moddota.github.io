@@ -5,13 +5,15 @@ steamId: '76561198046984233'
 date: 28.05.2015
 ---
 
-This guide will go through the process of making a **.vmdl file** (Source 2 Model) from a **.mdl file** and other model-related files from Source 1. The [Wyvern Hatchling courier](https://gfycat.com/JauntyQuickArcticwolf) will be used as example, but the same process applies to heroes, buildings and any Valve Dota model.
+This guide will go through the process of making a **.vmdl file** (Source 2 Model) from a **.mdl file** and other model-related files from Source 1. The Wyvern Hatchling courier will be used as example, but the same process applies to heroes, buildings and any Valve Dota model.
+
+<Gfycat id="JauntyQuickArcticwolf" />
 
 ### Required Tools
 
-* [GCFScape](http://nemesis.thewavelength.net/?p=26)
+* [GCFScape](https://developer.valvesoftware.com/wiki/GCFScape)
 * [Crowbar](https://steamcommunity.com/groups/CrowbarTool/discussions/0/617328415069203029/)
-* [VTFEdit](http://nemesis.thewavelength.net/index.php?c=238#p238)
+* [VTFEdit](https://developer.valvesoftware.com/wiki/VTFEdit)
 * Workshop Tools (Material and Model Editor)
 
 ### 1. Acquire the **model** and **material** files from the main game VPK (*pak01_dir.vpk*) using GCFScape. 

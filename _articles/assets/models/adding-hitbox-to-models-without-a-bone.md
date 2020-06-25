@@ -61,7 +61,6 @@ The attached cube is a small 50x50 rectangle, just click on it and adjust it to 
 
 Press `T` hotkey to access the scaling tool.
 
-https://puu.sh/lLIJ3/bed9e07b6f.jpg
 ![img](https://puu.sh/lLIGx/4b75817f3f.jpg)
 
 ![img](https://puu.sh/lLIN3/8ab9a87b21.jpg)

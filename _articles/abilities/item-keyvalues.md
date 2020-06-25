@@ -190,7 +190,7 @@ For your item to have an icon you'll need to go to your addon folder under this 
 
 And put a .PNG file with dimensions **86 x 64**, with the same name as the "item\_custom", WITHOUT the "item_"
 
-[![img](https://raw.githubusercontent.com/bmddota/reflexdota/source2/game/dota_addons/reflex/resource/flash3/images/items/ability_reflex_flame_sword.png)](https://github.com/bmddota/reflexdota/blob/source2/game/dota_addons/reflex/resource/flash3/images/items/ability_reflex_flame_sword.png)
+![img](https://i.imgur.com/4Jr9cpF.png)
 
 Then in your "item_custom" code, you add the following:
 

@@ -56,7 +56,7 @@ Save your map and build it (F9).
 
 I won't describe how to set up a basic panorama environment, if you are having issues with displaying simple panels, refer to [https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama) Once you've ready to go, simply add `<DOTAScenePanel style="width:400px;height:400px;" map="background" light="light" camera="camera1" particleonly="false"/>` to your XML, you should see your donkey movie star in its full glory. Shouldn't take you more than 10 minutes.
 
-<div itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject"><meta itemprop="name" content="Example Video" /> <meta itemprop="description" content="This video shows an example of the created effect" /> <meta itemprop="thumbnailURL" content="http://web.archive.org/web/20190210150240im_/http://thumbs.gfycat.com/BlackSameAoudad-poster.jpg" /> <meta itemprop="contentURL" content="http://zippy.gfycat.com/BlackSameAoudad.webm" /> <meta itemprop="contentURL" content="http://zippy.gfycat.com/BlackSameAoudad.mp4" /></div>
+<Gfycat id="BlackSameAoudad" />
 
 Now let's get to the advanced part.
 
@@ -66,7 +66,7 @@ Now let's get to the advanced part.
 
 We can easily build up a "unit" like scene, using the `portrait_world_unit` entity type. This entity supports all kinds of units and also cosmetic item definitions. The quirk here is that you have to enter the raw properties editing mode to set displayed entity to a hero. Item definitions property all refer to different loadout slots and accept item IDs. Item ID list can be found [here](https://github.com/dotabuff/d2vpk/blob/master/dota_pak01/scripts/items/items_game.txt).
 
-![Lina is awesome](http://dg-lab.com/renuz "Example")
+![Lina is awesome](https://i.imgur.com/ZsmLQA3.png "Example")
 
 ### Multiple cameras
 
