@@ -5,11 +5,6 @@ module.exports = {
     baseUrl: "/",
     favicon: "images/favicon.ico",
     themeConfig: {
-        announcementBar: {
-            id: "contest_2020",
-            content:
-                'Join the <a target="_blank" href="https://contest.dota2unofficial.com/">Dota 2 Custom Games Contest</a> and win a Grand Prize of $10,000 USD!',
-        },
         navbar: {
             title: "ModDota",
             logo: { src: "images/logo-80x80.png" },
