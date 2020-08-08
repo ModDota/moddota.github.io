@@ -95,6 +95,7 @@
                 "panorama/introduction-to-panorama-ui-with-typescript",
                 "panorama/keybindings",
                 "panorama/dotascenepanel",
+                "panorama/button-examples",
                 {
                     "type": "link",
                     "label": "Custom Game Setup",
