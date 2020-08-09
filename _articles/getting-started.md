@@ -59,12 +59,12 @@ Once you get to the point of having a rough layout blocked out for your map, it'
 
 BMD has made some rather nice beginner Hammer tutorial videos:
 
-* [part 1: Tile Editor](https://www.youtube.com/watch?v=GMvmdnNM6Sc)
-* [part 2: Mesh Basics](https://www.youtube.com/watch?v=grLUv2hUDRY)
-* [part 3: entity basics](https://www.youtube.com/watch?v=ln3ep-k__dk)
+* [Part 1: Tile Editor](https://www.youtube.com/watch?v=GMvmdnNM6Sc)
+* [Part 2: Mesh Basics](https://www.youtube.com/watch?v=grLUv2hUDRY)
+* [Part 3: entity basics](https://www.youtube.com/watch?v=ln3ep-k__dk)
 
 ## Step #3: Scripting and beyond...
 
-Scripting is the next most important part of your addon. It is divided into Lua scripting, and KeyValue scripting. I'm going to go ahead and redirect you to [Noya's Beginner Scripting Guide](/articles/beginners-guide-to-dota-scripting), since it has essentially the same information that would go in this section. 
+Scripting is the next most important part of your addon. It is divided into Lua scripting, and KeyValue scripting. I'm going to go ahead and redirect you to [Noya's Beginner Scripting Guide](scripting-introduction.md), since it has essentially the same information that would go in this section. 
 
-Now I'm going keep this short and sweet. I've already presented a ton of information for you to begin delving yourself into Dota 2 modding! Becoming good at Hammer mapping and good at Lua and KeyValue scripting will go a very long way in making successful, fun Dota 2 custom games. Please don't hesitate to ask questions in [the #dota2modhelpdesk IRC channel](https://moddota.com/forums/chat) or in the [Questions subforum](https://moddota.com/forums/categories/development).
+Now I'm going keep this short and sweet. I've already presented a ton of information for you to begin delving yourself into Dota 2 modding! Becoming good at Hammer mapping and good at Lua and KeyValue scripting will go a very long way in making successful, fun Dota 2 custom games. Please don't hesitate to ask questions in [the Moddota Discord channel](https://discord.gg/Mvn4gww).
