@@ -47,7 +47,7 @@ Credits to @Internet_Veteran
 
 This is the critical part. Basically you'll be adding the cube mesh into the exported model. You can do this on the model editor (**Animation -> Add Animation**, or by editing the .vmdl file with a text editor and coping the following lines:
 
-http://pastebin.com/qryMBaPz
+https://pastebin.com/qryMBaPz
 
 Just replace everything on your vmdl except for the first big *m_meshList* block
 
@@ -61,7 +61,6 @@ The attached cube is a small 50x50 rectangle, just click on it and adjust it to 
 
 Press `T` hotkey to access the scaling tool.
 
-https://puu.sh/lLIJ3/bed9e07b6f.jpg
 ![img](https://puu.sh/lLIGx/4b75817f3f.jpg)
 
 ![img](https://puu.sh/lLIN3/8ab9a87b21.jpg)

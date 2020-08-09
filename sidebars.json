@@ -1,6 +1,6 @@
 {
-    "docs": [
-        { "type": "link", "label": "Introduction", "href": "/" },
+    "tutorials": [
+        "_index",
         "getting-started",
         "scripting-introduction",
         {
@@ -95,6 +95,7 @@
                 "panorama/introduction-to-panorama-ui-with-typescript",
                 "panorama/keybindings",
                 "panorama/dotascenepanel",
+                "panorama/button-examples",
                 {
                     "type": "link",
                     "label": "Custom Game Setup",
@@ -150,7 +151,6 @@
                 "tools/combining-kv-files-using-base"
             ]
         },
-        "contribute",
-        "tutorials"
+        "contribute"
     ]
 }

@@ -9,7 +9,7 @@ date: 05.02.2015
 <p>
 This is taken from the project I'm currently working on. The basic idea behind this particle system was that this projectile is a cyclone/tornado in xy-axis travel forward with certain amount of velocity. If you don't have any basic in particle editor, please go to <a href="/articles/particles-creation-series-particle-basics">this link</a> first. Before you read further, here is the finished product.
 </p>
-<img src="http://i.imgur.com/fwxoB5H.png"></img>
+<img src="https://i.imgur.com/fwxoB5H.png"></img>
 <p>
 Don't worry too much about the statue model, I put it there just to check height reference before porting into the map itself. There are many ways to approach this but here is how I approach it.
 </p>
@@ -103,7 +103,7 @@ Now it's time to place this particle somewhere.
 <p>
 We don't need to change anything here since it's just reference point for emitter. Now your particle should look like this.
 </p>
-<img src="http://i.imgur.com/qa2KLoV.png"></img>
+<img src="https://i.imgur.com/qa2KLoV.png"></img>
 <p>
 Well it shouldn't keep lying on the floor like that. Now we want to rotate it to the direction that it should face. But before we get to that, we have to set up something first.
 </p>
@@ -135,7 +135,7 @@ With following values:
 <p>
 These two functions will automatically adjust your sprite so it faces the direction it's moving all the time. I chose not to use 90.0 in second function because at 90 degree, your particle will be very hard to see from the top, so I adjust them down a bit. Now you should see result like this.
 </p>
-<img src="http://i.imgur.com/RBJadLc.png"></img>
+<img src="https://i.imgur.com/RBJadLc.png"></img>
 <p>
 Now basic functionality is done, I will adjust the outlook of the particle by following function.
 </p>
@@ -198,7 +198,7 @@ Now put these values into the control points on right.
 <p>
 You should see something like this.
 </p>
-<img src="http://i.imgur.com/AZNq6lw.png"></img>
+<img src="https://i.imgur.com/AZNq6lw.png"></img>
 <p>
 Now those are all the initializers you need, let's now adjust the detail while our particles are traveling in operator.
 </p>
@@ -220,7 +220,7 @@ Adjust these values as you like. I left them as default except one which is:
 <p>
 Now your particle should look like this. (I just adjust the color random, so it will look a bit different from previous image.)
 </p>
-<img src="http://i.imgur.com/X50ysJh.png"></img>
+<img src="https://i.imgur.com/X50ysJh.png"></img>
 <p>
 Since it is kinda power wave, I want to add the feeling of being unstable to the system. So I add these functions.
 </p>
@@ -257,7 +257,7 @@ Adjust its value to the following:
 <p>
 Now your wave particle is done. It should look similar to the following:
 </p>
-<img src="http://i.imgur.com/Oh5BbNQ.png"></img>
+<img src="https://i.imgur.com/Oh5BbNQ.png"></img>
 <p>
 What I said about "done" is actually a lie. You still need to adjust your particle count. My advice is that keep the count at minimum to suit the purpose of your system. Currently, the particle count should be at around 300 all the time and it's not good for overall performance. Since my particles will be used somewhat as a projectile, I don't want high particle counts. To reduce this I change the following setting.
 </p>
@@ -332,7 +332,7 @@ Adjust the color accordingly for Color random, and leave Rotation random as defa
 <p>
 Now you should have something similar to this.
 </p>
-<img src="http://i.imgur.com/cG34Wwj.png"></img>
+<img src="https://i.imgur.com/cG34Wwj.png"></img>
 <p>
 When that's done, we want to change our radius accordingly as we already had control point in wave particles and make the spark scatter from the center.
 </p>
@@ -359,7 +359,7 @@ Now we adjust the value to the following:
 |control point number|0|
 |offset proportional to radius|true|
 
-<img src="http://i.imgur.com/TPtr49u.png"></img>
+<img src="https://i.imgur.com/TPtr49u.png"></img>
 <p>
 As you can see, now our particles are huge! Sparks are supposed to be small so let's resize it with this, add a little bit more movement to our sparks, and also add some fade decay to our particle.
 </p>
@@ -398,11 +398,11 @@ Adjust the values to the following.
 <p>
 Now your spark should look something like this.
 </p>
-<img src="http://i.imgur.com/qwqaa5l.png"></img>
+<img src="https://i.imgur.com/qwqaa5l.png"></img>
 <p>
 With the wave particles, it looks like this.
 </p>
-<img src="http://i.imgur.com/2QciUbK.png"></img>
+<img src="https://i.imgur.com/2QciUbK.png"></img>
 <p>
 Now we want the spark to follow the wave, we add this function to the spark particle.
 </p>
@@ -426,7 +426,7 @@ Leave the value as default, you can adjust it to your taste though. Now we are a
 <p>
 Now that's done, you should see something like the following in your wave particle.
 </p>
-<img src="http://i.imgur.com/ERIr5ld.png"></img>
+<img src="https://i.imgur.com/ERIr5ld.png"></img>
 <p>
 With this, your spark particle is done. Feel free to adjust the value to your taste.
 </p>
@@ -528,7 +528,7 @@ For the outline layer, last layer, adjust the color to be black and have <b>radi
 <p>
 Now we combine the two outer layer into our core layer by adding children. Your screen should look like this.
 </p>
-<img src="http://i.imgur.com/ymA3yUU.png"></img>
+<img src="https://i.imgur.com/ymA3yUU.png"></img>
 <p>
 If you don't have ground particle, you should be done at this point. However, if you have ground particle then:
 </p>

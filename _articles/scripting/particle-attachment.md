@@ -37,11 +37,11 @@ Else you won't see them unless they belonged originally to the hero that is cast
 
   A Parent Particle is indicated by a P in the Asset Broswer.
 
-  ![img](http://puu.sh/esM9P/998defaf12.jpg)
+  ![img](https://puu.sh/esM9P/998defaf12.jpg)
 
   You normally want to use a Parent because it will show the complete particle effect. Childs are harder to display and might not show or display properly.
 
-  ![img](http://puu.sh/esz6V/b4912e2ca5.png) 
+  ![img](https://puu.sh/esz6V/b4912e2ca5.png)
 
 Copy this entire path for the particleName
 
@@ -158,7 +158,7 @@ CP0 is not really needed (because this type of attachment already sets the parti
 
 CP1.x controls the radius of the particle, as seen in the Particle Editor after playing around with the values
 
-![img](http://puu.sh/esEVP/9c852a02ca.png)
+![img](https://puu.sh/esEVP/9c852a02ca.png)
 
 Hovering over the button tells us its a "Position along ring" 
 

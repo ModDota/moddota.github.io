@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "@types/classnames": "^2.2.10",
-        "@types/react": "^16.9.35",
+        "@types/react": "^16.9.41",
         "@types/react-dom": "^16.9.8",
         "@types/webpack-env": "^1.15.2",
         "react": "^16.13.1",
@@ -20,14 +20,14 @@
     },
     "devDependencies": {
         "@ark120202/typescript-config": "^2.1.0",
-        "@docusaurus/core": "^2.0.0-alpha.55",
-        "@docusaurus/module-type-aliases": "^2.0.0-alpha.55",
-        "@docusaurus/preset-classic": "^2.0.0-alpha.55",
-        "fork-ts-checker-webpack-plugin": "^4.1.4",
+        "@docusaurus/core": "^2.0.0-alpha.58",
+        "@docusaurus/module-type-aliases": "^2.0.0-alpha.58",
+        "@docusaurus/preset-classic": "^2.0.0-alpha.58",
+        "fork-ts-checker-webpack-plugin": "^5.0.5",
         "prettier": "^2.0.5",
-        "sass": "^1.26.5",
+        "sass": "^1.26.9",
         "sass-loader": "^8.0.2",
-        "typescript": "^3.9.3"
+        "typescript": "^3.9.5"
     },
     "browserslist": [
         "last 1 chrome version",

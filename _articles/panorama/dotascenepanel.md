@@ -25,28 +25,16 @@ But wait, there's more! DOTAScenePanel accepts the "map" parameter, which points
 
 Start up hammer editor and create a new map. Save it in your maps folder as 'background.vmap'. Go to Map -> Map Properties (Ctrl-Shift-P) and check the 'Compile as background map' checkbox.
 
-![Setting up map type](https://cdn1.imggmi.com/uploads/2019/10/13/0ef2b4fefb98cb8ab504b499311e74a0-full.png)
-
 Use the Entity Tool (Shift-E) and choose the `prop_dynamic` entity, then click somewhere in the world to place it.
 
 Select that newly placed entity in the outliner and change its `World Model` property to `models/courier/donkey_unicorn/donkey_unicorn.vmdl`.
 
-![http://puu.sh/o3BmY/2d6181c281.png](http://puu.sh/o3BmY/2d6181c281.png)
-
 Now you've got your movie star ready to be displayed. You can also change the `Default Animation` field to `idle` or any string from its model entries.
-
-![Setting up default animation](https://cdn1.imggmi.com/uploads/2019/10/13/1c629982fec4cbc34739d458e9857607-full.png)
 
 Now we've got _action_, but still missing _lights_ and _camera_. Let's begin with light - with the Entity Tool (Shift-E), create a `env_global_light` entity. Change it's name to `light`, for example.
 
-![Setting up light source name](https://cdn1.imggmi.com/uploads/2019/10/13/c417d2cd705b2a90f02220ac9444535c-full.png)
-
 Same as `env_global_light`, create a `point_camera` entity.
 Select your newly created camera, move your hammer camera in such way that you can see the donkey and click `View - Align Selection to Active Camera`.
-
-![Aligning Selection to Active Camera](https://cdn1.imggmi.com/uploads/2019/10/13/d03e1b0b5f0ef42d61272cab3c0ef71e-full.png)
-
-![Aligned camera example](https://cdn1.imggmi.com/uploads/2019/10/13/518aa2dee6bc9506690502b37380f679-full.png)
 
 As the last step select your camera and give it a name in the properties, like `camera1`.
 
@@ -56,7 +44,7 @@ Save your map and build it (F9).
 
 I won't describe how to set up a basic panorama environment, if you are having issues with displaying simple panels, refer to [https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama) Once you've ready to go, simply add `<DOTAScenePanel style="width:400px;height:400px;" map="background" light="light" camera="camera1" particleonly="false"/>` to your XML, you should see your donkey movie star in its full glory. Shouldn't take you more than 10 minutes.
 
-<div itemprop="video" itemscope="" itemtype="http://schema.org/VideoObject"><meta itemprop="name" content="Example Video" /> <meta itemprop="description" content="This video shows an example of the created effect" /> <meta itemprop="thumbnailURL" content="http://web.archive.org/web/20190210150240im_/http://thumbs.gfycat.com/BlackSameAoudad-poster.jpg" /> <meta itemprop="contentURL" content="http://zippy.gfycat.com/BlackSameAoudad.webm" /> <meta itemprop="contentURL" content="http://zippy.gfycat.com/BlackSameAoudad.mp4" /></div>
+<Gfycat id="BlackSameAoudad" />
 
 Now let's get to the advanced part.
 
@@ -66,13 +54,13 @@ Now let's get to the advanced part.
 
 We can easily build up a "unit" like scene, using the `portrait_world_unit` entity type. This entity supports all kinds of units and also cosmetic item definitions. The quirk here is that you have to enter the raw properties editing mode to set displayed entity to a hero. Item definitions property all refer to different loadout slots and accept item IDs. Item ID list can be found [here](https://github.com/dotabuff/d2vpk/blob/master/dota_pak01/scripts/items/items_game.txt).
 
-![Lina is awesome](http://dg-lab.com/renuz "Example")
+![Lina is awesome](https://i.imgur.com/ZsmLQA3.png "Example")
 
 ### Multiple cameras
 
 This is pretty straightforward, `DOTAScenePanel` also accepts the `camera` parameter in the definition, which will try to find the camera with the provided name.
 
-![http://puu.sh/o3Gv7/783de89488.jpg](http://puu.sh/o3Gv7/783de89488.jpg)
+![https://puu.sh/o3Gv7/783de89488.jpg](https://puu.sh/o3Gv7/783de89488.jpg)
 
 Important to note, compiling the map again does change the look of the panorama panel without restarting the map, but you can't change it at runtime. You'll understand how to achieve the same result in the following parts.
 

@@ -13,7 +13,7 @@ You need to create the triggering area for your shop in hammer. Use the block to
 Draw the area somewhere off the map. You don't want players randomly stumbling across it.
 
 ## Step 2.
-Turn the block into a entity by selecting it and pressing **ctrl+t**. Change the entity class to trigger_shop and give it a name. Also filter materials and find the trigger material, drag it onto the block. Finally set the shop type at the bottom. It should now look like this ![ShopInHammer](http://i.imgur.com/XqzWA3I.jpg "ShopInHammer"). When that's done rebuild the map.
+Turn the block into a entity by selecting it and pressing **ctrl+t**. Change the entity class to trigger_shop and give it a name. Also filter materials and find the trigger material, drag it onto the block. Finally set the shop type at the bottom. It should now look like this ![ShopInHammer](https://i.imgur.com/XqzWA3I.jpg "ShopInHammer"). When that's done rebuild the map.
 
 ## Step 3.
 Now simply add the following code to create a shop at your desired location! I added this to OnConstructionCompleted in building helper.
@@ -26,4 +26,4 @@ Example:
 <Gfycat id="DimwittedGlisteningAmericanmarten" />
 
 Recommended reading:
-[Creating a custom shop in Dota 2](http://www.reddit.com/r/Dota2Modding/comments/2dpts1/tutorial_creating_a_custom_shop_step_by_step/)
+[Creating a custom shop in Dota 2](https://www.reddit.com/r/Dota2Modding/comments/2dpts1/tutorial_creating_a_custom_shop_step_by_step/)

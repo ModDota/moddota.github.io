@@ -28,7 +28,7 @@ Each .txt file contains its particular KVs, and when the game starts, each clien
  
 Now it’s a good time to get your environment ready to write Dota Scripts. For this, the best way is getting Sublime Text Editor, with these 2 snippet plugins that add completions for some commonly used functions and proper syntax coloring for KV and Lua.
  
-* [Sublime Text 3](http://www.sublimetext.com/3)
+* [Sublime Text 3](https://www.sublimetext.com/)
 * [Sublime Text KeyValues Package](https://github.com/bhargavrpatel/dota_kv#installation)
 * [Sublime Text Lua Package](https://github.com/bhargavrpatel/Dota-2-Sublime-Packages#installation)
  
@@ -38,7 +38,7 @@ Start a new document in Sublime and make sure you are using Dota KV as the Synta
  
 We’ll be making a very simple ability that does single target damage. Start by writing the name of the ability between "" and no spaces. Then write BaseClass... and press Enter to insert the completion. Move through the different fields with Tab.
  
-![img](http://puu.sh/g1Aks/252bb32b2d.png)
+![img](https://puu.sh/g1Aks/252bb32b2d.png)
  
 A `"BaseClass"` is essential to every datadriven definition, it orders the game to interpret this ability/item/unit in a certain way- in this case as a datadriven ability. Stock Dota 2 Items, units and heroes have their own base classes which have "hard-coded" behavior that we as modders can't change much.
  
@@ -46,9 +46,9 @@ AbilityTextureName can be a custom icon or any internal name of a dota ability, 
  
 Other essential KV is the AbilityBehavior, write down AbilityB and use the autocomplete
 
-![img](http://puu.sh/g1AtQ/cda16f7138.png)
+![img](https://puu.sh/g1AtQ/cda16f7138.png)
  
-![img](http://puu.sh/g1Avn/65fe86524c.png)
+![img](https://puu.sh/g1Avn/65fe86524c.png)
  
 Then we need an ability **event**, this is a trigger for when certain event happens to the owner of the ability. The most basic one is `OnSpellStart`, add one with the completions and you’ll see a new "level" within { } is created, this is known as a block. In [ACTIONS], write down a "Damage" action, some keys and a `%AbilityDamage` will appear. A % represents a value to be taken from somewhere else, in this case, an AbilityDamage KV. Add this last key and this first basic spell should be like this:
  
@@ -119,7 +119,7 @@ In every single gamemode, a file named addon_game_mode.lua must be present. Whil
 - `Precache`, when the game starts and players pick their heroes, the engine will try to load the associated models/particles/sounds to those heroes. If we’re dynamically using a resource in Lua before preloading it won’t be displayed properly.
 - `Activate`, creates the base game mode entity and calls the initialize function.
 
-![img](http://puu.sh/g2pUC/ca4413cc48.png) <br /> Precache function was folded in sublime
+![img](https://puu.sh/g2pUC/ca4413cc48.png) <br /> Precache function was folded in sublime
 
 Using our barebones, you don’t need to touch this file apart from very specific situations, and all the core game logic will be coded in barebones.lua, which has been already required. We’ll call this your *main lua file* from now on.
  
@@ -145,25 +145,25 @@ You can access the game console by pressing the ` key.
  
 This will provide tons of useful information for debugging. The different colors represent the various “channels” of information. By default all the channels are in the same Log: Default tab. It’s very recommended that you make your own tabs to split the log viewer.
  
-![img](http://i.imgur.com/y2BUNcS.png)
+![img](https://i.imgur.com/y2BUNcS.png)
  
 For Lua Scripting, we want to have a VScript Tab. Messages about the DataDriven system are in the General channel in yellow along with some other info, make a separate viewer for this too.
  
-![img](http://puu.sh/g2nWY/22554172f6.png)
+![img](https://puu.sh/g2nWY/22554172f6.png)
 
 The new tabs:
 
-![img](http://puu.sh/g2o1O/b46e113293.png)
+![img](https://puu.sh/g2o1O/b46e113293.png)
  
 The console will notify whenever a Lua scripting error happens, either when the game is being loaded (a syntax-compilation error) or at runtime. In this error, I wrote GameRules.SetHeroRespawnEnabled with `.` instead of `:`
 
-![img](http://puu.sh/g2jo2/6c85128308.png)
+![img](https://puu.sh/g2jo2/6c85128308.png)
 
 You can then trace the error to that line and attempt to solve it, writing **script_reload** in the console to reload the script and check if it was actually fixed.
 
 A DataDriven syntax error will usually look like this:
 
-![img](http://puu.sh/g3HVp/27ef775669.png)
+![img](https://puu.sh/g3HVp/27ef775669.png)
 
 ### Engine Events
   
@@ -203,7 +203,7 @@ First line will print the string under "" in the VConsole. The print function is
   
 `DeepPrintTable` is a Global Valve-made function which will display the information of the table passed. For keys in this case, it will be the .entindex and .splitscreenplayer. The **entity index** is a very important number to reference the entity. Ignore splitscreenplayer, it’s just legacy source stuff and never used in Dota 2.
  
-![img](http://puu.sh/g2iLY/54583b0b65.png)
+![img](https://puu.sh/g2iLY/54583b0b65.png)
  
 The next line defines a local variable. In Lua local variables have their scope limited to the block where they are declared. It is good programming style to use local variables whenever possible. Local variables help you avoid cluttering the global environment with unnecessary names. Moreover, access to local variables is faster than to global ones.
  
@@ -320,7 +320,7 @@ Let’s go back to the first super simple single target damage datadriven abilit
  
 The Syntax is like this:
 
-![img](http://puu.sh/g2x6h/d16e2db05b.png)
+![img](https://puu.sh/g2x6h/d16e2db05b.png)
  
 ScriptFile route is relative to the /vscripts/ folder. AbilityName is the name of the lua function inside that file.
 
@@ -340,7 +340,7 @@ In your vscripts folder, make a heroes folder and a example_script file with a .
 
 In this example script, the event will pass some information to the first parameter of the functions, which can have any name but you'll see most refer to this parameter as `keys` or `event`.
 
-![img](http://puu.sh/g2y9i/dfb5db78c9.png)
+![img](https://puu.sh/g2y9i/dfb5db78c9.png)
 
 In the body, most ability scripts start by defining the local variables for the target entities which are passed by the event. This is explained more deeply in the guide [All About The Target](moddota.com/forums/discussion/87/all-about-the-target), but the basic target variables visible on any script are
 
@@ -365,7 +365,7 @@ This will kill the targeted unit if its Health percent is less than half, and cr
 
 There are plenty of examples spread all across GitHub and with the contents of this guide you should now be able to understand the scripting flow of game logic and scripted abilities. The best GitHub repo to look for ability scripts is [SpellLibrary](https://github.com/Pizzalol/SpellLibrary), a community project to rewrite every dota ability using KV and Lua.
 
-If you want to check the scripts of a certain game on the [Custom Games Workshop](http://steamcommunity.com/workshop/browse/?appid=570&browsesort=trend&section=readytouseitems) which hasn't made their source public on GitHub (because they are fools), just follow these steps:
+If you want to check the scripts of a certain game on the [Custom Games Workshop](https://steamcommunity.com/workshop/browse/?appid=570&browsesort=trend&section=readytouseitems) which hasn't made their source public on GitHub (because they are fools), just follow these steps:
 
 1. Subscribe to the game. Download GCFScape if you haven't done so yet, it can be found in [moddota's tools list on the nav-bar](https://moddota.com/forums/tools)
 2. Check the URL, steamcommunity.com/sharedfiles/filedetails/?id=**copy this number**
@@ -373,11 +373,11 @@ If you want to check the scripts of a certain game on the [Custom Games Workshop
 4. Search for the copied number folder
 5. Open the .vpk file with GCFScape and extract its contents anywhere you want. Now you can access its scripts and compiled models/particles/sounds.
 
-![img](http://puu.sh/g2zNP/d1e018010e.png)
+![img](https://puu.sh/g2zNP/d1e018010e.png)
 
 Whenever you have a doubt about how to use a particular GameAPI function, its possible to find examples all over GitHub by just writing the name of it, additionally filtering by lua like this:
 
-![img](http://puu.sh/g2yTG/93f1641866.png)
+![img](https://puu.sh/g2yTG/93f1641866.png)
 
 Just make sure it's actually Dota Lua and not another game API, as some of the functions might share names with other engines.
 

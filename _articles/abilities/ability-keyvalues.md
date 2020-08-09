@@ -7,17 +7,17 @@ date: 10.12.2014
 
 <!--
 TODO: Some categories are missing:
-[![Damage Type](http://i.imgur.com/WwwNkbj.png)](##damage "Damage type of the ability")
-[![Cast Animation](http://i.imgur.com/ewEWcom.png)](##animation "Animation when the spell starts casting")
-[![General Stats](http://i.imgur.com/5mO6j4Z.png)](##stats "General numeric values")
-[![Others](http://i.imgur.com/z73NEKo.png)](##others "Other less common values")
-[![Ability Special](http://i.imgur.com/3ynaE40.png)](##special "AbilitySpecial block, used for variables")
-[![precache](http://i.imgur.com/qKW3Xs4.png)](##precache "Precache block, used to preload assets")
-[![Ability Events](http://i.imgur.com/6IFhMIu.png)](##abilityevents "Triggers on the ability to perform Actions")
-[![Modifiers](http://i.imgur.com/XEFsYCD.png)](##modifiers "Effects that can be applied on units")
-[![Properties Block](http://i.imgur.com/HFXTmij.png)](##properties "Give numeric stat values for the duration of the modifier")
-[![States Block](http://i.imgur.com/ACfQMmq.png)](##states "Enable or Disable certain states on units")
-[![Modifier Events](http://i.imgur.com/LWPALN8.png)](#modifierevents "Triggers on the modifier to perform Actions")
+[![Damage Type](https://i.imgur.com/WwwNkbj.png)](##damage "Damage type of the ability")
+[![Cast Animation](https://i.imgur.com/ewEWcom.png)](##animation "Animation when the spell starts casting")
+[![General Stats](https://i.imgur.com/5mO6j4Z.png)](##stats "General numeric values")
+[![Others](https://i.imgur.com/z73NEKo.png)](##others "Other less common values")
+[![Ability Special](https://i.imgur.com/3ynaE40.png)](##special "AbilitySpecial block, used for variables")
+[![precache](https://i.imgur.com/qKW3Xs4.png)](##precache "Precache block, used to preload assets")
+[![Ability Events](https://i.imgur.com/6IFhMIu.png)](##abilityevents "Triggers on the ability to perform Actions")
+[![Modifiers](https://i.imgur.com/XEFsYCD.png)](##modifiers "Effects that can be applied on units")
+[![Properties Block](https://i.imgur.com/HFXTmij.png)](##properties "Give numeric stat values for the duration of the modifier")
+[![States Block](https://i.imgur.com/ACfQMmq.png)](##states "Enable or Disable certain states on units")
+[![Modifier Events](https://i.imgur.com/LWPALN8.png)](#modifierevents "Triggers on the modifier to perform Actions")
 -->
 
 ## DataDriven Ability
@@ -312,7 +312,7 @@ The same applies to Team and Types.
 ```
 
  * `"TargetFlags"` in a `"LinearProjectile"` action allows a `LinearProjectile` to ignore units that would otherwise be included by default in the Team+Type values, for example those with `MODIFIER_STATE_INVISIBLE`.
- * `"Aura_Flags"` in a modifier with the other `"Aura"` keys can be used, for example, to make an [aura modifier](http://web.archive.org/web/20181130135800/http://moddota.com/forums/discussion/comment/29#Comment_29) only affect ranged units by adding `DOTA_UNIT_TARGET_FLAG_RANGED_ONLY`.
+ * `"Aura_Flags"` in a modifier with the other `"Aura"` keys can be used, for example, to make an [aura modifier](https://web.archive.org/web/20181130135800/http://moddota.com/forums/discussion/comment/29#Comment_29) only affect ranged units by adding `DOTA_UNIT_TARGET_FLAG_RANGED_ONLY`.
  
 The same applies for **Teams** and **Types**.
 

@@ -9,7 +9,7 @@ module.exports = {
             title: "ModDota",
             logo: { src: "images/logo-80x80.png" },
             links: [
-                { position: "left", label: "Tutorials", to: "/" },
+                { position: "left", label: "Tutorials", to: "tutorials" },
                 { position: "left", label: "Lua API", href: "https://dota.tools/vscripts/" },
                 {
                     position: "left",
@@ -23,6 +23,10 @@ module.exports = {
             additionalLanguages: ["lua"],
             theme: require("prism-react-renderer/themes/github"),
             darkTheme: require("prism-react-renderer/themes/dracula"),
+        },
+        algolia: {
+            apiKey: "5c91053fa708fac220dfd06a4a04fee9",
+            indexName: "moddota",
         },
     },
     presets: [

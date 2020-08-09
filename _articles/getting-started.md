@@ -34,11 +34,16 @@ taken from [How to install the Dota 2 Workshop Tools](https://developer.valvesof
 
 ## Step #1: Creating a New Addon From The 'Barebones' Template
 
-To start off on a good foot, you’re going to want to create a new addon based off of the Barebones template, which is a community made alternative to Valve’s default addon templates (i.e. Holdout). This is the link to the updated BMD Barebones: https://github.com/bmddota/barebones <br /> After downloading it as a zip, you want to browse to your `.../Steam/SteamApps/dota 2 beta/` and merge the `game` and `content` folders from the .zip into the that /dota 2 beta/ folder (which should already have folders in it called `game` and `content`)
+To start off on a good foot, you’re going to want to create a new addon based off of the Barebones template, which is a community made alternative to Valve’s default addon templates (i.e. Holdout). This is the link to the updated BMD Barebones: https://github.com/bmddota/barebones<br />
+After downloading it as a zip, you want to browse to your `.../Steam/SteamApps/dota 2 beta/` and merge the `game` and `content` folders from the .zip into the that /dota 2 beta/ folder (which should already have folders in it called `game` and `content`).
 
-Next, start up the Workshop Tools (or restart them if you have them opened already), and double click your new addon. Set it as the default addon. Then, go into Hammer -> File -> Open -> barebones.vmap -> Press F9 to begin building the map. After Hammer finishes building your map, your custom game will automatically load in Dota. 
+Next, start up the Workshop Tools (or restart them if you have them opened already), and double click your new addon. Set it as the default addon. Then, go into Hammer -> File -> Open -> barebones.vmap -> Press F9 to begin building the map. After Hammer finishes building your map, your custom game will automatically load in Dota.
 
-[Gfy Demo of Step #1](http://gfycat.com/NarrowIncredibleBongo). NOTE: Workshop tools now are launched through the same link in steam as the main dota client, and not the "Tools" list in steam. Otherwise this image is roughly still accurate.
+<Gfycat id="NarrowIncredibleBongo" />
+
+:::note
+Workshop tools now are launched through the same link in steam as the main dota client, and not the "Tools" list in steam. Otherwise this video is roughly still accurate.
+:::
 
 ## Step #2: Creating your map in Hammer
 
