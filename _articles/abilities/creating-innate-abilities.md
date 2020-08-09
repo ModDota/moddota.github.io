@@ -15,7 +15,9 @@ Lua abilities can define a `Spawn` method, that is invoked by the engine when ab
 ```lua
 my_innate_ability = my_innate_ability or {}
 function my_innate_ability:Spawn()
-    self:SetLevel(1)
+    if IsServer() then
+        self:SetLevel(1)
+    end
 end
 ```
 
