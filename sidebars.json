@@ -101,7 +101,9 @@
                     "label": "Custom Game Setup",
                     "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Custom_Game_Setup"
                 },
-                "panorama/hiding-hud-with-sethudvisible"
+                "panorama/hiding-hud-with-sethudvisible",
+                "panorama/webpack",
+                "panorama/react"
             ]
         },
         {

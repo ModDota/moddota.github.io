@@ -8,7 +8,18 @@
     },
     "prettier": {
         "printWidth": 120,
-        "trailingComma": "all"
+        "trailingComma": "all",
+        "overrides": [
+            {
+                "files": "*.md",
+                "options": {
+                    "parser": "mdx",
+                    "printWidth": 100,
+                    "tabWidth": 2,
+                    "singleQuote": true
+                }
+            }
+        ]
     },
     "dependencies": {
         "@types/classnames": "^2.2.10",
@@ -16,7 +27,8 @@
         "@types/react-dom": "^16.9.8",
         "@types/webpack-env": "^1.15.2",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "tiny-invariant": "^1.1.0"
     },
     "devDependencies": {
         "@ark120202/typescript-config": "^2.1.0",
