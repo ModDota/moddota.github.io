@@ -38,7 +38,11 @@ module.exports = {
                     routeBasePath: "/",
                     sidebarPath: require.resolve("./sidebars.json"),
                     editUrl: "https://github.com/ModDota/moddota.github.io/edit/source/",
-                    remarkPlugins: [require("./docusaurus/remark-component-provider")],
+                    remarkPlugins: [
+                        require("./docusaurus/remark-component-provider"),
+                        require("./docusaurus/remark-remove"),
+                        require("./docusaurus/remark-ts2js"),
+                    ],
                 },
                 theme: {
                     customCss: require.resolve("./src/custom.scss"),
