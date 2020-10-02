@@ -262,7 +262,7 @@ for (let i = 0; i < numPoints; i++) {
     const circlePoint = direction * radius as Vector;
 
     // Add the calculated green vector to the player position and do something
-    doSomething(player:GetAbsOrigin() + circlePoint);
+    doSomething(player.GetAbsOrigin() + circlePoint);
 }
 ```
 
