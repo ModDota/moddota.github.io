@@ -127,12 +127,12 @@ Referencing this visualization it is obvious we can calculate this A as follows:
 <MultiCodeBlock group="vscripts">
 
 ```lua
-    -- Calculate the vector from the hero to the point by multiplying
-    -- their forward vector (length 1) with the desired distance.
-    local heroToPoint = hero:GetForwardVector() * 100
-    -- Calculate world position  of the item by adding the vector
-    -- from hero to point to the world position of the hero
-    local itemPos = hero:GetAbsOrigin() + heroToPoint
+  -- Calculate the vector from the hero to the point by multiplying
+  -- their forward vector (length 1) with the desired distance.
+  local heroToPoint = hero:GetForwardVector() * 100
+  -- Calculate world position  of the item by adding the vector
+  -- from hero to point to the world position of the hero
+  local itemPos = hero:GetAbsOrigin() + heroToPoint
 ```
 
 ```ts
@@ -160,16 +160,16 @@ So looking at the visualization, when does a unit face point P? Well it looks li
 
 ```lua
 function isUnitFacingPoint(unit, point)
-    -- Calculate the relative position of the unit to the point
-    local relativePosition = point - unit:GetAbsOrigin()
-    -- Remember, using dot product works best with normal vectors
-    -- The unit's forward is already normal, but we need to normalize
-    -- the relative position to only get its direction.
-    local directionToPoint = relativePosition:Normalized()
+  -- Calculate the relative position of the unit to the point
+  local relativePosition = point - unit:GetAbsOrigin()
+  -- Remember, using dot product works best with normal vectors
+  -- The unit's forward is already normal, but we need to normalize
+  -- the relative position to only get its direction.
+  local directionToPoint = relativePosition:Normalized()
 
-    -- Check if the alignment of the forward vector and relative direction
-    -- is within some acceptable range of tolerance
-    return unit:GetForwardVector():Dot(directionToPoint) > 0.7
+  -- Check if the alignment of the forward vector and relative direction
+  -- is within some acceptable range of tolerance
+  return unit:GetForwardVector():Dot(directionToPoint) > 0.7
 end
 ```
 
@@ -202,15 +202,15 @@ Looking at this drawing it becomes obvious that the forward vector of unit 2 (F2
 
 ```lua
 function isAttackedFromBehind(victim, attacker)
-    -- Calculate the relative position from attacker to victim (P1 - P2)
-    local relativePosition = victim:GetAbsOrigin() - attacker:GetAbsOrigin()
-    -- Normalize relative position to get attack direction
-    local attackDirection = relativePosition:Normalized()
-    -- Get the forward vector of the victim
-    local victimForward = victim:GetForwardVector()
+  -- Calculate the relative position from attacker to victim (P1 - P2)
+  local relativePosition = victim:GetAbsOrigin() - attacker:GetAbsOrigin()
+  -- Normalize relative position to get attack direction
+  local attackDirection = relativePosition:Normalized()
+  -- Get the forward vector of the victim
+  local victimForward = victim:GetForwardVector()
 
-    -- Check if both normal(!) vectors are pointing in the same direction
-    return victimForward:Dot(attackDirection) > 0.7
+  -- Check if both normal(!) vectors are pointing in the same direction
+  return victimForward:Dot(attackDirection) > 0.7
 end
 ```
 
@@ -248,13 +248,13 @@ What we can simply do is divide the full circle radius (2 \* pi) by the number o
 local angle = 2 * math.pi / numPoints
 
 for i=1,numPoints do
-    -- Create direction vector from the angle
-    local direction = Vector(math.cos(angle * i), math.sin(angle * i))
-    -- Multiply the direction (length 1) with the desired radius of the circle
-    local circlePoint = direction * radius
+  -- Create direction vector from the angle
+  local direction = Vector(math.cos(angle * i), math.sin(angle * i))
+  -- Multiply the direction (length 1) with the desired radius of the circle
+  local circlePoint = direction * radius
 
-    -- Add the calculated green vector to the player position and do something
-    doSomething(player:GetAbsOrigin() + circlePoint)
+  -- Add the calculated green vector to the player position and do something
+  doSomething(player:GetAbsOrigin() + circlePoint)
 end
 ```
 
@@ -270,7 +270,7 @@ for (let i = 0; i < numPoints; i++) {
   const circlePoint = (direction * radius) as Vector;
 
   // Add the calculated green vector to the player position and do something
-  doSomething(player.GetAbsOrigin() + circlePoint);
+  doSomething((player.GetAbsOrigin() + circlePoint) as Vector);
 }
 ```
 
@@ -307,16 +307,16 @@ end
 ```ts
 function updateProjectile(projectile: Projectile, target: CDOTA_BaseNPC): void {
   // Calculate direction from projectile to target
-  let relativeTargetPos = (target.GetAbsOrigin() - projectile.GetAbsOrigin()) as Vector;
-  let targetDirection = relativeTargetPos.Normalized();
+  const relativeTargetPos = (target.GetAbsOrigin() - projectile.GetAbsOrigin()) as Vector;
+  const targetDirection = relativeTargetPos.Normalized();
 
   // Now we update the projectile velocity to point more to the target
   // Note: you can increase/decrease acceleration to make it change direction
   // faster or slower
-  projectile.velocity = projectile.velocity + targetDirection * acceleration;
+  projectile.velocity = (projectile.velocity + targetDirection * acceleration) as Vector;
 
   // Next we update the projectile position by simply adding the velocity
-  projectile.position = projectile.position + projectile.velocity;
+  projectile.position = (projectile.position + projectile.velocity) as Vector;
 }
 ```
 
