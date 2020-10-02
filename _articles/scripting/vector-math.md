@@ -14,9 +14,11 @@ While creating games it is hard to avoid using vector math, however they are not
 Vectors are a way to describe a point or direction in space. This space can have any number of dimensions, but for this tutorial we will focus on 2D just because it is easier to draw. All of these concepts also apply to higher dimension vectors though!
 
 Usually a vector will be represented as `(x, y)`, which you can either interpret as:
+
 > Point with coordinates (x, y)
 
 or
+
 > Movement from (0, 0) to point (x, y)
 
 :::note
@@ -41,9 +43,11 @@ So let's say you consider vectors as movements, you can simply add two vectors t
 
 :::note Example
 You can use calculate things like offsets or knockbacks using addition, i.e where does a unit end after getting knocked back in some direction?
+
 ```
 newUnitPos = unitPos + knockbackVector
 ```
+
 :::
 
 ### Subtracting vectors
@@ -56,9 +60,11 @@ Now let's say we want to know the inverse question to the previous one: Assuming
 
 :::note Example
 You can use vector subtraction to calculate the difference in position between two units, and get for example the distance between them:
+
 ```
 distanceBetweenUnit1AndUnit2 = length(unit2Pos - unit1Pos)
 ```
+
 :::
 
 ### Multiplying vectors
@@ -71,9 +77,11 @@ When multiplying a vector with a number it retains its direction, but its length
 
 :::note Example
 You can use vector multiplication to rescale vectors to a certain length. For example when you have a unit or normal vector (length 1), multiplying with a number will make it that length.
+
 ```
 vectorOfLength100 = vectorOfLength1 * 100
 ```
+
 :::
 
 ### Vectors as Direction/Orientation
@@ -128,12 +136,12 @@ Referencing this visualization it is obvious we can calculate this A as follows:
 ```
 
 ```ts
-    // Calculate the vector from the hero to the point by multiplying
-    // their forward vector (length 1) with the desired distance.
-    const heroToPoint = hero.GetForwardVector() * 100 as Vector;
-    // Calculate world position  of the item by adding the vector
-    // from hero to point to the world position of the hero
-    const itemPos = hero.GetAbsOrigin() + heroToPoint as Vector;
+// Calculate the vector from the hero to the point by multiplying
+// their forward vector (length 1) with the desired distance.
+const heroToPoint = (hero.GetForwardVector() * 100) as Vector;
+// Calculate world position  of the item by adding the vector
+// from hero to point to the world position of the hero
+const itemPos = (hero.GetAbsOrigin() + heroToPoint) as Vector;
 ```
 
 </MultiCodeBlock>
@@ -167,16 +175,16 @@ end
 
 ```ts
 function isUnitFacingPoint(unit: CDOTA_BaseNPC, point: Vector): boolean {
-    // Calculate the relative position of the unit to the point
-    const relativePosition = point - unit.GetAbsOrigin() as Vector;
-    // Remember, using dot product works best with normal vectors
-    // The unit's forward is already normal, but we need to normalize
-    // the relative position to only get its direction.
-    const relativeDirection = relativePosition.Normalized();
+  // Calculate the relative position of the unit to the point
+  const relativePosition = (point - unit.GetAbsOrigin()) as Vector;
+  // Remember, using dot product works best with normal vectors
+  // The unit's forward is already normal, but we need to normalize
+  // the relative position to only get its direction.
+  const relativeDirection = relativePosition.Normalized();
 
-    // Check if the alignment of the forward vector and relative direction
-    // is within some acceptable range of tolerance
-    return unit.GetForwardVector().Dot(relativeDirection) > 0.7;
+  // Check if the alignment of the forward vector and relative direction
+  // is within some acceptable range of tolerance
+  return unit.GetForwardVector().Dot(relativeDirection) > 0.7;
 }
 ```
 
@@ -208,15 +216,15 @@ end
 
 ```ts
 function isAttackedFromBehind(victim: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC): boolean {
-    // Calculate the relative position from attacker to victim (P1 - P2)
-    const relativePosition = victim.GetAbsOrigin() - attacker.GetAbsOrigin() as Vector;
-    // Normalize relative position to get attack direction
-    const attackDirection = relativePosition.Normalized();
-    // Get the forward vector of the victim
-    const victimForward = victim.GetForwardVector();
+  // Calculate the relative position from attacker to victim (P1 - P2)
+  const relativePosition = (victim.GetAbsOrigin() - attacker.GetAbsOrigin()) as Vector;
+  // Normalize relative position to get attack direction
+  const attackDirection = relativePosition.Normalized();
+  // Get the forward vector of the victim
+  const victimForward = victim.GetForwardVector();
 
-    // Check if both normal(!) vectors are pointing in the same direction
-    return victimForward.Dot(attackDirection) > 0.7;
+  // Check if both normal(!) vectors are pointing in the same direction
+  return victimForward.Dot(attackDirection) > 0.7;
 }
 ```
 
@@ -230,7 +238,7 @@ Consider the case where you want multiple things to happen evenly spaced in a ci
 
 By now it should be obvious we need to add the green vectors to the player position, the question is however how do you calculate these green vectors?
 
-What we can simply do is divide the full circle radius (2 * pi) by the number of points we want to use, and then for each angle calculate the unit vector from the angle, multiply it with the desired length and add it to the player position:
+What we can simply do is divide the full circle radius (2 \* pi) by the number of points we want to use, and then for each angle calculate the unit vector from the angle, multiply it with the desired length and add it to the player position:
 
 <MultiCodeBlock group="vscripts">
 
@@ -253,16 +261,16 @@ end
 ```ts
 // Calculate the angle between each point on the circle
 // (This is in radians, the full circle is 2*pi radians)
-const angle = 2 * Math.PI / numPoints;
+const angle = (2 * Math.PI) / numPoints;
 
 for (let i = 0; i < numPoints; i++) {
-    // Create direction vector from the angle
-    const direction = Vector(Math.cos(angle * i), Math.sin(angle * i));
-    // Multiply the direction (length 1) with the desired radius of the circle
-    const circlePoint = direction * radius as Vector;
+  // Create direction vector from the angle
+  const direction = Vector(Math.cos(angle * i), Math.sin(angle * i));
+  // Multiply the direction (length 1) with the desired radius of the circle
+  const circlePoint = (direction * radius) as Vector;
 
-    // Add the calculated green vector to the player position and do something
-    doSomething(player.GetAbsOrigin() + circlePoint);
+  // Add the calculated green vector to the player position and do something
+  doSomething(player.GetAbsOrigin() + circlePoint);
 }
 ```
 
@@ -298,17 +306,17 @@ end
 
 ```ts
 function updateProjectile(projectile: Projectile, target: CDOTA_BaseNPC): void {
-    // Calculate direction from projectile to target
-    let relativeTargetPos = target.GetAbsOrigin() - projectile.GetAbsOrigin() as Vector;
-    let targetDirection = relativeTargetPos.Normalized();
+  // Calculate direction from projectile to target
+  let relativeTargetPos = (target.GetAbsOrigin() - projectile.GetAbsOrigin()) as Vector;
+  let targetDirection = relativeTargetPos.Normalized();
 
-    // Now we update the projectile velocity to point more to the target
-    // Note: you can increase/decrease acceleration to make it change direction
-    // faster or slower
-    projectile.velocity = projectile.velocity + targetDirection * acceleration;
+  // Now we update the projectile velocity to point more to the target
+  // Note: you can increase/decrease acceleration to make it change direction
+  // faster or slower
+  projectile.velocity = projectile.velocity + targetDirection * acceleration;
 
-    // Next we update the projectile position by simply adding the velocity
-    projectile.position = projectile.position + projectile.velocity;
+  // Next we update the projectile position by simply adding the velocity
+  projectile.position = projectile.position + projectile.velocity;
 }
 ```
 
