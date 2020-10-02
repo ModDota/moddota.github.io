@@ -127,12 +127,12 @@ Referencing this visualization it is obvious we can calculate this A as follows:
 <MultiCodeBlock group="vscripts">
 
 ```lua
-  -- Calculate the vector from the hero to the point by multiplying
-  -- their forward vector (length 1) with the desired distance.
-  local heroToPoint = hero:GetForwardVector() * 100
-  -- Calculate world position  of the item by adding the vector
-  -- from hero to point to the world position of the hero
-  local itemPos = hero:GetAbsOrigin() + heroToPoint
+-- Calculate the vector from the hero to the point by multiplying
+-- their forward vector (length 1) with the desired distance.
+local heroToPoint = hero:GetForwardVector() * 100
+-- Calculate world position  of the item by adding the vector
+-- from hero to point to the world position of the hero
+local itemPos = hero:GetAbsOrigin() + heroToPoint
 ```
 
 ```ts
