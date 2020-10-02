@@ -109,7 +109,7 @@ Technically `dot(A, B) = length(A) * length(B) * cos(angle)`, so watch out when 
 As mentioned shown above it is often very useful to have vectors of length 1 (only the direction, not the distance). This is so common there is a standard procedure to calculate this: Normalization. When normalizing a vector you simply divide it by its length (or multiply with 1/length). This will always give you a vector of length 1.
 
 :::note
-Vectors with length 1 are referred to as 'Normal' vectors.
+Vectors with length 1 are referred to as 'Normal' or 'Unit' vectors.
 :::
 
 ## Vector math in games
