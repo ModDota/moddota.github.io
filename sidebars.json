@@ -74,6 +74,7 @@
                 "scripting/lava-damage",
                 "scripting/using-dota-filters",
                 "scripting/particle-attachment",
+                "scripting/vector-math",
                 "scripting/precache-fixing-and-avoiding-issues",
                 {
                     "type": "link",
