@@ -130,10 +130,10 @@ Referencing this visualization it is obvious we can calculate this A as follows:
 ```ts
     // Calculate the vector from the hero to the point by multiplying
     // their forward vector (length 1) with the desired distance.
-    const heroToPoint = hero:GetForwardVector() * 100 as Vector;
+    const heroToPoint = hero.GetForwardVector() * 100 as Vector;
     // Calculate world position  of the item by adding the vector
     // from hero to point to the world position of the hero
-    const itemPos = hero:GetAbsOrigin() + heroToPoint as Vector;
+    const itemPos = hero.GetAbsOrigin() + heroToPoint as Vector;
 ```
 
 </MultiCodeBlock>
@@ -257,7 +257,7 @@ const angle = 2 * Math.PI / numPoints;
 
 for (let i = 0; i < numPoints; i++) {
     // Create direction vector from the angle
-    const direction = Vector(math.cos(angle * i), math.sin(angle * i));
+    const direction = Vector(Math.cos(angle * i), Math.sin(angle * i));
     // Multiply the direction (length 1) with the desired radius of the circle
     const circlePoint = direction * radius as Vector;
 

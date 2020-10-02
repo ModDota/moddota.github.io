@@ -5,6 +5,7 @@ import React from "react";
 
 type Language = keyof typeof languageNames;
 const languageNames = {
+    lua: "Lua",
     ts: "TypeScript",
     tsx: "TypeScript",
     js: "JavaScript",
