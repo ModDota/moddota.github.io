@@ -47,7 +47,7 @@ There are two versions to use the template:
 
 1. Without github: if you're not planning to put your code in github, clone the above template. See below for explanation how.
 
-2. With github: if you do plan on put your code in github, click on the ![Use this template](static/images/typescript-tutorial/templateButton.png) button found on the top right of the github page. This will create a new github repository that uses the template under your name. Fill in the repository name, description, and whether it is public or private. You can leave "Include all branches" unchecked, then click "Create repository from template". When the new repository is created, clone it. See below for explanation how. For those unfamiliar with github, I recommend using a Github GUI, such as [Github Desktop](https://desktop.github.com/).
+2. With github: if you do plan on put your code in github, click on the ![Use this template](../../../static/images/typescript-tutorial/templateButton.png) button found on the top right of the github page. This will create a new github repository that uses the template under your name. Fill in the repository name, description, and whether it is public or private. You can leave "Include all branches" unchecked, then click "Create repository from template". When the new repository is created, clone it. See below for explanation how. For those unfamiliar with github, I recommend using a Github GUI, such as [Github Desktop](https://desktop.github.com/).
 
 Cloning the repository meaning making a copy of it on your computer. This can be done by clicking on "Code", then on "Download Zip", as shown here:
 ![Cloning from Github](static/images/typescript-tutorial/cloneRepo.png)
