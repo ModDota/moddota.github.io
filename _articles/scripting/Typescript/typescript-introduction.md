@@ -50,6 +50,7 @@ There are two versions to use the template:
 2. With github: if you do plan on put your code in github, click on the ![Use this template](../../../static/images/typescript-tutorial/templateButton.png) button found on the top right of the github page. This will create a new github repository that uses the template under your name. Fill in the repository name, description, and whether it is public or private. You can leave "Include all branches" unchecked, then click "Create repository from template". When the new repository is created, clone it. See below for explanation how. For those unfamiliar with github, I recommend using a Github GUI, such as [Github Desktop](https://desktop.github.com/).
 
 Cloning the repository meaning making a copy of it on your computer. This can be done by clicking on "Code", then on "Download Zip", as shown here:
+
 ![Cloning from Github](../../../static/images/typescript-tutorial/cloneRepo.png)
 
 You can then extract the ZIP anywhere you want - do NOT put it inside your Dota 2 folder. For example, I placed it at my Desktop, inside a folder named "Dota 2 custom games". The folder that becomes extracted is named `TypeScriptAddonTemplate-master`, so just rename the folder to more correctly reflect your custom game's name. For the sake of this tutorial, I named it `typescript-example`.
@@ -69,6 +70,7 @@ Make sure there is no folder with that name inside both the `game/dota_addons` a
 :::
 
 * While inside the folder with the `package.json` file you just edited, click on the address bar, so the path to your folder becomes highlighted and editable as text. It should look like this:
+
 ![Click on path](../../../static/images/typescript-tutorial/clickAddressBar.png)
 
 * While the path is highlighted, delete the text and instead type "cmd". This will open the Command Shell with the folder path shown right before your input cursor.
