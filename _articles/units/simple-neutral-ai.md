@@ -24,7 +24,7 @@ The first phase to making reliable AI (in the sense that it will always do what 
 
 For our neutral example I have translated the text describing the unit's behaviour into a state diagram, which contains all possible states and the conditions for transitioning between these states. The result is the following diagram:
 
-![State transition diagram](http://yrrep.me/dota/state-diag.png)
+![State transition diagram](https://i.imgur.com/TWgPSJx.png)
 
 These diagrams can be made with any software with drawing possibilities such as paint, photoshop or word. I really like using https://www.draw.io/, which is an online drawing tool specialised for drawing diagrams and graphs.
 

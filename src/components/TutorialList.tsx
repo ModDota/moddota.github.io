@@ -1,13 +1,13 @@
 import isInternalUrl from "@docusaurus/isInternalUrl";
 import Link from "@docusaurus/Link";
-import type { DocsSidebarItem } from "@docusaurus/plugin-content-docs/lib/types";
+import type { DocsSidebar, DocsSidebarItem } from "@docusaurus/plugin-content-docs/lib/types";
 import classnames from "classnames";
 import React, { useCallback, useContext, useState } from "react";
 
-export const SidebarContext = React.createContext<DocsSidebarItem[]>(null!);
+export const SidebarContext = React.createContext<DocsSidebar>(null!);
 
 export function TutorialList() {
-    const sidebarItems = useContext(SidebarContext);
+    const sidebarItems = useContext(SidebarContext).tutorials;
 
     return (
         <div className="menu">

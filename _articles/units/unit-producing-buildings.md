@@ -21,7 +21,7 @@ This has the issue of creatures having a turn rate, so additionally you'll need 
 
 That being said, we won't be bothering with that for the purpose of this tutorial.
 
-I'll be using a simplified version of the [human_barracks](http://pastebin.com/z5Jk9W17) definition, with a "human_train_footman" ability, which I'll expand on the possibilities for it later.
+I'll be using a simplified version of the [human_barracks](https://pastebin.com/z5Jk9W17) definition, with a "human_train_footman" ability, which I'll expand on the possibilities for it later.
 
 ## Step 2: Putting your unit into the map.
 
@@ -51,7 +51,7 @@ In OnPlayerPickHero you need to **find the handle of the BaseEntity/BaseNPC**, t
 
 This can be done in a couple of ways, for example, using the functions defined under [CEntities](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API#CEntities). We want this building to have a unique identifier so its easy to search it, so inside Hammer, select it, go into its properties, and give it a name (I use the Alt+Enter hotkey for this):
 
-![img](http://puu.sh/gs6Ec/c0a81f34ae.jpg)
+![img](https://puu.sh/gs6Ec/c0a81f34ae.jpg)
 
 Now you can search the building and get a local variable to it with this line:
 
@@ -203,9 +203,9 @@ Inside the "OnSpawn" replacing the [ACTIONS], it's useful to send orders to the 
 
 Here is a full example:
 
-http://pastebin.com/9g316n5A
+https://pastebin.com/9g316n5A
 
-The footman unit definition is just a Dragon Knight with some wearables, [I copied it here](http://pastebin.com/XW3wWmhd).
+The footman unit definition is just a Dragon Knight with some wearables, [I copied it here](https://pastebin.com/XW3wWmhd).
 
 Note the usage of a RunScript to call a MoveToRallyPoint function, this will introduce the 4th and last step of this guide.
 

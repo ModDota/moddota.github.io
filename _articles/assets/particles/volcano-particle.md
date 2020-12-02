@@ -36,12 +36,12 @@ Let's repeat the same steps on the other childs to make the dust-debris effect r
 - On the _groundburst:
   - Add Emit continuously.
   - Because more particles is always better, we want more debris to be launched. 
-  For this, go to its base properties, filter for Max, and double the max particles value. http://puu.sh/fx0cP/9f961c2c84.png
+  For this, go to its base properties, filter for Max, and double the max particles value. https://puu.sh/fx0cP/9f961c2c84.png
   - Then go to the Emit instanteneously, in the num to emit, also double this value.
   - Also increase the radius size of the launched particles by going into Initializer's Radius random and seting the min & max to 0.1 and 0.5
   - Finally, change to a darker rock model, Render Model to bad_barracks_stones003.vmdl
 
-http://puu.sh/fzghv/60aacd4e5e.png
+https://puu.sh/fzghv/60aacd4e5e.png
 
 It's looking like this now (I forgot to hide the model for this preview)
 
@@ -70,11 +70,11 @@ By going into the main particle system and moving the CP1, we wee that the dust 
 
 To know which fields have which control point, hover over them:
 
-http://puu.sh/fx7rp/2f77543e58.jpg
+https://puu.sh/fx7rp/2f77543e58.jpg
 
 Now go to this position along ring, change the CP to 0, and its done. 
 
-http://puu.sh/fx7wH/1d245d2e56.png
+https://puu.sh/fx7wH/1d245d2e56.png
 
 Repeat the same process on the groundburst particle.
 
@@ -90,12 +90,12 @@ Back to the particle editor, open the recently forked, sf_fire_arcana_wings syst
 
 * Hide the wing effects by disabling the render model of the wings 
 
-http://puu.sh/fAac1/f03b7350a1.png
+https://puu.sh/fAac1/f03b7350a1.png
 
 * Make a new child
 * Add the espirit_spawn custom system made earlier.
 
-http://puu.sh/fAcn5/8132f680eb.jpg
+https://puu.sh/fAcn5/8132f680eb.jpg
 
 * Change the first 3 sf_fire_arcana_wings child particles to emit continuously like before.
 * Going into sf_fire_arcana_wings_smoke_body you can see theres many wings_rope childs copied, each one of these childs has a different ground position.
@@ -137,7 +137,7 @@ This would be an extra particle system which I want to repeat at a time interval
 
 I will use a modified warlock_rain_of_chaos_explosion.vpcf with sf_fire_arcana_shadowraze for this purpose.
 
-* First add a shadowraze children http://puu.sh/fyMVL/ef8b4c1300.jpg http://puu.sh/fyNqp/6a310ed236.jpg and increase the duration of most explosion effects, so it lasts a bit more after the explosion.
+* First add a shadowraze children https://puu.sh/fyMVL/ef8b4c1300.jpg https://puu.sh/fyNqp/6a310ed236.jpg and increase the duration of most explosion effects, so it lasts a bit more after the explosion.
 
 * _char increased lifetime random to 4 and 5. child char_fire doubled emit continously emission duration
 

@@ -24,7 +24,13 @@ module.exports = () => ({
                 ],
             },
             plugins: [
-                ...(isServer ? [] : [new ForkTsCheckerWebpackPlugin({ tsconfig: resolve("../src/tsconfig.json") })]),
+                ...(isServer
+                    ? []
+                    : [
+                          new ForkTsCheckerWebpackPlugin({
+                              typescript: { configFile: resolve("../src/tsconfig.json") },
+                          }),
+                      ]),
             ],
         };
     },

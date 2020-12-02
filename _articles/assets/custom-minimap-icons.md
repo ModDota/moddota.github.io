@@ -28,16 +28,16 @@ The 3 minimap_icon files are used together, and should be renamed to the name yo
 
 Use a graphic editor such as Photoshop or GIMP to edit the PSD file. 
 
-In the example source file, I quickly made this transparent image from [this source](http://static.ongamers.com/uploads/ignore_jpg_scale_super/0/22/12584-dota2_courier_skippy03.png):
+In the example source file, I quickly made this transparent image from [this source](https://i.imgur.com/x3L74Hw.png):
 
-![img](http://i.imgur.com/78Z3kaV.png)
+![img](https://i.imgur.com/78Z3kaV.png)
 
 The suggested image size is **64x64**.<br />
 If you want to use a different image size it **must be a power of two**.
 
 **Important**: You need to have an Alpha layer filled with the transparent figure you want to display:
 
-![img](http://puu.sh/lhQL0/81b3632bad.png)
+![img](https://puu.sh/lhQL0/81b3632bad.png)
 
 For better results, add strong black borders to the image as an outline (and remember to update the Alpha layer accordingly).
 
@@ -88,7 +88,7 @@ For more icons, just copy the minimap_icon block again with another name inside 
 
 Go into the asset browser, write the name of your icon, open the vmat by double clicking on it (this will compile it).
 
-![img](http://puu.sh/lhRLL/31d63b48d9.jpg)
+![img](https://puu.sh/lhRLL/31d63b48d9.jpg)
 
 ### Step 5: Set your unit to use the new icon
 
@@ -103,6 +103,6 @@ In the unit definition, add these lines:
 
 ### 6. Try it ingame
 
-![img](http://puu.sh/lhQFp/37192e1e63.jpg)
+![img](https://puu.sh/lhQFp/37192e1e63.jpg)
 
 ---

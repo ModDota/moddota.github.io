@@ -44,11 +44,11 @@ Instead of trying to find the desired animation in the Action List on the wiki, 
 
 For this, go to the Asset Browser, type your hero name + *vmdl*, in this case I'm going to use drow.vmdl. Double click it, you will enter the Model Editor. In here, you want to go to the top tabs and click Tools -> View Sequences.
 
-![img](http://puu.sh/eGRRP/c9e6fcc98f.png)
+![img](https://puu.sh/eGRRP/c9e6fcc98f.png)
 
 After this, you can select any animation and it will animate the white blocks at the right. To get the ACT_ name, you can click Properties then open the Activities box, or just tick down the Activity checkbox in the Sequences window, which will show how all the animations are refered ingame.
 
-![img](http://puu.sh/eGOTt/5073e07a64.png)
+![img](https://puu.sh/eGOTt/5073e07a64.png)
 
 **Note**: Ignore the +string.
 

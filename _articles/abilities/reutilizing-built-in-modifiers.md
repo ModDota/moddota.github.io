@@ -103,7 +103,7 @@ On the desired Ability or Modifier Event, add the ApplyModifier action:
 
 #### Step 4 - Adjusting the Tooltip
 
-![img](http://puu.sh/eHc3N/2b62c46b84.jpg)
+![img](https://puu.sh/eHc3N/2b62c46b84.jpg)
 
 The modifier_alchemist_chemical_rage tooltip needs to be adjusted to ignore AbilitySpecials we don't need, and instead use our bonus_attack_speed and bonus_movespeed_percent .
 
@@ -118,7 +118,7 @@ The modifier_alchemist_chemical_rage tooltip needs to be adjusted to ignore Abil
 
 After modifying the addon_english.txt:
 
-![img](http://puu.sh/eHpXB/8fe79a1d57.jpg)
+![img](https://puu.sh/eHpXB/8fe79a1d57.jpg)
 
 Note that you cannot refer to a new custom %dMODIFIER_PROPERTY_[CONSTANT_LIST](http://moddota.com/forums/discussion/14/datadriven-ability-breakdown-documentation##properties)% in the tooltip, because it doesn't have the custom values in its modifier. 
 

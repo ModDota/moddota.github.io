@@ -9,7 +9,7 @@ module.exports = {
             title: "ModDota",
             logo: { src: "images/logo-80x80.png" },
             links: [
-                { position: "left", label: "Tutorials", to: "/" },
+                { position: "left", label: "Tutorials", to: "tutorials" },
                 { position: "left", label: "Lua API", href: "https://dota.tools/vscripts/" },
                 {
                     position: "left",
@@ -24,6 +24,10 @@ module.exports = {
             theme: require("prism-react-renderer/themes/github"),
             darkTheme: require("prism-react-renderer/themes/dracula"),
         },
+        algolia: {
+            apiKey: "5c91053fa708fac220dfd06a4a04fee9",
+            indexName: "moddota",
+        },
     },
     presets: [
         [
@@ -34,7 +38,11 @@ module.exports = {
                     routeBasePath: "/",
                     sidebarPath: require.resolve("./sidebars.json"),
                     editUrl: "https://github.com/ModDota/moddota.github.io/edit/source/",
-                    remarkPlugins: [require("./docusaurus/remark-component-provider")],
+                    remarkPlugins: [
+                        require("./docusaurus/remark-component-provider"),
+                        require("./docusaurus/remark-remove"),
+                        require("./docusaurus/remark-ts2js"),
+                    ],
                 },
                 theme: {
                     customCss: require.resolve("./src/custom.scss"),
