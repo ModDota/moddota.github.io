@@ -5,6 +5,13 @@
         "scripting-introduction",
         {
             "type": "category",
+            "label": "Typescript",
+            "items": [
+                "scripting/Typescript/typescript-introduction"
+            ]
+        },
+        {
+            "type": "category",
             "label": "Abilities, items, modifiers",
             "items": [
                 "abilities/ability-keyvalues",
