@@ -33,7 +33,6 @@ This guide assumes your operating system is Windows. If you have other operating
 **Cons:**
 * Takes some time to set up for the first time.
 * Some rare types may be incorrect. Those can be updated manually when the need arises.
-* Due to the nature of a typed language, might interrupt the flow slightly sometimes (when compared to lua)
 * Sometimes, requires more of a set up for specific game logic, such as interfaces, typeguards and casts (this is again due to the nature of typed language).
 * Not very convenient to integrate for ongoing projects, though it can still work.
 * Referencing code or guides that are written in lua might not be easy in Typescript due to differences between how the languages work.
@@ -101,10 +100,6 @@ The same file exists in the `/content/panorama/scripts/custom_game` folder for T
 * `vscripts/lib/tstl-utils.ts`: Responsible for the typescript-to-lua translation.
 * `vscripts/lib/timers.lua` and `vscripts/lib/timers.d.ts`: The common Timers library is already included in default in its lua form, with timers.d.ts including an interface to allow using the Timers library in Typescript.
 
-:::note
-An additional important folder is located at `/node_modules/dota-lua-types/types/`. This folder holds files that are responsible for all the API that exists for Dota 2 custom games. You can modify this file if you want. However, note that when updating the project (explained later), those files would be updated as well, effectively removing your changes. In addition, those are ignored in your Github, so others will not see your changes.
-:::
-
 ### Updating Your Addon
 
 Occasionally, Valve will release new API or changes to existing API, usually at events and major patches. Your Typescript project will not automatically adjust to those changes as they need to be filed and typed first, which is usually done by the people responsible for the Typescript template. However, when a new update is announced for Typescript for Dota 2, you can easily update your project. There are two ways to do so:
@@ -156,6 +151,10 @@ Note that the examples apply on your addon immediately, which can cause weird be
 * In `/game/vscripts/GameMode.ts`, comment the conde inside the `configure` function. It sets each team to have 3 maximum players, along with some pick screen values.
 * In `/game/vscripts/GameMode.ts`, comment the conde inside the `OnStateChange` function. It adds bots to the enemy team.
 * In `/content/panorama/scripts/custom_game/manifest.ts`, comment all code inside it. It causes all HUD panels to be hidden by default when loading the game.
+
+### Generated Types
+
+An additional important folder is located at `/node_modules/dota-lua-types/types/`. This folder holds files that are responsible for all the API that exists for Dota 2 custom games. You can modify this file if you want. However, note that when updating the project, those files would be updated as well, effectively removing your changes. In addition, those are ignored in your Github, so others will not see your changes.
 
 ### Dedicated Typescript Channel in Moddota Discord
 
