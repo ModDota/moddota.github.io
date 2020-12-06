@@ -11,7 +11,7 @@ Typescript is more strict compared to lua, will use types to enforce certain fun
 
 Typescript can work well with most editors using plugins, however, [VSCode](https://code.visualstudio.com/) is recommended as it comes with Typescript support built in, and is a very powerful editor.
 
-<Gfycat id="dirtyscholarlyguernseycow" hd="1" />
+<StaticVideo path="videos/ts_example.mp4" />
 
 :::note
 This guide assumes your operating system is Windows. If you have other operating systems, please contact us in the Typescript channel in the [Discord](#dedicated-typescript-channel-in-moddota-discord) below.
