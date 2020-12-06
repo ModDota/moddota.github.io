@@ -6,5 +6,5 @@ export function StaticVideo(path: string) {
         <video width="100%" height="100%" autoPlay muted loop>
             <source src={useBaseUrl(path)} type="video/mp4"></source>
         </video>
-    )
+    );
 }
