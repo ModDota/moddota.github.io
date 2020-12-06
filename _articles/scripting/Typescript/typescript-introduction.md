@@ -35,7 +35,7 @@ Typescript can work well with most editors using plugins, however, [VSCode](http
 * Not very convenient to integrate for ongoing projects, though it can still work.
 * Referencing code or guides that are written in lua might not be easy in Typescript due to differences between how the languages work.
 
-### Setting Up Typescript
+### Setting Up TypeScript
 
 :::note
 This guide assumes your operating system is Windows. If you have other operating systems, please contact us in the Typescript channel in the [Discord](#dedicated-typescript-channel-in-moddota-discord) below.
