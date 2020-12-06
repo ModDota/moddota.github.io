@@ -11,11 +11,7 @@ Typescript is more strict compared to lua, will use types to enforce certain fun
 
 Typescript can work well with most editors using plugins, however, [VSCode](https://code.visualstudio.com/) is recommended as it comes with Typescript support built in, and is a very powerful editor.
 
-<StaticVideo path="videos/ts_example.mp4" />
-
-:::note
-This guide assumes your operating system is Windows. If you have other operating systems, please contact us in the Typescript channel in the [Discord](#dedicated-typescript-channel-in-moddota-discord) below.
-:::
+<StaticVideo path="videos/ts_example.mp4" controls="true" />
 
 ### Pros anc Cons for using Typescript
 
@@ -40,6 +36,10 @@ This guide assumes your operating system is Windows. If you have other operating
 * Referencing code or guides that are written in lua might not be easy in Typescript due to differences between how the languages work.
 
 ### Setting Up Typescript
+
+:::note
+This guide assumes your operating system is Windows. If you have other operating systems, please contact us in the Typescript channel in the [Discord](#dedicated-typescript-channel-in-moddota-discord) below.
+:::
 
 First, since Typescript uses NodeJS, so it must be installed on your computer. You can download NodeJS from [here](https://nodejs.org/en/). Simply choose the recommended version, which is the latest stable version. Download and install it with its default configuration.
 
