@@ -7,6 +7,7 @@ module.exports = () => {
             { type: "import", value: 'import { Gfycat } from "@site/src/components/Gfycat";' },
             { type: "import", value: 'import { YouTube } from "@site/src/components/YouTube";' },
             { type: "import", value: 'import { MultiCodeBlock } from "@site/src/components/MultiCodeBlock";' },
+            { type: "import", value: 'import { StaticVideo } from "@site/src/components/StaticVideo";' },
         );
     }
 

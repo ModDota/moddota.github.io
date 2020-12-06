@@ -11,9 +11,7 @@ Typescript is more strict compared to lua, will use types to enforce certain fun
 
 Typescript can work well with most editors using plugins, however, [VSCode](https://code.visualstudio.com/) is recommended as it comes with Typescript support built in, and is a very powerful editor.
 
-:::note
-This guide assumes your operating system is Windows. If you have other operating systems, please contact us in the Typescript channel in the [Discord](#dedicated-typescript-channel-in-moddota-discord) below.
-:::
+<StaticVideo path="videos/ts_example.mp4" controls="true" />
 
 ### Pros anc Cons for using Typescript
 
@@ -37,16 +35,20 @@ This guide assumes your operating system is Windows. If you have other operating
 * Not very convenient to integrate for ongoing projects, though it can still work.
 * Referencing code or guides that are written in lua might not be easy in Typescript due to differences between how the languages work.
 
-### Setting Up Typescript
+### Setting Up TypeScript
+
+:::note
+This guide assumes your operating system is Windows. If you have other operating systems, please contact us in the Typescript channel in the [Discord](#dedicated-typescript-channel-in-moddota-discord) below.
+:::
 
 First, since Typescript uses NodeJS, so it must be installed on your computer. You can download NodeJS from [here](https://nodejs.org/en/). Simply choose the recommended version, which is the latest stable version. Download and install it with its default configuration.
 
 Next, navigate to the [Typescript template](https://github.com/ModDota/TypeScriptAddonTemplate). This template has most of the files of a new addon configured for you, along with Typescript support.
 There are two versions to use the template:
 
-1. Without github: if you're not planning to put your code in github, clone the above template. See below for explanation how.
+1. Without GitHub: if you're not planning to put your code in github, clone the above template. See below for explanation how.
 
-2. With github: if you do plan on put your code in github, click on the ![Use this template](/images/typescript-tutorial/templateButton.png) button located in the top right of the github page. This will create a new github repository that uses the template under your name. Fill in the repository name, description, and whether it is public or private. You can leave "Include all branches" unchecked, then click "Create repository from template". When the new repository is created, clone it. See below for explanation how. For those unfamiliar with github, I recommend using a Github GUI, such as [Github Desktop](https://desktop.github.com/).
+2. With GitHub: if you do plan on put your code in github, click on the ![Use this template](/images/typescript-tutorial/templateButton.png) button located in the top right of the github page. This will create a new github repository that uses the template under your name. Fill in the repository name, description, and whether it is public or private. You can leave "Include all branches" unchecked, then click "Create repository from template". When the new repository is created, clone it. See below for explanation how. For those unfamiliar with github, I recommend using a Github GUI, such as [Github Desktop](https://desktop.github.com/).
 
 Cloning the repository meaning making a copy of it on your computer. This can be done by clicking on "Code", then on "Download Zip", as shown here:
 
