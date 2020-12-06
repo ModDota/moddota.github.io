@@ -4,7 +4,8 @@
         "start": "docusaurus start",
         "build": "docusaurus build",
         "lint": "npm run lint:prettier",
-        "lint:prettier": "prettier --check ."
+        "lint:prettier": "prettier --check .",
+        "fix:prettier": "prettier --write ."
     },
     "prettier": {
         "printWidth": 120,
