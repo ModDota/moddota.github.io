@@ -612,7 +612,7 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
 
 Below is a short video record that shows the application of Skywrath Mage's Ancient Bolt in Typescript as explained in this section.
 
-<YouTube playlistId="jiKNIkJ8TDE" />
+<YouTube id="jiKNIkJ8TDE" />
 
 
 ### What's Next?
