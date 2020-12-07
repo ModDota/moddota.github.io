@@ -19,7 +19,7 @@ Typescript can work well with most editors using plugins, however, [VSCode](http
 * Enforces types, prevents you from using irrelevant functions.
 * Typescript is much more similar to most languages such as C#, Java, Javascript, and C (compared to lua).
 * Auto-complete that will only show API functions that match the type being called.
-* Saves a ton of time by immediately finding logical errors in code, instead of having to find them in-game (sometimes as edge cases which may not be shown during local testing).
+* Saves a ton of time by immediately finding logical errors in code, instead of having to find them in-game (sometimes as edge cases which may not be found during local testing).
 * Tremendous support of Typescript in the web (e.g. Stack Overflow) for common Typescript questions.
 * Typescript itself comes with very powerful built-in functionalities and types, such as Sets, Maps, and array functionalities. Additionally, it supports class and types inheritance.
 * Typescript is used for both lua and Javascript, so you never have to switch between scripting languages; Typescript will convert it to the correct language for you.
@@ -162,4 +162,6 @@ An additional important folder is located at `/node_modules/dota-lua-types/types
 
 We have a dedicated Typescript channel in our [moddota Discord](https://discord.gg/ZyHg6T9sTd) for every Typescript related question. Feel free to join and ask anything and we'll be happy to assist.
 
-Check out new tutorials that will come out later on for examples of abilities, modifiers, and some very powerful Typescript related techniques.
+### What's Next?
+
+Check out the [Abilities in Typescript](typescript-introduction.md) tutorial, which will show how to set up and code a basic ability to use in the game.
