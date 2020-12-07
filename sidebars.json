@@ -6,7 +6,7 @@
         {
             "type": "category",
             "label": "Typescript",
-            "items": ["scripting/Typescript/typescript-introduction"]
+            "items": ["scripting/Typescript/typescript-introduction", "scripting/Typescript/typescript-ability"]
         },
         {
             "type": "category",
