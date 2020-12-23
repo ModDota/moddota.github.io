@@ -1,4 +1,4 @@
-import api from 'dota-data/files/vscripts/enums';
+import api from '@moddota/dota-data/files/vscripts/enums';
 import React from 'react';
 import styled from 'styled-components';
 import { ColoredSyntax } from '~components/ColoredSyntax';

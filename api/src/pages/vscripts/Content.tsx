@@ -1,4 +1,4 @@
-import { AllDataType } from 'dota-data/lib/helpers/vscripts';
+import { AllDataType } from '@moddota/dota-data/lib/helpers/vscripts';
 import React from 'react';
 import { ContentWrapper, ListItem, StyledSearchBox, TextMessage } from '~components/layout/Content';
 import { LazyList, ScrollableList } from '~components/Lists';

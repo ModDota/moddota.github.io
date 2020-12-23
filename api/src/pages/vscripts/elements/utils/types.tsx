@@ -1,6 +1,6 @@
 import arrowIconUrl from '!!file-loader!./arrow.svg';
-import api from 'dota-data/files/vscripts/api';
-import { findTypeByName } from 'dota-data/lib/helpers/vscripts';
+import api from '@moddota/dota-data/files/vscripts/api';
+import { findTypeByName } from '@moddota/dota-data/lib/helpers/vscripts';
 import React, { useMemo } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';

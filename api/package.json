@@ -36,7 +36,7 @@
     "@types/react-router-dom": "^5.1.6",
     "@types/react-virtualized": "^9.21.10",
     "@types/styled-components": "^5.1.4",
-    "dota-data": "0.13.0",
+    "@moddota/dota-data": "0.14.0",
     "lodash": "^4.17.20",
     "polished": "^4.0.3",
     "react": "^17.0.1",

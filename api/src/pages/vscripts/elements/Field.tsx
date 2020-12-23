@@ -1,5 +1,5 @@
-import api from 'dota-data/files/vscripts/api';
-import apiTypes from 'dota-data/files/vscripts/api-types';
+import api from '@moddota/dota-data/files/vscripts/api';
+import apiTypes from '@moddota/dota-data/files/vscripts/api-types';
 import React from 'react';
 import styled from 'styled-components';
 import { ElementLink, KindIcon, useLinkedElement } from './utils/components';

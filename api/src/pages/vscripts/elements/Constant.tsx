@@ -1,4 +1,4 @@
-import enums from 'dota-data/files/vscripts/enums';
+import enums from '@moddota/dota-data/files/vscripts/enums';
 import React from 'react';
 import styled from 'styled-components';
 import { ElementLink, KindIcon, useLinkedElement } from './utils/components';

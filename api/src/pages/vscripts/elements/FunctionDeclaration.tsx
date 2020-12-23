@@ -1,4 +1,4 @@
-import api from 'dota-data/files/vscripts/api';
+import api from '@moddota/dota-data/files/vscripts/api';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
 import { getReferencesForFunction } from '../data';

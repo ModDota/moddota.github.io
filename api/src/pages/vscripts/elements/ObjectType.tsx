@@ -1,4 +1,4 @@
-import apiTypes from 'dota-data/files/vscripts/api-types';
+import apiTypes from '@moddota/dota-data/files/vscripts/api-types';
 import React from 'react';
 import styled from 'styled-components';
 import { Field } from './Field';

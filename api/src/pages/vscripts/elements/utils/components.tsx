@@ -1,4 +1,4 @@
-import { Availability } from 'dota-data/files/vscripts/api';
+import { Availability } from '@moddota/dota-data/files/vscripts/api';
 import { darken, lighten } from 'polished';
 import React, { useMemo } from 'react';
 import { NavLink } from 'react-router-dom';

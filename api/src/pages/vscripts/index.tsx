@@ -1,4 +1,4 @@
-import { allData } from 'dota-data/lib/helpers/vscripts';
+import { allData } from '@moddota/dota-data/lib/helpers/vscripts';
 import React from 'react';
 import { HashScrollHandler } from '~components/ElementLink';
 import { SidebarElement, SidebarWrapper } from '~components/layout/Sidebar';

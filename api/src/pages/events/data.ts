@@ -1,10 +1,10 @@
-import eventsData from 'dota-data/files/events';
+import eventsData from '@moddota/dota-data/files/events';
 import { orderBy } from 'lodash';
 import { useParams } from 'react-router-dom';
 import { useRouterSearch } from '~components/Search';
 import { isNotNil } from '~utils/types';
 
-export type { EventField } from 'dota-data/files/events';
+export type { EventField } from '@moddota/dota-data/files/events';
 export interface Event extends eventsData.Event {
   isStarred: boolean;
 }
