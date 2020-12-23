@@ -39,7 +39,7 @@ export default (env: Record<string, any> = {}, argv: Configuration): Configurati
 
   return {
     output: {
-      publicPath: '/api/',
+      publicPath: isProduction ? '/api/' : '/',
       filename: isProduction ? '[name].[contenthash].js' : undefined,
       path: path.resolve(__dirname, '../build/api'),
     },

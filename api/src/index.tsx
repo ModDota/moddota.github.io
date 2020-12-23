@@ -1,7 +1,7 @@
 import { darken, lighten } from 'polished';
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { NavBar } from '~components/layout/NavBar';
 import { colors } from '~utils/constants';
@@ -57,14 +57,14 @@ function App() {
   return (
     <AppWrapper>
       <GlobalStyle />
-      <BrowserRouter basename="/api/">
+      <HashRouter hashType="hashbang">
         <NavBar />
         <PageContent>
           <React.Suspense fallback={null}>
             <AppRoutes />
           </React.Suspense>
         </PageContent>
-      </BrowserRouter>
+      </HashRouter>
     </AppWrapper>
   );
 }
