@@ -1,13 +1,11 @@
-import { darken } from 'polished';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-import { colors } from '~utils/constants';
-import SearchIcon from './search.svg';
+import { darken } from "polished";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import { colors } from "~utils/constants";
+import SearchIcon from "./search.svg";
 
-export const composeFilters = <T,>(filters: ((member: T) => boolean | undefined)[]) => (
-  value: T,
-) => {
+export const composeFilters = <T,>(filters: ((member: T) => boolean | undefined)[]) => (value: T) => {
   const results = filters.map((fn) => fn(value));
   if (results.includes(false)) return false;
   if (results.includes(true)) return true;
@@ -16,22 +14,22 @@ export const composeFilters = <T,>(filters: ((member: T) => boolean | undefined)
 
 export function useRouterSearch() {
   const location = useLocation();
-  return new URLSearchParams(location.search).get('search') ?? '';
+  return new URLSearchParams(location.search).get("search") ?? "";
 }
 
 export function useCtrlFHook<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
   useEffect(() => {
     const listener = (event: KeyboardEvent) => {
-      if (ref.current && event.ctrlKey && event.key === 'f') {
+      if (ref.current && event.ctrlKey && event.key === "f") {
         // Use default CTRL+F only when element already has focus
         if (document.activeElement !== ref.current) event.preventDefault();
         ref.current.focus();
       }
     };
 
-    document.addEventListener('keydown', listener);
-    return () => document.removeEventListener('keydown', listener);
+    document.addEventListener("keydown", listener);
+    return () => document.removeEventListener("keydown", listener);
   }, [ref.current]);
 
   return ref;
@@ -82,7 +80,7 @@ export function SearchBox({ baseUrl, className }: { baseUrl: string; className?:
   const setSearchQuery = useCallback(
     (query: string) => {
       const { state, pathname, search: urlSearch } = history.location;
-      if (query === '') {
+      if (query === "") {
         history.push(state?.searchReferrer || baseUrl);
       } else {
         const searchReferrer = state?.searchReferrer || `${pathname}${urlSearch}`;
@@ -92,10 +90,9 @@ export function SearchBox({ baseUrl, className }: { baseUrl: string; className?:
     [history, baseUrl],
   );
 
-  const handleSearchButton = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
-    () => setSearchQuery(search),
-    [search],
-  );
+  const handleSearchButton = useCallback<React.MouseEventHandler<HTMLButtonElement>>(() => setSearchQuery(search), [
+    search,
+  ]);
   const handleSearchButtonMouseDown = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
     (event) => event.preventDefault(),
     [],
@@ -106,7 +103,7 @@ export function SearchBox({ baseUrl, className }: { baseUrl: string; className?:
     [],
   );
   const handleKey = useCallback<React.KeyboardEventHandler<HTMLInputElement>>(
-    (event) => event.key === 'Enter' && setSearchQuery(search),
+    (event) => event.key === "Enter" && setSearchQuery(search),
     [search],
   );
 

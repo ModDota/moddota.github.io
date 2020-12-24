@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
-import { colors } from '~utils/constants';
-import { KindIcon } from '../vscripts/elements/utils/components';
+import React from "react";
+import styled from "styled-components";
+import { colors } from "~utils/constants";
+import { KindIcon } from "../vscripts/elements/utils/components";
 import {
   CommonGroupHeader,
   CommonGroupMembers,
@@ -9,10 +9,10 @@ import {
   CommonGroupWrapper,
   ElementBadges,
   OptionalDescription,
-} from '../vscripts/elements/utils/styles';
-import * as data from './data';
-import { EventField } from './EventField';
-import { ElementLink, EventStar } from './utils';
+} from "../vscripts/elements/utils/styles";
+import * as data from "./data";
+import { EventField } from "./EventField";
+import { ElementLink, EventStar } from "./utils";
 
 const EventHeader = styled(CommonGroupHeader)`
   padding: 4px;
@@ -39,15 +39,10 @@ const EventSourceFileWrapper = styled.a`
 `;
 
 function EventSourceFile({ sourceFile }: { sourceFile: string }) {
-  const addon = sourceFile === 'core' ? 'core' : 'dota';
+  const addon = sourceFile === "core" ? "core" : "dota";
   const url = `https://github.com/SteamDatabase/GameTracking-Dota2/blob/master/game/${addon}/pak01_dir/resource/${sourceFile}.gameevents`;
   return (
-    <EventSourceFileWrapper
-      href={url}
-      target="_blank"
-      rel="noopener"
-      title={`Defined in ${sourceFile}.gameevents`}
-    >
+    <EventSourceFileWrapper href={url} target="_blank" rel="noopener" title={`Defined in ${sourceFile}.gameevents`}>
       {sourceFile}
     </EventSourceFileWrapper>
   );

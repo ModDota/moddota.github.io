@@ -1,8 +1,8 @@
-import { darken } from 'polished';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import { colors } from '~utils/constants';
+import { darken } from "polished";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import { colors } from "~utils/constants";
 
 export const NavBar = () => (
   <NavBarWrapper>

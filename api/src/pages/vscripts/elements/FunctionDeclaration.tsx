@@ -1,8 +1,8 @@
-import api from '@moddota/dota-data/files/vscripts/api';
-import React, { useMemo } from 'react';
-import styled from 'styled-components';
-import { getReferencesForFunction } from '../data';
-import { ObjectType } from './ObjectType';
+import api from "@moddota/dota-data/files/vscripts/api";
+import React, { useMemo } from "react";
+import styled from "styled-components";
+import { getReferencesForFunction } from "../data";
+import { ObjectType } from "./ObjectType";
 import {
   AvailabilityBadge,
   ElementLink,
@@ -10,15 +10,15 @@ import {
   SearchOnGitHub,
   SearchOnGoogle,
   useLinkedElement,
-} from './utils/components';
+} from "./utils/components";
 import {
   CommonGroupHeader,
   CommonGroupSignature,
   CommonGroupWrapper,
   ElementBadges,
   OptionalDescription,
-} from './utils/styles';
-import { FunctionParameters, Types } from './utils/types';
+} from "./utils/styles";
+import { FunctionParameters, Types } from "./utils/types";
 
 const FunctionWrapper = styled(CommonGroupWrapper)`
   padding: 2px 5px;
@@ -58,8 +58,7 @@ export const FunctionDeclaration: React.FC<{
   declaration: api.ClassMethod;
 }> = ({ className, style, context, declaration }) => {
   const objectReferences = useMemo(
-    () =>
-      getReferencesForFunction(declaration).map((x) => <ObjectType key={x.name} declaration={x} />),
+    () => getReferencesForFunction(declaration).map((x) => <ObjectType key={x.name} declaration={x} />),
     [declaration],
   );
 

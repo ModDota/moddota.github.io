@@ -1,9 +1,9 @@
-import api from '@moddota/dota-data/files/vscripts/api';
-import React from 'react';
-import styled from 'styled-components';
-import { Field } from './Field';
-import { FunctionDeclaration } from './FunctionDeclaration';
-import { AvailabilityBadge, ElementLink, KindIcon, ReferencesLink } from './utils/components';
+import api from "@moddota/dota-data/files/vscripts/api";
+import React from "react";
+import styled from "styled-components";
+import { Field } from "./Field";
+import { FunctionDeclaration } from "./FunctionDeclaration";
+import { AvailabilityBadge, ElementLink, KindIcon, ReferencesLink } from "./utils/components";
 import {
   CommonGroupHeader,
   CommonGroupMembers,
@@ -11,8 +11,8 @@ import {
   CommonGroupWrapper,
   ElementBadges,
   OptionalDescription,
-} from './utils/styles';
-import { Types } from './utils/types';
+} from "./utils/styles";
+import { Types } from "./utils/types";
 
 const ClassHeader = styled(CommonGroupHeader)`
   padding: 5px;
@@ -59,7 +59,7 @@ export const ClassDeclaration: React.FC<{
       </CommonGroupSignature>
       <ElementBadges>
         <ReferencesLink name={declaration.name} />
-        <AvailabilityBadge available={declaration.clientName != null ? 'both' : 'server'} />
+        <AvailabilityBadge available={declaration.clientName != null ? "both" : "server"} />
         <ElementLink scope={declaration.name} />
       </ElementBadges>
     </ClassHeader>
@@ -67,14 +67,10 @@ export const ClassDeclaration: React.FC<{
     {declaration.members.length > 0 && (
       <ClassMembers>
         {declaration.members.map((member) =>
-          member.kind === 'field' ? (
+          member.kind === "field" ? (
             <Field key={member.name} element={member} context={declaration.name} />
           ) : (
-            <FunctionDeclaration
-              key={member.name}
-              declaration={member}
-              context={declaration.name}
-            />
+            <FunctionDeclaration key={member.name} declaration={member} context={declaration.name} />
           ),
         )}
       </ClassMembers>

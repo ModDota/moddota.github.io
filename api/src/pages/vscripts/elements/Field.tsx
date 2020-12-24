@@ -1,15 +1,10 @@
-import api from '@moddota/dota-data/files/vscripts/api';
-import apiTypes from '@moddota/dota-data/files/vscripts/api-types';
-import React from 'react';
-import styled from 'styled-components';
-import { ElementLink, KindIcon, useLinkedElement } from './utils/components';
-import {
-  CommonGroupHeader,
-  CommonGroupSignature,
-  CommonGroupWrapper,
-  ElementBadges,
-} from './utils/styles';
-import { Types } from './utils/types';
+import api from "@moddota/dota-data/files/vscripts/api";
+import apiTypes from "@moddota/dota-data/files/vscripts/api-types";
+import React from "react";
+import styled from "styled-components";
+import { ElementLink, KindIcon, useLinkedElement } from "./utils/components";
+import { CommonGroupHeader, CommonGroupSignature, CommonGroupWrapper, ElementBadges } from "./utils/styles";
+import { Types } from "./utils/types";
 
 const FieldWrapper = styled(CommonGroupWrapper)`
   padding: 4px;
@@ -31,12 +26,9 @@ export const Field: React.FC<{
         <FieldSignature>
           <KindIcon kind="field" size="big" />
           {element.name}
-          {element.types.includes('nil') && '?'}:{' '}
-          {<Types types={element.types.filter((x) => x !== 'nil')} />}
+          {element.types.includes("nil") && "?"}: {<Types types={element.types.filter((x) => x !== "nil")} />}
         </FieldSignature>
-        <ElementBadges>
-          {context && <ElementLink scope={context} hash={element.name} />}
-        </ElementBadges>
+        <ElementBadges>{context && <ElementLink scope={context} hash={element.name} />}</ElementBadges>
       </CommonGroupHeader>
     </FieldWrapper>
   );

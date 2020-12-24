@@ -1,32 +1,32 @@
-import arrowIconUrl from '!!file-loader!./arrow.svg';
-import api from '@moddota/dota-data/files/vscripts/api';
-import { findTypeByName } from '@moddota/dota-data/lib/helpers/vscripts';
-import React, { useMemo } from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import invariant from 'tiny-invariant';
-import { ColoredSyntax, ColoredSyntaxKind, getSyntaxColorFor } from '~components/ColoredSyntax';
-import { assertNever, intersperse } from '~utils/types';
+import arrowIconUrl from "!!file-loader!./arrow.svg";
+import api from "@moddota/dota-data/files/vscripts/api";
+import { findTypeByName } from "@moddota/dota-data/lib/helpers/vscripts";
+import React, { useMemo } from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import invariant from "tiny-invariant";
+import { ColoredSyntax, ColoredSyntaxKind, getSyntaxColorFor } from "~components/ColoredSyntax";
+import { assertNever, intersperse } from "~utils/types";
 
 export const Types: React.FC<{ types: api.Type[] }> = ({ types }) => (
   <>
     {intersperse(
       types.map((type, index) => <Type key={index} type={type} />),
-      ' | ',
+      " | ",
     )}
   </>
 );
 
 const Type: React.FC<{ type: api.Type }> = ({ type }) => {
-  if (typeof type === 'string') return <ReferenceType name={type} />;
+  if (typeof type === "string") return <ReferenceType name={type} />;
   switch (type.kind) {
-    case 'array':
+    case "array":
       return <ArrayType type={type} />;
-    case 'function':
+    case "function":
       return <FunctionType type={type} />;
-    case 'literal':
+    case "literal":
       return <LiteralType type={type} />;
-    case 'table':
+    case "table":
       return <TableType type={type} />;
     default:
       assertNever(type);
@@ -41,28 +41,28 @@ const TypeReferenceLink = styled(NavLink)`
 
 const ReferenceType: React.FC<{ name: string }> = ({ name }) => {
   const [kind, scope, hash] = useMemo((): [ColoredSyntaxKind, string?, string?] => {
-    if (name === 'nil') return ['nil'];
+    if (name === "nil") return ["nil"];
 
     const type = findTypeByName(name);
     invariant(type !== undefined, `Invalid type reference: ${name}`);
-    if (type.kind === 'primitive' || type.kind === 'nominal') {
-      return ['literal'];
+    if (type.kind === "primitive" || type.kind === "nominal") {
+      return ["literal"];
     }
 
     return [
-      'interface',
-      type.kind === 'class' || type.kind === 'enum'
+      "interface",
+      type.kind === "class" || type.kind === "enum"
         ? name
-        : type.kind === 'constant'
-        ? 'constants'
-        : type.kind === 'function'
-        ? 'functions'
+        : type.kind === "constant"
+        ? "constants"
+        : type.kind === "function"
+        ? "functions"
         : undefined,
-      type.kind === 'constant' || type.kind === 'function' ? name : undefined,
+      type.kind === "constant" || type.kind === "function" ? name : undefined,
     ];
   }, [name]);
 
-  const urlHash = hash ? `#${hash}` : '';
+  const urlHash = hash ? `#${hash}` : "";
   const style: React.CSSProperties = { textDecorationColor: getSyntaxColorFor(kind) };
   return scope ? (
     <TypeReferenceLink to={`/vscripts/${scope}${urlHash}`} style={style}>
@@ -89,9 +89,9 @@ const ArrayType: React.FC<{ type: api.ArrayType }> = ({ type: { types } }) => (
 
 const TableType: React.FC<{ type: api.TableType }> = ({ type: { key, value } }) => (
   <span>
-    {'{'} [
+    {"{"} [
     <Types types={key} />
-    ]: <Types types={value} /> {'}'}
+    ]: <Types types={value} /> {"}"}
   </span>
 );
 
@@ -109,7 +109,7 @@ export function FunctionParameters({ args }: { args: api.FunctionParameter[] }) 
       (
       {intersperse(
         args.map((arg) => <FunctionParameter key={arg.name} {...arg} />),
-        ', ',
+        ", ",
       )}
       )
     </>
@@ -130,7 +130,7 @@ const ArrowIconWrapper = styled.span`
 
 const ArrowIcon = () => (
   <ArrowIconWrapper>
-    {' '}
-    <img src={arrowIconUrl} height={14} alt="=>" />{' '}
+    {" "}
+    <img src={arrowIconUrl} height={14} alt="=>" />{" "}
   </ArrowIconWrapper>
 );

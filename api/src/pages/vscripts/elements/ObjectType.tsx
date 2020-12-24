@@ -1,9 +1,9 @@
-import apiTypes from '@moddota/dota-data/files/vscripts/api-types';
-import React from 'react';
-import styled from 'styled-components';
-import { Field } from './Field';
-import { KindIcon } from './utils/components';
-import { CommonGroupMembers, CommonGroupWrapper } from './utils/styles';
+import apiTypes from "@moddota/dota-data/files/vscripts/api-types";
+import React from "react";
+import styled from "styled-components";
+import { Field } from "./Field";
+import { KindIcon } from "./utils/components";
+import { CommonGroupMembers, CommonGroupWrapper } from "./utils/styles";
 
 const ObjectHeader = styled.div`
   padding: 4px;
@@ -27,7 +27,7 @@ export const ObjectType: React.FC<{
     <ObjectHeader>
       <KindIcon kind="interface" size="small" />
       <ObjectName>{declaration.name}</ObjectName>
-      {declaration.extend && <> extends {declaration.extend.join(', ')}</>}
+      {declaration.extend && <> extends {declaration.extend.join(", ")}</>}
     </ObjectHeader>
     {declaration.description && <ObjectDescription>{declaration.description}</ObjectDescription>}
     {declaration.fields.length > 0 && (

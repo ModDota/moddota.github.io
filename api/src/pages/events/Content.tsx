@@ -1,9 +1,9 @@
-import React from 'react';
-import { ContentWrapper, ListItem, StyledSearchBox, TextMessage } from '~components/layout/Content';
-import { Author } from '~components/Author';
-import { LazyList, ScrollableList } from '~components/Lists';
-import * as data from './data';
-import { Event } from './Event';
+import React from "react";
+import { ContentWrapper, ListItem, StyledSearchBox, TextMessage } from "~components/layout/Content";
+import { Author } from "~components/Author";
+import { LazyList, ScrollableList } from "~components/Lists";
+import * as data from "./data";
+import { Event } from "./Event";
 
 const renderItem = (event: data.Event, style?: React.CSSProperties) => (
   <ListItem style={style} key={event.name}>

@@ -1,16 +1,16 @@
-import React from 'react';
-import styled from 'styled-components';
-import { ColoredSyntax } from '~components/ColoredSyntax';
-import { KindIcon } from '../vscripts/elements/utils/components';
+import React from "react";
+import styled from "styled-components";
+import { ColoredSyntax } from "~components/ColoredSyntax";
+import { KindIcon } from "../vscripts/elements/utils/components";
 import {
   CommonGroupHeader,
   CommonGroupSignature,
   CommonGroupWrapper,
   ElementBadges,
   OptionalDescription,
-} from '../vscripts/elements/utils/styles';
-import * as data from './data';
-import { ElementLink, useLinkedElement } from './utils';
+} from "../vscripts/elements/utils/styles";
+import * as data from "./data";
+import { ElementLink, useLinkedElement } from "./utils";
 
 const EventFieldWrapper = styled(CommonGroupWrapper)`
   padding: 4px;

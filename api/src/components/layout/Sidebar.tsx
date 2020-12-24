@@ -1,10 +1,10 @@
-import { darken } from 'polished';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
-import { IconKind, KindIcon } from '~components/KindIcon';
-import { colors } from '~utils/constants';
-import { intersperseWith } from '~utils/types';
+import { darken } from "polished";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import { IconKind, KindIcon } from "~components/KindIcon";
+import { colors } from "~utils/constants";
+import { intersperseWith } from "~utils/types";
 
 const SidebarLink = styled(NavLink)`
   padding: 2px;
@@ -27,7 +27,7 @@ const SidebarLink = styled(NavLink)`
 `;
 
 const SidebarKindIcon = styled(KindIcon)`
-  vertical-align: ${({ kind }) => (kind === 'interface' ? 'middle' : 'baseline')};
+  vertical-align: ${({ kind }) => (kind === "interface" ? "middle" : "baseline")};
 `;
 
 const insertWordBreaks = (text: string, separator: string) => (
@@ -42,7 +42,7 @@ export const SidebarElement: React.FC<{
   extra?: React.ReactNode;
 }> = React.memo(({ to, icon, text, textSeparator, extra }) => (
   <SidebarLink to={to}>
-    <SidebarKindIcon kind={icon} size="small" />{' '}
+    <SidebarKindIcon kind={icon} size="small" />{" "}
     {textSeparator !== undefined ? insertWordBreaks(text, textSeparator) : text}
     {extra}
   </SidebarLink>

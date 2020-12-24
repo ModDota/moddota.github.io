@@ -1,7 +1,7 @@
-import { darken } from 'polished';
-import React from 'react';
-import styled, { css } from 'styled-components';
-import { colors } from '~utils/constants';
+import { darken } from "polished";
+import React from "react";
+import styled, { css } from "styled-components";
+import { colors } from "~utils/constants";
 
 export const CommonGroupWrapper = styled.div<{ isLinked?: boolean }>`
   display: flex;

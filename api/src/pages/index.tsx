@@ -1,9 +1,9 @@
-import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
+import styled from "styled-components";
 
-const EventsPage = React.lazy(() => import(/* webpackChunkName: "events" */ './events'));
-const VScriptsPage = React.lazy(() => import(/* webpackChunkName: "vscripts" */ './vscripts'));
+const EventsPage = React.lazy(() => import(/* webpackChunkName: "events" */ "./events"));
+const VScriptsPage = React.lazy(() => import(/* webpackChunkName: "vscripts" */ "./vscripts"));
 
 const ErrorPage = styled.div`
   margin: auto;

@@ -1,27 +1,27 @@
-import { AllDataType } from '@moddota/dota-data/lib/helpers/vscripts';
-import React from 'react';
-import { ContentWrapper, ListItem, StyledSearchBox, TextMessage } from '~components/layout/Content';
-import { Author } from '~components/Author';
-import { LazyList, ScrollableList } from '~components/Lists';
-import { useFilteredData } from './data';
-import { ClassDeclaration } from './elements/ClassDeclaration';
-import { Constant } from './elements/Constant';
-import { Enum } from './elements/Enum';
-import { FunctionDeclaration } from './elements/FunctionDeclaration';
+import { AllDataType } from "@moddota/dota-data/lib/helpers/vscripts";
+import React from "react";
+import { ContentWrapper, ListItem, StyledSearchBox, TextMessage } from "~components/layout/Content";
+import { Author } from "~components/Author";
+import { LazyList, ScrollableList } from "~components/Lists";
+import { useFilteredData } from "./data";
+import { ClassDeclaration } from "./elements/ClassDeclaration";
+import { Constant } from "./elements/Constant";
+import { Enum } from "./elements/Enum";
+import { FunctionDeclaration } from "./elements/FunctionDeclaration";
 
 function renderItem(declaration: AllDataType, style?: React.CSSProperties) {
   let children: JSX.Element;
   switch (declaration.kind) {
-    case 'class':
+    case "class":
       children = <ClassDeclaration declaration={declaration} />;
       break;
-    case 'enum':
+    case "enum":
       children = <Enum element={declaration} />;
       break;
-    case 'constant':
+    case "constant":
       children = <Constant element={declaration} />;
       break;
-    case 'function':
+    case "function":
       children = <FunctionDeclaration context="functions" declaration={declaration} />;
       break;
   }

@@ -1,11 +1,5 @@
-import React, { useCallback, useMemo } from 'react';
-import {
-  AutoSizer,
-  CellMeasurer,
-  CellMeasurerCache,
-  List,
-  ListRowRenderer,
-} from 'react-virtualized';
+import React, { useCallback, useMemo } from "react";
+import { AutoSizer, CellMeasurer, CellMeasurerCache, List, ListRowRenderer } from "react-virtualized";
 
 interface Props<T> {
   className?: string;
@@ -25,11 +19,11 @@ export function LazyList<T>({ className, data, render }: Props<T>) {
   );
 
   return (
-    <div className={className} style={{ flex: 1, overflowX: 'hidden' }}>
+    <div className={className} style={{ flex: 1, overflowX: "hidden" }}>
       <AutoSizer>
         {(size) => (
           <List
-            style={{ overflowX: 'hidden' }}
+            style={{ overflowX: "hidden" }}
             {...size}
             deferredMeasurementCache={cache}
             tabIndex={null}
@@ -46,7 +40,7 @@ export function LazyList<T>({ className, data, render }: Props<T>) {
 
 export function ScrollableList<T>({ className, data, render }: Props<T>) {
   return (
-    <div className={className} style={{ flex: 1, overflowX: 'hidden', overflowY: 'scroll' }}>
+    <div className={className} style={{ flex: 1, overflowX: "hidden", overflowY: "scroll" }}>
       {data.map((x) => render(x))}
     </div>
   );

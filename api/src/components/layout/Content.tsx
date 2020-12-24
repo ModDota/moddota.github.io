@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { SearchBox } from '~components/Search';
+import styled from "styled-components";
+import { SearchBox } from "~components/Search";
 
 export const ContentWrapper = styled.main`
   flex: 1;

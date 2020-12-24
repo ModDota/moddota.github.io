@@ -1,14 +1,14 @@
-import enums from '@moddota/dota-data/files/vscripts/enums';
-import React from 'react';
-import styled from 'styled-components';
-import { ElementLink, KindIcon, useLinkedElement } from './utils/components';
+import enums from "@moddota/dota-data/files/vscripts/enums";
+import React from "react";
+import styled from "styled-components";
+import { ElementLink, KindIcon, useLinkedElement } from "./utils/components";
 import {
   CommonGroupHeader,
   CommonGroupSignature,
   CommonGroupWrapper,
   ElementBadges,
   OptionalDescription,
-} from './utils/styles';
+} from "./utils/styles";
 
 const ConstantWrapper = styled(CommonGroupWrapper)`
   padding: 5px;
@@ -27,7 +27,7 @@ export function Constant({
   style?: React.CSSProperties;
   element: enums.Constant;
 }) {
-  const isLinked = useLinkedElement({ scope: 'constants', hash: element.name });
+  const isLinked = useLinkedElement({ scope: "constants", hash: element.name });
   return (
     <ConstantWrapper className={className} style={style} id={element.name} isLinked={isLinked}>
       <CommonGroupHeader>

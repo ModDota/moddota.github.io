@@ -1,12 +1,12 @@
-import React, { useLayoutEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
-import { colors } from '~utils/constants';
+import React, { useLayoutEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import styled from "styled-components";
+import { colors } from "~utils/constants";
 
 export function HashScrollHandler() {
   const { hash } = useLocation();
   useLayoutEffect(() => {
-    if (hash === '' || hash === '#') return;
+    if (hash === "" || hash === "#") return;
     document.querySelector(hash)?.scrollIntoView();
   }, [hash]);
 
@@ -14,15 +14,13 @@ export function HashScrollHandler() {
 }
 
 export function useLinkedElement(root: string, { scope, hash }: { scope?: string; hash?: string }) {
-  const urlHash = hash ? `#${hash}` : '';
+  const urlHash = hash ? `#${hash}` : "";
   const location = useLocation();
-  return (
-    scope !== undefined && location.pathname === `${root}/${scope}` && location.hash === urlHash
-  );
+  return scope !== undefined && location.pathname === `${root}/${scope}` && location.hash === urlHash;
 }
 
 export function ElementLink({ root, scope, hash }: { root: string; scope: string; hash?: string }) {
-  const urlHash = hash ? `#${hash}` : '';
+  const urlHash = hash ? `#${hash}` : "";
   return (
     <StyledElementLink to={`${root}/${scope}${urlHash}`} title="Link">
       #

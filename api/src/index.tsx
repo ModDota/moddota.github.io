@@ -1,11 +1,11 @@
-import { darken, lighten } from 'polished';
-import React from 'react';
-import { render } from 'react-dom';
-import { HashRouter } from 'react-router-dom';
-import styled, { createGlobalStyle } from 'styled-components';
-import { NavBar } from '~components/layout/NavBar';
-import { colors } from '~utils/constants';
-import { AppRoutes } from './pages';
+import { darken, lighten } from "polished";
+import React from "react";
+import { render } from "react-dom";
+import { HashRouter } from "react-router-dom";
+import styled, { createGlobalStyle } from "styled-components";
+import { NavBar } from "~components/layout/NavBar";
+import { colors } from "~utils/constants";
+import { AppRoutes } from "./pages";
 
 const GlobalStyle = (() => {
   const css = createGlobalStyle;
@@ -42,8 +42,8 @@ const AppWrapper = styled.div`
   flex-flow: column;
   height: 100%;
   background-color: ${colors.background};
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-    'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
   color: ${colors.text};
 `;
 
@@ -69,4 +69,4 @@ function App() {
   );
 }
 
-render(<App />, document.querySelector('#root'));
+render(<App />, document.querySelector("#root"));
