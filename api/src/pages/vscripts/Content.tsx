@@ -1,6 +1,7 @@
 import { AllDataType } from '@moddota/dota-data/lib/helpers/vscripts';
 import React from 'react';
 import { ContentWrapper, ListItem, StyledSearchBox, TextMessage } from '~components/layout/Content';
+import { Author } from '~components/Author';
 import { LazyList, ScrollableList } from '~components/Lists';
 import { useFilteredData } from './data';
 import { ClassDeclaration } from './elements/ClassDeclaration';
@@ -50,6 +51,8 @@ export function Content() {
       ) : (
         <TextMessage>Choose a category or use the search bar...</TextMessage>
       )}
+
+      {!isSearching && !data.length && <Author />}
     </ContentWrapper>
   );
 }
