@@ -11,7 +11,7 @@ For this tutorial, I'm going to be demonstrating Typescript with a fairly, simpl
 
 This tutorial assumes you have basic knowledge of how abilities are registered for units or heroes. If you're not aware, I'd recommend the amazing guides by Elfansoer: [Ability Form](https://github.com/Elfansoer/dota-2-lua-abilities/wiki/Ability-Lua-Tutorial-1%3A-Ability-Form) and [Registering and Testing Ability](https://github.com/Elfansoer/dota-2-lua-abilities/wiki/Ability-Lua-Tutorial-2:-Registering-and-Testing-Ability). Note, however, that this guide assumes you'll be using Typescript instead of lua, so going over the rest of tutorials in Elfansoer's Ability Lua Tutorial are not required; however, he does a fantastic job explaining mechanics and techniques which are employed whenever coding an ability, regardless of language, so I'm going ahead and recommend going over those if you're interested.
 
-Before we start, I'm going to go ahead and link the [dota tools](https://dota.tools/vscripts), which feature the most up to date API for custom games in Dota 2. If you were using Valve's wiki, ditch it; it hasn't been updated in years.
+Before we start, I'm going to go ahead and link the [moddota tools](https://moddota.com/api/#!/vscripts), which feature the most up to date API for custom games in Dota 2. If you were using Valve's wiki, ditch it; it hasn't been updated in years.
 
 ### Creating A New Ability
 
