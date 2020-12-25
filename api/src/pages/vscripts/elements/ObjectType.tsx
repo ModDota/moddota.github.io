@@ -6,18 +6,23 @@ import { KindIcon } from "./utils/components";
 import { CommonGroupMembers, CommonGroupWrapper } from "./utils/styles";
 
 const ObjectHeader = styled.div`
+  font-size: 12px;
   padding: 4px;
 `;
 
 const ObjectName = styled.span`
-  font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
 `;
 
 const ObjectDescription = styled.div`
-  font-size: 18px;
+  font-size: 14px;
   margin: 5px 20px;
 `;
+
+const ObjectField = styled(Field)`
+  font-size: 12px;
+`;
+
 
 export const ObjectType: React.FC<{
   className?: string;
@@ -33,7 +38,7 @@ export const ObjectType: React.FC<{
     {declaration.fields.length > 0 && (
       <CommonGroupMembers>
         {declaration.fields.map((field) => (
-          <Field key={field.name} element={field} />
+          <ObjectField key={field.name} element={field} />
         ))}
       </CommonGroupMembers>
     )}

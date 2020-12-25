@@ -5,6 +5,7 @@ export const ContentWrapper = styled.main`
   flex: 1;
   display: flex;
   flex-flow: column;
+  padding: 0 0 0 24px;
 `;
 
 export const StyledSearchBox = styled(SearchBox)`

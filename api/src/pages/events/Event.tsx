@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { colors } from "~utils/constants";
 import { KindIcon } from "../vscripts/elements/utils/components";
 import {
   CommonGroupHeader,
@@ -35,7 +34,7 @@ const EventSourceFileWrapper = styled.a`
   border-radius: 5px;
   background-color: rgb(37, 134, 224);
   text-decoration: none;
-  color: ${colors.text};
+  color: ${props => props.theme.text};
 `;
 
 function EventSourceFile({ sourceFile }: { sourceFile: string }) {

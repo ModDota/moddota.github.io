@@ -1,9 +1,8 @@
-import arrowIconUrl from "!!file-loader!./arrow.svg";
 import api from "@moddota/dota-data/files/vscripts/api";
 import { findTypeByName } from "@moddota/dota-data/lib/helpers/vscripts";
-import React, { useMemo } from "react";
+import React, { useMemo, useContext } from "react";
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, { ThemeContext } from "styled-components";
 import invariant from "tiny-invariant";
 import { ColoredSyntax, ColoredSyntaxKind, getSyntaxColorFor } from "~components/ColoredSyntax";
 import { assertNever, intersperse } from "~utils/types";
@@ -34,9 +33,15 @@ const Type: React.FC<{ type: api.Type }> = ({ type }) => {
 };
 
 const TypeReferenceLink = styled(NavLink)`
+  font-weight: 600;
+
   &.active {
     text-decoration: none;
   }
+`;
+
+const TypeSpan = styled.span`
+  font-weight: 600;
 `;
 
 const ReferenceType: React.FC<{ name: string }> = ({ name }) => {
@@ -63,44 +68,43 @@ const ReferenceType: React.FC<{ name: string }> = ({ name }) => {
   }, [name]);
 
   const urlHash = hash ? `#${hash}` : "";
-  const style: React.CSSProperties = { textDecorationColor: getSyntaxColorFor(kind) };
+  const style: React.CSSProperties = { textDecorationColor: getSyntaxColorFor(useContext(ThemeContext), kind) };
+
   return scope ? (
     <TypeReferenceLink to={`/vscripts/${scope}${urlHash}`} style={style}>
       <ColoredSyntax kind={kind}>{name}</ColoredSyntax>
     </TypeReferenceLink>
   ) : (
-    <span style={style}>
+    <TypeSpan>
       <ColoredSyntax kind={kind}>{name}</ColoredSyntax>
-    </span>
+    </TypeSpan>
   );
 };
 
 const LiteralType: React.FC<{ type: api.LiteralType }> = ({ type: { value } }) => (
-  <span>
+  <TypeSpan>
     <ColoredSyntax kind="literal">{value}</ColoredSyntax>
-  </span>
+  </TypeSpan>
 );
 
 const ArrayType: React.FC<{ type: api.ArrayType }> = ({ type: { types } }) => (
-  <span>
+  <TypeSpan>
     [<Types types={types} />]
-  </span>
+  </TypeSpan>
 );
 
 const TableType: React.FC<{ type: api.TableType }> = ({ type: { key, value } }) => (
-  <span>
+  <TypeSpan>
     {"{"} [
     <Types types={key} />
     ]: <Types types={value} /> {"}"}
-  </span>
+  </TypeSpan>
 );
 
 const FunctionType: React.FC<{ type: api.FunctionType }> = ({ type: { args, returns } }) => (
-  <span>
-    <FunctionParameters args={args} />
-    <ArrowIcon />
-    <Types types={returns} />
-  </span>
+  <TypeSpan>
+    <FunctionParameters args={args} /> → <Types types={returns} />
+  </TypeSpan>
 );
 
 export function FunctionParameters({ args }: { args: api.FunctionParameter[] }) {
@@ -116,21 +120,13 @@ export function FunctionParameters({ args }: { args: api.FunctionParameter[] }) 
   );
 }
 
-const FunctionParameter: React.FC<{ name: string; types: api.Type[] }> = ({ name, types }) => (
-  <span>
-    <ColoredSyntax kind="parameter">{name}</ColoredSyntax>:&nbsp;
-    <Types types={types} />
-  </span>
-);
-
-const ArrowIconWrapper = styled.span`
-  /* Using spaces instead of margin to include spaces in copied text */
-  word-spacing: -1px;
+const FunctionParameterWrapper = styled.span`
+  font-weight: normal;
 `;
 
-const ArrowIcon = () => (
-  <ArrowIconWrapper>
-    {" "}
-    <img src={arrowIconUrl} height={14} alt="=>" />{" "}
-  </ArrowIconWrapper>
+const FunctionParameter: React.FC<{ name: string; types: api.Type[] }> = ({ name, types }) => (
+  <FunctionParameterWrapper>
+    <ColoredSyntax kind="parameter">{name}</ColoredSyntax>:&nbsp;
+    <Types types={types} />
+  </FunctionParameterWrapper>
 );

@@ -11,7 +11,6 @@ const FieldWrapper = styled(CommonGroupWrapper)`
 `;
 
 const FieldSignature = styled(CommonGroupSignature)`
-  font-size: 20px;
 `;
 
 export const Field: React.FC<{
@@ -24,7 +23,7 @@ export const Field: React.FC<{
     <FieldWrapper className={className} id={element.name} isLinked={isLinked}>
       <CommonGroupHeader>
         <FieldSignature>
-          <KindIcon kind="field" size="big" />
+          <KindIcon kind="field" size="small" />
           {element.name}
           {element.types.includes("nil") && "?"}: {<Types types={element.types.filter((x) => x !== "nil")} />}
         </FieldSignature>

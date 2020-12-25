@@ -2,8 +2,43 @@ import { darken } from "polished";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { colors } from "~utils/constants";
 import SearchIcon from "./search.svg";
+
+const SearchBoxWrapper = styled.div`
+  display: flex;
+  flex-flow: row;
+  background-color: ${props => props.theme.searchbox.background};
+  border: ${props => props.theme.searchbox.border};
+  border-radius: 32px;
+  padding-left: 6px;
+`;
+
+const SearchBoxInput = styled.input`
+  flex: 1;
+  padding: 8px;
+  background: none;
+  border: none;
+  outline: none;
+  color: ${props => props.theme.text};
+  font-size: 14px;
+
+  ::placeholder {
+    color: ${props => props.theme.searchbox.placeholder};
+  }
+`;
+
+const SearchButton = styled.button<{ isUpdated: boolean }>`
+  border: none;
+  background-color: ${props => darken(props.isUpdated ? 0 : 0.1, props.theme.searchbox.button)};
+
+  path {
+    fill: ${props => props.isUpdated ? props.theme.searchbox.buttonFillUpdated : props.theme.searchbox.buttonFill};
+  }
+
+  > * {
+    vertical-align: middle;
+  }
+`;
 
 export const composeFilters = <T,>(filters: ((member: T) => boolean | undefined)[]) => (value: T) => {
   const results = filters.map((fn) => fn(value));
@@ -34,40 +69,6 @@ export function useCtrlFHook<T extends HTMLElement>() {
 
   return ref;
 }
-
-const SearchBoxWrapper = styled.div`
-  display: flex;
-  flex-flow: row;
-  background-color: ${colors.additional};
-  border: 1px solid black;
-`;
-
-const SearchBoxInput = styled.input`
-  flex: 1;
-  padding: 6px 8px;
-  background: none;
-  border: none;
-  font-size: 22px;
-  outline: none;
-  color: ${colors.text};
-
-  ::placeholder {
-    color: ${darken(0.2, colors.text)};
-  }
-`;
-
-const SearchButton = styled.button<{ isUpdated: boolean }>`
-  border: none;
-  background-color: ${({ isUpdated }) => darken(isUpdated ? 0 : 0.1, colors.searchButton)};
-
-  path {
-    fill: ${({ isUpdated }) => darken(isUpdated ? 0 : 0.3, colors.text)};
-  }
-
-  > * {
-    vertical-align: middle;
-  }
-`;
 
 export function SearchBox({ baseUrl, className }: { baseUrl: string; className?: string }) {
   const routerSearch = useRouterSearch();
@@ -111,6 +112,15 @@ export function SearchBox({ baseUrl, className }: { baseUrl: string; className?:
 
   return (
     <SearchBoxWrapper className={className}>
+      <SearchButton
+        isUpdated={search !== routerSearch}
+        onClick={handleSearchButton}
+        onMouseDown={handleSearchButtonMouseDown}
+        title="Search"
+      >
+        <SearchIcon width={16} height={16} />
+      </SearchButton>
+
       <SearchBoxInput
         placeholder="Search..."
         ref={ref}
@@ -119,14 +129,6 @@ export function SearchBox({ baseUrl, className }: { baseUrl: string; className?:
         onKeyUp={handleKey}
         aria-label="Search"
       />
-      <SearchButton
-        isUpdated={search !== routerSearch}
-        onClick={handleSearchButton}
-        onMouseDown={handleSearchButtonMouseDown}
-        title="Search"
-      >
-        <SearchIcon width={25} height={25} />
-      </SearchButton>
     </SearchBoxWrapper>
   );
 }
