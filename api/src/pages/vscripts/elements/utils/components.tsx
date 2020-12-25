@@ -27,14 +27,14 @@ const AvailabilityBadgeBox = styled.div<{ color: string; active: boolean }>`
   height: 20px;
   text-align: center;
   user-select: none;
-  background: radial-gradient(${props => props.color}, ${props => darken(0.22, props.color)});
+  background: radial-gradient(${(props) => props.color}, ${(props) => darken(0.22, props.color)});
   color: white;
   border-radius: 3px;
   font-weight: bold;
   text-shadow: 1px 1px 1px black;
   box-shadow: 1px 1px 1px #00000030;
 
-  ${props =>
+  ${(props) =>
     !props.active &&
     css`
       box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
@@ -102,11 +102,11 @@ export const SearchOnGoogle: React.FC<{ name: string }> = ({ name }) => {
 
 const StyledReferencesLink = styled(NavLink)`
   margin-right: 4px;
-  color: ${props => props.theme.text};
+  color: ${(props) => props.theme.text};
   font-size: 14px;
   &.active {
     text-decoration: none;
-    color: ${props => darken(0.1, props.theme.text)};
+    color: ${(props) => darken(0.1, props.theme.text)};
     cursor: default;
   }
 `;

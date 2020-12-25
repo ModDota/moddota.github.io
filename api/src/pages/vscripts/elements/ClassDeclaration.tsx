@@ -14,8 +14,7 @@ import {
 } from "./utils/styles";
 import { Types } from "./utils/types";
 
-const ClassWrapper = styled(CommonGroupWrapper)`
-`;
+const ClassWrapper = styled(CommonGroupWrapper)``;
 
 const ClassHeader = styled(CommonGroupHeader)`
   padding: 5px;
@@ -29,7 +28,7 @@ const ClassName = styled.span`
 const ClassExtendsWrapper = styled.span`
   font-size: 14px;
   font-weight: normal;
-  color: ${props => props.theme.textDim};
+  color: ${(props) => props.theme.textDim};
 `;
 
 const ClassExtends: React.FC<{ extend: string }> = ({ extend }) => (

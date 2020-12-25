@@ -17,9 +17,9 @@ export const NavBar = () => (
 
 const NavBarWrapper = styled.nav`
   display: flex;
-  background-color: ${props => props.theme.navbar};
-  border-bottom: 1px solid ${props => props.theme.navbarShadow};
-  box-shadow: 0 0 4px ${props => props.theme.navbarShadow};
+  background-color: ${(props) => props.theme.navbar};
+  border-bottom: 1px solid ${(props) => props.theme.navbarShadow};
+  box-shadow: 0 0 4px ${(props) => props.theme.navbarShadow};
   margin-bottom: 8px;
 `;
 
@@ -36,11 +36,11 @@ const NavBarLink = styled(NavLink)`
   font-weight: 600;
   text-decoration: none;
 
-  color: ${props => darken(0.2, props.theme.text)};
-  text-shadow: 1px 1px 2px ${props => props.theme.navbarLinkShadow};
+  color: ${(props) => darken(0.2, props.theme.text)};
+  text-shadow: 1px 1px 2px ${(props) => props.theme.navbarLinkShadow};
 
   &.active {
-    color: ${props => props.theme.highlight};
+    color: ${(props) => props.theme.highlight};
   }
 `;
 
@@ -53,23 +53,23 @@ function NavBarThemeSwitcher() {
       activeLabel="🌜"
       colors={{
         active: {
-          base: "#101010"
+          base: "#101010",
         },
         inactive: {
-          base: "#c0c0c0"
+          base: "#c0c0c0",
         },
         activeThumb: {
-          base: "#606060"
+          base: "#606060",
         },
         inactiveThumb: {
-          base: "#ffffff"
-        }
+          base: "#ffffff",
+        },
       }}
       activeLabelStyle={{
-        fontSize: "18px"
+        fontSize: "18px",
       }}
       inactiveLabelStyle={{
-        fontSize: "18px"
+        fontSize: "18px",
       }}
       trackStyle={{
         height: "24px",
@@ -80,10 +80,10 @@ function NavBarThemeSwitcher() {
         borderWidth: "3px",
       }}
       passThroughInputProps={{
-        "aria-label": "Dark Mode Toggle"
+        "aria-label": "Dark Mode Toggle",
       }}
       value={appContext.darkmode}
       onToggle={(v) => appContext.setDarkmode(!v)}
-      />
+    />
   );
 }

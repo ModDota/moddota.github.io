@@ -10,8 +10,7 @@ const FieldWrapper = styled(CommonGroupWrapper)`
   padding: 4px;
 `;
 
-const FieldSignature = styled(CommonGroupSignature)`
-`;
+const FieldSignature = styled(CommonGroupSignature)``;
 
 export const Field: React.FC<{
   className?: string;

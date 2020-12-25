@@ -14,16 +14,16 @@ export const GlobalStyle = createGlobalStyle`
 
         &-track {
             margin: 2px;
-            background: ${props => props.theme.scrollbar.track};
+            background: ${(props) => props.theme.scrollbar.track};
             border-radius: 4px;
         }
 
         &-thumb {
-            background: ${props => props.theme.scrollbar.thumb};
+            background: ${(props) => props.theme.scrollbar.thumb};
             border-radius: 4px;
 
             &:hover {
-                background: ${props => darken(0.09, props.theme.scrollbar.thumb)};
+                background: ${(props) => darken(0.09, props.theme.scrollbar.thumb)};
             }
         }
     }

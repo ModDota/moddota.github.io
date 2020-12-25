@@ -6,25 +6,25 @@ import { IconKind, KindIcon } from "~components/KindIcon";
 import { intersperseWith } from "~utils/types";
 
 const SidebarLink = styled(NavLink)`
-  background: ${props => props.theme.sidebar};
+  background: ${(props) => props.theme.sidebar};
   border-bottom: 3px solid transparent;
   border-radius: 3px;
   padding: 2px 2px 0 2px;
   text-decoration: none;
-  color: ${props => props.theme.text};
+  color: ${(props) => props.theme.text};
 
   :not(:last-child) {
     margin-bottom: 3px;
   }
 
   &:hover {
-    background: ${props => darken(0.09, props.theme.sidebar)};
+    background: ${(props) => darken(0.09, props.theme.sidebar)};
   }
 
   &.active {
     font-weight: 600;
-    background: ${props => darken(0.09, props.theme.sidebar)};
-    border-bottom: 3px solid ${props => props.theme.highlight};
+    background: ${(props) => darken(0.09, props.theme.sidebar)};
+    border-bottom: 3px solid ${(props) => props.theme.highlight};
   }
 `;
 

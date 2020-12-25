@@ -12,8 +12,8 @@ const AppWrapper = styled.div`
   display: flex;
   flex-flow: column;
   height: 100%;
-  background-color: ${props => props.theme.background};
-  color: ${props => props.theme.text};
+  background-color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.text};
 `;
 
 const PageContent = styled.div`
@@ -26,16 +26,16 @@ function App() {
   const [darkmode, setDarkmode] = React.useState(false);
 
   useEffect(() => {
-    const dark = window.localStorage.getItem('darkmode');
+    const dark = window.localStorage.getItem("darkmode");
     setDarkmode(dark == true.toString());
   });
-  
+
   const appContext = {
     darkmode: darkmode,
-    setDarkmode(dark : boolean) {
-      window.localStorage.setItem('darkmode', dark.toString());
+    setDarkmode(dark: boolean) {
+      window.localStorage.setItem("darkmode", dark.toString());
       setDarkmode(dark);
-    }
+    },
   };
 
   return (

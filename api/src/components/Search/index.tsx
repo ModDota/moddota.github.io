@@ -7,8 +7,8 @@ import SearchIcon from "./search.svg";
 const SearchBoxWrapper = styled.div`
   display: flex;
   flex-flow: row;
-  background-color: ${props => props.theme.searchbox.background};
-  border: ${props => props.theme.searchbox.border};
+  background-color: ${(props) => props.theme.searchbox.background};
+  border: ${(props) => props.theme.searchbox.border};
   border-radius: 32px;
   padding-left: 6px;
 `;
@@ -19,20 +19,20 @@ const SearchBoxInput = styled.input`
   background: none;
   border: none;
   outline: none;
-  color: ${props => props.theme.text};
+  color: ${(props) => props.theme.text};
   font-size: 14px;
 
   ::placeholder {
-    color: ${props => props.theme.searchbox.placeholder};
+    color: ${(props) => props.theme.searchbox.placeholder};
   }
 `;
 
 const SearchButton = styled.button<{ isUpdated: boolean }>`
   border: none;
-  background-color: ${props => darken(props.isUpdated ? 0 : 0.1, props.theme.searchbox.button)};
+  background-color: ${(props) => darken(props.isUpdated ? 0 : 0.1, props.theme.searchbox.button)};
 
   path {
-    fill: ${props => props.isUpdated ? props.theme.searchbox.buttonFillUpdated : props.theme.searchbox.buttonFill};
+    fill: ${(props) => (props.isUpdated ? props.theme.searchbox.buttonFillUpdated : props.theme.searchbox.buttonFill)};
   }
 
   > * {

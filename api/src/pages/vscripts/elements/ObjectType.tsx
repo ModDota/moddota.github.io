@@ -23,7 +23,6 @@ const ObjectField = styled(Field)`
   font-size: 12px;
 `;
 
-
 export const ObjectType: React.FC<{
   className?: string;
   declaration: apiTypes.Object;

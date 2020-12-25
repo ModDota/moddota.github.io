@@ -34,7 +34,7 @@ const EventSourceFileWrapper = styled.a`
   border-radius: 5px;
   background-color: rgb(37, 134, 224);
   text-decoration: none;
-  color: ${props => props.theme.text};
+  color: ${(props) => props.theme.text};
 `;
 
 function EventSourceFile({ sourceFile }: { sourceFile: string }) {

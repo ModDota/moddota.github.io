@@ -32,7 +32,7 @@ const StyledElementLink = styled(Link)`
   font-size: 24px;
   line-height: 1;
   text-decoration: none;
-  color: ${props => props.theme.text};
+  color: ${(props) => props.theme.text};
   user-select: none;
   font-family: Arial, Helvetica, sans-serif;
 `;
