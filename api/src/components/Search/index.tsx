@@ -7,6 +7,7 @@ import SearchIcon from "./search.svg";
 const SearchBoxWrapper = styled.div`
   display: flex;
   flex-flow: row;
+  flex-shrink: 0;
   background-color: ${(props) => props.theme.searchbox.background};
   border: ${(props) => props.theme.searchbox.border};
   border-radius: 32px;

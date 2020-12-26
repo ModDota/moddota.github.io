@@ -21,6 +21,11 @@ export const TextMessage = styled.div`
   align-self: center;
   font-size: 42px;
   text-align: center;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+    font-size: 20px;
+  }
 `;
 
 export const ListItem = styled.div`

@@ -17,6 +17,7 @@ const TextMessageAuthor = styled.div`
   align-self: center;
   font-size: 18px;
   color: ${(props) => props.theme.text};
+  overflow-y: auto;
 `;
 
 export function Author() {

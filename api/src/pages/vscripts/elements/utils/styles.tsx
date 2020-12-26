@@ -11,6 +11,7 @@ export const CommonGroupWrapper = styled.div<{ isLinked?: boolean }>`
   border-radius: 4px;
   box-shadow: 2px 2px 6px ${(props) => props.theme.groupShadow};
   padding: 1px;
+  word-break: break-all;
 
   ${(props) =>
     props.isLinked &&
@@ -36,7 +37,6 @@ export const CommonGroupMembers = styled.div`
 
 export const CommonGroupHeader = styled.div`
   display: flex;
-  word-break: break-all;
 
   @media (max-width: 768px) {
     flex-direction: column;
