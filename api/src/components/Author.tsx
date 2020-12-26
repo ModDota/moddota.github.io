@@ -14,6 +14,7 @@ const TextMessageAuthor = styled.div`
   box-shadow: 2px 2px 4px #00000030;
   padding: 15px;
   margin-top: 50px;
+  margin-right: 20px;
   align-self: center;
   font-size: 18px;
   color: ${(props) => props.theme.text};

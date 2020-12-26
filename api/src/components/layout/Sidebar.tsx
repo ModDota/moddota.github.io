@@ -58,4 +58,8 @@ export const SidebarWrapper = styled.div`
   flex-flow: column;
   overflow-y: scroll;
   padding: 2px 12px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
