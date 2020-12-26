@@ -10,8 +10,7 @@
     "extends": "@ark120202/eslint-config/node",
     "parserOptions": {
       "project": [
-        "tsconfig.json",
-        "src/tsconfig.json"
+        "tsconfig.json"
       ]
     },
     "rules": {

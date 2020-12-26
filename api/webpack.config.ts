@@ -12,7 +12,7 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import type {} from "webpack-dev-server";
 
 const resolve = (name: string) => path.resolve(__dirname, name);
-const tsconfigPath = resolve("src/tsconfig.json");
+const tsconfigPath = resolve("tsconfig.json");
 
 export default (env: Record<string, any> = {}, argv: Configuration): Configuration => {
   const isProduction = argv.mode === "production";

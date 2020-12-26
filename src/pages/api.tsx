@@ -1,9 +1,9 @@
 import React from "react";
-import { Redirect, Route, Switch } from "@docusaurus/router";
+import { Switch, Route, Redirect } from '@docusaurus/router'
 import styled from "styled-components";
 
-const EventsPage = React.lazy(() => import(/* webpackChunkName: "events" */ "./events"));
-const VScriptsPage = React.lazy(() => import(/* webpackChunkName: "vscripts" */ "./vscripts"));
+const EventsPage = React.lazy(() => import("../../api/src/pages/events"));
+const VScriptsPage = React.lazy(() => import("../../api/src/pages/vscripts"));
 
 const ErrorPage = styled.div`
   margin: auto;

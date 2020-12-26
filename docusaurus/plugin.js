@@ -21,6 +21,14 @@ module.exports = () => ({
                             "sass-loader",
                         ],
                     },
+                    {
+                        test: /\.svg$/,
+                        use: [{ loader: "@svgr/webpack", options: { babel: false, dimensions: false } }],
+                    },
+                    {
+                        test: /\.png$/,
+                        use: [{ loader: "file-loader" }],
+                    },
                 ],
             },
             plugins: [
@@ -28,7 +36,7 @@ module.exports = () => ({
                     ? []
                     : [
                           new ForkTsCheckerWebpackPlugin({
-                              typescript: { configFile: resolve("../src/tsconfig.json") },
+                              typescript: { configFile: resolve("../tsconfig.json") },
                           }),
                       ]),
             ],
