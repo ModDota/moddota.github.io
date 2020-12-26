@@ -16,12 +16,6 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run lint
-      - run: yarn --frozen-lockfile
-        working-directory: api
-      - run: yarn lint
-        working-directory: api
-      - run: yarn build
-        working-directory: api
       - uses: actions/upload-artifact@v1
         with:
           name: build
