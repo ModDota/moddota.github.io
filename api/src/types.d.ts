@@ -12,3 +12,5 @@ declare module "*.svg" {
 
   export default function value(props: JSX.IntrinsicElements["svg"] & Props): JSX.Element;
 }
+
+declare module "*.png";

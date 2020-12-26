@@ -4,9 +4,14 @@ import styled from "styled-components";
 import ToggleButton from "react-toggle-button";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "~components/AppContext";
+import ModDotaLogo from "~components/ModDotaLogo.png";
 
 export const NavBar = () => (
   <NavBarWrapper>
+    <HomeBrandLink href="/">
+      <img src={ModDotaLogo} />
+      <span>ModDota</span>
+    </HomeBrandLink>
     <NavBarLink to="/vscripts">Lua API</NavBarLink>
     <NavBarLink to="/events">Game Events</NavBarLink>
     <NavBarRight>
@@ -14,6 +19,25 @@ export const NavBar = () => (
     </NavBarRight>
   </NavBarWrapper>
 );
+
+const HomeBrandLink = styled.a`
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: ${(props) => props.theme.text};
+  text-shadow: 1px 1px 2px ${(props) => props.theme.navbarLinkShadow};
+  padding: 0 20px;
+
+  &.active {
+    color: ${(props) => props.theme.highlight};
+  }
+  img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+  }
+`;
 
 const NavBarWrapper = styled.nav`
   display: flex;
