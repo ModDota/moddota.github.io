@@ -52,6 +52,11 @@ const Description = styled.div`
   margin: 4px 0 0 28px;
   padding: 6px 0;
   border-top: 1px solid ${(props) => props.theme.groupSeparator};
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+    padding-left: 2px;
+  }
 `;
 
 export const OptionalDescription: React.FC<{
