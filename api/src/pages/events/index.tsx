@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { HashScrollHandler } from "~components/ElementLink";
-import { SidebarElement, SidebarWrapper } from "~components/layout/Sidebar";
+import { HashScrollHandler } from "../../components/ElementLink";
+import { SidebarElement, SidebarWrapper } from "../../components/layout/Sidebar";
 import { Content } from "./Content";
 import { events } from "./data";
 import { EventStar } from "./utils";

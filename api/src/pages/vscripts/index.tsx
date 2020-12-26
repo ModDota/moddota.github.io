@@ -1,7 +1,7 @@
 import { allData } from "@moddota/dota-data/lib/helpers/vscripts";
 import React from "react";
-import { HashScrollHandler } from "~components/ElementLink";
-import { SidebarElement, SidebarWrapper } from "~components/layout/Sidebar";
+import { HashScrollHandler } from "../../components/ElementLink";
+import { SidebarElement, SidebarWrapper } from "../../components/layout/Sidebar";
 import { Content } from "./Content";
 
 const Sidebar = () => (

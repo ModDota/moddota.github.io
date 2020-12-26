@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import ToggleButton from "react-toggle-button";
 import { NavLink } from "react-router-dom";
-import { AppContext } from "~components/AppContext";
-import ModDotaLogo from "~components/ModDotaLogo.png";
+import { AppContext } from "..//AppContext";
+import ModDotaLogo from "../ModDotaLogo.png";
 
 export const NavBar = () => (
   <NavBarWrapper>

@@ -3,8 +3,8 @@ import apiTypes from "@moddota/dota-data/files/vscripts/api-types";
 import enums from "@moddota/dota-data/files/vscripts/enums";
 import { allData, AllDataType, getFuncDeepTypes } from "@moddota/dota-data/lib/helpers/vscripts";
 import { useParams } from "react-router-dom";
-import { composeFilters, useRouterSearch } from "~components/Search";
-import { isNotNil } from "~utils/types";
+import { composeFilters, useRouterSearch } from "../../components/Search";
+import { isNotNil } from "../../utils/types";
 
 export function useFilteredData() {
   const search = useRouterSearch();

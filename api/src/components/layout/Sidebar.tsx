@@ -2,8 +2,8 @@ import { darken } from "polished";
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import { IconKind, KindIcon } from "~components/KindIcon";
-import { intersperseWith } from "~utils/types";
+import { IconKind, KindIcon } from "../KindIcon";
+import { intersperseWith } from "../../utils/types";
 
 const SidebarLink = styled(NavLink)`
   background: ${(props) => props.theme.sidebar};

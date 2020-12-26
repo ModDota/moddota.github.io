@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { DefaultTheme, ThemeContext } from "styled-components";
-import { Theme } from "~components/Themes";
+import { Theme } from "./Themes";
 
 export type ColoredSyntaxKind = keyof Theme["syntax"];
 

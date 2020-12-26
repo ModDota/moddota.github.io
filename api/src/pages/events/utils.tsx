@@ -1,5 +1,5 @@
 import React from "react";
-import { ElementLink as RawElementLink, useLinkedElement as useLinkedElementRaw } from "~components/ElementLink";
+import { ElementLink as RawElementLink, useLinkedElement as useLinkedElementRaw } from "../../components/ElementLink";
 
 export function EventStar({ className }: { className?: string }) {
   return (

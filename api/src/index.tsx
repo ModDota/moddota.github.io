@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { render } from "react-dom";
 import { HashRouter } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
-import { NavBar } from "~components/layout/NavBar";
-import { themeModdotaDark, themeModdotaLight } from "~components/Themes";
+import { NavBar } from "./components/layout/NavBar";
+import { themeModdotaDark, themeModdotaLight } from "./components/Themes";
 import { AppRoutes } from "./pages";
-import { GlobalStyle } from "~components/GlobalStyle";
-import { AppContext } from "~components/AppContext";
+import { GlobalStyle } from "./components/GlobalStyle";
+import { AppContext } from "./components/AppContext";
 
 const AppWrapper = styled.div`
   display: flex;

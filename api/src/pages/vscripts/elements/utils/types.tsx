@@ -4,8 +4,8 @@ import React, { useMemo, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { ThemeContext } from "styled-components";
 import invariant from "tiny-invariant";
-import { ColoredSyntax, ColoredSyntaxKind, getSyntaxColorFor } from "~components/ColoredSyntax";
-import { assertNever, intersperse } from "~utils/types";
+import { ColoredSyntax, ColoredSyntaxKind, getSyntaxColorFor } from "../../../../components/ColoredSyntax";
+import { assertNever, intersperse } from "../../../../utils/types";
 
 export const Types: React.FC<{ types: api.Type[] }> = ({ types }) => (
   <>

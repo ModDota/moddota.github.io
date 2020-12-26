@@ -47,10 +47,6 @@ export default (env: Record<string, any> = {}, argv: Configuration): Configurati
     devtool: isProduction ? "nosources-source-map" : "eval-source-map",
     resolve: {
       extensions: [".ts", ".tsx", ".js", ".json"],
-      alias: {
-        "~utils": resolve("src/utils"),
-        "~components": resolve("src/components"),
-      },
     },
     optimization: {
       moduleIds: isProduction ? "hashed" : undefined,

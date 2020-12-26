@@ -1,7 +1,7 @@
 import api from "@moddota/dota-data/files/vscripts/enums";
 import React from "react";
 import styled from "styled-components";
-import { ColoredSyntax } from "~components/ColoredSyntax";
+import { ColoredSyntax } from "../../../components/ColoredSyntax";
 import { ElementLink, KindIcon, ReferencesLink } from "./utils/components";
 import {
   CommonGroupHeader,

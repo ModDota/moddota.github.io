@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { ColoredSyntax } from "~components/ColoredSyntax";
+import { ColoredSyntax } from "../../components/ColoredSyntax";
 import { KindIcon } from "../vscripts/elements/utils/components";
 import {
   CommonGroupHeader,
