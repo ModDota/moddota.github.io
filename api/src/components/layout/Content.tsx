@@ -6,6 +6,10 @@ export const ContentWrapper = styled.main`
   display: flex;
   flex-flow: column;
   padding: 0 0 0 24px;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
 export const StyledSearchBox = styled(SearchBox)`

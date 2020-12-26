@@ -12,6 +12,7 @@ const SidebarLink = styled(NavLink)`
   padding: 2px 2px 0 2px;
   text-decoration: none;
   color: ${(props) => props.theme.text};
+  word-break: break-all;
 
   :not(:last-child) {
     margin-bottom: 3px;
@@ -58,6 +59,10 @@ export const SidebarWrapper = styled.div`
   flex-flow: column;
   overflow-y: scroll;
   padding: 2px 12px;
+
+  @media (max-width: 1100px) {
+    width: 200px;
+  }
 
   @media (max-width: 768px) {
     display: none;

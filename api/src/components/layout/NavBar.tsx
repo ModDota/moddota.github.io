@@ -37,6 +37,12 @@ const HomeBrandLink = styled.a`
     height: 32px;
     margin-right: 8px;
   }
+
+  @media (max-width: 500px) {
+    span {
+      display: none;
+    }
+  }
 `;
 
 const NavBarWrapper = styled.nav`

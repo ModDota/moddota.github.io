@@ -36,6 +36,11 @@ export const CommonGroupMembers = styled.div`
 
 export const CommonGroupHeader = styled.div`
   display: flex;
+  word-break: break-all;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const CommonGroupSignature = styled.div`
@@ -62,5 +67,11 @@ export const ElementBadges = styled.div`
   align-items: center;
   > * {
     margin-left: 5px;
+  }
+
+  @media (max-width: 768px) {
+    > :first-child {
+      margin-left: 0;
+    }
   }
 `;

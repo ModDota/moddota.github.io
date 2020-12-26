@@ -29,6 +29,10 @@ const ClassExtendsWrapper = styled.span`
   font-size: 14px;
   font-weight: normal;
   color: ${(props) => props.theme.textDim};
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 `;
 
 const ClassExtends: React.FC<{ extend: string }> = ({ extend }) => (
