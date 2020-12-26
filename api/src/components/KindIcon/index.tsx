@@ -21,7 +21,7 @@ export const KindIcon: React.FC<{
   kind: IconKind;
   size: "small" | "medium" | "big";
 }> = React.memo(({ className, kind, size }) => {
-  const sizes = size === "small" ? 16 : size == "medium" ? 20 : 24;
+  const sizes = size === "small" ? 16 : size === "medium" ? 20 : 24;
   const Element = iconToElementMap[kind];
   return <Element className={className} width={sizes} height={sizes} />;
 });

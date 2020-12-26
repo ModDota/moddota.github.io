@@ -29,10 +29,10 @@ declare module "react-toggle-button" {
     thumbStyleHover?: object;
     trackStyle?: object;
     trackStyleHover?: object;
-    animateThumbStyleHover?: Function;
-    animateTrackStyleHover?: Function;
-    animateTrackStyleToggle?: Function;
-    animateThumbStyleToggle?: Function;
+    animateThumbStyleHover?: (hover: number) => void;
+    animateTrackStyleHover?: (hover: number) => void;
+    animateTrackStyleToggle?: (toggle: number) => void;
+    animateThumbStyleToggle?: (toggle: number) => void;
     internalSpringSetting?: object;
     internalHoverSpringSetting?: object;
     thumbIcon?: string | object;

@@ -28,12 +28,12 @@ function App() {
   useEffect(() => {
     const themeName = window.localStorage.getItem("theme");
     setDarkmode(
-      themeName == "dark" || (themeName === null && window.matchMedia("(prefers-color-scheme: dark)").matches),
+      themeName === "dark" || (themeName === null && window.matchMedia("(prefers-color-scheme: dark)").matches),
     );
   });
 
   const appContext = {
-    darkmode: darkmode,
+    darkmode,
     setDarkmode(dark: boolean) {
       window.localStorage.setItem("theme", dark ? "dark" : "");
       setDarkmode(dark);

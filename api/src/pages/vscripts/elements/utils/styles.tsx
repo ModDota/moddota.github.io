@@ -16,11 +16,11 @@ export const CommonGroupWrapper = styled.div<{ isLinked?: boolean }>`
     props.isLinked &&
     css`
       border: 3px solid ${props.theme.highlight};
-      box-shadow: 2px 2px 12px ${(props) => props.theme.groupShadow};
+      box-shadow: 2px 2px 12px ${props.theme.groupShadow};
       background: linear-gradient(
         to right,
-        ${(props) => mix(0.15, props.theme.highlight, props.theme.group)},
-        ${(props) => props.theme.group}
+        ${mix(0.15, props.theme.highlight, props.theme.group)},
+        ${props.theme.group}
       );
     `}
 `;
