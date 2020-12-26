@@ -69,6 +69,10 @@ export default (env: Record<string, any> = {}, argv: Configuration): Configurati
             { loader: "@svgr/webpack", options: { babel: false, dimensions: false } },
           ],
         },
+        {
+          test: /\.png$/,
+          use: [{ loader: "file-loader" }],
+        },
       ],
     },
 

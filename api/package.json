@@ -38,6 +38,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
+    "react-toggle-button": "^2.2.0",
     "react-virtualized": "^9.22.2",
     "styled-components": "^5.2.1",
     "tiny-invariant": "^1.1.0"

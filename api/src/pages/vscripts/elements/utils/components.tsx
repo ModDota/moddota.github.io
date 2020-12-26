@@ -1,11 +1,10 @@
 import { Availability } from "@moddota/dota-data/files/vscripts/api";
-import { darken, lighten } from "polished";
+import { darken } from "polished";
 import React, { useMemo } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { ElementLink as RawElementLink, useLinkedElement as useLinkedElementRaw } from "~components/ElementLink";
 import { KindIcon as UnstyledKindIcon } from "~components/KindIcon";
-import { colors } from "~utils/constants";
 import { doSearch } from "../../data";
 import SearchGitHubIcon from "./search-github.svg";
 import SearchGoogleIcon from "./search-google.svg";
@@ -29,12 +28,18 @@ const AvailabilityBadgeBox = styled.div<{ color: string; active: boolean }>`
   text-align: center;
   user-select: none;
   background: radial-gradient(${(props) => props.color}, ${(props) => darken(0.22, props.color)});
+  color: white;
+  border-radius: 3px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px black;
+  box-shadow: 1px 1px 1px #00000030;
 
   ${(props) =>
     !props.active &&
     css`
       box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
       filter: saturate(10%);
+      opacity: 40%;
     `}
 `;
 
@@ -64,14 +69,15 @@ export const AvailabilityBadge: React.FC<{ available: Availability }> = ({ avail
 const SearchWrapper = styled.a.attrs({ target: "_blank", rel: "noreferrer noopener" })`
   display: block;
   border-radius: 3px;
-  border: 1px solid ${lighten(0.3, "black")};
   background-color: ${darken(0.1, "white")};
-  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
   line-height: 1;
-  padding-left: 3px;
-  padding-top: 3px;
-  padding-right: 1px;
-  padding-bottom: 1px;
+  width: 20px;
+  height: 20px;
+  box-shadow: 1px 1px 1px #00000030;
+
+  > * {
+    margin: 2px;
+  }
 `;
 
 export const SearchOnGitHub: React.FC<{ name: string }> = ({ name }) => {
@@ -79,7 +85,7 @@ export const SearchOnGitHub: React.FC<{ name: string }> = ({ name }) => {
   const href = `https://github.com/search?l=Lua&q=${query}&type=Code`;
   return (
     <SearchWrapper href={href} title="Search on GitHub">
-      <SearchGitHubIcon width={22} height={22} />
+      <SearchGitHubIcon width={16} height={16} />
     </SearchWrapper>
   );
 };
@@ -89,18 +95,18 @@ export const SearchOnGoogle: React.FC<{ name: string }> = ({ name }) => {
   const href = `https://www.google.com/search?q=${query}`;
   return (
     <SearchWrapper href={href} title="Search on Google">
-      <SearchGoogleIcon width={22} height={22} />
+      <SearchGoogleIcon width={16} height={16} />
     </SearchWrapper>
   );
 };
 
 const StyledReferencesLink = styled(NavLink)`
   margin-right: 4px;
-  color: ${colors.text};
-  font-size: 18px;
+  color: ${(props) => props.theme.text};
+  font-size: 14px;
   &.active {
     text-decoration: none;
-    color: ${darken(0.1, colors.text)};
+    color: ${(props) => darken(0.1, props.theme.text)};
     cursor: default;
   }
 `;

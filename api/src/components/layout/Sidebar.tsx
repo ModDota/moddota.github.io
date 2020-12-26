@@ -3,26 +3,28 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { IconKind, KindIcon } from "~components/KindIcon";
-import { colors } from "~utils/constants";
 import { intersperseWith } from "~utils/types";
 
 const SidebarLink = styled(NavLink)`
-  padding: 2px;
-  border: 1px solid black;
-  background-color: ${colors.mainLight};
+  background: ${(props) => props.theme.sidebar};
+  border-bottom: 3px solid transparent;
+  border-radius: 3px;
+  padding: 2px 2px 0 2px;
   text-decoration: none;
-  color: ${colors.text};
+  color: ${(props) => props.theme.text};
 
   :not(:last-child) {
     margin-bottom: 3px;
   }
 
   &:hover {
-    background-color: ${darken(0.09, colors.mainLight)};
+    background: ${(props) => darken(0.09, props.theme.sidebar)};
   }
 
   &.active {
-    background-color: ${darken(0.16, colors.mainLight)};
+    font-weight: 600;
+    background: ${(props) => darken(0.09, props.theme.sidebar)};
+    border-bottom: 3px solid ${(props) => props.theme.highlight};
   }
 `;
 
@@ -55,5 +57,9 @@ export const SidebarWrapper = styled.div`
   display: flex;
   flex-flow: column;
   overflow-y: scroll;
-  padding: 4px 6px;
+  padding: 2px 12px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

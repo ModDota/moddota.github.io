@@ -1,27 +1,36 @@
-import { darken } from "polished";
 import React from "react";
 import styled, { css } from "styled-components";
-import { colors } from "~utils/constants";
+import { lighten, mix } from "polished";
 
 export const CommonGroupWrapper = styled.div<{ isLinked?: boolean }>`
   display: flex;
   flex-flow: column;
-  border: 1px solid black;
-  background-color: ${colors.mainLight};
+  background-color: ${(props) => props.theme.group};
+  border: 1px solid ${(props) => props.theme.groupBorder};
+  border-top-color: ${(props) => lighten(0.1, props.theme.groupBorder)};
+  border-radius: 4px;
+  box-shadow: 2px 2px 6px ${(props) => props.theme.groupShadow};
+  padding: 1px;
+
   ${(props) =>
     props.isLinked &&
     css`
-      background-color: ${darken(0.12, colors.mainLight)};
+      border: 3px solid ${props.theme.highlight};
+      box-shadow: 2px 2px 12px ${props.theme.groupShadow};
+      background: linear-gradient(
+        to right,
+        ${mix(0.15, props.theme.highlight, props.theme.group)},
+        ${props.theme.group}
+      );
     `}
 `;
 
 export const CommonGroupMembers = styled.div`
-  border-top: 1px solid black;
-  background-color: ${colors.mainDark};
-  padding: 8px;
+  background-color: ${(props) => props.theme.groupMembers};
+  padding: 8px 8px 8px 30px;
 
   > :not(:last-child) {
-    margin-bottom: 7px;
+    margin-bottom: 3px;
   }
 `;
 
@@ -31,22 +40,20 @@ export const CommonGroupHeader = styled.div`
 
 export const CommonGroupSignature = styled.div`
   flex: 1;
-  font-size: 24px;
+  font-weight: 600;
 `;
 
-const DescriptionSeparator = styled.hr`
-  margin: 3px 10px;
-  background-color: ${colors.lightest};
+const Description = styled.div`
+  margin: 4px 0 0 28px;
+  padding: 6px 0;
+  border-top: 1px solid ${(props) => props.theme.groupSeparator};
 `;
 
 export const OptionalDescription: React.FC<{
   className?: string;
   description?: React.ReactNode;
 }> = ({ className, description }) => (
-  <>
-    {description && <DescriptionSeparator />}
-    {description && <div className={className}>{description}</div>}
-  </>
+  <>{description && <Description className={className}>{description}</Description>}</>
 );
 
 export const ElementBadges = styled.div`

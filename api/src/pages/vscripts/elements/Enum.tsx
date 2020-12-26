@@ -33,7 +33,7 @@ const EnumHeader = styled(CommonGroupHeader)`
 
 const EnumMembers = styled(CommonGroupMembers)`
   > :not(:last-child) {
-    margin-bottom: 2px;
+    margin-bottom: 1px;
   }
 `;
 

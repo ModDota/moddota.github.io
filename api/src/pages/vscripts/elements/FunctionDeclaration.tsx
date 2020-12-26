@@ -29,7 +29,7 @@ const FunctionSignature = styled(CommonGroupSignature)`
 `;
 
 const ObjectReferences = styled.div`
-  margin: 0 25px;
+  margin: 8px 25px 0 25px;
   margin-bottom: 7px;
 
   > :not(:last-child) {
@@ -40,15 +40,14 @@ const ObjectReferences = styled.div`
 
 const ParameterDescription = styled.li`
   list-style: none;
-  margin-left: 8px;
-  line-height: 1.7;
+  margin-left: 20px;
+  margin-bottom: 6px;
+  padding: 2px;
+  font-size: 13px;
+`;
 
-  code {
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 3px;
-    border-radius: 4px;
-    border: 1px solid black;
-  }
+const ParameterDescriptionName = styled.span`
+  font-weight: 600;
 `;
 
 export const FunctionDeclaration: React.FC<{
@@ -68,7 +67,7 @@ export const FunctionDeclaration: React.FC<{
         .filter((arg) => arg.description)
         .map((arg) => (
           <ParameterDescription key={arg.name}>
-            <code>{arg.name}</code> - {arg.description}
+            <ParameterDescriptionName>{arg.name}</ParameterDescriptionName>: {arg.description}
           </ParameterDescription>
         )),
     [declaration],

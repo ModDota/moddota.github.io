@@ -1,28 +1,37 @@
 import React from "react";
 import styled from "styled-components";
+import { mix } from "polished";
 
 const TextMessageAuthor = styled.div`
   max-width: 600px;
-  border: 2px solid #000;
+  border: 3px solid ${(props) => props.theme.authorEpitaph};
+  border-radius: 3px;
+  background: linear-gradient(
+    to bottom,
+    ${(props) => mix(0.15, props.theme.authorEpitaph, props.theme.group)},
+    ${(props) => props.theme.group}
+  );
+  box-shadow: 2px 2px 4px #00000030;
   padding: 15px;
   margin-top: 50px;
+  margin-right: 20px;
   align-self: center;
-  font-size: 20px;
-  color: #cddc39;
+  font-size: 18px;
+  color: ${(props) => props.theme.text};
 `;
 
 export function Author() {
   return (
     <TextMessageAuthor>
-      This page was created by <b>ark120202</b> who unfortunately has passed away on 29th November 2020 at the age of
-      18.
-      <br />
-      <br />
-      ark120202 was a pillar and champion of this community, he spent countless hours helping others, developing tools,
-      and selflessly sharing his brilliance and intelligence to all that asked for help.
-      <br />
-      <br />
-      You will always be remembered. — ModDota Community
+      <p>
+        This page was created by <b>ark120202</b> who unfortunately has passed away on 29th November 2020 at the age of
+        18.
+      </p>
+      <p>
+        ark120202 was a pillar and champion of this community, he spent countless hours helping others, developing
+        tools, and selflessly sharing his brilliance and intelligence to all that asked for help.
+      </p>
+      <p>You will always be remembered. — ModDota Community</p>
     </TextMessageAuthor>
   );
 }

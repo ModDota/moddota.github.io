@@ -27,7 +27,7 @@ export function EventField({ field, context }: { field: data.EventField; context
     <EventFieldWrapper id={field.name} isLinked={isLinked}>
       <CommonGroupHeader>
         <EventFieldSignature>
-          <KindIcon kind="field" size="big" />
+          <KindIcon kind="field" size="medium" />
           {field.name}: <ColoredSyntax kind="literal">{field.type}</ColoredSyntax>
         </EventFieldSignature>
 

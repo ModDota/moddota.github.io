@@ -19,9 +19,9 @@ const iconToElementMap: Record<IconKind, typeof import("*.svg").default> = {
 export const KindIcon: React.FC<{
   className?: string;
   kind: IconKind;
-  size: "small" | "big";
+  size: "small" | "medium" | "big";
 }> = React.memo(({ className, kind, size }) => {
-  const sizes = size === "small" ? 16 : 24;
+  const sizes = size === "small" ? 16 : size === "medium" ? 20 : 24;
   const Element = iconToElementMap[kind];
   return <Element className={className} width={sizes} height={sizes} />;
 });

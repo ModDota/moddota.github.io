@@ -32,7 +32,7 @@ export function Constant({
     <ConstantWrapper className={className} style={style} id={element.name} isLinked={isLinked}>
       <CommonGroupHeader>
         <ConstantSignature>
-          <KindIcon kind="constant" size="big" />
+          <KindIcon kind="constant" size="medium" />
           {element.name}:&nbsp;{element.value}
         </ConstantSignature>
         <ElementBadges>

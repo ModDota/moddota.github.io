@@ -1,7 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import { colors } from "~utils/constants";
 
 export function HashScrollHandler() {
   const { hash } = useLocation();
@@ -30,10 +29,10 @@ export function ElementLink({ root, scope, hash }: { root: string; scope: string
 
 const StyledElementLink = styled(Link)`
   margin-right: 2px;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 1;
   text-decoration: none;
-  color: ${colors.text};
+  color: ${(props) => props.theme.text};
   user-select: none;
   font-family: Arial, Helvetica, sans-serif;
 `;

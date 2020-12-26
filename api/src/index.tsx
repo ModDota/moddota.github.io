@@ -1,50 +1,19 @@
-import { darken, lighten } from "polished";
-import React from "react";
+import React, { useEffect } from "react";
 import { render } from "react-dom";
 import { HashRouter } from "react-router-dom";
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { NavBar } from "~components/layout/NavBar";
-import { colors } from "~utils/constants";
+import { themeModdotaDark, themeModdotaLight } from "~components/Themes";
 import { AppRoutes } from "./pages";
-
-const GlobalStyle = (() => {
-  const css = createGlobalStyle;
-  return css`
-    html,
-    body,
-    #root {
-      width: 100%;
-      height: 100%;
-      margin: 0;
-    }
-
-    ::-webkit-scrollbar {
-      width: 9px;
-
-      &-track {
-        background: ${darken(0.09, colors.background)};
-      }
-
-      &-thumb {
-        background: ${lighten(0.28, colors.background)};
-        border-radius: 4px;
-
-        &:hover {
-          background: ${lighten(0.24, colors.background)};
-        }
-      }
-    }
-  `;
-})();
+import { GlobalStyle } from "~components/GlobalStyle";
+import { AppContext } from "~components/AppContext";
 
 const AppWrapper = styled.div`
   display: flex;
   flex-flow: column;
   height: 100%;
-  background-color: ${colors.background};
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
-  color: ${colors.text};
+  background-color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.text};
 `;
 
 const PageContent = styled.div`
@@ -54,18 +23,39 @@ const PageContent = styled.div`
 `;
 
 function App() {
+  const [darkmode, setDarkmode] = React.useState(false);
+
+  useEffect(() => {
+    const themeName = window.localStorage.getItem("theme");
+    setDarkmode(
+      themeName === "dark" || (themeName === null && window.matchMedia("(prefers-color-scheme: dark)").matches),
+    );
+  });
+
+  const appContext = {
+    darkmode,
+    setDarkmode(dark: boolean) {
+      window.localStorage.setItem("theme", dark ? "dark" : "");
+      setDarkmode(dark);
+    },
+  };
+
   return (
-    <AppWrapper>
-      <GlobalStyle />
-      <HashRouter hashType="hashbang">
-        <NavBar />
-        <PageContent>
-          <React.Suspense fallback={null}>
-            <AppRoutes />
-          </React.Suspense>
-        </PageContent>
-      </HashRouter>
-    </AppWrapper>
+    <AppContext.Provider value={appContext}>
+      <ThemeProvider theme={darkmode ? themeModdotaDark : themeModdotaLight}>
+        <AppWrapper>
+          <GlobalStyle />
+          <HashRouter hashType="hashbang">
+            <NavBar />
+            <PageContent>
+              <React.Suspense fallback={null}>
+                <AppRoutes />
+              </React.Suspense>
+            </PageContent>
+          </HashRouter>
+        </AppWrapper>
+      </ThemeProvider>
+    </AppContext.Provider>
   );
 }
 

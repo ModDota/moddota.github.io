@@ -5,6 +5,7 @@ export const ContentWrapper = styled.main`
   flex: 1;
   display: flex;
   flex-flow: column;
+  padding: 0 0 0 24px;
 `;
 
 export const StyledSearchBox = styled(SearchBox)`
@@ -15,6 +16,7 @@ export const TextMessage = styled.div`
   margin-top: 50px;
   align-self: center;
   font-size: 42px;
+  text-align: center;
 `;
 
 export const ListItem = styled.div`

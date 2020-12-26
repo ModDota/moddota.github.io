@@ -14,17 +14,21 @@ import {
 } from "./utils/styles";
 import { Types } from "./utils/types";
 
+const ClassWrapper = styled(CommonGroupWrapper)``;
+
 const ClassHeader = styled(CommonGroupHeader)`
   padding: 5px;
 `;
 
 const ClassName = styled.span`
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
 `;
 
 const ClassExtendsWrapper = styled.span`
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: normal;
+  color: ${(props) => props.theme.textDim};
 `;
 
 const ClassExtends: React.FC<{ extend: string }> = ({ extend }) => (
@@ -33,14 +37,11 @@ const ClassExtends: React.FC<{ extend: string }> = ({ extend }) => (
   </ClassExtendsWrapper>
 );
 
-const ClassDescription = styled(OptionalDescription)`
-  font-size: 18px;
-  margin: 5px 20px;
-`;
-
 const ClassMembers = styled(CommonGroupMembers)`
+  padding: 8px;
+
   > :not(:last-child) {
-    margin-bottom: 10px;
+    margin-bottom: 14px;
   }
 `;
 
@@ -49,7 +50,7 @@ export const ClassDeclaration: React.FC<{
   style?: React.CSSProperties;
   declaration: api.ClassDeclaration;
 }> = ({ className, style, declaration }) => (
-  <CommonGroupWrapper className={className} style={style}>
+  <ClassWrapper className={className} style={style}>
     <ClassHeader>
       <CommonGroupSignature>
         <KindIcon kind="class" size="big" />
@@ -63,7 +64,7 @@ export const ClassDeclaration: React.FC<{
         <ElementLink scope={declaration.name} />
       </ElementBadges>
     </ClassHeader>
-    <ClassDescription description={declaration.description} />
+    <OptionalDescription description={declaration.description} />
     {declaration.members.length > 0 && (
       <ClassMembers>
         {declaration.members.map((member) =>
@@ -75,5 +76,5 @@ export const ClassDeclaration: React.FC<{
         )}
       </ClassMembers>
     )}
-  </CommonGroupWrapper>
+  </ClassWrapper>
 );
