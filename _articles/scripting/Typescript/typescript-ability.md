@@ -11,7 +11,7 @@ For this tutorial, I'm going to be demonstrating Typescript with a fairly, simpl
 
 This tutorial assumes you have basic knowledge of how abilities are registered for units or heroes. If you're not aware, I'd recommend the amazing guides by Elfansoer: [Ability Form](https://github.com/Elfansoer/dota-2-lua-abilities/wiki/Ability-Lua-Tutorial-1%3A-Ability-Form) and [Registering and Testing Ability](https://github.com/Elfansoer/dota-2-lua-abilities/wiki/Ability-Lua-Tutorial-2:-Registering-and-Testing-Ability). Note, however, that this guide assumes you'll be using Typescript instead of lua, so going over the rest of tutorials in Elfansoer's Ability Lua Tutorial are not required; however, he does a fantastic job explaining mechanics and techniques which are employed whenever coding an ability, regardless of language, so I'm going ahead and recommend going over those if you're interested.
 
-Before we start, I'm going to go ahead and link the [moddota tools](https://moddota.com/api/#!/vscripts), which feature the most up to date API for custom games in Dota 2. If you were using Valve's wiki, ditch it; it hasn't been updated in years.
+Before we start, I'm going to go ahead and link the [moddota tools](/api/#!/vscripts), which feature the most up to date API for custom games in Dota 2. If you were using Valve's wiki, ditch it; it hasn't been updated in years.
 
 ### Creating A New Ability
 
@@ -309,7 +309,7 @@ The above codes fires a projectile at the target. Note that `Target` expects eit
 
 After creating the OnProjectileHit function, we might want to check if it comes with additional parameters that we can use. There are two ways to check for those additional parameters:
 
-1. Navigating to [moddota tools](https://moddota.com/api/#!/vscripts) and searching for the function, which shows the parameters:
+1. Navigating to [moddota tools](/api/#!/vscripts) and searching for the function, which shows the parameters:
 
 ![Dota Tools Parameters](/images/typescript-tutorial/dotaToolsSearchParameters.png)
 
@@ -415,7 +415,7 @@ Now we want to add damage on top of the base damage. We can use the `+=` operato
 
 ### Coding The Ability: Final Push
 
-So why isn't GetIntellect() showing up? The best way to do is check which class is GetIntellect() under. [Running a search in moddota tools](https://moddota.com/api/#!/vscripts?search=GetIntellect) will show us that the class GetIntellect() belongs to is `CDOTA_BaseNPC_Hero`, which makes sense: only heroes have intelligence; units, buildings, and other entities don't. But our caster is a hero, so what's the problem?
+So why isn't GetIntellect() showing up? The best way to do is check which class is GetIntellect() under. [Running a search in moddota tools](/api/#!/vscripts?search=GetIntellect) will show us that the class GetIntellect() belongs to is `CDOTA_BaseNPC_Hero`, which makes sense: only heroes have intelligence; units, buildings, and other entities don't. But our caster is a hero, so what's the problem?
 
 If we hover over `this.GetCaster()`, we'll see the following information on it:
 

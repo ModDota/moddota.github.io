@@ -51,7 +51,7 @@ The first step is to set the filter using the `CDOTABaseGameMode:SetExecuteOrder
 
 Time to put into practice what we just used. We know the glyph is an order given by a player, so we should use the order filter to disable it. All we have to do is find any glyph orders and return false. Of course you can add any restriction you want based on the contents of the event parameter. Just `DeepPrintTable( event )` to see what data is available to you.
 
-To check which order types there are, look at the [API](https://dota.tools/vscripts/dotaunitorder_t).
+To check which order types there are, look at the [API](/api/#!/vscripts/dotaunitorder_t).
 
 Note that in this example the : operator on `GameMode:OrderFilter` hides the first (`self`) parameter.
 
