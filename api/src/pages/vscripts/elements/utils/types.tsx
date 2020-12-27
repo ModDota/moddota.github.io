@@ -1,7 +1,7 @@
 import api from "@moddota/dota-data/files/vscripts/api";
 import { findTypeByName } from "@moddota/dota-data/lib/helpers/vscripts";
 import React, { useMemo, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "@docusaurus/router";
 import styled, { ThemeContext } from "styled-components";
 import invariant from "tiny-invariant";
 import { ColoredSyntax, ColoredSyntaxKind, getSyntaxColorFor } from "../../../../components/ColoredSyntax";

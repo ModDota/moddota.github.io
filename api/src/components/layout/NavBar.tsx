@@ -2,8 +2,8 @@ import { darken } from "polished";
 import React from "react";
 import styled from "styled-components";
 import ToggleButton from "react-toggle-button";
-import { NavLink } from "react-router-dom";
-import { AppContext } from "..//AppContext";
+import { NavLink } from "@docusaurus/router";
+import { AppContext } from "../AppContext";
 import ModDotaLogo from "../ModDotaLogo.png";
 
 export const NavBar = () => (

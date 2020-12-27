@@ -2,7 +2,7 @@ import api from "@moddota/dota-data/files/vscripts/api";
 import apiTypes from "@moddota/dota-data/files/vscripts/api-types";
 import enums from "@moddota/dota-data/files/vscripts/enums";
 import { allData, AllDataType, getFuncDeepTypes } from "@moddota/dota-data/lib/helpers/vscripts";
-import { useParams } from "react-router-dom";
+import { useParams } from "@docusaurus/router";
 import { composeFilters, useRouterSearch } from "../../components/Search";
 import { isNotNil } from "../../utils/types";
 

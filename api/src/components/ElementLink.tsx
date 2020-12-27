@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "@docusaurus/router";
 import styled from "styled-components";
 
 export function HashScrollHandler() {

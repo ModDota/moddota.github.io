@@ -1,6 +1,6 @@
 import { darken } from "polished";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "@docusaurus/router";
 import styled from "styled-components";
 import SearchIcon from "./search.svg";
 

@@ -1,7 +1,7 @@
 import { Availability } from "@moddota/dota-data/files/vscripts/api";
 import { darken } from "polished";
 import React, { useMemo } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "@docusaurus/router";
 import styled, { css } from "styled-components";
 import { ElementLink as RawElementLink, useLinkedElement as useLinkedElementRaw } from "../../../../components/ElementLink";
 import { KindIcon as UnstyledKindIcon } from "../../../../components/KindIcon";

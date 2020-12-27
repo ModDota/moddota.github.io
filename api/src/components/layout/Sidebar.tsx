@@ -1,6 +1,6 @@
 import { darken } from "polished";
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink } from "@docusaurus/router";
 import styled from "styled-components";
 import { IconKind, KindIcon } from "../KindIcon";
 import { intersperseWith } from "../../utils/types";

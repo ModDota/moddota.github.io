@@ -1,6 +1,6 @@
 import eventsData from "@moddota/dota-data/files/events";
 import { orderBy } from "lodash";
-import { useParams } from "react-router-dom";
+import { useParams } from "@docusaurus/router";
 import { useRouterSearch } from "../../components/Search";
 import { isNotNil } from "../../utils/types";
 

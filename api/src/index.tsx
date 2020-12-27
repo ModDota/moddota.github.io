@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { render } from "react-dom";
-import { HashRouter } from "react-router-dom";
+import { HashRouter } from "@docusaurus/router";
 import styled, { ThemeProvider } from "styled-components";
 import { NavBar } from "./components/layout/NavBar";
 import { themeModdotaDark, themeModdotaLight } from "./components/Themes";
