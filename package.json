@@ -23,33 +23,38 @@
         ]
     },
     "dependencies": {
-        "@svgr/webpack": "^5.4.0",
-        "@types/classnames": "^2.2.10",
-        "@types/react": "^16.9.41",
-        "@types/react-dom": "^16.9.8",
-        "@types/react-virtualized": "^9.21.10",
-        "@types/styled-components": "^5.1.7",
-        "@types/webpack-env": "^1.15.2",
-        "file-loader": "^6.2.0",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1",
-        "styled-components": "^5.2.1",
-        "tiny-invariant": "^1.1.0"
-    },
-    "devDependencies": {
         "@ark120202/typescript-config": "^2.1.0",
         "@docusaurus/core": "^2.0.0-alpha.58",
         "@docusaurus/module-type-aliases": "^2.0.0-alpha.58",
         "@docusaurus/preset-classic": "^2.0.0-alpha.58",
+        "@moddota/dota-data": "^0.14.0",
+        "@svgr/webpack": "^5.4.0",
+        "@types/classnames": "^2.2.10",
+        "@types/lodash": "^4.14.166",
+        "@types/react": "^16.9.41",
+        "@types/react-dom": "^16.9.8",
+        "@types/react-router-dom": "^5.1.6",
+        "@types/react-virtualized": "^9.21.10",
+        "@types/styled-components": "^5.1.7",
+        "@types/webpack-env": "^1.15.2",
+        "file-loader": "^6.2.0",
         "fork-ts-checker-webpack-plugin": "^5.0.5",
+        "lodash": "^4.17.20",
+        "polished": "^4.0.5",
         "prettier": "^2.0.5",
+        "react": "^16.8.4",
+        "react-toggle-button": "^2.2.0",
+        "react-virtualized": "^9.22.3",
         "sass": "^1.26.9",
         "sass-loader": "^8.0.2",
+        "styled-components": "^5.2.1",
+        "tiny-invariant": "^1.1.0",
         "typescript": "^3.9.5"
     },
     "browserslist": [
         "last 1 chrome version",
         "last 1 firefox version",
         "last 1 safari version"
-    ]
+    ],
+    "name": "moddota.github.io"
 }
