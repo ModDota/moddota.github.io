@@ -23,7 +23,9 @@ module.exports = () => ({
                     },
                     {
                         test: /\.svg$/,
-                        use: [{ loader: "@svgr/webpack", options: { babel: false, dimensions: false } }],
+                        // TODO figure out why this doesn't work
+                        // use: [{ loader: "@svgr/webpack", options: { babel: false, dimensions: false } }],
+                        use: [{ loader: "file-loader" }],
                     },
                     {
                         test: /\.png$/,
