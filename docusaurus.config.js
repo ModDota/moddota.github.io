@@ -10,7 +10,7 @@ module.exports = {
             logo: { src: "images/logo-80x80.png" },
             links: [
                 { position: "left", label: "Tutorials", to: "tutorials" },
-                { position: "left", label: "Lua API", href: "https://dota.tools/vscripts/" },
+                { position: "left", label: "Lua API", href: "/api" },
                 {
                     position: "left",
                     label: "Panorama API",
