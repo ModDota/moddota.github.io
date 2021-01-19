@@ -6,7 +6,11 @@
         {
             "type": "category",
             "label": "Typescript",
-            "items": ["scripting/Typescript/typescript-introduction", "scripting/Typescript/typescript-ability"]
+            "items": [
+                "scripting/Typescript/typescript-introduction",
+                "scripting/Typescript/typescript-ability",
+                "scripting/Typescript/tooltip-generator"
+            ]
         },
         {
             "type": "category",
