@@ -363,23 +363,23 @@ StandardTooltips.push({
 
 As the example shows, we're overriding the `name` field of the `standard_tooltip_example` classname with a different text. This is done specifically for the Russian language using a language override object for the Standard Tooltip. Additional objects can be added for every language that we want to have a different text for. This results in the following KVs:
 
-English
-```
+<MultiCodeBlock titles="English|Russian|Standard Chinese">
+
+```txt1
 "standard_tooltip_example"    "Tooltip Example"
 ```
 
-Russian:
-```
+```txt2
 "standard_tooltip_example"    "Пример всплывающей подсказки"
 ```
 
-Standard Chinese
-```
+```txt3
 "standard_tooltip_example"    "Tooltip Example"
 ```
 
-If you checked the Standard Chinese KV, you probably saw that it retains its English language. Because it was not overriden, it still used the "main" value provided by the `name` property of the Standard Tooltip object.
+</MultiCodeBlock>
 
+If you checked the Standard Chinese KV, you probably saw that it retains its English language. Because it was not overriden, it still used the "main" value provided by the `name` property of the Standard Tooltip object.
 
 ### Splitting Files and Folders
 
