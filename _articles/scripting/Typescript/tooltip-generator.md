@@ -47,9 +47,9 @@ This gave birth to the Tooltip Codemaker. The Tooltip Codemaker is the exact opp
 
 Most of the time, you'll only use this tool no more than once, to turn your current KV into code. After that, the assumption is that you'll continue creating the rest of the tooltips using the Tooltip Generator. If your addon is completely empty, you don't need it at all.
 
-Note that the Codemaker isn't, and cannot be perfect, due to the nature of how localization KVs are defined. It looks for keywords like _Description, _Lore, _Note etc. to pinpoint the actual ability name, then groups all similar KVs to that ability. Abilities that have very similar naming scheme can be mistakenly grouped together; for example, in vanilla Dota, the "ice_blast" and "ice_blast_release" abilities were grouped as one, since it thought "_release" was one of the ability specials of "ice_blast". Just make sure to take a look at the code after running the script and fix the mistakes manually, if any.
+Note that the Codemaker isn't, and cannot be perfect, due to the nature of how localization KVs are defined. It looks for keywords like `_Description`, `_Lore`, `_Note` etc. to pinpoint the actual ability name, then groups all similar KVs to that ability. Abilities that have very similar naming scheme can be mistakenly grouped together; for example, in vanilla Dota, the `ice_blast` and `ice_blast_release` abilities were grouped as one, since it thought `_release` was one of the ability specials of `ice_blast`. Just make sure to take a look at the code after running the script and fix the mistakes manually, if any.
 
-The script assumes that everything that begins with "Dota_Tooltip_Ability_..." is an ability, and everything that begins with "Dota_Tooltip_modifier_..." is a modifier (case insensitive). Everything else is regarded as a Standard Tooltip. That means that depending on your KVs, you might have to make changes to the compiler before running it in order to have it work on your addon's localization files.
+The script assumes that everything that begins with `Dota_Tooltip_Ability_...` is an ability, and everything that begins with `Dota_Tooltip_modifier_...` is a modifier (case insensitive). Everything else is regarded as a Standard Tooltip. That means that depending on your KVs, you might have to make changes to the compiler before running it in order to have it work on your addon's localization files.
 
 You can find the Tooltip Codemaker in [this github repo](https://github.com/Shushishtok/tooltip-codemaker). Follow the readme for instructions on how to use it.
 
@@ -57,9 +57,9 @@ You can find the Tooltip Codemaker in [this github repo](https://github.com/Shus
 
 In order to use the Tooltip Generator, you must install it. This only needs to be done once per project. Navigate to the game's root of your addon. For most projects, that would be in `dota 2 beta/game/dota_addons/your_addon/`. If you're using symlinks or a Typescript configuration, the symlinked folder is most likely to be the root of your folder.
 
-Click on the path bar of the folder, type "cmd" and press enter. This should open the command line on the folder you're currently in. If you're not sure where the path bar is, press Alt+D to highlight it.
+Click on the path bar of the folder, type `cmd` and press enter. This should open the command line on the folder you're currently in. If you're not sure where the path bar is, press Alt+D to highlight it.
 
-In the command line, type "npm install @shushishtok/tooltip_generator". The installation should take a few seconds, which triggers an additional, "final" installation, which can take up to a few minutes. When the installation completes, it should show a success message and a few warnings - you can ignore those warnings. Keep the command line open for now.
+In the command line, type `npm install @shushishtok/tooltip_generator`. The installation should take a few seconds, which triggers an additional, "final" installation, which can take up to a few minutes. When the installation completes, it should show a success message and a few warnings - you can ignore those warnings. Keep the command line open for now.
 
 After the installation is completed, a new file `package.json` is added to your addon's root, along with a `node_modules` folder. You can mostly ignore those files completely.
 
@@ -115,9 +115,9 @@ You can activate the watcher in any editor that supports npm builds, like VSCode
 In the base form of the localization generator, each localization goes into one of three categories:
 * Standard Tooltips: Everything that isn't an ability or a modifier. Has no predefined key structure, and can be everything. The above examples are Standard Tooltips. Those are the most simple types of KVs.
 
-* Ability Tooltips: All abilities adhere to the key structure of "DOTA_Tooltip_ability_abilityname". They also have predefined suffix keys such as _Description, _Lore, _Note0 etc. A single ability tooltip object can include many properties, as mentioned above, and supports all ability suffix keys.
+* Ability Tooltips: All abilities adhere to the key structure of `DOTA_Tooltip_ability_abilityname`. They also have predefined suffix keys such as `_Description`, `_Lore`, `_Note0` etc. A single ability tooltip object can include many properties, as mentioned above, and supports all ability suffix keys.
 
-* Modifier Tooltips: All modifiers adhere to the key structure of "DOTA_Tooltip_modifiername". It is common to start every modifier's name with `modifier_...`, but those should work here even if you named your modifiers differently.
+* Modifier Tooltips: All modifiers adhere to the key structure of `DOTA_Tooltip_modifiername`. It is common to start every modifier's name with `modifier_...`, but those should work here even if you named your modifiers differently.
 
 In my personal mod, Dota Reimagined, I've created two more Tooltip Localization types: Reimagined Tooltips and Talent Tooltips. Those are disabled (commented out) in the compiler because they do not work on standard modes (even talents, that system is custom made in my mod). However, they can be used as good reference to setting up additional localization types if you so desire. Feel free to check the compiler (found at `node_modules/@shushishtok/tooltip_generator/localizationCompiler.ts`) and tweak it as you fit. The above Tooltips types should be sufficient for most modes.
 
