@@ -365,15 +365,15 @@ As the example shows, we're overriding the `name` field of the `standard_tooltip
 
 <MultiCodeBlock titles="English|Russian|Standard Chinese">
 
-```txt1
+```
 "standard_tooltip_example"    "Tooltip Example"
 ```
 
-```txt2
+```
 "standard_tooltip_example"    "Пример всплывающей подсказки"
 ```
 
-```txt3
+```
 "standard_tooltip_example"    "Tooltip Example"
 ```
 

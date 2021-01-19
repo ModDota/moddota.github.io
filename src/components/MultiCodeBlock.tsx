@@ -23,20 +23,20 @@ export function MultiCodeBlock({
     invariant(typeof group === "string" || group === undefined);
 
     const tabs = React.Children.toArray(children).map((element: any, index) => {
-        const language = element.props.children.props.className.replace(/language-/, "");
+        const language = element.props.children.props.className?.replace(/language-/, "") ?? `Tab ${index + 1}`;
         const tabTitles = titles !== undefined && titles.length > 0 ? titles.split("|") : [];
         const languageName = tabTitles[index] ?? languageNames[language] ?? language;
-        return { language, languageName, element };
+        return { id: index, languageName, element };
     });
 
     return (
         <Tabs
             groupId={group !== undefined ? `multi-code-block-${group}` : undefined}
-            defaultValue={tabs[0].language}
-            values={tabs.map(({ language, languageName }) => ({ value: language, label: languageName }))}
+            defaultValue={tabs[0].id}
+            values={tabs.map(({ id, languageName }) => ({ value: id, label: languageName }))}
         >
-            {tabs.map(({ language, element }) => (
-                <TabItem key={language} value={language}>
+            {tabs.map(({ id, element }) => (
+                <TabItem key={id} value={id}>
                     {element}
                 </TabItem>
             ))}
