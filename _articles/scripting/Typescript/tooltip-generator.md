@@ -416,7 +416,7 @@ export function GenerateLocalizationData(): LocalizationData
 }
 ```
 
-It doesn't matter what name it has, as long as it has the `.ts` extension. The tooltips go between the `Enter localization data below!` comment and the ``Return data to compiler` comment.
+It doesn't matter what name it has, as long as it has the `.ts` extension. The tooltips go between the `Enter localization data below!` comment and the `Return data to compiler` comment.
 
 :::note
 I recommend making it into a snippet for easy creation of this signature for every file created.
