@@ -199,16 +199,16 @@ After saving, those are immediately added to the localization:
 "DOTA_Tooltip_Ability_aghanims_shard_explosion_shard_description"    "Decreases cooldown of the ability."
 ```
 
-You may have noticed that I didn't use any number or ability special variable on the ability, so let's discuss that. Most ability fields supports using variables to be replaced as numbers in the game based on the value of an ability special. In KV, it is usually done by the format of `%something%`, where `something` reflecting an ability special value. The use of percentages as a delimiter always seemed flawed to me. Instead we use the `${something}` delimiter. Variables defined this way will be correctly processed to the format expected by KV. An advantage of that is the addition to percentages: if you wanted to show `20%` in game, where `20` is your ability special, all you have to do is `${something}%`. Let's make an example of that in our ability:
+You may have noticed that I didn't use any number or ability special variable on the ability, so let's discuss that. Most ability fields supports using variables to be replaced as numbers in the game based on the value of an ability special. In KV, it is usually done by the format of `%something%`, where `something` reflecting an ability special value. The use of percentages as a delimiter always seemed flawed to me. Instead we use the `{something}` delimiter. Variables defined this way will be correctly processed to the format expected by KV. An advantage of that is the addition to percentages: if you wanted to show `20%` in game, where `20` is your ability special, all you have to do is `{something}%`. Let's make an example of that in our ability:
 
 ```ts
 Abilities.push({
     ability_classname: "aghanims_shard_explosion",
     name: "Shard Explosion",
-    description: "Fires a shard at the target point which deals ${damage} damage to all enemies on impact.",
+    description: "Fires a shard at the target point which deals {damage} damage to all enemies on impact.",
     lore: "Aghanims' signature move, firing shards of arcane energy.",
-    scepter_description: "Increases damage by ${scepter_damage} and explosion range by ${scepter_aoe_bonus}.",
-    shard_description: "Decreases cooldown of the ability by ${shard_cd_pct}%."
+    scepter_description: "Increases damage by {scepter_damage} and explosion range by {scepter_aoe_bonus}.",
+    shard_description: "Decreases cooldown of the ability by {shard_cd_pct}%."
 });
 ```
 
@@ -235,13 +235,13 @@ Those are both booleans that default to false if omitted, and would only be incl
 Abilities.push({
     ability_classname: "aghanims_shard_explosion",
     name: "Shard Explosion",
-    description: "Fires a shard at the target point which deals ${damage} damage to all enemies on impact.",
+    description: "Fires a shard at the target point which deals {damage} damage to all enemies on impact.",
     lore: "Aghanims' signature move, firing shards of arcane energy.",
-    scepter_description: "Increases damage by ${scepter_damage} and explosion range by ${scepter_aoe_bonus}.",
-    shard_description: "Decreases cooldown of the ability by ${shard_cd_pct}%.",
+    scepter_description: "Increases damage by {scepter_damage} and explosion range by {scepter_aoe_bonus}.",
+    shard_description: "Decreases cooldown of the ability by {shard_cd_pct}%.",
     notes:
     [
-        "The projectile moves at ${projectile_speed} speed.",
+        "The projectile moves at {projectile_speed} speed.",
         "Despite the visual effect, all enemies in range immediately take damage upon impact.",
         "Can be disjointed."
     ],
@@ -338,9 +338,9 @@ The property assumes the `d` (integer) prefix. If you want to use `f` (float) pr
 
 Every tooltip can have different values based on the client's language, which is why we have many `addon_<language>.txt` files, one for each language. Different mods have different language supports, based on the primary language of the mode and additional translations. This has introduced the need for language control.
 
-On the top of the .TS file, there is an enum for `Language`. This enum controls which languages are enabled; each enabled language will produce its `addon_<language>.txt` file. By default, the English, Russian and Standard Chinese languages are enabled. In addition, the `None` "language" is also enabled - it is only used for compilation, and should not be disabled or used.
+On the top of the .TS file, you can see an import for `Language`. This enum controls which languages are enabled; each enabled language will produce its `addon_<language>.txt` file. By default, the English, Russian and Standard Chinese languages are enabled. In addition, the `None` "language" is also enabled - it is only used for compilation, and should not be disabled or used.
 
-In order to enable or disable a language, navigate to `/node_modules/@shushishtok/tooltip_generator/` and open `localizationInterfaces.ts`. At the top of the file you should see the `export enum Language`, which has a list of languages. Simply comment or uncomment a language to disable or enable it. This needs to be compiled for the changes to take effects, so open `cmd` in the `/node_modules/@shushishtok/tooltip_generator/` folder and run the `npx tsc localizationInterfaces.ts` command. Restart your terminal `npm run dev` and you should see the added/removed languages in the output.
+In order to enable or disable a language, navigate to `/game/resource/languages.ts`. Inside it, you should see `export enum Language`, which has a list of languages. Simply comment or uncomment a language to disable or enable it. This needs to be compiled and refreshed for the changes to take effects, so restart your terminal with `npm run dev` and you should see the added/removed languages in the output.
 
 ### Language Override Example
 
