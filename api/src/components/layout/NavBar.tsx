@@ -4,12 +4,12 @@ import styled from "styled-components";
 import ToggleButton from "react-toggle-button";
 import { NavLink } from "react-router-dom";
 import { AppContext } from "~components/AppContext";
-import ModDotaLogo from "~components/ModDotaLogo.png";
+import ModDotaLogo from "~components/ModDota.svg";
 
 export const NavBar = () => (
   <NavBarWrapper>
     <HomeBrandLink href="/">
-      <img src={ModDotaLogo} />
+      <ModDotaLogo height="32" width="36" />
       <span>ModDota</span>
     </HomeBrandLink>
     <NavBarLink to="/vscripts">Lua API</NavBarLink>
@@ -32,9 +32,7 @@ const HomeBrandLink = styled.a`
   &.active {
     color: ${(props) => props.theme.highlight};
   }
-  img {
-    width: 32px;
-    height: 32px;
+  svg {
     margin-right: 8px;
   }
 

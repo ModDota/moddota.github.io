@@ -9,6 +9,10 @@
     --ifm-tabs-padding-vertical: 0.35rem;
 }
 
+.navbar__logo {
+    height: 50px;
+}
+
 .navbar__link[href^="https://discord.gg/"],
 .menu__link[href^="https://discord.gg/"]
 {

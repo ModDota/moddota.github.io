@@ -7,7 +7,10 @@ module.exports = {
     themeConfig: {
         navbar: {
             title: "ModDota",
-            logo: { src: "images/logo-80x80.png" },
+            logo: {
+                alt: "ModDota",
+                src: "images/logo.svg",
+            },
             links: [
                 { position: "left", label: "Tutorials", to: "tutorials" },
                 { position: "left", label: "Lua API", href: "/api" },
