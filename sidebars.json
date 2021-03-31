@@ -142,6 +142,7 @@
                     "type": "category",
                     "label": "Particles",
                     "items": [
+                        "assets/particles/particle-tutorial",
                         "assets/particles/particle-basics",
                         "assets/particles/chaos-wave-particle",
                         "assets/particles/falling-cherry-blossom-petal-for-spring-mood-particle",
