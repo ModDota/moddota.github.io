@@ -9,6 +9,7 @@
             "items": [
                 "scripting/Typescript/typescript-introduction",
                 "scripting/Typescript/typescript-ability",
+                "scripting/Typescript/typescript-modifier",
                 "scripting/Typescript/tooltip-generator"
             ]
         },
