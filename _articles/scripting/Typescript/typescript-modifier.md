@@ -99,8 +99,13 @@ export class typescript_skywrath_mage_ancient_seal extends BaseAbility {
 }
 ```
 
-Great! This applies the modifier on the target. But we haven't defined the modifier yet, so let's do that next.
+Great! This applies the modifier on the target. The caster of the ability, denoted by `this.GetCaster()` in the first argument, is assigned to be modifier's associated caster, while the ability itself, denoted by `this` in the second argument, is assigned as the modifier's associated ability. We can get those by calling `this.GetCaster()` and `this.GetAbility()`, respectively from the modifier.
 
+:::note
+The unit we're adding the modifier to, in this case our `target`, becomes the parent of the modifier. We can get it from the modifier with `this.GetParent()`. This can be useful in various cases, such as when emitting sound from it, dealing damage to it, or placing particles on its current location.
+:::
+
+Now let's create the modifier.
 
 ### Creating The Modifier
 
