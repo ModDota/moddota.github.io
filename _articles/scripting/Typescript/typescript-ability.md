@@ -2,7 +2,7 @@
 title: Abilities in Typescript
 author: Shush
 steamId: 76561197994333648
-date: 06.12.2020
+date: 07.03.2021
 ---
 
 Regardless of what kind of game you're going for, you'll most probably have to code a couple of abilities for your characters to use to fight whatever they need to fight. Typescript enables coding many abilities with a ton of flexibility.
@@ -95,16 +95,16 @@ Three new fields were added:
 
 * `"AbilityTextureName" "skywrath_mage_arcane_bolt"` - since we're not using the original ability, it is necessary to add this field to tell the game which icon to use for the ability.
 
-* `"ScriptFile" "abilities/typescript_skywrath_mage_arcane_bolt"` - this is the path of the file that has the code for the ability. Remember that it uses a relative path starting from the `scripts/vscripts`, which has the `abilities` folder by default.
+* `"ScriptFile" "abilities/typescript_skywrath_mage_arcane_bolt"` - this is the path of the file that has the code for the ability. Remember that it uses a relative path starting from the `/game/scripts/vscripts`, which has the `abilities` folder.
 
 ### Creating The Ability File
 
-Now that the ability is defined, it is time to start coding it. The first step would be to create a file named in `typescript_skywrath_mage_arcane_bolt` inside of the `abilities` folder, which is what is specified in the `ScriptFile` field of the defined ability above. The engine looks for the file with a `.lua` extension, however, since we're going to be coding the ability in Typescript, it needs to have the `.ts` extension instead.
+Now that the ability is defined, it is time to start coding it. The first step would be to create a file named in `typescript_skywrath_mage_arcane_bolt` inside of source folder `src/vscripts/abilities`. The source is where we'll create the file, but when we compile it, it will be produce a lua file in `/game/vscripts/abilities`, as the game expects. Remember that even though we create the ability in Typescript, the engine works with lua files, which is what we need to produce.
 
 We'll add the `.ts` extension, so the file that we'll be editing is `typescript_skywrath_mage_arcane_bolt.ts`.
 
 :::note
-While the [Watcher is active](typescript-introduction.md/#activating-the-watcher), each time you save your file, a `.lua` file of the same name will be created in the same folder as your file. This lua file will be used by the game, and will immediately update to correspond for any changes you do in your Typescript file.
+While the [Watcher is active](typescript-introduction.md/#activating-the-watcher), each time you save your file, a `.lua` file of the same name will be created in the respective output folder. This lua file will be used by the game, and will immediately update to correspond for any changes you do in your Typescript file.
 :::
 
 ### Adding The Ability Class
@@ -135,7 +135,7 @@ Let's go over it quickly:
 While your cursor is inside that block, all functions inherited from `BaseAbility` will show up here. Simply start typing for the auto complete to immediately show you possible completions of what you typed.
 
 :::note
-If either @registerAbility() or BaseAbility are not recognized and show an error, highlight each of them, and use the `Ctrl + .` hotkey shortcut, which opens a small menu that suggests to import them. You'll see the top of the file now has the import statement: `import { BaseAbility, registerAbility } from "../lib/dota_ts_adapter";`, which shows that those are now imported from their respective files.
+If either @registerAbility() or BaseAbility are not recognized and show an error, highlight them, and use the `Ctrl + .` hotkey shortcut, which opens a small menu that suggests to import them. You'll see the top of the file now has the import statement: `import { BaseAbility, registerAbility } from "../lib/dota_ts_adapter";`, which shows that those are now imported from their respective files.
 :::
 
 ### Ability Properties
