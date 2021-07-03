@@ -5,9 +5,9 @@ steamId: 76561197994333648
 date: 07.03.2021
 ---
 
-Modifiers are an extremely important part of almost any Dota addons. They allow you to modify certain properties of your hero, deal damage to it over time, or apply various effects on it. Like abilities, we'll also create them in Typescript.
+Modifiers are an extremely important part of almost any Dota custom games. They allow you to modify certain properties of your hero, deal damage to it over time, or apply various effects on it. Like abilities, we'll also create them in Typescript.
 
-We'll use an easy example which should cover a lot of common concepts for modifiers. The example would be Skywrath's Ancient Seal, which, when cast on an enemy, simply applies the modifier to it. The modifier applies the Silenced state on the enemy, and reduces its magic resist property by a percentage.
+We'll use an easy example which should cover a lot of common concepts for modifiers. This example is Skywrath's Ancient seal, which is an ability that simply applies a modifier to an enemy. The modifier applies the Silenced state on the enemy, and reduces its magic resist property by a percentage.
 
 :::note
 For simplicity sake, assume the ability has no shard or talents upgrades.
@@ -101,6 +101,7 @@ export class typescript_skywrath_mage_ancient_seal extends BaseAbility {
 
 Great! This applies the modifier on the target. But we haven't defined the modifier yet, so let's do that next.
 
+
 ### Creating The Modifier
 
 This part is absolutely up to you and your organizational preferences: some prefer to add the modifier as a separate file, while some prefer to have the ability and its associated modifiers in the same file. You could place the modifier file inside `src/vscripts/modifiers`, for instance. In order to keep the guide simple, let's make the modifier in the same file.
@@ -119,9 +120,9 @@ Note that `@registerModifier()` takes care of LinkLuaModifier for you, so you do
 
 ### Typechecking Modifier Calls
 
-Before we continue, one thing we can do to add some more type checking is to link the ability to the modifier. Instead of relying on a string for the naming of the modifier, we'll instead link the class name.
+Before we continue, one thing we must do is link the ability to the modifier, which makes sure the modifier is registered. In addition, rather than relying on a string for the naming of the modifier, we'll link the class name.
 
-To do so, we simply remove the quotation marks around the modifier name, then add `.name` to it. See below the code before and after linking the class:
+To do so, simply remove the quotation marks around the modifier name, then add `.name` to it. See below the code before and after linking the class:
 
 <MultiCodeBlock titles="Before|After">
 
@@ -145,45 +146,51 @@ If your modifier is in another file, you'll have to import it first before you c
 
 ### Coding The Modifier
 
-Alright. Let's set and apply some properties for the modifier, such as the parent, the ability and the particle effect. In addition, let's set some useful properties via modifier functions.
+Alright. Let's set and apply the properties for the modifier such as the particle effect. In addition, let's set some useful properties via modifier functions.
 Also, this is my personal choice, but I usually put ability specials as a class property so they can be easily used everywhere in the modifier.
 
 ```ts
 @registerModifier()
 export class modifier_typescript_ancient_seal extends BaseModifier {
-	ability = this.GetAbility()!;
-	parent = this.GetParent();
 	particle_seal = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff.vpcf";
 	resist_debuff?: number;
 
+	// When set to false, shows the modifier icon on the HUD. Otherwise, the modifier is hidden.
 	IsHidden() {
 		return false;
 	}
 
+	// When set to true, the outer circle of the modifier is red, indicating that the modifier is a debuff. Otherwise, the outer circle is green.
 	IsDebuff() {
 		return true;
 	}
 
+	// When set to true, the modifier can be purged by basic dispels.
 	IsPurgable() {
 		return true;
 	}
 
+	// Event call that is triggered when the modifier is created and attached to a unit.
 	OnCreated() {
-		this.resist_debuff = this.ability.GetSpecialValueFor("resist_debuff");
+		// Get the ability and fetch ability specials from it
+		const ability = this.GetAbility();
+		if (ability) {
+			this.resist_debuff = ability.GetSpecialValueFor("resist_debuff");
+		}
 
 		// Add particle effect
-		const particle = ParticleManager.CreateParticle(this.particle_seal, ParticleAttachment.OVERHEAD_FOLLOW, this.parent);
-		ParticleManager.SetParticleControlEnt(particle, 1, this.parent, ParticleAttachment.ABSORIGIN_FOLLOW, "hitloc", this.parent.GetAbsOrigin(), true);
+		const particle = ParticleManager.CreateParticle(this.particle_seal, ParticleAttachment.OVERHEAD_FOLLOW, this.GetParent());
+		ParticleManager.SetParticleControlEnt(particle, 1, this.GetParent(), ParticleAttachment.ABSORIGIN_FOLLOW, "hitloc", this.GetParent().GetAbsOrigin(), true);
 		this.AddParticle(particle, false, false, -1, false, true);
 	}
 }
 ```
 
-Okay, so the modifier is defined, but its main properties are not being applied: the silence and the magic resistance reduction, so let's do those next.
+Okay, so the modifier is defined, but its main parts of it are not yet defined: the silence and the magic resistance reduction. Let's do those next.
 
 ### States
 
-The `CheckState` function that modifiers have is called every frame and sets the state of your modifier. The function gets a bunch of states and pairs each of them with a boolean that decides whether the state should be applied.
+The `CheckState` function that modifiers have is called every frame and sets the state of the parent based on its modifiers. The function gets a bunch of states and pairs each of them with a boolean that decides whether the state should be applied.
 
 We only need to silence the target, so that's the only state we require here. Add the following to the modifier:
 
