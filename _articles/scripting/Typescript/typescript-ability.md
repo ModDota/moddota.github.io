@@ -617,4 +617,4 @@ Below is a short video record that shows the application of Skywrath Mage's Anci
 
 ### What's Next?
 
-The next tutorial will explain how to make a basic modifier, and link the modifier to the a passive ability via Typescript.
+The next tutorial [Modifiers in Typescript](typescript-modifier.md) explains how to create a basic modifier, and link the modifier to an ability via Typescript.
