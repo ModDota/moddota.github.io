@@ -2,7 +2,7 @@
 title: Abilities in Typescript
 author: Shush
 steamId: 76561197994333648
-date: 06.12.2020
+date: 07.03.2021
 ---
 
 Regardless of what kind of game you're going for, you'll most probably have to code a couple of abilities for your characters to use to fight whatever they need to fight. Typescript enables coding many abilities with a ton of flexibility.
