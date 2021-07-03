@@ -5,9 +5,9 @@ steamId: 76561197994333648
 date: 07.03.2021
 ---
 
-Typescript is a powerful tool that we can use to improve our ability to properly script files for Dota 2. Using tstl (Typescript-to-lua), it automatically generates a lua file for the game to use for each file you're working on - this process is completely automatic from the moment it starts up.
+Typescript is a powerful tool that we can use to improve our ability to properly script files for Dota 2. Using tstl (Typescript-to-Lua), it automatically generates a Lua file for the game to use for each file you're working on - this process is completely automatic from the moment it starts up.
 
-Typescript is more strict compared to lua, will use types to enforce certain functionalities, and will immediately alert you if you do something that doesn't make sense to it, and will show an error until you fix it. For instance, doing `GetStrength()` on an ability doesn't make sense and will show an error message.
+Typescript is more strict compared to Lua, will use types to enforce certain functionalities, and will immediately alert you if you do something that doesn't make sense to it, and will show an error until you fix it. For instance, doing `GetStrength()` on an ability doesn't make sense and will show an error message.
 
 Typescript can work well with most editors using plugins, however, [VSCode](https://code.visualstudio.com/) is recommended as it comes with Typescript support built in, and is a very powerful editor.
 
@@ -17,12 +17,12 @@ Typescript can work well with most editors using plugins, however, [VSCode](http
 
 **Pros:**
 * Enforces types, prevents you from using irrelevant functions.
-* Typescript is much more similar to most languages such as C#, Java, Javascript, and C (compared to lua).
+* Typescript is much more similar to most languages such as C#, Java, Javascript, and C (compared to Lua).
 * Auto-complete that will only show API functions that match the type being called.
 * Saves a ton of time by immediately finding logical errors in code, instead of having to find them in-game (sometimes as edge cases which may not be found during local testing).
 * Tremendous support of Typescript in the web (e.g. Stack Overflow) for common Typescript questions.
 * Typescript itself comes with very powerful built-in functionalities and types, such as Sets, Maps, and array functionalities. Additionally, it supports class and types inheritance.
-* Typescript is used for both lua and Javascript, so you never have to switch between scripting languages; Typescript will convert it to the correct language for you.
+* Typescript is used for both Lua and Javascript, so you never have to switch between scripting languages; Typescript will convert it to the correct language for you.
 * Auto-complete for various arguments in APIs, such as a built-in event list.
 * Built-in enums and interfaces to make finding a specific Dota-based value extremely fast and easy.
 * Very easy to update new APIs when Valve (eventually) releases new functions.
@@ -33,7 +33,7 @@ Typescript can work well with most editors using plugins, however, [VSCode](http
 * Some rare types may be incorrect. Those can be updated manually when the need arises.
 * Sometimes, requires more of a set up for specific game logic, such as interfaces, typeguards and casts (this is again due to the nature of typed language).
 * Not very convenient to integrate for ongoing projects, though it can still work.
-* Referencing code or guides that are written in lua might not be easy in Typescript due to differences between how the languages work.
+* Referencing code or guides that are written in Lua might not be easy in Typescript due to differences between how the languages work.
 
 ### Setting Up TypeScript
 
@@ -87,22 +87,22 @@ Symlinked folders are copies of each other, where any action done on one is also
 ### Typescript Addon Structure
 Most of the structure for Typescript is identical to a standard Dota addon, such as having the `scripts/npc/` folder.
 
-Note the `src` folder in the project's root. This is where you create and work on your Typescript files. When they're compiled, the resulting lua files are placed in the appropriate locations, such as `/game/scripts/vscripts/` for files produced from `/src/vscripts/`. You can add add additional folders inside those folders, which will keep the same routing in the output location.
+Note the `src` folder in the project's root. This is where you create and work on your Typescript files. When they're compiled, the resulting Lua files are placed in the appropriate locations, such as `/game/scripts/vscripts/` for files produced from `/src/vscripts/`. You can add additional folders inside those folders, which will keep the same routing in the output location.
 
 You can change the structure of the folders inside the addon. However, you might need to adjust the output paths to match those changes. Some changes might break the mod, as Dota expects a specific structure to be set up (such as `game/scripts/vscripts`).
 
 :::note
-In `src`, you'll also find the `common` folder. This folder is extremely useful to storing interface decalarations that are shared between game logic and panorama, such as events and nettables, among other custom declarations such as enums.
+In `src`, you'll also find the `common` folder. This folder is extremely useful to storing interface decalarations that are shared between game logic and panorama, such as events and nettables, among other custom declarations such as enums. **This folder should only include d.ts files**.
 :::
 
 
 There are a few additional files and folder responsible for making Typescript identify and work with Dota 2 API, and in the custom game in general.
 Most of those files can be left untouched. Most of those files are located at `/src/vscripts/` folder:
-* `tsconfig.json`: Configures how Typescript works in the lua portion of the project. The same type of file exists in the `/src/panorama/` folder for javascript configuration for panorama.
+* `tsconfig.json`: Configures how Typescript works in the Lua portion of the project. The same type of file exists in the `/src/panorama/` folder for javascript configuration for panorama.
 
 * `vscripts/lib/dota_ts_adapter.ts`: Responsible for registering various common classes, such as abilities, items, and modifiers.
-* `vscripts/lib/tstl-utils.ts`: Responsible for the typescript-to-lua translation.
-* `vscripts/lib/timers.lua` and `vscripts/lib/timers.d.ts`: The common Timers library is already included in default in its lua form, with timers.d.ts including an interface to allow using the Timers library in Typescript.
+* `vscripts/lib/tstl-utils.ts`: Responsible for the typescript-to-Lua translation.
+* `vscripts/lib/timers.Lua` and `vscripts/lib/timers.d.ts`: The common Timers library is already included in default in its Lua form, with timers.d.ts including an interface to allow using the Timers library in Typescript.
 
 ### Updating Your Addon
 
@@ -115,7 +115,7 @@ Occasionally, Valve will release new API or changes to existing API, usually at 
 The project will update to the newest version automatically.
 
 ### Activating The Watcher
-In order for your files to compile and have their compiled lua or javascript equivalents, it is required to activate the watcher. The watcher watches over all changes done on your files in the project, and immediately produces a lua or javascript equivalent, assuming the file compiled with no errors. There are three ways to activate the watcher:
+In order for your files to compile and have their compiled Lua or javascript equivalents, it is required to activate the watcher. The watcher watches over all changes done on your files in the project, and immediately produces a Lua or javascript equivalent, assuming the file compiled with no errors. There are three ways to activate the watcher:
 
 * Using VSCode's terminal: If you're using VSCode and it has your project's folder loaded, click on Terminal -> Run Build Task. Alternatively, you can use the hotkey for it, default `Ctrl+Shift+B`.
 
