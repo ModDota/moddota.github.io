@@ -148,6 +148,7 @@ class item_treasure_chest_2 extends BaseItem {
     private RedropChest() {
         const chestReplace = CreateItem(this.GetName(), undefined, undefined);
         const item = CreateItemOnPositionSync(this.position, chestReplace);
+        item.SetAngles(this.angles.x, this.angles.y, this.angles.z);
         item.SetModelScale(this.GetScale());
         item.ResetSequence("chest_treasure_idle");
     }
