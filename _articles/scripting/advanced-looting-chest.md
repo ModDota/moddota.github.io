@@ -88,7 +88,8 @@ class item_treasure_chest_2 extends BaseItem {
         });
     }
 
-    // For some reason, it doesnt apply the item texture, so we find it here
+    // Since we channel this ability on pickup it isnt the same as the item icon, so we need to set it here.
+    // When using a custom icon, make sure to support both formats (spellicon/icon)
     GetAbilityTextureName() {
         return GetAbilityTextureNameForAbility(this.GetName());
     }
