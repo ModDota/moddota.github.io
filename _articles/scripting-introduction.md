@@ -111,7 +111,7 @@ There's 4 applications for Lua in Dota:
 
 ### Game Logic - Barebones Structure
 
-To understand the core structure of the Dota Lua environment, I’ll be explaining the contents of a simplified Barebones. Get one of these from [this repository](https://github.com/MNoya/barebones/), and head to the vscripts folder.
+To understand the core structure of the Dota Lua environment, I’ll be explaining the contents of a simplified Barebones. Go to [this repository](https://github.com/MNoya/barebones/), and head to the vscripts folder.
 
 In every single gamemode, a file named addon_game_mode.lua must be present. While it is possible to add the game logic to this file (and in fact, valve did so in their holdout example), it is recommended that you reserve this file only for this 3 functions:
 
@@ -123,7 +123,7 @@ In every single gamemode, a file named addon_game_mode.lua must be present. Whil
 
 Using our barebones, you don’t need to touch this file apart from very specific situations, and all the core game logic will be coded in gamemode.lua (for older versions it's barebones.lua), which has been already required. We’ll call this your *main lua file* from now on.
 
-**Note:** For the more advanced starting template you should use our [Barebones](https://github.com/DarkoniusXNG/barebones). Simplified Barebones are specially designed for explaining the essential parts of the Dota Lua structure.
+**Note:** For the more advanced starting template you should use our [Barebones](https://github.com/DarkoniusXNG/barebones). Simplified Barebones are specially designed for this tutorial just to explain the essential parts of the Dota Lua structure.
 
 After addon_game_mode `Precache` & `Activate` are finished, the first function to be executed in the barebones.lua file is `GameMode:InitGameMode()`.
 
@@ -177,7 +177,7 @@ The structure of this ListenToGameEvent is read as:
 
 `OnPlayerLevelUp` and `GameMode` (or `barebones` in updated version) are just the names of the function and main class name we came up with, normally you don’t need to worry about them, all Listeners and functions are already available in barebones, ready to be expanded. `Dynamic_Wrap` is a function to ensure that the `script_reload` command also reloads the listeners. `script_reload` restarts lua scripts at runtime, unlike DataDriven files which require the game to be fully restarted. As you can see on the barebones example there are tons of possible events, and not all of them are listed there, those are just the most used ones.
 
-The 3rd and last part of the `InitGameMode` are self defined variables to track info. These use the `self.` entity, which is a local reference to the GameMode entity, seen through all the functions inside the main lua file. Adding information to an entity like `entity.` is loosely called “indexing” and is basically adding another entry to the big table of that entity. This is very useful because this information is stored under the entity handle visible everywhere, and won’t change until we reassign it or destroy it.
+The 3rd and last part of the `InitGameMode` in simplified Barebones are self defined variables to track info. These use the `self.` entity, which is a local reference to the GameMode entity, seen through all the functions inside the main lua file. Adding information to an entity like `entity.` is loosely called “indexing” and is basically adding another entry to the big table of that entity. This is very useful because this information is stored under the entity handle visible everywhere, and won’t change until we reassign it or destroy it.
 
 Enough theory, let’s see how this all comes together. Let's take a look at OnNPCSpawned function, which is the listener for `npc_spawned` and triggers every time a unit or hero entity is added to the map.
 
@@ -262,7 +262,7 @@ The complete function call to get the heroes in 500 radius from the spawned kobo
 ```lua
 local units = FindUnitsInRadius( npc:GetTeamNumber(), npc:GetAbsOrigin(), nil, 500,
                                  DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO,
-			                           DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+                                    DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 ```
 
 The use of extra break lines is just to make it more readable. Now we want to **iterate over the entities of this table**, which is done like this:

@@ -20,7 +20,7 @@ The [Workshop Tools Wiki Homepage](https://developer.valvesoftware.com/wiki/Dota
 * Modeling (Importing your own custom models into your addon)
 * Sounds (Importing your own custom sounds, or editing existing ones)
 * Particles (Editing existing particles or creating your own using the Particle Editor Tool (PET))
-* Panorama (Creating custom UI with Panorama scripts to extend or modify the existing Dota 2 UI)
+* Panorama (Creating custom UI or modifying existing Dota 2 UI with Panorama scripts)
 
 ## Step #0: Installing and Launching the Dota 2 Workshop Tools
 
