@@ -11,7 +11,7 @@ module.exports = {
                 alt: "ModDota",
                 src: "images/logo.svg",
             },
-            links: [
+            items: [
                 { position: "left", label: "Tutorials", to: "tutorials" },
                 { position: "left", label: "Lua API", href: "/api" },
                 {
@@ -44,7 +44,6 @@ module.exports = {
                     remarkPlugins: [
                         require("./docusaurus/remark-component-provider"),
                         require("./docusaurus/remark-remove"),
-                        require("./docusaurus/remark-ts2js"),
                     ],
                 },
                 theme: {

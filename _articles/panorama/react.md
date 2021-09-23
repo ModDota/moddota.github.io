@@ -49,7 +49,7 @@ render(<App />, $.GetContextPanel());
 
 Components can accept parameters as a function argument:
 
-```tsx ts2js=panorama
+```tsx
 import React from 'react';
 import { render } from 'react-panorama';
 

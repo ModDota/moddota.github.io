@@ -1,10 +1,10 @@
 import isInternalUrl from "@docusaurus/isInternalUrl";
 import Link from "@docusaurus/Link";
-import type { DocsSidebar, DocsSidebarItem } from "@docusaurus/plugin-content-docs/lib/types";
+import type { Sidebar, SidebarItem } from "@docusaurus/plugin-content-docs/lib/types";
 import classnames from "classnames";
 import React, { useCallback, useContext, useState } from "react";
 
-export const SidebarContext = React.createContext<DocsSidebar>(null!);
+export const SidebarContext = React.createContext<Sidebar & {tutorials: any[]}>(null!);
 
 export function TutorialList() {
     const sidebarItems = useContext(SidebarContext).tutorials;
@@ -20,7 +20,7 @@ export function TutorialList() {
     );
 }
 
-function TutorialListItem({ item }: { item: DocsSidebarItem }) {
+function TutorialListItem({ item }: { item: SidebarItem }): JSX.Element {
     const [collapsed, setCollapsed] = useState(false);
     const handleItemClick = useCallback((e) => {
         e.preventDefault();
@@ -31,7 +31,7 @@ function TutorialListItem({ item }: { item: DocsSidebarItem }) {
     switch (item.type) {
         case "category": {
             const { label, items } = item;
-            if (items.length === 0) return null;
+            if (items.length === 0) return <></>;
 
             return (
                 <li key={label} className={classnames("menu__list-item", collapsed && "menu__list-item--collapsed")}>
@@ -62,6 +62,9 @@ function TutorialListItem({ item }: { item: DocsSidebarItem }) {
                     </Link>
                 </li>
             );
+        }
+        default: {
+            throw `Unknown item type: ${item.type}`
         }
     }
 }

@@ -12,8 +12,8 @@ import React from "react";
 import styles from "./styles.module.css";
 
 function DocPage(props) {
-    const { route: baseRoute, docsMetadata, location, content } = props;
-    const { permalinkToSidebar, docsSidebars, version, isHomePage, homePagePath } = docsMetadata;
+    const { route: baseRoute, versionMetadata, location, content } = props;
+    const { permalinkToSidebar, docsSidebars, version, isHomePage, homePagePath } = versionMetadata;
 
     // Get case-sensitive route such as it is defined in the sidebar.
     const currentRoute = !isHomePage
@@ -37,7 +37,7 @@ function DocPage(props) {
                         <DocSidebar
                             docsSidebars={docsSidebars}
                             path={isHomePage ? homePagePath : currentRoute.path}
-                            sidebar={sidebar}
+                            sidebar={docsSidebars.tutorials}
                             sidebarCollapsible={sidebarCollapsible}
                         />
                     </div>

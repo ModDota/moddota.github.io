@@ -193,11 +193,6 @@ function DocItem(props) {
                     >
                         <div className={styles.docItemContainer}>
                             <article>
-                                {version && (
-                                    <div>
-                                        <span className="badge badge--secondary">Version: {version}</span>
-                                    </div>
-                                )}
                                 <DocMetadata content={DocContent} />
                                 {!hideTitle && (
                                     <header>
