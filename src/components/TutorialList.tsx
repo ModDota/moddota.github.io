@@ -4,7 +4,7 @@ import type { Sidebar, SidebarItem } from "@docusaurus/plugin-content-docs/lib/t
 import classnames from "classnames";
 import React, { useCallback, useContext, useState } from "react";
 
-export const SidebarContext = React.createContext<Sidebar & {tutorials: any[]}>(null!);
+export const SidebarContext = React.createContext<Sidebar & { tutorials: any[] }>(null!);
 
 export function TutorialList() {
     const sidebarItems = useContext(SidebarContext).tutorials;
@@ -64,7 +64,7 @@ function TutorialListItem({ item }: { item: SidebarItem }): JSX.Element {
             );
         }
         default: {
-            throw `Unknown item type: ${item.type}`
+            throw `Unknown item type: ${item.type}`;
         }
     }
 }
