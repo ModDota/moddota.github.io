@@ -4,7 +4,7 @@ module.exports = {
     url: "https://moddota.com",
     baseUrl: "/",
     favicon: "images/favicon.ico",
-    onBrokenLinks: "warn",
+    onBrokenLinks: "error",
     themeConfig: {
         navbar: {
             title: "ModDota",
@@ -14,7 +14,7 @@ module.exports = {
             },
             items: [
                 { position: "left", label: "Tutorials", to: "tutorials" },
-                { position: "left", label: "Lua API", href: "/api" },
+                { position: "left", label: "Lua API", href: "https://moddota.com/api" },
                 {
                     position: "left",
                     label: "Panorama API",
