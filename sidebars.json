@@ -160,6 +160,7 @@
             "type": "category",
             "label": "Tools",
             "items": [
+                "tools/setting-up-for-collaboration",
                 "tools/useful-console-commands",
                 "tools/setting-up-your-addon-with-github",
                 "tools/combining-kv-files-using-base"
