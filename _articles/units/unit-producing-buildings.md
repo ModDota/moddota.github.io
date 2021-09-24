@@ -13,9 +13,9 @@ First of all, you'll need a KeyValue definition for a building and the unit you 
 
 There are many examples of units in [Warchasers](https://github.com/MNoya/Warchasers/blob/master/scripts/npc/npc_units_custom.txt) & [DotaCraft](https://github.com/MNoya/DotaCraft/tree/master/scripts/npc/units) repositories, so I don't think I need to explain much about this.
 
-I want to make one special note here though. **"BaseClass" "npc_dota_building" can be seen through fog**. 
+I want to make one special note here though. **"BaseClass" "npc_dota_building" can be seen through fog**.
 
-So if you have a problem with this, don't make your unit a building, but a **npc_dota_creature instead**. 
+So if you have a problem with this, don't make your unit a building, but a **npc_dota_creature instead**.
 
 This has the issue of creatures having a turn rate, so additionally you'll need to apply a MODIFIER_STATE_STUNNED on them, make the Magic Immune so most spells don't damage them, and make an special rule for spells that are supposed to damage buildings this way.
 
@@ -29,7 +29,7 @@ There are 2 main options for doing this, one is Hammer oriented, and the other i
 
 ### Hammer Units
 
-As described in the first thread, you can point and click to add a unit to the map, with all sort of properties. 
+As described in the first thread, you can point and click to add a unit to the map, with all sort of properties.
 
 The problem with this approach is that even though the building is "part of your team", you have no control over it, the same way you can't control the autoattacks of Towers in Dota.
 
@@ -39,7 +39,7 @@ To solve this, we need to use a couple of lines in lua, basically the `SetOwner`
 
 `[CDOTA_BaseNPC] void SetControllableByPlayer( int, bool )` **-- Set this unit controllable by a player.**
 
-To properly call these functions, I'm gonna assume you already know the basics explained under the [Beginners Guide to Scripting](/articles/beginners-guide-to-dota-scripting) and just explain where should you call these with an example.
+To properly call these functions, I'm gonna assume you already know the basics explained under the [Beginners Guide to Scripting](scripting-introduction) and just explain where should you call these with an example.
 
 A good GameMode hook to call these would be after the dota_player_picked_hero, so given a standard barebones listener like this:
 
@@ -91,7 +91,7 @@ Still working inside the same OnPlayerPickHero, we can either make an static pos
 ```lua
 local origin = hero:GetAbsOrigin() -- Spawn position
 local fv = hero:GetForwardVector() -- Vector the hero is facing
-local distance = 300 
+local distance = 300
 local position = origin + fv * distance
 ```
 
@@ -144,7 +144,7 @@ function GameMode:OnPlayerPickHero(keys)
     -- Choose a Position
     local origin = hero:GetAbsOrigin() -- Spawn position
     local fv = hero:GetForwardVector() -- Vector the hero is facing
-    local distance = 300 
+    local distance = 300
     local position = origin + fv * distance
 
     -- Spawning
@@ -161,7 +161,7 @@ local building = CreateUnitByName("human_barracks", position, true, hero, hero, 
 
 Now that we have a fully working building ingame, let's move to npc_abilities_custom.txt and creature spawning from this building.
 
-There are 2 main ways of doing this: with the DataDriven Action "SpawnUnit", or just with the `CreateUnitByName` Lua function as explained before. 
+There are 2 main ways of doing this: with the DataDriven Action "SpawnUnit", or just with the `CreateUnitByName` Lua function as explained before.
 
 ### DataDriven "SpawnUnit"
 
@@ -211,7 +211,7 @@ Note the usage of a RunScript to call a MoveToRallyPoint function, this will int
 
 ## Orders
 
-Various orders can be run after the unit spawns. 
+Various orders can be run after the unit spawns.
 
 Try to use the `ExecuteOrderFromTable` to avoid dropping orders because the unit is doing something else (like spawning), if you want to use easier functions like `MoveToPosition` you might need to add timers to make sure the unit is ready to perform the order.
 
@@ -223,9 +223,9 @@ function MoveToRallyPoint( event )
     local target = event.target
 
     -- Change this to your desired Vector, usually as an hscript:GetAbsOrigin()
-    local position = Vector(420,322,128) 
+    local position = Vector(420,322,128)
 
-    ExecuteOrderFromTable({ UnitIndex = target:GetEntityIndex(), 
+    ExecuteOrderFromTable({ UnitIndex = target:GetEntityIndex(),
                             OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
                             Position = position, Queue = true })
     print(target:GetUnitName().." moving to position",position)

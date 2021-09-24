@@ -147,4 +147,4 @@ We have a dedicated Typescript channel in our [moddota Discord](https://discord.
 
 ### What's Next?
 
-Check out the [Abilities in Typescript](typescript-introduction.md) tutorial, which will show how to set up and code a basic ability to use in the game.
+Check out the [Abilities in Typescript](typescript-ability) tutorial, which will show how to set up and code a basic ability to use in the game.

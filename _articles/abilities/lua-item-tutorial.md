@@ -85,13 +85,13 @@ Because we want things to look smooth lets define some basic parameters we can l
 	}
 }
 ```
-For more key-value stuff involving items use Noyas guide: http://moddota.com/forums/discussion/4/datadriven-items
+For more key-value stuff involving items use Noyas guide: [Datadriven items](item-keyvalues)
 <br /> Its great reference but lets get on with the lua stuff!
 
 ### Defining Cast Rules
 First we add behaviours. This will define what happens when player activates the hot-key of the item.
 ```lua
-function item_blink_staff:GetBehavior() 
+function item_blink_staff:GetBehavior()
 	local behav = DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
 	return behav
 end
@@ -147,7 +147,7 @@ function item_blink_staff:OnSpellStart()
 	local vOrigin = hCaster:GetAbsOrigin() --Our caster's location
 	local nMaxBlink = 1200 --How far can we actually blink?
 	local nClamp = 960 --If we try to over reach we use this value instead. (this is mechanic from blink dagger.)
-	
+
 	ProjectileManager:ProjectileDodge(hCaster)  --We disjoint disjointable incoming projectiles.
 	ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, hCaster) --Create particle effect at our caster.
 	hCaster:EmitSound("DOTA_Item.BlinkDagger.Activate") --Emit sound for the blink
@@ -239,8 +239,8 @@ function item_blink_staff:OnSpellStart()
 				vPoint = self.hFountain:GetAbsOrigin() --Lets change our target location there then.
 				self:Blink(hCaster, vPoint, nMaxBlink, nClamp) --BLINK!
 			else
-				self:EndCooldown() 
-				self:RefundManaCost() 
+				self:EndCooldown()
+				self:RefundManaCost()
 			end
 		end
 	else
@@ -266,7 +266,7 @@ if item_blink_staff_effect_modifier == nil then
 	item_blink_staff_effect_modifier = class({})
 end
 
-function item_blink_staff_effect_modifier:OnCreated( kv )	
+function item_blink_staff_effect_modifier:OnCreated( kv )
 	if IsServer() then
 		if self:GetCaster() ~= self:GetParent() then
 			local nFXIndex = ParticleManager:CreateParticle("particles/items_fx/armlet.vpcf", PATTACH_ROOTBONE_FOLLOW, self:GetParent())
@@ -275,7 +275,7 @@ function item_blink_staff_effect_modifier:OnCreated( kv )
 	end
 end
 
-function item_blink_staff_effect_modifier:GetAttributes() 
+function item_blink_staff_effect_modifier:GetAttributes()
 	return MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
@@ -338,7 +338,7 @@ function item_blink_staff:OnSpellStart()
 			self:RefundManaCost() --Manacost refund
 		end
 	else
-	
+
 		local hModifier = hCaster:FindModifierByNameAndCaster("item_blink_staff_effect_modifier", hCaster) --Check if we have someone selected
 		if hModifier then
 			hTarget = EntIndexToHScript(hModifier:GetStackCount()) --Find the target with the ent index
@@ -369,7 +369,7 @@ function item_blink_staff:CastFilterResultTarget( hTarget ) -- hTarget is the ta
 			return UF_FAIL_CUSTOM
 		end
 	end
-	
+
 	if vDiff:Length2D() > nMaxRange then  --Check caster is over reaching.
 	return UF_FAIL_CUSTOM
 	else
@@ -377,7 +377,7 @@ function item_blink_staff:CastFilterResultTarget( hTarget ) -- hTarget is the ta
 	end
 end
 
-function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the targeted NPC. 
+function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the targeted NPC.
 	local hCaster = self:GetCaster() --We will always have Caster.
 	local vOrigin = hCaster:GetAbsOrigin() --Our caster's location
 	local vPoint = hTarget:GetAbsOrigin() --Our target's location
@@ -479,13 +479,13 @@ function item_blink_staff:OnSpellStart()
 			self:RefundManaCost() --Manacost refund
 		end
 	else
-	
+
 		local hModifier = hCaster:FindModifierByNameAndCaster("item_blink_staff_effect_modifier", hCaster) --Check if we have someone selected
 		if hModifier then
 			hTarget = EntIndexToHScript(hModifier:GetStackCount()) --Find the target with the ent index
 			if hTarget:FindModifierByNameAndCaster("item_blink_staff_effect_modifier", hCaster) then --Check if the target is not purged.
 				self:Blink(hTarget, vPoint, nMaxBlink, nClamp) --BLINK!
-				
+
 			else --Someone purged our target
 			self:Blink(hCaster, vPoint, nMaxBlink, nClamp) --BLINK!
 			end
@@ -523,7 +523,7 @@ function item_blink_staff:CastFilterResultTarget( hTarget ) -- hTarget is the ta
 			return UF_FAIL_CUSTOM
 		end
 	end
-	
+
 	if vDiff:Length2D() > nMaxRange then  --Check caster is over reaching.
 	return UF_FAIL_CUSTOM
 	else
@@ -531,7 +531,7 @@ function item_blink_staff:CastFilterResultTarget( hTarget ) -- hTarget is the ta
 	end
 end
 
-function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the targeted NPC. 
+function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the targeted NPC.
 	local hCaster = self:GetCaster() --We will always have Caster.
 	local vOrigin = hCaster:GetAbsOrigin() --Our caster's location
 	local vPoint = hTarget:GetAbsOrigin() --Our target's location
@@ -567,7 +567,7 @@ Open it up and lets add following lines to the mix.
 		"DOTA_Tooltip_ability_item_blink_staff_Description"                               "Teleport to a target point up to 1200 units away. Can be used on allied units to select them to blink instead of you."
 		"DOTA_Tooltip_ability_item_blink_staff_max_blink"                                 "Max Blink Distance:"
 		"DOTA_Tooltip_ability_item_blink_staff_help_range"                                "Help Range:"
-		
+
 		"DOTA_Tooltip_item_blink_staff_effect_modifier"                                             "Blink Staff"
 		"DOTA_Tooltip_item_blink_staff_effect_modifier_Description"                                 "Targeted by Blink Staff"
 ```
@@ -596,7 +596,7 @@ function item_blink_staff:CastFilterResultTarget( hTarget ) -- hTarget is the ta
 			return UF_FAIL_CUSTOM
 		end
 	end
-	
+
 	if vDiff:Length2D() > nMaxRange then  --Check caster is over reaching.
 	return UF_FAIL_CUSTOM
 	else
@@ -604,7 +604,7 @@ function item_blink_staff:CastFilterResultTarget( hTarget ) -- hTarget is the ta
 	end
 end
 
-function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the targeted NPC. 
+function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the targeted NPC.
 	local hCaster = self:GetCaster() --We will always have Caster.
 	local vOrigin = hCaster:GetAbsOrigin() --Our caster's location
 	local vPoint = hTarget:GetAbsOrigin() --Our target's location
@@ -647,7 +647,7 @@ function item_blink_staff_passive_modifier:DeclareFunctions() --we want to use t
 	local funcs = {
 		MODIFIER_EVENT_ON_TAKEDAMAGE
 	}
- 
+
 	return funcs
 end
 
@@ -674,7 +674,7 @@ Now we should have covered all the main issues. Next we add recipe for the item 
 ### Recipe and Stats
 As you might have noticed testing our item, it right now costs no gold to purchase. There are two things we can do here. We can either add ItemCost into our 'npc_items_custom.txt' file or create a recipe for the item. When you create a recipe for your item the game automatically calculates the item cost. We can also add ItemCost to our new recipe to let the game know that you have to buy it aswell instead of items being automatically combined into one. We are also adding the stats from our component items so be sure to add special values to your item reflecting the component stats.
 
-I will be using item_quarterstaff, item_robe and item_blink for my components. I also make the recipe cost 325 gold. One important thing to note when creating recipe is the naming scheme. The recipe name should always be 
+I will be using item_quarterstaff, item_robe and item_blink for my components. I also make the recipe cost 325 gold. One important thing to note when creating recipe is the naming scheme. The recipe name should always be
 'item_recipe_your_item'<br />
 my item: item_blink_staff<br />
 my recipe: item_recipe_blink_staff<br />
@@ -727,21 +727,21 @@ Also you must give each item in npc_items_custom.txt unique ID. If you don't you
 				"var_type"				"FIELD_FLOAT"
 				"hurt_cooldown"			"3.0"
 			}
-			
+
 			// Stats from the recipe items
-			
+
 			"06" // Quarterstaff
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"10"
 			}
-			
+
 			"07" // Quarterstaff
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"			"10"
 			}
-			
+
 			"08" // Robe Of Magi
 			{
 				"var_type"				"FIELD_INTEGER"
@@ -749,19 +749,19 @@ Also you must give each item in npc_items_custom.txt unique ID. If you don't you
 			}
 		}
 	}
-	
+
 	"item_recipe_blink_staff"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                     "item_datadriven"
 		"ID"							"1251"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"325"	
+		"ItemCost"						"325"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -784,7 +784,7 @@ function item_blink_staff_passive_modifier:DeclareFunctions() --we want to use t
 		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
 	}
- 
+
 	return funcs
 end
 ```
@@ -816,7 +816,7 @@ After that our file should have something like this:
 		"DOTA_Tooltip_ability_item_blink_staff_bonus_damage"                              "+$damage"
 		"DOTA_Tooltip_ability_item_blink_staff_bonus_attack_speed"                        "+$attack"
 		"DOTA_Tooltip_ability_item_blink_staff_bonus_int"                                 "+$int"
-		
+
 		"DOTA_Tooltip_item_blink_staff_effect_modifier"                                             "Blink Staff"
 		"DOTA_Tooltip_item_blink_staff_effect_modifier_Description"                                 "Targeted by Blink Staff"
 ```
@@ -849,7 +849,7 @@ function item_blink_staff:CastFilterResultTarget( hTarget ) -- hTarget is the ta
 			return UF_FAIL_CUSTOM
 		end
 	end
-	
+
 	if vDiff:Length2D() > nMaxRange then  --Check caster is over reaching.
 	return UF_FAIL_CUSTOM
 	else
@@ -857,7 +857,7 @@ function item_blink_staff:CastFilterResultTarget( hTarget ) -- hTarget is the ta
 	end
 end
 
-function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the targeted NPC. 
+function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the targeted NPC.
 	local hCaster = self:GetCaster() --We will always have Caster.
 	local vOrigin = hCaster:GetAbsOrigin() --Our caster's location
 	local vPoint = hTarget:GetAbsOrigin() --Our target's location
@@ -885,7 +885,7 @@ function item_blink_staff:CastFilterResultTarget( hTarget ) -- hTarget is the ta
 	return self:CCastFilter( hTarget, false )
 end
 
-function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the targeted NPC. 
+function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the targeted NPC.
 	return self:CCastFilter( hTarget, true )
 end
 
@@ -975,12 +975,12 @@ Or we can use more elegant choice of modifying our recipe to act like charge ref
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                     "item_datadriven"
 		"ID"							"1251"
-		
+
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"325"	
+		"ItemCost"						"325"
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
