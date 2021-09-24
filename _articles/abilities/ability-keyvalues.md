@@ -30,7 +30,7 @@ This skeleton contains many keyvalues which will be expanded upon in this docume
 ```
 "datadriven_skeleton"
 {
-    // General  
+    // General
     // ----------------------------------------------------------------------------------------
     "BaseClass"              "ability_datadriven"
     "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -134,7 +134,7 @@ The UI can only show one behavior tooltip, but internally it will behave as expe
 |DOTA_ABILITY_BEHAVIOR_AURA|**Aura**|PASSIVE|
 |DOTA_ABILITY_BEHAVIOR_AUTOCAST|**Auto-Cast**|UNIT_TARGET|
 
-For example, an ability with 
+For example, an ability with
 ```
 "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
 ```
@@ -302,7 +302,7 @@ Flags were seen as AbilityUnitTargetFlags completions, but this is not their sol
 The same applies to Team and Types.
 
  * `"Flags"` and `"ExcludeFlags"` in a `"Target"` block gives control over how to target units to apply actions on them later:
- 
+
 ```
 "Target"
 {
@@ -312,8 +312,8 @@ The same applies to Team and Types.
 ```
 
  * `"TargetFlags"` in a `"LinearProjectile"` action allows a `LinearProjectile` to ignore units that would otherwise be included by default in the Team+Type values, for example those with `MODIFIER_STATE_INVISIBLE`.
- * `"Aura_Flags"` in a modifier with the other `"Aura"` keys can be used, for example, to make an [aura modifier](https://web.archive.org/web/20181130135800/http://moddota.com/forums/discussion/comment/29#Comment_29) only affect ranged units by adding `DOTA_UNIT_TARGET_FLAG_RANGED_ONLY`.
- 
+ * `"Aura_Flags"` in a modifier with the other `"Aura"` keys can be used, for example, to make an aura modifier only affect ranged units by adding `DOTA_UNIT_TARGET_FLAG_RANGED_ONLY`.
+
 The same applies for **Teams** and **Types**.
 
 *Example*: Targets all friendly units in a radius of the caster, including couriers, buildings, and siege units. Excludes heroes, summons, and other player controlled units.
@@ -323,14 +323,14 @@ The same applies for **Teams** and **Types**.
 {
     "Center"        "CASTER"
     "Radius"        "%radius"
-    
+
     // AbilityUnitTargetTeam values.
     "Teams"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    
+
     // AbilityUnitTargetTypes
     "Types"         "DOTA_UNIT_TARGET_ALL"
     "ExcludeTypes"  "DOTA_UNIT_TARGET_HERO"
-    
+
     // AbilityUnitTargetFlags
     "Flags"         "DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED"
     "ExcludeFlags"  "DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED"
@@ -358,7 +358,7 @@ The same applies for **Teams** and **Types**.
 }
 ```
 
-With `DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES`, and with `DOTA_UNIT_TARGET_FLAG_NONE`: 
+With `DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES`, and with `DOTA_UNIT_TARGET_FLAG_NONE`:
 
 <Gfycat id="FloweryUnevenHorseshoeBat" />
 

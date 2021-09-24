@@ -5,7 +5,7 @@ steamId: '76561198046984233'
 date: 18.02.2015
 ---
 
-Part 2 of [Getting Started With Dota 2 Modding](/articles/getting-started-with-dota-2-modding), this tutorial is meant to explain the basics of programming Dota 2 custom mods.
+Part 2 of [Getting Started With Dota 2 Modding](getting-started), this tutorial is meant to explain the basics of programming Dota 2 custom mods.
 
 ## Scripting
 
@@ -78,11 +78,11 @@ Then we need an ability **event**, this is a trigger for when certain event happ
 }
 ```
 
-Now, this ability has to be added to the npc_abilities_custom.txt file for a hero or unit to be able to use it. To do this, you can either edit the file directly, or use multiple files and [#base](https://moddota.com/tools/combining-kv-files-using-base/).
+Now, this ability has to be added to the npc_abilities_custom.txt file for a hero or unit to be able to use it. To do this, you can either edit the file directly, or use multiple files and [#base](tools/combining-kv-files-using-base/).
 
 If editing the file directly, take extra care at the level of brackets you're using. (Sublime Text protip: use Ctrl + [ or ] to move selected blocks of text left and right through layers of tabs)
 
-Alternatively you can choose to "break" this file in separate files and folders (abilities/items/units/heroes) and then they will combine [#base](https://moddota.com/tools/combining-kv-files-using-base/). Working with many small key value files is easier to maintain and debug in case of errors.
+Alternatively you can choose to "break" this file in separate files and folders (abilities/items/units/heroes) and then they will combine [#base](tools/combining-kv-files-using-base/). Working with many small key value files is easier to maintain and debug in case of errors.
 
 After following this process for the test_ability you just created, it’s time to add the ability to a hero. Open npc_heroes_custom.txt and change the "Ability1" value "example_ability" to "test_ability" (the ability we just made), save and it’s ready to be tested ingame.
 
@@ -93,10 +93,6 @@ Whenever you need a testing dummy, you can create one by writing
 in chat, unit_name being one of the available hero names pickable or just any unit name available. It also accepts shortened names, like “ancient” instead of “ancient_apparition”. One quick command is `-createhero kobold enemy` which makes a default enemy neutral kobold. The full unit name is “npc_dota_neutral_kobold”, but the shorter command will do. You can also enable no-cooldown mode by writing `-wtf` (and `-unwtf` will disable it).
 
 Extensive documentation and in-depth examples of the datadriven system can be found in the following links spread over various moddota tutorials.
-
-- [Datadriven Ability Breakdown](/articles/datadriven-ability-breakdown-documentation)
-- [Datadriven Items](/articles/datadriven-items)
-- [Datadriven Units](/articles/datadriven-units)
 
 ## Lua Scripting
 
@@ -342,7 +338,7 @@ In this example script, the event will pass some information to the first parame
 
 ![img](https://puu.sh/g2y9i/dfb5db78c9.png)
 
-In the body, most ability scripts start by defining the local variables for the target entities which are passed by the event. This is explained more deeply in the guide [All About The Target](moddota.com/forums/discussion/87/all-about-the-target), but the basic target variables visible on any script are
+In the body, most ability scripts start by defining the local variables for the target entities which are passed by the event. This is explained more deeply in the guide [All About The Target](abilities/datadriven/all-about-the-target), but the basic target variables visible on any script are
 
 * **.caster**, the entity that started the ability.
 * **.target**, the target of the ability (can be same as the caster in some cases)

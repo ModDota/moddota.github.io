@@ -4,6 +4,7 @@ module.exports = {
     url: "https://moddota.com",
     baseUrl: "/",
     favicon: "images/favicon.ico",
+    onBrokenLinks: "warn",
     themeConfig: {
         navbar: {
             title: "ModDota",

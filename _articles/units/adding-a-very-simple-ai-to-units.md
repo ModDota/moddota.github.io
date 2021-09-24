@@ -10,23 +10,23 @@ This tutorial will cover how to issue very simple orders to units. This tutorial
 This tutorial assumes a basic knowledge of lua scripting.
 
 ## Drawbacks
- - This technique should not be used for units which need to perform more than one kind of order each. If a more advanced AI is required, you should check holdout_example's lua ai scripts.  
+ - This technique should not be used for units which need to perform more than one kind of order each. If a more advanced AI is required, you should check holdout_example's lua ai scripts.
  - Some functionality is hard-coded into this script. If you want to iterate on your game and change the behaviour often, I would suggest having some global constants or loading in the values from an external KV file. Doing this allows you to keep all the values in one place.
 
 ## References
-I've copied some units from holdout_example for testing, and copied Berserkers Call from [Spell Library](https://github.com/Pizzalol/SpellLibrary). 
+I've copied some units from holdout_example for testing, and copied Berserkers Call from [Spell Library](https://github.com/Pizzalol/SpellLibrary).
 
-If you need help on making your own units or abilities, Noya's documentation is an excellent resource:  
-[Datadriven Units](/articles/datadriven-units)  
-[DataDriven Ability Breakdown - Documentation](/articles/datadriven-ability-breakdown-documentation)
+If you need help on making your own units or abilities, Noya's documentation is an excellent resource:
+[Datadriven Units](unit-keyvalues)
+[DataDriven Ability Breakdown - Documentation](abilities/ability-keyvalues)
 
 ## Hammer Setup
 In Hammer, I've placed an info_target entity named "spawn_loc_test" which can be found in lua. This allows me to place the units spawn location in Hammer without changing the lua scripts around. If you wish to do this, give each entity a unique name and place them where you want the spawn point on your map.
 
 ## Lua Setup
-In the InitGameMode() function we do a few things: seed the random number generator, create an empty table in order to keep track of every unit with behaviour, spawn some units, and set a thinker function up. 
+In the InitGameMode() function we do a few things: seed the random number generator, create an empty table in order to keep track of every unit with behaviour, spawn some units, and set a thinker function up.
 
-Settings which aren't relevant to this tutorial have been omitted, but in this function you can set up things like GameRules for your game mode. 
+Settings which aren't relevant to this tutorial have been omitted, but in this function you can set up things like GameRules for your game mode.
 
 ```lua
 function CAITesting:InitGameMode()
@@ -78,7 +78,7 @@ function CAITesting:SpawnAIUnitWanderer()
 	spawnedUnit.wanderBounds.YMax = 768
 
 	-- Add a random amount to the game time to randomise the behaviour a bit
-	spawnedUnit.NextOrderTime = GameRules:GetGameTime() + math.random(5, 10) 
+	spawnedUnit.NextOrderTime = GameRules:GetGameTime() + math.random(5, 10)
 
 	-- finally, insert the unit into the table
 	table.insert(self.UnitThinkerList, spawnedUnit)
@@ -105,7 +105,7 @@ function CAITesting:SpawnAIUnitCaster()
 	spawnedUnit.CastAbilityIndex = spawnedUnit:GetAbilityByIndex(0):entindex()
 
 	-- Add a random amount to the game time to randomise the behaviour a bit
-	spawnedUnit.NextOrderTime = GameRules:GetGameTime() + math.random(5, 10) 
+	spawnedUnit.NextOrderTime = GameRules:GetGameTime() + math.random(5, 10)
 
 	-- finally, insert the unit into the table
 	table.insert(self.UnitThinkerList, spawnedUnit)
@@ -171,7 +171,7 @@ function CAITesting:OnUnitThink()
 			end
 		end
 
-		-- Make sure our testing map stays on day time		
+		-- Make sure our testing map stays on day time
 		if not GameRules:IsDaytime() then
 			GameRules:SetTimeOfDay(0.26)
 		end

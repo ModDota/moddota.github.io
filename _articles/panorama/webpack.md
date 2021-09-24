@@ -154,7 +154,7 @@ import * as _ from 'lodash';
 $.Msg(_.uniq([1, 2, 1, 3, 1, 2])); // => [1,2,3]
 ```
 
-Similarly you can use packages created specifically for Panorama, for example [react-panorama](./react.md) or [`panorama-polyfill`](https://www.npmjs.com/package/panorama-polyfill).
+Similarly you can use packages created specifically for Panorama, for example [react-panorama](react) or [`panorama-polyfill`](https://www.npmjs.com/package/panorama-polyfill).
 
 You can find more packages built for Panorama using this search query: [keywords:dota, panorama](https://www.npmjs.com/search?q=keywords%3Adota%2C%20panorama).
 
@@ -162,7 +162,7 @@ You can find more packages built for Panorama using this search query: [keywords
 
 webpack loaders are packages that process your files before webpack puts them into a bundle.
 
-One good example of a loader is [`babel-loader`](https://www.npmjs.com/package/babel-loader), which processes your code with Babel, allowing you to use newer JavaScript features, and non-standard syntax extensions, such as [JSX](./react.md#JSX).
+One good example of a loader is [`babel-loader`](https://www.npmjs.com/package/babel-loader), which processes your code with Babel, allowing you to use newer JavaScript features, and non-standard syntax extensions, such as [JSX](react#JSX).
 
 First you need to install a few dependencies:
 
@@ -188,7 +188,7 @@ Now you need to tell webpack when and how to use this loader, using `module.rule
 
 ### TypeScript
 
-Currently support for [TypeScript](introduction-to-panorama-ui-with-typescript.md) for Panorama cannot be provided just with a loader, because of a way referenced script files are processed. To resolve this you also need to use [`fork-ts-checker-webpack-plugin`](https://www.npmjs.com/package/fork-ts-checker-webpack-plugin).
+Currently support for [TypeScript](introduction-to-panorama-ui-with-typescript) for Panorama cannot be provided just with a loader, because of a way referenced script files are processed. To resolve this you also need to use [`fork-ts-checker-webpack-plugin`](https://www.npmjs.com/package/fork-ts-checker-webpack-plugin).
 
 ```shell
 npm install -D typescript ts-loader fork-ts-checker-webpack-plugin

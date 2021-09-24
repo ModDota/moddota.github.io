@@ -10,7 +10,7 @@ A comprehensive guide to npc_items_custom and coding items
 ## General
 
 Start with "item_" and your item name. If you **don't** put `item_` at the begging of an item, bad things happen
-  
+
 `"item_custom"
 { ... }`
 
@@ -32,10 +32,10 @@ So it's recommended to always try to make a datadriven version of the item if yo
 Now that we settled that, I'll review the most common key values seen in items.
 
 ### Basic Rules
-  
+
 ```
 "ItemCost" "322"
-"ItemKillable" "0" 
+"ItemKillable" "0"
 "ItemSellable" "1"
 "ItemPurchasable" "1"
 "ItemDroppable" "1"
@@ -46,13 +46,13 @@ ItemKillable lets both allies and enemies destroy the dropped item by attacking 
 
 ### Stock
 ```
-"ItemStockMax" "1" 
+"ItemStockMax" "1"
 "ItemStockTime" "100"
 "ItemStockInitial" "3"
 ```
 
 ### Ownership
-  
+
 If you omit the following, its behavior will be NOT_SHAREABLE
 ```
 "ItemShareability" "ITEM_NOT_SHAREABLE"             //Rapier
@@ -63,17 +63,17 @@ If you omit the following, its behavior will be NOT_SHAREABLE
 
 ### Charges
 ```
-"ItemInitialCharges" "1" //How many charges should the item start with - Tango x3 
-"ItemDisplayCharges" "1" //Hide the charges of the item - Aegis 
+"ItemInitialCharges" "1" //How many charges should the item start with - Tango x3
+"ItemDisplayCharges" "1" //Hide the charges of the item - Aegis
 "ItemRequiresCharges" "1" //The active ability needs charges to be used - Urn
 ```
 
 Also remember to add this somewhere, normally at the beginning of a OnSpellStart block
-  
+
 `"SpendCharge" {}`
 
 ### Stacking, Consumable
-  
+
 ```
 "ItemStackable" "1"
 "ItemPermanent" "0"
@@ -85,7 +85,7 @@ By omitting it will also default to 1.
 
 ### Auto Cast
 This value is the key for Tomes of Stats and other consumable items:
-  
+
 `"ItemCastOnPickup" "1"`
 
 ### Upgradeable items
@@ -96,7 +96,7 @@ This value is the key for Tomes of Stats and other consumable items:
 
 ### Recipes
 ```
-"item_recipe_custom" 
+"item_recipe_custom"
 {
     "ID" "1200"
     "BaseClass"           "item_datadriven"
@@ -111,7 +111,7 @@ This value is the key for Tomes of Stats and other consumable items:
 }
 ```
 
-**IMPORTANT NOTE:** Your item name for the recipe to be recognized by the Dota Shop UI NEEDS to have this format: 
+**IMPORTANT NOTE:** Your item name for the recipe to be recognized by the Dota Shop UI NEEDS to have this format:
 ```
 "item_recipe_(name of your item)"
 ```
@@ -139,8 +139,8 @@ For more on Modifiers, check the [Constants in the wiki]
 {
     "item_custom_modifier"
     {
-        "Passive" "1"  
-        "IsHidden" "0"  
+        "Passive" "1"
+        "IsHidden" "0"
         "Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
         "Properties"
         {
@@ -151,16 +151,16 @@ For more on Modifiers, check the [Constants in the wiki]
             "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
             "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" "%damage_bonus_percent"
         }
-  
-        "States"  
+
+        "States"
         {
             "MODIFIER_STATE_SPECIALLY_DENIABLE" "MODIFIER_STATE_VALUE_ENABLED"
             "MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
-            "MODIFIER_STATE_NO_HEALTH_BAR" "MODIFIER_STATE_VALUE_ENABLED"  
+            "MODIFIER_STATE_NO_HEALTH_BAR" "MODIFIER_STATE_VALUE_ENABLED"
         }
     }
 }
-  
+
 ```
 
 ## Adding spell functionality
@@ -176,15 +176,15 @@ Apart from this values specially related to items, you can add ***everything*** 
 { ... }
 ```
 
-**[Ability Events](http://moddota.com/forums/discussion/13/datadriven-ability-events-modifiers)** like `"OnSpellStart"`, `"OnOwnerDied"` or `"OnEquip"` also go here in the main block.
+**[Ability Events](datadriven/datadriven-ability-events-modifiers)** like `"OnSpellStart"`, `"OnOwnerDied"` or `"OnEquip"` also go here in the main block.
 
 You need at least set the AbilityBehavior for your item to not be active (if you don't, it will default to `DOTA_ABILITY_BEHAVIOR_UNIT_TARGET`).
 
-See more on the complete [DataDriven Ability Breakdown](http://moddota.com/forums/discussion/comment/54)
+See more on the complete [DataDriven Ability Breakdown](ability-keyvalues)
 
 ## Icons and Custom Shops
 
-For your item to have an icon you'll need to go to your addon folder under this path: 
+For your item to have an icon you'll need to go to your addon folder under this path:
 
 `/resource/flash3/images/items`
 
@@ -212,7 +212,7 @@ A template shop file can be copied from here: https://pastebin.com/KZrtm1xQ
 In addition to this file, your item can have key value rules for where it can be bought
 
 ```
-"SideShop" "1"  
+"SideShop" "1"
 "SecretShop" "0"
 ```
 
@@ -233,7 +233,7 @@ These values are optional but greatly improve the quality of your item
 "WorldDropSound" "Item.DropGemWorld" //Sound when dropping the item on death (?)
 ```
 
-### Model and Glow in the world. 
+### Model and Glow in the world.
 VMDL and Particle files can be seen through the [Asset Browser]
 
 ```
@@ -245,8 +245,8 @@ You can find good models in /props_gameplay, /econ or use your own customs
 Important: If you create the item through lua [CreateItemOnPositionSync], you need to provide vision of the world position where the item is being created, at least briefly, to properly display the particle effect.
 
 ### Change the displayed color of the item
-``` 
-"ItemQuality"    "artifact" //Orange 
+```
+"ItemQuality"    "artifact" //Orange
                  "epic" //Purple
                  "rare" //Blue
                  "common" //Green
@@ -278,7 +278,7 @@ This is how Basher is disallowed for certain heroes
 "InvalidHeroes" "npc_dota_hero_spirit_breaker;npc_dota_hero_faceless_void"
 ```
 
-For the Scripted, more powerful version, read more on [Item Restrictions & Requirements](http://moddota.com/forums/discussion/20/item-restrictions-requirements)
+For the Scripted, more powerful version, read more on [Item Restrictions & Requirements](scripting/item-restrictions-requirements)
 
 ------
 
@@ -290,13 +290,13 @@ Alt-click text on items in Inventory and dropped on the ground. Takes the string
 ### PingOverrideText
 
 Overrides the default "[ALLIES] **ItemName** dropped here".
- It will look for *#DOTA_Chat_Text_String* (*Text_String* can be whatever) in your addon strings. 
+ It will look for *#DOTA_Chat_Text_String* (*Text_String* can be whatever) in your addon strings.
 
 <Gfycat id="RemarkableImportantAnt" />
 
 In the item_datadriven:
 ```
-"PingOverrideText" "DOTA_Chat_Text_String" 
+"PingOverrideText" "DOTA_Chat_Text_String"
 ```
 
 In addon_english.txt:
@@ -311,8 +311,8 @@ Displays "[ALLIES] Gather for **ItemName** here."
 ![img](https://puu.sh/duiGf/025d66f1cd.jpg)
 
 ```~
-"ItemAlertable"	"1" 
-```~  
+"ItemAlertable"	"1"
+```~
 
 
 ---

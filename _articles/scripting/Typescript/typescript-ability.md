@@ -104,7 +104,7 @@ Now that the ability is defined, it is time to start coding it. The first step w
 We'll add the `.ts` extension, so the file that we'll be editing is `typescript_skywrath_mage_arcane_bolt.ts`.
 
 :::note
-While the [Watcher is active](typescript-introduction.md/#activating-the-watcher), each time you save your file, a `.lua` file of the same name will be created in the respective output folder. This lua file will be used by the game, and will immediately update to correspond for any changes you do in your Typescript file.
+While the [Watcher is active](typescript-introduction#activating-the-watcher), each time you save your file, a `.lua` file of the same name will be created in the respective output folder. This lua file will be used by the game, and will immediately update to correspond for any changes you do in your Typescript file.
 :::
 
 ### Adding The Ability Class
@@ -617,4 +617,4 @@ Below is a short video record that shows the application of Skywrath Mage's Anci
 
 ### What's Next?
 
-The next tutorial [Modifiers in Typescript](typescript-modifier.md) explains how to create a basic modifier, and link the modifier to an ability via Typescript.
+The next tutorial [Modifiers in Typescript](typescript-modifier) explains how to create a basic modifier, and link the modifier to an ability via Typescript.
