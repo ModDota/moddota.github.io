@@ -8,11 +8,11 @@ Split the game into a game and content folder, then add junctions to link them w
 
 Create the junctions:
 
-mklink /J "C:\Users\Veggiesama\Desktop\HVH\game\hunter_v_hunted\" "C:\Games\steamapps\common\dota 2 beta\game\dota_addons\hunter_v_hunted\"
+mklink /J "C:\Games\steamapps\common\dota 2 beta\game\dota_addons\hunter_v_hunted\" "C:\Users\Veggiesama\Desktop\HVH\game\hunter_v_hunted\"
 
 Junction created for C:\Users\Veggiesama\Desktop\HVH\game\hunter_v_hunted\ <<===>> C:\Games\steamapps\common\dota 2 beta\game\dota_addons\hunter_v_hunted\
 
-mklink /J "C:\Users\Veggiesama\Desktop\HVH\content\hunter_v_hunted\" "C:\Games\steamapps\common\dota 2 beta\content\dota_addons\hunter_v_hunted\"
+mklink /J "C:\Games\steamapps\common\dota 2 beta\content\dota_addons\hunter_v_hunted\" "C:\Users\Veggiesama\Desktop\HVH\content\hunter_v_hunted\"
 
 Junction created for C:\Users\Veggiesama\Desktop\HVH\content\hunter_v_hunted\ <<===>> C:\Games\steamapps\common\dota 2 beta\content\dota_addons\hunter_v_hunted\
 
