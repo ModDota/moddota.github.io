@@ -108,5 +108,4 @@ and finaly we create our kv file where we put all the item for each chest
 ```
 
 Now you can easely make a chest for your rpg game :D
-If you want to make the chest loot on ennemy death , look this another tuto from Noya about drop system : 
-https://moddota.com/forums/discussion/257/item-drop-system
+If you want to make the chest loot on enemy death , look this another tutorial from Noya about an [item drop system](https://moddota.com/scripting/item-drop-system)
