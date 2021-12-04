@@ -147,7 +147,7 @@ Our modifier block gains another modifier event:
 }
 ```
 
-Same as befefore, another different formula can be used, we will give a bit less mana on attacked
+Same as before, another different formula can be used, we will give a bit less mana on attacked
 
 ```lua
 function ManaOnAttacked( event )
@@ -175,11 +175,9 @@ end
 Then in your lua spell script we need to have this somewhere:
 
 ```lua
-local manaGain = event.ability:GetLevelSpecialValueFor("mana_gain", (event.ability:GetLevel()-1))
+local manaGain = event.ability:GetSpecialValueFor("mana_gain")
 event.caster:GiveMana(manaGain)
 ```
-
-Note the relatively complicated GetLevelSpecialValueFor with a GetLevel()-1! 
 
 This will take your "mana_gain" from AbilitySpecial, in my leap example it would be:
 
@@ -193,9 +191,6 @@ This will take your "mana_gain" from AbilitySpecial, in my leap example it would
     }
 }
 ```
-
-We need to use GetLevelSpecialValueFor because GetSpecialValueFor("mana_gain") only takes the first parameter (so it is only useful for non scaling specials)
-
 
 ## Decrease mana over time, scaling with level
 
