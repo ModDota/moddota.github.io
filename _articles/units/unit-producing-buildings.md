@@ -11,7 +11,7 @@ This is a response tutorial on @Lemon30 [question thread](https://moddota.com/fo
 
 First of all, you'll need a KeyValue definition for a building and the unit you want to spawn.
 
-There are many examples of units in [Warchasers](https://github.com/MNoya/Warchasers/blob/master/scripts/npc/npc_units_custom.txt) & [DotaCraft](https://github.com/MNoya/DotaCraft/tree/master/scripts/npc/units) repositories, so I don't think I need to explain much about this.
+There are many examples of units in [Warchasers](https://github.com/MNoya/Warchasers/tree/master/game/dota_addons/warchasers/scripts/npc/units) & [DotaCraft](https://github.com/MNoya/DotaCraft/tree/master/game/dota_addons/dotacraft/scripts/npc/units) repositories, so I don't think I need to explain much about this.
 
 I want to make one special note here though. **"BaseClass" "npc_dota_building" can be seen through fog**.
 
@@ -33,13 +33,13 @@ As described in the first thread, you can point and click to add a unit to the m
 
 The problem with this approach is that even though the building is "part of your team", you have no control over it, the same way you can't control the autoattacks of Towers in Dota.
 
-To solve this, we need to use a couple of lines in lua, basically the `SetOwner` and `SetControllableByPlayer` [API functions](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API#CBaseEntity).
+To solve this, we need to use a couple of lines in lua, basically the `SetOwner` and `SetControllableByPlayer` [API functions](https://moddota.com/api/#!/vscripts/CBaseEntity).
 
 `[CBaseEntity] void SetOwner( handle_owningEntity )` **-- Sets this entity's owner**
 
 `[CDOTA_BaseNPC] void SetControllableByPlayer( int, bool )` **-- Set this unit controllable by a player.**
 
-To properly call these functions, I'm gonna assume you already know the basics explained under the [Beginners Guide to Scripting](scripting-introduction) and just explain where should you call these with an example.
+To properly call these functions, I'm gonna assume you already know the basics explained under the [Beginners Guide to Scripting](https://moddota.com/scripting-introduction) and just explain where should you call these with an example.
 
 A good GameMode hook to call these would be after the dota_player_picked_hero, so given a standard barebones listener like this:
 
@@ -49,7 +49,7 @@ ListenToGameEvent('dota_player_pick_hero', Dynamic_Wrap(GameMode, 'OnPlayerPickH
 
 In OnPlayerPickHero you need to **find the handle of the BaseEntity/BaseNPC**, that is, the unit you want to change ownership and control state.
 
-This can be done in a couple of ways, for example, using the functions defined under [CEntities](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API#CEntities). We want this building to have a unique identifier so its easy to search it, so inside Hammer, select it, go into its properties, and give it a name (I use the Alt+Enter hotkey for this):
+This can be done in a couple of ways, for example, using the functions defined under [CEntities](https://moddota.com/api/#!/vscripts/CEntities). We want this building to have a unique identifier so its easy to search it, so inside Hammer, select it, go into its properties, and give it a name (I use the Alt+Enter hotkey for this):
 
 ![img](https://puu.sh/gs6Ec/c0a81f34ae.jpg)
 

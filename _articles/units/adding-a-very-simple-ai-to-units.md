@@ -18,7 +18,7 @@ I've copied some units from holdout_example for testing, and copied Berserkers C
 
 If you need help on making your own units or abilities, Noya's documentation is an excellent resource:
 [Datadriven Units](unit-keyvalues)
-[DataDriven Ability Breakdown - Documentation](abilities/ability-keyvalues)
+[DataDriven Ability Breakdown - Documentation](https://moddota.com/abilities/ability-keyvalues)
 
 ## Hammer Setup
 In Hammer, I've placed an info_target entity named "spawn_loc_test" which can be found in lua. This allows me to place the units spawn location in Hammer without changing the lua scripts around. If you wish to do this, give each entity a unique name and place them where you want the spawn point on your map.
@@ -192,4 +192,4 @@ If you need more advanced behaviour, an AI script should be used. The method cov
 The full files for this example can be found here:
 https://github.com/Wigguno/AITesting
 
-If you have any questions, the [#dota2modhelpdesk](https://moddota.com/forums/chat) irc channel is always happy to help.
+If you have any questions, the [ModDota Discord](https://discord.gg/Mvn4gww) helpdesk channel is always happy to help.

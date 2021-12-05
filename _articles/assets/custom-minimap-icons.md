@@ -9,7 +9,7 @@ Here is a quick and simple step by step guide on how to make and use your own mi
 
 ## Step 1: Get the files
 
-[minimap_icon.zip](http://moddota.com/resources/minimap_icon.zip) - From the [Resources page](https://moddota.com/forums/resources)
+[minimap_icon.zip](https://drive.google.com/file/d/1nsisy1oPKXsGR3LFhfRjBhwQIp9A7jY2/view?usp=sharing)
 
 This contains the following files:
 
@@ -82,7 +82,7 @@ For more icons, just copy the minimap_icon block again with another name inside 
 
 * **minimap_icon** files go in **content**/dota_addons/YOUR_ADDON/materials/**vgui/hud/**. 
 
-* **addon_hud_textures.txt** file goes in **content**/dota_addons/YOUR_ADDON/scripts/
+* **addon_hud_textures.txt** file goes in **game**/dota_addons/YOUR_ADDON/scripts/
 
 ### Step 4: Compile and check
 
