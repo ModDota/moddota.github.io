@@ -20,6 +20,8 @@ some examples:
 ```
 "DOTA_Tooltip_modifier_tower_aura_bonus_Description"    "Armor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% and health regeneration by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
 ```
+and approximately 560 more examples in valve's [abilities_english.txt](https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_english.txt)
+
 
 As you can see, all of those numbers are not manually written into the modifier description, they are dynamically grabbed from the modifier.
 
