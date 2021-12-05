@@ -9,20 +9,20 @@ This document covers every keyvalue of the npc_units_custom file
 
 ![img](https://i.imgur.com/T7W828Q.png)
 
-* [General](##general)
-* [Boolean Values and Flags](##flags)
-* [Selection Properties](##selection)
-* [Sounds](##sounds)
-* [Abilities](##abilities)
-* [Stats](##general)
-* [Bounds](##bounds)
-* [Movement](##movement)
-* [Health and Mana](##healthmana)
-* [Armor and Attack Types](##armorattack)
-* [Vision](##vision)
-* [Lua VScript AI](##AI)
-* [Creature Block](#Comment_763)
-  * [AttachWearables](##wearables)
+* [General](#general)
+* [Boolean Values and Flags](#boolean-values-and-flags)
+* [Selection Properties](#selection-properties)
+* [Sounds](#sounds)
+* [Abilities](#abilities)
+* [Stats](#stats)
+* [Bounds](#bounds)
+* [Movement](#movement)
+* [Health and Mana](#health-and-mana)
+* [Armor and Attack Types](#armor-and-attack-types)
+* [Vision](#vision)
+* [Lua VScript AI](#lua-vscript-ai)
+* [Creature Block](#creature-block)
+
 
 ## General
 
@@ -453,4 +453,118 @@ When you add a creep to the map and set it to the neutral team, the default is t
 
 ```
 "UseNeutralCreepBehavior" 	"0"
+```
+
+## Creature Block
+
+The creature block allows for a variety of features to be applied from KV like basic AI, stat bonuses based on creature level, and wearables.
+All these settings can and should be put inside **one** creature block, but they will be separated by category in this guide
+
+### Stats Settings and Items
+
+```
+"Creature"
+{
+  "CanRespawn"        "0"
+
+  //Pathing Setting
+  "DisableClumpingBehavior" "1"
+
+  //Level Up Parameters
+  "HPGain"           "10"
+  "DamageGain"       "20"
+  "ArmorGain"        "0.25"
+  "MagicResistGain"  "0"
+  "MoveSpeedGain"    "1"
+  "BountyGain"       "3"
+  "XPGain"           "15"
+
+  "DisableResistance" "80.0"
+
+  //Starting Items | Note: requires "HasInventory" "1" outside of creature block
+  "EquippedItems"
+  {
+    "Maelstrom" { "Item"  "item_maelstrom" }
+    "Treads" { "Item"  "item_power_treads" }
+    "SnY" { "Item"  "item_sange_and_yasha" }
+  }
+}
+```
+
+### Wearables
+
+See [this](https://moddota.com/units/create-creature-attachwearable-blocks-directly-from-the-keyvalues) guide for more info.
+
+```
+"Creature"
+{
+  "AttachWearables"
+  {
+    "Wearable1" { "ItemDef" "101" }
+    "Wearable2" { "ItemDef" "102" }
+    "Wearable3" { "ItemDef" "103" }
+  }
+}
+```
+
+### Creature AI
+
+I highly recommend using [Lua for AI](#lua-vscript-ai) instead, but will leave some information here anyway.
+
+```
+"Creature"
+{
+  // ?
+  "PermanentDesire"  "1"
+
+  "DefaultState"  "Invade"
+
+  "States"
+  {
+    "Invade"
+    {
+      "Name"          "Invade"
+      "Aggression"    "100.0"
+      "Avoidance"     "0.0"
+      "Support"       "0.0"
+      "RoamDistance"  "2000.0"
+    }
+  }
+  
+  "OffensiveAbilities"
+  {
+    "Ability1"                
+    {
+      "Name"        "broodmother_spawn_spiderlings"
+    }
+    "Ability2"
+    {
+      "Name"        "centaur_hoof_stomp"
+
+      //Targeting Parameters
+      "Radius"             "275"
+      "MinimumTargets"     "2"
+      "UseAtHealthPercent" "50"
+      "UseSelfishly"       "1"
+
+      //Ability Descriptors
+      "AOE"          "1"
+      "Debuff"       "1"
+      "Buff"         "1"
+      "Stun"         "1"
+      "Damage"       "1"
+      "Heal"         "1"
+    }
+  }
+  "DefensiveAbilities"
+  {
+    "Ability1"
+    {
+      "Name"           "undying_tombstone"
+      "AOE"            "1"
+      "Radius"         "1000"
+      "MinimumTargets" "1"
+    }
+  }
+}
 ```
