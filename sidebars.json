@@ -57,7 +57,9 @@
                         "abilities/datadriven/apply-hero-and-creep-modifier-durations",
                         "abilities/datadriven/physics-ability-example-exorcism"
                     ]
-                }
+                },
+                "abilities/modifier-properties-in-tooltips",
+                "abilities/server-to-client"
             ]
         },
         {
