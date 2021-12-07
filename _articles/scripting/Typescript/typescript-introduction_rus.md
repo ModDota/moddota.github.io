@@ -1,6 +1,6 @@
 ---
-title: Typescript введение
-author: Shush (перевод dEN5-tech)
+title: Typescript Introduction (RUS)
+author: Shush (translate dEN5-tech)
 steamId: 76561197994333648
 date: 06.12.2021
 ---
