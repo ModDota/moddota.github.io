@@ -92,7 +92,8 @@
                     "type": "link",
                     "label": "Custom NetTables",
                     "href": "https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Custom_Nettables"
-                }
+                },
+                "scripting/advanced-looting-chest"
             ]
         },
         {
