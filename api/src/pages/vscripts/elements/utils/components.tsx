@@ -81,7 +81,7 @@ const SearchWrapper = styled.a.attrs({ target: "_blank", rel: "noreferrer noopen
 `;
 
 export const SearchOnGitHub: React.FC<{ name: string }> = ({ name }) => {
-  const query = encodeURIComponent(`vscripts in:path ${name} in:file`);
+  const query = encodeURIComponent(`${name} path:vscripts`);
   const href = `https://github.com/search?l=Lua&q=${query}&type=Code`;
   return (
     <SearchWrapper href={href} title="Search on GitHub">
