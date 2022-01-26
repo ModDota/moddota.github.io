@@ -117,12 +117,15 @@ end
 
 --refresh the modifier on every think
 function modifier_example:OnIntervalThink()
-	self:ForceRefresh()
+	self:OnRefresh()
 end
 
 --this function is called when a modifier is reapplied, or manually refreshed in a script.
 function modifier_example:OnRefresh( kv )
 	if IsServer() then
+    --call OnCreated again to recalculate our values
+    self:OnCreated()
+    
 		--SendBuffRefreshToClients is a server-only function
 		self:SendBuffRefreshToClients()
 	end
