@@ -4,7 +4,7 @@ author: Kain
 steamId: '76561198011709789'
 date: 01.04.2022
 ---
-![image](logo.png)
+![icon](/images/improvement-vconsole/logo.png)
  ## vConsole
 Dota2 Tools have a console `vConsole2.exe`
  
@@ -12,7 +12,7 @@ Dota2 Tools have a console `vConsole2.exe`
 
 > Standard toolbar view:
 
-![image](vConsole.png)
+![vconsole](/images/improvement-vconsole/vConsole.png)
 
 This is the part of the program that we will expand on today.
 What opportunities will we get :
@@ -99,11 +99,11 @@ running a VSCode program with arguments (in this case the workspace is specified
 
 ***
 View of my toolbar without Dota2 tools running :
-![image](toolbar1.png)
+![toolbar1](/images/improvement-vconsole/toolbar1.png)
 
 with running tools :
 
-![image](toolbar2.png)
+![toolbar2](/images/improvement-vconsole/toolbar2.png)
 
 I hope my article will help you better organize your workspace when developing addons and you will be able to make more good and interesting projects.
 > PS my native languages BY RUS , I apologize for possible translation inaccuracies.
