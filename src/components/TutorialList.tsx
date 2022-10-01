@@ -1,6 +1,6 @@
 import isInternalUrl from "@docusaurus/isInternalUrl";
 import Link from "@docusaurus/Link";
-import type { Sidebar, SidebarItem } from "@docusaurus/plugin-content-docs/lib/types";
+import type { Sidebar, SidebarItem } from "@docusaurus/plugin-content-docs/lib/sidebars/types";
 import classnames from "classnames";
 import React, { useCallback, useContext, useState } from "react";
 
@@ -39,8 +39,8 @@ function TutorialListItem({ item }: { item: SidebarItem }): JSX.Element {
                         {label}
                     </a>
                     <ul className="menu__list">
-                        {items.map((item) => (
-                            <TutorialListItem key={item.label} item={item} />
+                        {items.map((item, i) => (
+                            <TutorialListItem key={i} item={item} />
                         ))}
                     </ul>
                 </li>
