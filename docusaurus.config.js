@@ -13,7 +13,6 @@ module.exports = {
                 src: "images/logo.svg",
             },
             items: [
-                { position: "left", label: "Tutorials", to: "tutorials" },
                 { position: "left", label: "Lua API", href: "https://moddota.com/api" },
                 {
                     position: "left",

@@ -7,7 +7,6 @@ const resolve = (query) => path.resolve(__dirname, query);
 module.exports = () => ({
     configureWebpack: (config, isServer) => {
         return {
-            module: {},
             plugins: [
                 ...(isServer
                     ? []
