@@ -41,12 +41,14 @@ const SearchButton = styled.button<{ isUpdated: boolean }>`
   }
 `;
 
-export const composeFilters = <T,>(filters: ((member: T) => boolean | undefined)[]) => (value: T) => {
-  const results = filters.map((fn) => fn(value));
-  if (results.includes(false)) return false;
-  if (results.includes(true)) return true;
-  return false;
-};
+export const composeFilters =
+  <T,>(filters: ((member: T) => boolean | undefined)[]) =>
+  (value: T) => {
+    const results = filters.map((fn) => fn(value));
+    if (results.includes(false)) return false;
+    if (results.includes(true)) return true;
+    return false;
+  };
 
 export function useRouterSearch() {
   const location = useLocation();
@@ -92,9 +94,10 @@ export function SearchBox({ baseUrl, className }: { baseUrl: string; className?:
     [history, baseUrl],
   );
 
-  const handleSearchButton = useCallback<React.MouseEventHandler<HTMLButtonElement>>(() => setSearchQuery(search), [
-    search,
-  ]);
+  const handleSearchButton = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
+    () => setSearchQuery(search),
+    [search],
+  );
   const handleSearchButtonMouseDown = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
     (event) => event.preventDefault(),
     [],

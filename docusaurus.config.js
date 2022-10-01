@@ -4,7 +4,7 @@ module.exports = {
     url: "https://moddota.com",
     baseUrl: "/",
     favicon: "images/favicon.ico",
-    onBrokenLinks: "error",
+    onBrokenLinks: "throw",
     themeConfig: {
         navbar: {
             title: "ModDota",
@@ -13,7 +13,6 @@ module.exports = {
                 src: "images/logo.svg",
             },
             items: [
-                { position: "left", label: "Tutorials", to: "tutorials" },
                 { position: "left", label: "Lua API", href: "https://moddota.com/api" },
                 {
                     position: "left",
@@ -29,6 +28,7 @@ module.exports = {
             darkTheme: require("prism-react-renderer/themes/dracula"),
         },
         algolia: {
+            appId: "BH4D9OD16A",
             apiKey: "5c91053fa708fac220dfd06a4a04fee9",
             indexName: "moddota",
         },
@@ -53,5 +53,5 @@ module.exports = {
             },
         ],
     ],
-    plugins: [require.resolve("./docusaurus/plugin")],
+    plugins: ["docusaurus-plugin-sass", require.resolve("./docusaurus/plugin")],
 };

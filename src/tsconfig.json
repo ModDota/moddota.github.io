@@ -2,10 +2,11 @@
     "extends": "@ark120202/typescript-config/web/es2017.json",
     "include": ["**/*"],
     "compilerOptions": {
+        "baseUrl": ".",
         "target": "es2017",
         "lib": ["es2017", "dom", "dom.iterable"],
         "jsx": "react",
         "isolatedModules": true,
-        "types": ["webpack-env", "@docusaurus/module-type-aliases"]
+        "types": ["webpack-env", "@docusaurus/module-type-aliases", "@docusaurus/theme-classic"]
     }
 }

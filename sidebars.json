@@ -1,6 +1,6 @@
 {
     "tutorials": [
-        "_index",
+        "index",
         "getting-started",
         "scripting-introduction",
         {

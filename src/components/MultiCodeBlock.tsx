@@ -32,11 +32,11 @@ export function MultiCodeBlock({
     return (
         <Tabs
             groupId={group !== undefined ? `multi-code-block-${group}` : undefined}
-            defaultValue={tabs[0].id}
-            values={tabs.map(({ id, languageName }) => ({ value: id, label: languageName }))}
+            defaultValue={tabs[0].id.toString()}
+            values={tabs.map(({ id, languageName }) => ({ value: id.toString(), label: languageName }))}
         >
             {tabs.map(({ id, element }) => (
-                <TabItem key={id} value={id}>
+                <TabItem key={id} value={id.toString()}>
                     {element}
                 </TabItem>
             ))}
