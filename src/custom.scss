@@ -51,6 +51,7 @@
         background-image: url("/images/youtube.svg");
         background-size: 1.25rem;
         flex-shrink: 0;
+        margin-left: 15px;
     }
 
     &[href^="https://developer.valvesoftware.com/"]::after
@@ -61,6 +62,7 @@
         width: 1.25rem;
         background-image: url("/images/valve-developer-community.ico");
         background-size: 1.25rem;
+        margin-left: 15px;
     }
 }
 

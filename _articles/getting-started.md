@@ -5,8 +5,6 @@ steamId: '76561198000729788'
 date: 22.02.2015
 ---
 
-**Edit 9/25/15**: Please note that this guide is somewhat lacking in content. I invite any decent Dota 2 modder to take the reigns and rewrite this guide proper.
-
 So you're completely new to Dota 2 modding? Don't know where in the hell to begin? This is the guide for you, the future Dota 2 modder!
 
 Note: “Addon”, "mod", and “custom game” are all synonymous throughout this guide (and likely the entire website).
@@ -15,12 +13,12 @@ Note: “Addon”, "mod", and “custom game” are all synonymous throughout th
 
 The [Workshop Tools Wiki Homepage](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools) does a good job with subdividing all the possible aspects of Dota 2 modding:
 
-* Level design (Uses the tool called "Hammer")
-* Scripting (Divided into KeyValue editing and Lua scripting)
-* Modeling (Importing your own custom models into your addon)
-* Sounds (Importing your own custom sounds, or editing existing ones)
-* Particles (Editing existing particles or creating your own using the Particle Editor Tool (PET))
-* Panorama (Creating custom UI or modifying existing Dota 2 UI with Panorama scripts)
+* **Level design** - Uses the tool called "Hammer"
+* **Scripting** - Divided into KeyValue editing and Lua scripting
+* **Modeling** - Importing your own custom models into your addon
+* **Sounds** - Importing your own custom sounds, or editing existing ones
+* **Particles** - Editing existing particles or creating your own using the Particle Editor Tool (PET)
+* **Panorama** - Creating custom UI or modifying existing Dota 2 UI with Panorama scripts
 
 ## Step #0: Installing and Launching the Dota 2 Workshop Tools
 
@@ -33,18 +31,37 @@ taken from [How to install the Dota 2 Workshop Tools](https://developer.valvesof
 * Click Close. The required content will begin downloading.
 * When download is finished, launch Dota 2 In Steam and select Launch Dota 2 - Tools.
 
-## Step #1: Creating a New Addon From The 'Barebones' Template
+## Step #1: Creating a New Addon From A Template
 
-To start off on a good foot, you’re going to want to create a new addon based off of the Barebones template, which is a community made alternative to Valve’s default addon templates (i.e. Holdout). This is the link to the updated Barebones: https://github.com/DarkoniusXNG/barebones<br />
+To start off on a good foot, you’re going to want to create a new addon from a template. You have two options to choose from:
+
+### Option 1: The TypeScript Addon Template
+
+Contains:
+* Dota 2 API type declarations, that help you with error checking and auto-completion of your code
+* Example gamerules
+* Example TypeScript ability
+* Example TypeScript modifier
+* Example Panorama UI with TypeScript
+* Automatic installation script
+* Latest Timers library
+
+This template contains everything you need to get up and running to make mods with TypeScript. Dota 2 uses Lua as scripting language, so this template includes tools to automatically translate your TypeScript to Lua. It provides the framework for addon development, but other than that it only contains a few small examples. It comes with automatic setup for git version control out of the box.
+
+To get started with the TypeScript template, see: [The template GitHub page](https://github.com/ModDota/TypeScriptAddonTemplate) and [TypeScript introduction](scripting/Typescript/typescript-introduction.md) for the template and installation instructions.
+
+### Option 2: The Barebones Lua Template
+
+Contains:
+* Some default gamerules and configuration you can easily adjust
+* Example Lua abilities
+* Example Lua modifiers
+* Some older libraries like `animations`, `physics`, `projectiles` and `timers`.
+
+You can get started based off of the Barebones template, which is a community made alternative to Valve’s default addon templates (i.e. Holdout). This is the link to the updated Barebones: https://github.com/DarkoniusXNG/barebones<br />
 After downloading it as a zip, you want to browse to your `.../Steam/SteamApps/dota 2 beta/` and merge the `game` and `content` folders from the .zip into the that /dota 2 beta/ folder (which should already have folders in it called `game` and `content`).
 
 Next, start up the Workshop Tools (or restart them if you have them opened already), and double click your new addon. Set it as the default addon. Then, go into Hammer -> File -> Open -> template_map.vmap -> Press F9 to begin building the map. After Hammer finishes building your map, your custom game will automatically load in Dota.
-
-<Gfycat id="NarrowIncredibleBongo" />
-
-:::note
-Workshop tools now are launched through the same link in steam as the main dota client, and not the "Tools" list in steam. Otherwise this video is roughly still accurate.
-:::
 
 ## Step #2: Creating your map in Hammer
 
