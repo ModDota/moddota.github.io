@@ -240,4 +240,4 @@ That's it! A simple modifier is done with a bunch of simple lines, which are all
 
 ### What's Next?
 
-The next part would involve listening to events in game mode and using timers. Stay tuned!
+Next, you can learn about events in the next tutorial: [Events and Timers in Typescript](typescript-events).
