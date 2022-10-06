@@ -5,7 +5,7 @@ steamId: 76561197994333648
 date: 05.10.2022
 ---
 
-As you may know, Dota has many events. While developing a custom game, listening to events is very useful, as it allows you to do something when something occurs. For example, an event may listen to all deaths, triggering whenever a hero, unit or building are killed. Events will supply some information about the instance of that event. For example, in the above event, the killer and the victim will be included in the parameters.
+As you may know, Dota has many events. While developing a custom game, listening to events is very useful, as it allows you to do something when something occurs. For example, listening to an event that triggers on death, whenever a hero, unit or building are killed. Events will supply some information about the instance of that event. For example, in the above event, the killer and the victim will be included in the parameters.
 
 ### Important Note Before We Begin
 
@@ -91,7 +91,7 @@ You can find an example of the `CustomGameEventManager.Send_ServerToPlayer` func
 
 ### Timers
 
-Timers is a library written in lua. We can use the Timers library to delay actions for a certain amount of time, after which a callback function is called. It can be used a delay or as a repeat call that happens every few seconds, for example.
+Timers is a library written in lua. We can use the Timers library to delay actions for a certain amount of time, after which a callback function is called. It can be used as a delay or as a repeat call that happens every few seconds, for example.
 
 :::note
 Timers is written in lua. Instead of converting it to Typescript, we use the file `timers.d.ts` to describe to Typescript how Timers is structured, allowing us to use the Timers library as is.
@@ -122,6 +122,9 @@ Timers.CreateTimer(5, () => {
 ```
 
 Doing this will create a timer that initially takes 5 seconds to execute. Since we're returning 1, the timer will repeat every 1 second. In this example, on every execution, it will print the current time and message.
+
+Note that you can return different values on each run to make the timer run with various delays on each repeat.
+Additionally, returning with no value or with `undefined` will make the timer no longer repeat, which can be used as a stop condition for a repeating timer.
 
 :::note
 Timers respect pauses. This means that they will not progress while the game is paused, postponing the code execution until the game is unpaused.
