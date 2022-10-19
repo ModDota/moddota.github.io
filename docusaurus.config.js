@@ -31,6 +31,7 @@ module.exports = {
             appId: "53WE0HHYGT",
             apiKey: "ce612349c2e1e35842e9630128e92dc2",
             indexName: "moddota",
+            contextualSearch: false,
         },
     },
     presets: [
@@ -42,8 +43,6 @@ module.exports = {
                     routeBasePath: "/",
                     sidebarPath: require.resolve("./sidebars.json"),
                     editUrl: "https://github.com/ModDota/moddota.github.io/edit/source/",
-                    showLastUpdateAuthor: true,
-                    showLastUpdateTime: true,
                     remarkPlugins: [
                         require("./docusaurus/remark-component-provider"),
                         require("./docusaurus/remark-remove"),
