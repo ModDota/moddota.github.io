@@ -28,8 +28,8 @@ module.exports = {
             darkTheme: require("prism-react-renderer/themes/dracula"),
         },
         algolia: {
-            appId: "BH4D9OD16A",
-            apiKey: "5c91053fa708fac220dfd06a4a04fee9",
+            appId: "53WE0HHYGT",
+            apiKey: "ce612349c2e1e35842e9630128e92dc2",
             indexName: "moddota",
         },
     },
@@ -42,6 +42,8 @@ module.exports = {
                     routeBasePath: "/",
                     sidebarPath: require.resolve("./sidebars.json"),
                     editUrl: "https://github.com/ModDota/moddota.github.io/edit/source/",
+                    showLastUpdateAuthor: true,
+                    showLastUpdateTime: true,
                     remarkPlugins: [
                         require("./docusaurus/remark-component-provider"),
                         require("./docusaurus/remark-remove"),
