@@ -2,7 +2,6 @@ import eventsData from "@moddota/dota-data/files/events";
 import { orderBy } from "lodash";
 import { useParams } from "react-router-dom";
 import { useRouterSearch } from "~components/Search";
-import { isNotNil } from "~utils/types";
 
 export type { EventField } from "@moddota/dota-data/files/events";
 export interface Event extends eventsData.Event {
@@ -71,16 +70,17 @@ function doSearch(words: string[]) {
     return words.every((word) => name.includes(word));
   }
 
-  return events
-    .map((event) => {
-      const partialDeclaration = { ...event, fields: event.fields.filter(filterName) };
-      if (partialDeclaration.fields.length > 0) {
-        return partialDeclaration;
-      }
+  return events.filter((event) => {
+    // If the event's name apply to the filter, include the event
+    if (filterName(event)) {
+      return true;
+    }
 
-      if (filterName(event)) {
-        return { ...event, fields: [] };
-      }
-    })
-    .filter(isNotNil);
+    // If any of the fields's names apply to the filter, include the event
+    if (event.fields.some(filterName)) {
+      return true;
+    }
+
+    return false;
+  });
 }
