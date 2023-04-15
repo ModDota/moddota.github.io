@@ -70,12 +70,17 @@ function doSearch(words: string[]) {
     return words.every((word) => name.includes(word));
   }
 
-  return events.filter(event => {
+  return events.filter((event) => {
     // If the event's name apply to the filter, include the event
-    if (filterName(event)) { return true; }
+    if (filterName(event)) {
+      return true;
+    }
 
     // If any of the fields's names apply to the filter, include the event
-    if (event.fields.some(filterName)) { return true; }
+    if (event.fields.some(filterName)) {
+      return true;
+    }
+
     return false;
   });
 }
