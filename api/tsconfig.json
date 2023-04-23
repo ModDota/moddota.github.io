@@ -1,5 +1,10 @@
 {
-  "extends": "@ark120202/typescript-config/node/12.json",
+  "compilerOptions": {
+    "target": "esnext",
+    "strict": true,
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true
+  },
   "include": ["**/*"],
   "exclude": ["src"]
 }

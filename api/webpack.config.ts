@@ -1,11 +1,10 @@
 import { TransformOptions } from "@babel/core";
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import CaseSensitivePathsPlugin from "case-sensitive-paths-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import path from "path";
+import * as path from "path";
 import { Configuration } from "webpack";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 // Required to augment `Configuration`
@@ -21,7 +20,6 @@ export default (env: Record<string, any> = {}, argv: Configuration): Configurati
     plugins: [
       ["@babel/plugin-proposal-class-properties", { loose: true }],
       ["babel-plugin-styled-components", { ssr: false }],
-      ...(isProduction ? [] : [require.resolve("react-refresh/babel")]),
     ],
     presets: [
       "@babel/preset-typescript",
@@ -80,7 +78,6 @@ export default (env: Record<string, any> = {}, argv: Configuration): Configurati
       new CaseSensitivePathsPlugin(),
       new ForkTsCheckerWebpackPlugin({
         typescript: { configFile: tsconfigPath },
-        logger: { devServer: false },
       }),
 
       new CleanWebpackPlugin(),
@@ -89,8 +86,6 @@ export default (env: Record<string, any> = {}, argv: Configuration): Configurati
         template: resolve("src/index.html"),
         minify: { minifyCSS: true, minifyJS: true, removeComments: true, collapseWhitespace: true },
       }),
-
-      ...(isProduction ? [] : [new ReactRefreshWebpackPlugin()]),
 
       ...(env.analyze ? [new BundleAnalyzerPlugin()] : []),
     ],
