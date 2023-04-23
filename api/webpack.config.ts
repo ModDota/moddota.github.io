@@ -53,7 +53,7 @@ export default (env: Record<string, any> = {}, argv: Configuration): Configurati
       },
     },
     optimization: {
-      moduleIds: isProduction ? "hashed" : undefined,
+      moduleIds: isProduction ? "deterministic" : undefined,
     },
     module: {
       rules: [
