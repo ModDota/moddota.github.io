@@ -7,5 +7,6 @@ interface AppContextProps {
 
 export const AppContext = React.createContext<AppContextProps>({
   darkmode: false,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   setDarkmode(_) {},
 });

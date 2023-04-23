@@ -65,7 +65,7 @@ export function doSearch(words: string[]) {
     (x) => !x.startsWith("type:") && !AVAILABILITY_PATTERN.test(x) && !ABSTRACT_METHOD_PATTERN.test(x),
   );
 
-  function filterAvailability(member: { available: api.Availability } | {}) {
+  function filterAvailability(member: { available: api.Availability } | object) {
     if (availabilityWords.length === 0) return undefined;
     if (!("available" in member)) return false;
 

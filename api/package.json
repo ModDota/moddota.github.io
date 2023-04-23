@@ -6,23 +6,6 @@
     "dev": "webpack serve --mode development",
     "lint": "eslint ."
   },
-  "eslintConfig": {
-    "parserOptions": {
-      "project": [
-        "tsconfig.json",
-        "src/tsconfig.json"
-      ]
-    },
-    "rules": {
-      "@typescript-eslint/quotes": [
-        "error",
-        "double"
-      ],
-      "import/extensions": "off",
-      "prefer-arrow/prefer-arrow-functions": "off",
-      "node/no-unsupported-features/node-builtins": "off"
-    }
-  },
   "dependencies": {
     "@moddota/dota-data": "^0.32.4",
     "@types/lodash": "^4.14.165",
@@ -55,14 +38,16 @@
     "@types/html-webpack-plugin": "^3.2.6",
     "@types/webpack-bundle-analyzer": "^3.9.0",
     "@types/webpack-dev-server": "^3.11.1",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.11.1",
     "case-sensitive-paths-webpack-plugin": "^2.3.0",
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.3.0",
     "cross-env": "^7.0.2",
-    "eslint": "^7.13.0",
-    "eslint-plugin-react": "^7.21.5",
+    "eslint": "^7.32.0",
+    "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^8.0.0",

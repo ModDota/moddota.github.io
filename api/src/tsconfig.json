@@ -1,15 +1,18 @@
 {
-  "extends": "@ark120202/typescript-config/web/es2017.json",
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "es2019"],
     "jsx": "react",
     "noEmit": true,
     "isolatedModules": true,
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
 
     "baseUrl": ".",
     "paths": {
       "~components/*": ["components/*"],
       "~utils/*": ["utils/*"]
     }
-  }
+  },
+  "include": ["**/*"]
 }
