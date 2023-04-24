@@ -3,8 +3,8 @@ import { Declaration } from "~components/Docs/api";
 import vscriptsEvents from "@moddota/dota-data/files/events";
 import panoramaEvents from "@moddota/dota-data/files/panorama/events";
 import panoramaEnums from "@moddota/dota-data/files/panorama/enums";
-import {orderBy} from "lodash";
-import {DeclarationsContextType} from "~components/Docs/DeclarationsContext";
+import { orderBy } from "lodash";
+import { DeclarationsContextType } from "~components/Docs/DeclarationsContext";
 
 const starredEventNames = [
   "dota_hero_inventory_item_change",
@@ -50,51 +50,59 @@ function sort(declarations: Declaration[]) {
 export const scopes = {
   vscripts: {
     root: "/vscripts",
-    declarations: sort(allData.map((declaration) => ({
-      ...declaration,
-      isStarred: false,
-    }))),
+    declarations: sort(
+      allData.map((declaration) => ({
+        ...declaration,
+        isStarred: false,
+      })),
+    ),
   },
   vscriptsEvents: {
     root: "/events",
-    declarations: sort(vscriptsEvents.map((event) => ({
-      kind: "function",
-      name: event.name,
-      description: event.description,
-      args: event.fields.map((field) => ({
-        name: field.name,
-        description: field.description,
-        types: [field.type]
+    declarations: sort(
+      vscriptsEvents.map((event) => ({
+        kind: "function",
+        name: event.name,
+        description: event.description,
+        args: event.fields.map((field) => ({
+          name: field.name,
+          description: field.description,
+          types: [field.type],
+        })),
+        isStarred: starredEventNames.includes(event.name),
+        returns: ["void"],
       })),
-      isStarred: starredEventNames.includes(event.name),
-      returns: ["void"],
-    })))
+    ),
   },
   panorama: {
     root: "/panorama/api",
-    declarations: sort(panoramaEnums.map(declaration => ({
-      kind: "enum",
-      name: declaration.name,
-      isStarred: false,
-      members: declaration.members.map((member) => ({
-        name: member.name,
-        description: member.description,
-        value: member.value
+    declarations: sort(
+      panoramaEnums.map((declaration) => ({
+        kind: "enum",
+        name: declaration.name,
+        isStarred: false,
+        members: declaration.members.map((member) => ({
+          name: member.name,
+          description: member.description,
+          value: member.value,
+        })),
       })),
-    })))
+    ),
   },
   panoramaEvents: {
     root: "/panorama/events",
-    declarations: sort(Object.entries(panoramaEvents).map(([name, event]) => ({
-      kind: "function",
-      name: name,
-      description: event.description,
-      isStarred: false,
-      args: event.args.map((arg) => ({
-        name: arg.name,
-        types: [arg.type]
+    declarations: sort(
+      Object.entries(panoramaEvents).map(([name, event]) => ({
+        kind: "function",
+        name: name,
+        description: event.description,
+        isStarred: false,
+        args: event.args.map((arg) => ({
+          name: arg.name,
+          types: [arg.type],
+        })),
+        returns: ["void"],
       })),
-      returns: ["void"],
-    })))
+    ),
   },
 } satisfies Record<string, DeclarationsContextType>;
