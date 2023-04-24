@@ -53,10 +53,6 @@ const ReferenceType: React.FC<{ name: string }> = ({ name }) => {
       return ["literal"];
     }
 
-    // if (type.kind === "primitive" || type.kind === "nominal") {
-    //   return ["literal"];
-    // }
-
     return [
       "interface",
       type.kind === "class" || type.kind === "enum"
