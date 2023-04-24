@@ -14,6 +14,8 @@ export const NavBar = () => (
     </HomeBrandLink>
     <NavBarLink to="/vscripts">Lua API</NavBarLink>
     <NavBarLink to="/events">Game Events</NavBarLink>
+    <NavBarLink to="/panorama/api">Panorama API</NavBarLink>
+    <NavBarLink to="/panorama/events">Panorama Events</NavBarLink>
     <NavBarRight>
       <NavBarThemeSwitcher />
     </NavBarRight>

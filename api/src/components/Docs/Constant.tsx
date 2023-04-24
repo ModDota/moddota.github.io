@@ -1,4 +1,4 @@
-import enums from "@moddota/dota-data/files/vscripts/enums";
+import * as api from "~components/Docs/api";
 import React from "react";
 import styled from "styled-components";
 import { ElementLink, KindIcon, useLinkedElement } from "./utils/components";
@@ -25,7 +25,7 @@ export function Constant({
 }: {
   className?: string;
   style?: React.CSSProperties;
-  element: enums.Constant;
+  element: api.Constant;
 }) {
   const isLinked = useLinkedElement({ scope: "constants", hash: element.name });
   return (

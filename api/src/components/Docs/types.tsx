@@ -1,11 +1,10 @@
-import api from "@moddota/dota-data/files/vscripts/api";
-import { findTypeByName } from "@moddota/dota-data/lib/helpers/vscripts";
+import * as api from "./api";
 import React, { useMemo, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { ThemeContext } from "styled-components";
-import invariant from "tiny-invariant";
 import { ColoredSyntax, ColoredSyntaxKind, getSyntaxColorFor } from "~components/ColoredSyntax";
 import { assertNever, intersperse } from "~utils/types";
+import { DeclarationsContext } from "~components/Docs/DeclarationsContext";
 
 export const Types: React.FC<{ types: api.Type[] }> = ({ types }) => (
   <>
@@ -45,14 +44,18 @@ const TypeSpan = styled.span`
 `;
 
 const ReferenceType: React.FC<{ name: string }> = ({ name }) => {
+  const { declarations } = useContext(DeclarationsContext);
   const [kind, scope, hash] = useMemo((): [ColoredSyntaxKind, string?, string?] => {
     if (name === "nil") return ["nil"];
 
-    const type = findTypeByName(name);
-    invariant(type !== undefined, `Invalid type reference: ${name}`);
-    if (type.kind === "primitive" || type.kind === "nominal") {
+    const type = declarations.find((declaration) => declaration.name == name);
+    if (!type) {
       return ["literal"];
     }
+
+    // if (type.kind === "primitive" || type.kind === "nominal") {
+    //   return ["literal"];
+    // }
 
     return [
       "interface",

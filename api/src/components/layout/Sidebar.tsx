@@ -1,9 +1,11 @@
 import { darken } from "polished";
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { IconKind, KindIcon } from "~components/KindIcon";
-import { intersperseWith } from "~utils/types";
+import { Declaration } from "~components/Docs/api";
+import { DeclarationsContext } from "~components/Docs/DeclarationsContext";
+import { Star } from "../Docs/Star";
 
 const SidebarLink = styled(NavLink)`
   background: ${(props) => props.theme.sidebar};
@@ -33,23 +35,33 @@ const SidebarKindIcon = styled(KindIcon)`
   vertical-align: ${({ kind }) => (kind === "interface" ? "middle" : "baseline")};
 `;
 
-const insertWordBreaks = (text: string, separator: string) => (
-  <>{intersperseWith(text.split(separator), (index) => [separator, <wbr key={index} />])}</>
-);
+const SidebarElementStar = styled(Star)`
+  float: right;
+`;
 
 export const SidebarElement: React.FC<{
   to: string;
   icon: IconKind;
   text: string;
-  textSeparator?: string;
   extra?: React.ReactNode;
-}> = React.memo(({ to, icon, text, textSeparator, extra }) => (
+}> = React.memo(({ to, icon, text, extra }) => (
   <SidebarLink to={to}>
-    <SidebarKindIcon kind={icon} size="small" />{" "}
-    {textSeparator !== undefined ? insertWordBreaks(text, textSeparator) : text}
+    <SidebarKindIcon kind={icon} size="small" /> {text}
     {extra}
   </SidebarLink>
 ));
+
+export const DeclarationSidebarElement: React.FC<{ declaration: Declaration }> = React.memo(({ declaration }) => {
+  const { root } = useContext(DeclarationsContext);
+  return (
+    <SidebarElement
+      to={`${root}/${declaration.name}`}
+      icon={declaration.kind}
+      text={declaration.name}
+      extra={declaration.isStarred && <SidebarElementStar />}
+    />
+  );
+});
 
 export const SidebarWrapper = styled.div`
   width: 340px;
