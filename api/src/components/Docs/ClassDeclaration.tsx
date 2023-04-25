@@ -1,9 +1,9 @@
-import api from "@moddota/dota-data/files/vscripts/api";
+import * as api from "./api";
 import React from "react";
 import styled from "styled-components";
 import { Field } from "./Field";
 import { FunctionDeclaration } from "./FunctionDeclaration";
-import { AvailabilityBadge, ElementLink, KindIcon, ReferencesLink } from "./utils/components";
+import { ElementLink, KindIcon } from "./utils/components";
 import {
   CommonGroupHeader,
   CommonGroupMembers,
@@ -12,7 +12,9 @@ import {
   ElementBadges,
   OptionalDescription,
 } from "./utils/styles";
-import { Types } from "./utils/types";
+import { Types } from "./types";
+import { AvailabilityBadge } from "~components/Docs/AvailabilityBadge";
+import { ReferencesLink } from "~components/Docs/ReferencesLink";
 
 const ClassWrapper = styled(CommonGroupWrapper)``;
 

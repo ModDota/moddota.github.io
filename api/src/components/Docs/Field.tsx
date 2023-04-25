@@ -1,10 +1,10 @@
-import api from "@moddota/dota-data/files/vscripts/api";
+import * as api from "./api";
 import apiTypes from "@moddota/dota-data/files/vscripts/api-types";
 import React from "react";
 import styled from "styled-components";
 import { ElementLink, KindIcon, useLinkedElement } from "./utils/components";
 import { CommonGroupHeader, CommonGroupSignature, CommonGroupWrapper, ElementBadges } from "./utils/styles";
-import { Types } from "./utils/types";
+import { Types } from "./types";
 
 const FieldWrapper = styled(CommonGroupWrapper)`
   padding: 4px;

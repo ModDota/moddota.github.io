@@ -1,35 +1,33 @@
-import api from "@moddota/dota-data/files/vscripts/api";
 import apiTypes from "@moddota/dota-data/files/vscripts/api-types";
-import enums from "@moddota/dota-data/files/vscripts/enums";
-import { allData, AllDataType, getFuncDeepTypes } from "@moddota/dota-data/lib/helpers/vscripts";
+import { getFuncDeepTypes } from "@moddota/dota-data/lib/helpers/vscripts";
 import { useParams } from "react-router-dom";
 import { composeFilters, useRouterSearch } from "~components/Search";
 import { isNotNil } from "~utils/types";
+import * as api from "~components/Docs/api";
 
-export function useFilteredData() {
+export function useFilteredData(declarations: api.Declaration[]) {
   const search = useRouterSearch();
   const { scope = "" } = useParams<{ scope?: string }>();
 
   if (search) {
-    return { data: doSearch(search.toLowerCase().split(" ")), isSearching: true };
+    return { data: doSearch(declarations, search.toLowerCase().split(" ")), isSearching: true };
   }
 
-  let data: AllDataType[];
   switch (scope) {
     case "functions":
-      data = allData.filter((x) => x.kind === "function");
+      declarations = declarations.filter((x) => x.kind === "function");
       break;
     case "constants":
-      data = allData.filter((x) => x.kind === "constant");
+      declarations = declarations.filter((x) => x.kind === "constant");
       break;
     default:
-      data = allData.filter((x) => x.name === scope);
+      declarations = declarations.filter((x) => x.name === scope);
   }
 
-  return { data, isSearching: false };
+  return { data: declarations, isSearching: false };
 }
 
-const overrideReferences: Record<string, string[]> = {
+const overrideReferences: Partial<Record<string, string[]>> = {
   TraceCollideable: ["TraceCollideableOutputs"],
   TraceHull: ["TraceHullOutputs"],
   TraceLine: ["TraceLineOutputs"],
@@ -48,7 +46,6 @@ export function getReferencesForFunction(func: api.FunctionDeclaration) {
     }
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   (overrideReferences[func.name] ?? getFuncDeepTypes(func)).forEach(addReference);
 
   return [...allReferences];
@@ -57,7 +54,7 @@ export function getReferencesForFunction(func: api.FunctionDeclaration) {
 const AVAILABILITY_PATTERN = /^-?on:(client|server)$/;
 const ABSTRACT_METHOD_PATTERN = /^-?is:abstract$/;
 
-export function doSearch(words: string[]) {
+export function doSearch(declarations: api.Declaration[], words: string[]): api.Declaration[] {
   const availabilityWords = words.filter((x) => AVAILABILITY_PATTERN.test(x));
   const abstractMethodWords = words.filter((x) => ABSTRACT_METHOD_PATTERN.test(x));
   const typeWords = words.filter((x) => x.startsWith("type:")).map((x) => x.replace(/^type:/, ""));
@@ -96,7 +93,7 @@ export function doSearch(words: string[]) {
     return typeWords.every((type) => types.some((x) => x.includes(type)));
   }
 
-  function filterDeclarationType(declaration: AllDataType) {
+  function filterDeclarationType(declaration: api.Declaration) {
     if (typeWords.length === 0) return undefined;
 
     return (
@@ -113,9 +110,9 @@ export function doSearch(words: string[]) {
     return nameWords.every((word) => name.includes(word));
   }
 
-  return allData
+  return declarations
     .map((declaration) => {
-      const partialDeclaration: api.ClassDeclaration | enums.Enum | undefined =
+      const partialDeclaration: api.Declaration | undefined =
         declaration.kind === "class"
           ? {
               ...declaration,

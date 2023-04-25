@@ -1,16 +1,9 @@
-import api from "@moddota/dota-data/files/vscripts/api";
+import * as api from "./api";
 import React, { useMemo } from "react";
 import styled from "styled-components";
-import { getReferencesForFunction } from "../data";
+import { getReferencesForFunction } from "./utils/filtering";
 import { ObjectType } from "./ObjectType";
-import {
-  AvailabilityBadge,
-  ElementLink,
-  KindIcon,
-  SearchOnGitHub,
-  SearchOnGoogle,
-  useLinkedElement,
-} from "./utils/components";
+import { ElementLink, KindIcon, SearchOnGitHub, SearchOnGoogle, useLinkedElement } from "./utils/components";
 import {
   CommonGroupHeader,
   CommonGroupSignature,
@@ -18,7 +11,8 @@ import {
   ElementBadges,
   OptionalDescription,
 } from "./utils/styles";
-import { FunctionParameters, Types } from "./utils/types";
+import { FunctionParameters, Types } from "./types";
+import { AvailabilityBadge } from "~components/Docs/AvailabilityBadge";
 
 const FunctionWrapper = styled(CommonGroupWrapper)`
   padding: 2px 5px;
@@ -91,7 +85,7 @@ export const FunctionDeclaration: React.FC<{
           {<Types types={declaration.returns} />}
         </FunctionSignature>
         <ElementBadges>
-          <AvailabilityBadge available={declaration.available} />
+          {declaration.available && <AvailabilityBadge available={declaration.available} />}
           <SearchOnGitHub name={declaration.name} />
           <SearchOnGoogle name={declaration.name} />
           {context && <ElementLink scope={context} hash={declaration.name} />}

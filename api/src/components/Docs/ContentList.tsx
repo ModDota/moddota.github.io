@@ -1,15 +1,16 @@
-import { AllDataType } from "@moddota/dota-data/lib/helpers/vscripts";
-import React from "react";
+import React, { useContext } from "react";
 import { ContentWrapper, ListItem, StyledSearchBox, TextMessage } from "~components/layout/Content";
 import { Author } from "~components/Author";
 import { LazyList, ScrollableList } from "~components/Lists";
-import { useFilteredData } from "./data";
-import { ClassDeclaration } from "./elements/ClassDeclaration";
-import { Constant } from "./elements/Constant";
-import { Enum } from "./elements/Enum";
-import { FunctionDeclaration } from "./elements/FunctionDeclaration";
+import { useFilteredData } from "./utils/filtering";
+import { ClassDeclaration } from "./ClassDeclaration";
+import { Constant } from "./Constant";
+import { Enum } from "./Enum";
+import { FunctionDeclaration } from "./FunctionDeclaration";
+import { Declaration } from "~components/Docs/api";
+import { DeclarationsContext } from "~components/Docs/DeclarationsContext";
 
-function renderItem(declaration: AllDataType, style?: React.CSSProperties) {
+function renderItem(declaration: Declaration, style?: React.CSSProperties) {
   let children: JSX.Element;
   switch (declaration.kind) {
     case "class":
@@ -33,12 +34,13 @@ function renderItem(declaration: AllDataType, style?: React.CSSProperties) {
   );
 }
 
-export function Content() {
-  const { data, isSearching } = useFilteredData();
+export function ContentList() {
+  const { root, declarations } = useContext(DeclarationsContext);
+  const { data, isSearching } = useFilteredData(declarations);
 
   return (
     <ContentWrapper>
-      <StyledSearchBox baseUrl="/vscripts" />
+      <StyledSearchBox baseUrl={root} />
 
       {data.length > 0 ? (
         isSearching ? (

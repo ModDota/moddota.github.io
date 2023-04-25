@@ -1,8 +1,8 @@
-import api from "@moddota/dota-data/files/vscripts/enums";
+import * as api from "~components/Docs/api";
 import React from "react";
 import styled from "styled-components";
 import { ColoredSyntax } from "~components/ColoredSyntax";
-import { ElementLink, KindIcon, ReferencesLink } from "./utils/components";
+import { ElementLink, KindIcon } from "./utils/components";
 import {
   CommonGroupHeader,
   CommonGroupMembers,
@@ -11,6 +11,7 @@ import {
   ElementBadges,
   OptionalDescription,
 } from "./utils/styles";
+import { ReferencesLink } from "~components/Docs/ReferencesLink";
 
 const EnumMemberWrapper = styled(CommonGroupWrapper)`
   padding: 2px 5px;
