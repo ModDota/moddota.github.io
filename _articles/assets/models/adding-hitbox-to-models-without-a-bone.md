@@ -1,9 +1,8 @@
 ---
 title: Adding Hitbox to Models without a Bone
-author: Noya
+author: "Noya (updated by: Abraham Blinkin' 12.10.2023)"
 steamId: '76561198046984233'
 date: 06.12.2015
-[//]: <> (updated-by: Abraham Blinkin' 12.10.2023)
 ---
 
 If you tried some of Valve's prop models, you had already noticed that many of them don't have a hitbox, so they can't be used for selectable units.
@@ -54,6 +53,4 @@ Now use the blue arrows in the viewport to adjust the size of the hitbox.
 
 Finally, go to **File -> Save and Compile**
 
-That's all! Now your model will have a hitbox ingame:
-
-<Gfycat id="FrightenedBareAlbino" />
+That's all! Now your model will have a hitbox ingame!
