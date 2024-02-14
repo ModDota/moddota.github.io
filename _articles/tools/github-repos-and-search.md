@@ -22,6 +22,7 @@ title: GitHub Repositories and Search
 * [Dota Tutorial](https://github.com/ModDota/dota-tutorial)
 
 ## Tools
+* [ModCraft](https://github.com/EarthSalamander42/ModCraft)
 * [Tooltip Generator](https://github.com/Shushishtok/tooltip_generator)
 * [Tooltip Codemaker](https://github.com/Shushishtok/tooltip-codemaker)
 
