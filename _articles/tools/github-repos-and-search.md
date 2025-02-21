@@ -29,6 +29,7 @@ title: GitHub Repositories and Search
 * [Game Tracking](https://github.com/SteamDatabase/GameTracking-Dota2)
 * [Valve Resource Format](https://github.com/SteamDatabase/ValveResourceFormat)
 * [Typescript Declarations](https://github.com/ModDota/TypeScriptDeclarations)
+* [Dota VPK Updates](https://github.com/spirit-bear-productions/dota_vpk_updates/)
 
 ## Code Search
 > [GitHub Code Search](https://github.com/search) ([Docs](https://docs.github.com/en/search-github/searching-on-github/searching-code))
