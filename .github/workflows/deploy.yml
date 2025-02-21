@@ -20,10 +20,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js 18
+      - name: Use Node.js 22
         uses: actions/setup-node@v1
         with:
-          node-version: 18
+          node-version: 22
       - run: npm ci
       - run: npm run build
       - run: npm ci
@@ -33,9 +33,9 @@ jobs:
         name: "[API] Build"
         working-directory: api
       - name: Create gh-pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: build
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v4
