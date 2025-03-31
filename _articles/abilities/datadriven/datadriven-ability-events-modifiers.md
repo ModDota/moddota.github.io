@@ -40,16 +40,16 @@ There's a complete (for the most part) [list of Events in the Workshop Tools Wik
 
 In the process I'm also going to make use of different [Actions](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven#Actions), inside the Events, some are self explanatory and some require some in-depth explanation on how to use them.
 
-There are 2 types, **Ability Events** and **Modifier Events**. 
+There are 2 types, **Ability Events** and **Modifier Events**.
 
 Ability Events go on the "first level" of the ability. Modifier Events need to be inside a modifier block.
 
 Basic Skeleton looks like this:
-```    
+```
 "ability_custom"
 {
     // AbilityBehavior and General values
-    // AbilitySpecial block 
+    // AbilityValues block
     // precache block
 
     // Ability Events
@@ -58,7 +58,7 @@ Basic Skeleton looks like this:
 
     "Modifiers"
     {
-        "modifier_custom" 
+        "modifier_custom"
           {
             // Modifier Events
             "OnCreated"
@@ -80,7 +80,7 @@ To test if your Event is actually happening when you expect, you can add the fol
 }
 ```
 
-`RunScript` is one of the most common and potent Actions you'll use for creating complex abilities. For it to work, you need to have a Script File, in this case *utilities.lua*, inside the vscripts folder. 
+`RunScript` is one of the most common and potent Actions you'll use for creating complex abilities. For it to work, you need to have a Script File, in this case *utilities.lua*, inside the vscripts folder.
 
 The Function called can have this:
 

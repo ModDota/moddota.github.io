@@ -5,11 +5,11 @@ steamId: '76561198046984233'
 date: 01.12.2014
 ---
 
-This is a guide to make a simple custom mana system. A working barebones addon is assumed. 
+This is a guide to make a simple custom mana system. A working barebones addon is assumed.
 
 In this example we'll make a classic *Rage* system, meaning:
 1. No normal mana regeneration, starting mana 0
-2. Gain mana after an attack, scaling with level 
+2. Gain mana after an attack, scaling with level
 3. Gain mana after being attacked, scaling with level
 4. Gain mana on particular spell cast
 5. Decrease mana over time, scaling with level
@@ -26,12 +26,12 @@ Hope this is enough for most systems, let me know if you have another concept th
 //KV code inside npc_heroes_custom.txt
 "AttributeBaseIntelligence" "0" // Base intelligence
 "AttributeIntelligenceGain" "0" // Intelligence bonus per level.
-   
+
 "StatusMana"	"50"    // Initial Max Mana
-"StatsManaRegen"	"0"	// Base Mana Regen (KV doesn't like negative numbers here) 
+"StatsManaRegen"	"0"	// Base Mana Regen (KV doesn't like negative numbers here)
 ```
 
-If you need to keep your Int stat but still have 0 natural mana regen, you'll need to apply modifiers for each Int point with negative mana regen to compensate. 
+If you need to keep your Int stat but still have 0 natural mana regen, you'll need to apply modifiers for each Int point with negative mana regen to compensate.
 
 I won't be following this process in this guide, but you can check the guide [on the wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Using_Bitfields_To_Adjust_Stat_Value_Bonuses)
 
@@ -40,7 +40,7 @@ For your mana to start at 0, we'll begin by making the passive hidden ability wh
 
 ```
 //KV code inside npc_abilities_custom.txt
-"barbarian_rage" 
+"barbarian_rage"
 {
     "BaseClass" "ability_datadriven"
     "AbilityTextureName"	"barbarian_rage"
@@ -48,7 +48,7 @@ For your mana to start at 0, we'll begin by making the passive hidden ability wh
     "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 
     "Modifiers"
-    { 
+    {
         "rage_modifier"
         {
             "Passive"	"1"	//Auto apply this modifier when the spell is learned
@@ -74,7 +74,7 @@ The script is very simple:
 
 ```lua
  -- lua code inside barbarian.lua
-    function ZeroManaOnSpawn( event ) 
+    function ZeroManaOnSpawn( event )
         local hero = event.caster
         Timers:CreateTimer(.01, function()
         -- Set Mana to 0 on created
@@ -104,7 +104,7 @@ end
 The if is not exactly neccessary but you'll need to filter your desired hero somehow. We'll use Beastmaster for our example
 
 
-## Gain mana after an attack, scaling with level 
+## Gain mana after an attack, scaling with level
 
 Our rage_modifier block gains another modifier event:
 
@@ -116,7 +116,7 @@ Our rage_modifier block gains another modifier event:
         "ScriptFile"	"barbarian.lua"
         "Function"	"ManaOnAttack"
     }
-} 
+}
 ```
 
 I'll use a basic formula for it, which gives a base mana per attack but also scales with levels slightly.
@@ -162,10 +162,10 @@ end
 ## Gain mana on particular spell cast
 
 ```
-"OnSpellStart" 
+"OnSpellStart"
 {
     "RunScript"
-    { 
+    {
         "ScriptFile"	"barbarian.lua"
         "Function"	"leap"
     }
@@ -179,16 +179,12 @@ local manaGain = event.ability:GetSpecialValueFor("mana_gain")
 event.caster:GiveMana(manaGain)
 ```
 
-This will take your "mana_gain" from AbilitySpecial, in my leap example it would be:
+This will take your "mana_gain" from AbilityValues, in my leap example it would be:
 
 ```
-"AbilitySpecial"
+"AbilityValues"
 {
-    "01"
-    {
-        "var_type"	"FIELD_INTEGER"
-        "mana_gain"	"8 16 25 35 47 60 72 85"
-    }
+  "mana_gain" "8 16 25 35 47 60 72 85"
 }
 ```
 
@@ -201,8 +197,8 @@ Base Mana Regen will need to be updated when the hero spawns `OnHeroInGame`, and
 For this we create a local function somewhere inside our main addon lua file and call it whenever we need (at least once `OnHeroInGame`):
 
 ```lua
-function AdjustWarriorClassMana( hero ) 
-    Timers:CreateTimer(0.1,function() 
+function AdjustWarriorClassMana( hero )
+    Timers:CreateTimer(0.1,function()
         local heroLevel = hero:GetLevel()
         -- Adjust the new mana regen
         hero:SetBaseManaRegen( -(0.01 * heroLevel) - 0.25)
@@ -227,4 +223,3 @@ Check the original complete file scripts in TBR Github
 * [heroes_custom file](https://github.com/Aleteh/TBR3/blob/master/scripts/npc/npc_heroes_custom.txt)
 
 * [abilities file](https://github.com/Aleteh/TBR3/blob/master/scripts/npc/npc_abilities_custom.txt)
-

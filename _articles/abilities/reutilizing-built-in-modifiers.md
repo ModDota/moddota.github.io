@@ -7,13 +7,13 @@ date: 18.01.2015
 
 Here it will be explained how to reuse any Built-In modifier through the datadriven system.
 
-This has many uses, as sometimes it's impossible to replicate some effects that are very hidden/hardcoded within the engine. 
+This has many uses, as sometimes it's impossible to replicate some effects that are very hidden/hardcoded within the engine.
 
 In a previous example, the [Illusion Ability Example](http://moddota.com/forums/discussion/62/illusion-ability-example) made use of the `"modifier_illusion modifier"` in Lua like this:
 
 ```lua
-illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, 
-                                                                outgoing_damage = outgoingDamage, 
+illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration,
+                                                                outgoing_damage = outgoingDamage,
                                                                 incoming_damage = incomingDamage })
 ```
 
@@ -25,7 +25,7 @@ The Full List of Built-In Modifiers can be found [on the the wiki](https://devel
 
 **Basic Example:** This will apply 1 frame of MODIFIER_STATE_NO_UNIT_COLLISION
 ```
-"ApplyModifier" 
+"ApplyModifier"
 {
     "ModifierName"	"modifier_phased"
     "Target"       "TARGET"
@@ -37,7 +37,7 @@ However this isn't more than a shortcut to avoid creating a new modifier with th
 
 <br />
 
-For example, in the `alchemist_chemical_rage` ability, Alchemist changes its attack/idle/run animation, model effect, attack sound and also gets the ability bonus. 
+For example, in the `alchemist_chemical_rage` ability, Alchemist changes its attack/idle/run animation, model effect, attack sound and also gets the ability bonus.
 
 If we wanted to get all the cosmetic properties but with different ability effects, we need to rewrite the skill from scratch, but sadly the autoattack sound and animations for attack/idle/run aren't easily changed, and we would need to find a wacky workaround for it.
 
@@ -53,34 +53,19 @@ Go to the original ability that uses the modifier you want to reuse form the lis
 
 <br />
 
-#### Step 2 - Setting the AbilitySpecial fields
+#### Step 2 - Setting the AbilityValues fields
 
-Copy the ability specials from the main ability into your datadriven AbilitySpecial block. If the custom ability doesn't have the field, the modifier will default to 0, so you can remove those that you want to ignore.
+Copy the ability specials from the main ability into your datadriven AbilityValues block. If the custom ability doesn't have the field, the modifier will default to 0, so you can remove those that you want to ignore.
 
-**Example:** [alchemist_chemical_rage](https://github.com/Pizzalol/SpellLibrary/blob/SpellLibrary/game/dota_addons/spelllibrary/scripts/npc/abilities/alchemist_chemical_rage_datadriven.txt#L30) AbilitySpecial block, with 2 added values and most of its ability bonus removed.
+**Example:** [alchemist_chemical_rage](https://github.com/Pizzalol/SpellLibrary/blob/SpellLibrary/game/dota_addons/spelllibrary/scripts/npc/abilities/alchemist_chemical_rage_datadriven.txt#L30) AbilityValues block, with 2 added values and most of its ability bonus removed.
+
 ```
-"AbilitySpecial"
+"AbilityValues"
 {
-    "01"
-    {
-        "var_type"           "FIELD_FLOAT"
-        "duration"           "25.0"
-    }
-    "02"
-    {
-        "var_type"            "FIELD_FLOAT"
-        "transformation_time" "0.35"
-    }
-    "03"
-    {
-        "var_type"                "FIELD_INTEGER"
-        "bonus_movespeed_percent" "50"
-    }
-    "04"
-    {
-        "var_type"                 "FIELD_INTEGER"
-        "bonus_attack_speed"       "322"
-    }
+  "duration" "25.0"
+  "transformation_time" "0.35"
+  "bonus_movespeed_percent" "50"
+  "bonus_attack_speed" "322"
 }
 ```
 <br />
@@ -89,7 +74,7 @@ Copy the ability specials from the main ability into your datadriven AbilitySpec
 
 On the desired Ability or Modifier Event, add the ApplyModifier action:
 ```
-"ApplyModifier" 
+"ApplyModifier"
 {
     "ModifierName" "modifier_alchemist_chemical_rage_transform"
     "Target"       "CASTER"
@@ -105,7 +90,7 @@ On the desired Ability or Modifier Event, add the ApplyModifier action:
 
 ![img](https://puu.sh/eHc3N/2b62c46b84.jpg)
 
-The modifier_alchemist_chemical_rage tooltip needs to be adjusted to ignore AbilitySpecials we don't need, and instead use our bonus_attack_speed and bonus_movespeed_percent .
+The modifier_alchemist_chemical_rage tooltip needs to be adjusted to ignore AbilityValues we don't need, and instead use our `bonus_attack_speed` and `bonus_movespeed_percent`.
 
 1. Go to dota_english.txt, which can be found in the main dota file or in [this repository link](https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota/resource/dota_english.txt)
 
@@ -120,7 +105,7 @@ After modifying the addon_english.txt:
 
 ![img](https://puu.sh/eHpXB/8fe79a1d57.jpg)
 
-Note that you cannot refer to a new custom %dMODIFIER_PROPERTY_[CONSTANT_LIST](http://moddota.com/forums/discussion/14/datadriven-ability-breakdown-documentation##properties)% in the tooltip, because it doesn't have the custom values in its modifier. 
+Note that you cannot refer to a new custom %dMODIFIER_PROPERTY_[CONSTANT_LIST](http://moddota.com/forums/discussion/14/datadriven-ability-breakdown-documentation##properties)% in the tooltip, because it doesn't have the custom values in its modifier.
 
 Instead you can make those tooltips in the separate modifier, or directly add the numbers to the original modifier tooltip if they are static values (like in this cause I could've written 50 and 322). Sadly, you can't set the built-in modifier as hidden either.
 
@@ -143,28 +128,12 @@ Instead you can make those tooltips in the separate modifier, or directly add th
 
     "AbilityManaCost"       "25"
 
-    "AbilitySpecial"
+    "AbilityValues"
     {
-        "01"
-        {
-            "var_type"                 "FIELD_FLOAT"
-            "duration"                 "15.0"
-        }
-        "02"
-        {
-            "var_type"                 "FIELD_FLOAT"
-            "transformation_time"      "0.35"
-        }
-        "03"
-        {
-            "var_type"                 "FIELD_FLOAT"
-            "bonus_movespeed_percent"  "50"
-        }
-        "04"
-        {
-            "var_type"                 "FIELD_FLOAT"
-            "bonus_attack_speed"       "25 75 125"
-        }
+        "duration" "15.0"
+        "transformation_time" "0.35"
+        "bonus_movespeed_percent" "50"
+        "bonus_attack_speed" "25 75 125"
     }
 
     "precache"
@@ -189,7 +158,7 @@ Instead you can make those tooltips in the separate modifier, or directly add th
             "Duration"     "%transformation_time"
         }
 
-        // Extra Modifier with what we need to add for the custom ability 
+        // Extra Modifier with what we need to add for the custom ability
         "ApplyModifier"
         {
             "ModifierName" "modifier_chemical_rage_warcraft"
@@ -199,7 +168,7 @@ Instead you can make those tooltips in the separate modifier, or directly add th
 
     "Modifiers"
     {
-        
+
         "modifier_chemical_rage_warcraft"
         {
             "IsBuff"   "1"

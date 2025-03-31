@@ -50,38 +50,17 @@ In the npc_abilities_custom.txt, which is located in `scripts/npc` folder, we'll
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-        "01"
-        {
-          "var_type"				"FIELD_INTEGER"
-          "bolt_speed"			"500"
-        }
-
-        "02"
-        {
-          "var_type"				"FIELD_INTEGER"
-          "bolt_vision"			"325"
-        }
-
-        "03"
-        {
-          "var_type"				"FIELD_FLOAT"
-          "bolt_damage"			"60 80 100 120"
-        }
-
-        "04"
-        {
-          "var_type"				"FIELD_FLOAT"
-          "int_multiplier"		"1.6"
-          "CalculateSpellDamageTooltip"	"1"
-        }
-
-        "05"
-        {
-          "var_type"				"FIELD_FLOAT"
-          "vision_duration"		"3.34"
-        }
+      "bolt_speed"				"500"
+      "bolt_vision"				"325"
+      "bolt_damage"				"60 80 100 120"
+      "int_multiplier"
+      {
+        "value" "1.6"
+        "CalculateSpellDamageTooltip" "1"
+      }
+      "vision_duration"			"3.34"
     }
     "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 }
