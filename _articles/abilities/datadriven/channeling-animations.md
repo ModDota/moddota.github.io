@@ -5,7 +5,7 @@ steamId: '76561198046984233'
 date: 18.01.2015
 ---
 
-### Short Version: 
+### Short Version:
 
 ApplyModifier with short duration in a OnThinkInterval, channeling modifier has an OverrideAnimation with a ACT_ from the [Action List](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Actions_List) or with the method explained later.
 
@@ -26,7 +26,7 @@ ApplyModifier with short duration in a OnThinkInterval, channeling modifier has 
             }
         }
     }
-   
+
     "channelling_animation"
     {
         "IsHidden" "1"
@@ -78,14 +78,10 @@ After this, you can select any animation and it will animate the white blocks at
         "particle" "particles/units/heroes/hero_pugna/pugna_life_drain.vpcf"
         "soundfile" "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
     }
-    
-    "AbilitySpecial"
+
+    "AbilityValues"
     {
-        "01"
-        {
-            "var_type" "FIELD_INTEGER"
-            "hp_drain_per_second" "25 40 55"
-        }
+      "hp_drain_per_second" "25 40 55"
     }
 
     "OnSpellStart"
@@ -130,7 +126,7 @@ After this, you can select any animation and it will animate the white blocks at
                         "CASTER" "attach_hitloc"
                         "TARGET" "attach_hitloc"
                     }
-                
+
                 }
             }
 
@@ -141,7 +137,7 @@ After this, you can select any animation and it will animate the white blocks at
                 "Damage"
                 {
                     "Type" "DAMAGE_TYPE_MAGICAL"
-                    "Target" "TARGET" 
+                    "Target" "TARGET"
                     "Damage" "%hp_drain_per_second"
                 }
 

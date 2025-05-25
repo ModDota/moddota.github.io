@@ -397,29 +397,12 @@ end
 ```
 Now to save time and sanity you might want to add 'Special' values to your script. These are values you can modify easily without opening the script and searching for them there. This is extremely helpful when you use those values in multiple places. It also lets you display the values in your item description.<br />First add following block to your item in 'npc_items_custom.txt'
 ```
-
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_blink"				"1200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blink_clamp"			"960"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"help_range"			"3000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"help_duration"			"5.0"
-			}
+      "max_blink" "1200"
+      "blink_clamp" "960"
+      "help_range" "3000"
+      "help_duration" "5.0"
 		}
 ```
 Now to use these values you use this function in your ability:
@@ -699,54 +682,22 @@ Also you must give each item in npc_items_custom.txt unique ID. If you don't you
 		"ItemShopTags"					"blink;staff"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"blink;staff"
-        //
-		"AbilitySpecial"
+    //
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_blink"				"1200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blink_clamp"			"960"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"help_range"			"3000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"help_duration"			"5.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"hurt_cooldown"			"3.0"
-			}
+      // Blink
+      "max_blink" "1200"
+      "blink_clamp" "960"
+      "help_range" "3000"
+      "help_duration" "5.0"
+      "hurt_cooldown" "3.0"
 
-			// Stats from the recipe items
+			// Quearterstaff
+      "bonus_damage" "10"
+      "bonus_attack_speed" "10"
 
-			"06" // Quarterstaff
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"10"
-			}
-
-			"07" // Quarterstaff
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"			"10"
-			}
-
-			"08" // Robe Of Magi
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_int"			"6"
-			}
+      // Robe Of Magi
+      "bonus_int" "6"
 		}
 	}
 

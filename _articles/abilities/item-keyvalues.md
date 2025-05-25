@@ -172,7 +172,7 @@ Apart from this values specially related to items, you can add ***everything*** 
 "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 "AbilityCastAnimation" "ACT_DOTA_CAST_ABILITY_1"
 "AbilityManaCost" "100"
-"AbilitySpecial"
+"AbilityValues"
 { ... }
 ```
 

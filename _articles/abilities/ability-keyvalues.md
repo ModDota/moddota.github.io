@@ -11,7 +11,7 @@ TODO: Some categories are missing:
 [![Cast Animation](https://i.imgur.com/ewEWcom.png)](##animation "Animation when the spell starts casting")
 [![General Stats](https://i.imgur.com/5mO6j4Z.png)](##stats "General numeric values")
 [![Others](https://i.imgur.com/z73NEKo.png)](##others "Other less common values")
-[![Ability Special](https://i.imgur.com/3ynaE40.png)](##special "AbilitySpecial block, used for variables")
+[![Ability Special](https://i.imgur.com/3ynaE40.png)](##special "AbilityValues block, used for variables")
 [![precache](https://i.imgur.com/qKW3Xs4.png)](##precache "Precache block, used to preload assets")
 [![Ability Events](https://i.imgur.com/6IFhMIu.png)](##abilityevents "Triggers on the ability to perform Actions")
 [![Modifiers](https://i.imgur.com/XEFsYCD.png)](##modifiers "Effects that can be applied on units")

@@ -51,19 +51,10 @@ We'll begin with the KV, which is straightforward. Open `/game/scripts/npc/npc_a
 
     // Special
     //-------------------------------------------------------------------------------------------------------------
-    "AbilitySpecial"
+    "AbilityValues"
     {
-        "01"
-        {
-          "var_type"				"FIELD_INTEGER"
-          "resist_debuff"			"30 35 40 45"
-        }
-
-        "02"
-        {
-          "var_type"				"FIELD_FLOAT"
-          "seal_duration"			"3.0 4.0 5.0 6.0"
-        }
+      "resist_debuff"			"30 35 40 45"
+      "seal_duration"			"3.0 4.0 5.0 6.0"
     }
     "AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 }

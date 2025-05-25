@@ -24,22 +24,18 @@ Here is an example of it in KV; one spider spawns without the `modifier_kill` an
 ```
 "test_ability"
 {
-    // General        
+    // General
     "BaseClass"                "ability_datadriven"
     "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
     "AbilityType"                    "DOTA_ABILITY_TYPE_BASIC"
-    // Time         
+    // Time
     "AbilityCooldown"                "0.0"
-    // Cost        
+    // Cost
     "AbilityManaCost"                "0"
-    // Special        
-    "AbilitySpecial"
+    // Special
+    "AbilityValues"
     {
-        "01"
-        {
-            "var_type"                    "FIELD_FLOAT"
-            "duration"                    "10.0"
-        }
+        "duration"                    "10.0"
     }
     "OnSpellStart"
     {

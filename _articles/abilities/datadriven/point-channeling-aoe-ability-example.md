@@ -40,41 +40,22 @@ We will review each important section of the code with comments on it, including
 
 Target Team/Type and DamageType are just there to show the tooltips.
 
-`"AbilityChannelTime"` is a must have that will determine how much time the spell can be maintained. 
+`"AbilityChannelTime"` is a must have that will determine how much time the spell can be maintained.
 
-Note the `"AOERadius"` which accepts a `"%radius"` from AbilitySpecial in its value. "AOERadius" needs `"DOTA_ABILITY_BEHAVIOR_AOE"` to display the AoE Circle.
+Note the `"AOERadius"` which accepts a `"%radius"` from AbilityValues in its value. "AOERadius" needs `"DOTA_ABILITY_BEHAVIOR_AOE"` to display the AoE Circle.
 
 ---
 
-### Ability Special block:
-``` 
-"AbilitySpecial"
+### Ability Special block
+
+```
+"AbilityValues"
 {
-    "01"
-    {
-       "var_type"	"FIELD_INTEGER"
-       "duration"	"25"
-    }
-    "02"
-    {
-        "var_type" "FIELD_INTEGER"
-        "building_damage_per_sec"	"50"
-    }
-    "03"
-    {
-        "var_type"	"FIELD_INTEGER"
-        "radius"   "250"
-    }
-    "04"
-    {
-        "var_type" "FIELD_INTEGER"
-        "movement_speed_slow_pct"	"-75"
-    }
-    "05"
-    {
-        "var_type"	"FIELD_FLOAT"
-        "wave_interval"	"1.0"
-    }
+  "duration" "25.0"
+  "building_damage_per_sec" "50"
+  "radius" "250"
+  "movement_speed_slow_pct" "-75"
+  "wave_interval" "1.0"
 }
 ```
 
@@ -82,10 +63,10 @@ Nothing interesting except remarking that `"%duration"` **cannot** be used as a 
 
 ---
 
-### Precache block:
-```
+### Precache block
 
-"precache" 
+```
+"precache"
 {
   "particle"	"particles/units/heroes/hero_leshrac/leshrac_split_earth.vpcf"
   "particle"	"particles/units/heroes/hero_warlock/warlock_rain_of_chaos_explosion.vpcf"
@@ -97,7 +78,7 @@ Nothing interesting except remarking that `"%duration"` **cannot** be used as a 
 }
 ```
 
-Has all the particles used and leshrac soundfile loaded. 
+Has all the particles used and leshrac soundfile loaded.
 
 Paths were copied directly from the asset browser, unmodified particles. I'll explain each of its attachments when we get to them.
 
@@ -119,7 +100,7 @@ When the cast point is complete, perform the following actions:
 //...
 ```
 
-This calls a very simple Lua script which creates a dummy unit to apply a thinker modifier which does the "waves". 
+This calls a very simple Lua script which creates a dummy unit to apply a thinker modifier which does the "waves".
 
 When using an `"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"`, you can pass the POINT targeted as an extra parameter to the function (it won't be passed automatically, like CASTER or TARGET). This can be accessed as the **target_points[1]**
  on the event.
@@ -145,7 +126,7 @@ Back to the dummy unit, this is its definition:
 {
     "BaseClass"            "npc_dota_creature"
     "AttackCapabilities"   "DOTA_UNIT_CAP_NO_ATTACK"
-    "VisionDaytimeRange"   "0"	
+    "VisionDaytimeRange"   "0"
     "VisionNighttimeRange"	"0"
     "UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
     "MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
@@ -174,7 +155,7 @@ And the passive ability:
                 "MODIFIER_STATE_MAGIC_IMMUNE"       "MODIFIER_STATE_VALUE_ENABLED"
                 "MODIFIER_STATE_NOT_ON_MINIMAP"     "MODIFIER_STATE_VALUE_ENABLED"
                 "MODIFIER_STATE_UNSELECTABLE"       "MODIFIER_STATE_VALUE_ENABLED"
-                "MODIFIER_STATE_NO_HEALTH_BAR"      "MODIFIER_STATE_VALUE_ENABLED" 
+                "MODIFIER_STATE_NO_HEALTH_BAR"      "MODIFIER_STATE_VALUE_ENABLED"
             }
         }
     }
@@ -199,7 +180,7 @@ Back to the OnSpellStart, 2 more actions:
     "DelayedAction"
     {
         "Delay" "0.5"
-        "Action" 
+        "Action"
         {
             "ApplyModifier"
             {
@@ -207,7 +188,7 @@ Back to the OnSpellStart, 2 more actions:
                 "Target" "CASTER"
             }
         }
-    }	
+    }
  }
 ```
 
@@ -227,13 +208,13 @@ When the ability finishes channeling either because the channel time has finishe
     {
         "ScriptFile"	"heroes/far_seer/earthquake.lua"
         "Function"   "EarthquakeEnd"
-    } 
+    }
 
     "RemoveModifier"
     {
         "ModifierName"	"modifier_earthquake_channelling"
         "Target"       "CASTER"
-    } 
+    }
 }
 ```
 
@@ -268,7 +249,7 @@ Now lets move to the the Modifiers block, the first couple handles the animation
                 "ModifierName"	"modifier_channeling"
                 "Target"       "CASTER"
                 "Duration"     "0.9"
-            } 
+            }
         }
     }
 
@@ -290,7 +271,7 @@ Now lets move to the the Modifiers block, the first couple handles the animation
     "Aura"        "modifier_eartquake_slow"
     "Aura_Radius" "%radius"
     "Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "Aura_Types"  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
+    "Aura_Types"  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
 //...
 ```
@@ -303,8 +284,8 @@ This constantly applies another modifier effect to all units around a radius of 
    "IsDebuff"	"1"
    "Properties"
    {
-       "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_speed_slow_pct" 
-   }	
+       "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movement_speed_slow_pct"
+   }
 }
 ```
 
@@ -353,7 +334,7 @@ Back to the "modifier_earthquake_thinker", we have to have actions on 2 instance
 I used one extra particle that needs to have the Control Point 1 attached to the target, else it will show on the middle of the map.
 
 ```
-    "AttachEffect" 
+    "AttachEffect"
     {
         "Target"           "TARGET"
         "EffectAttachType" "follow_origin"
@@ -370,7 +351,7 @@ I used one extra particle that needs to have the Control Point 1 attached to the
 
 To realize that the CP1 needs to be set else the particle will fail to display properly, this is the procedure:
 
-1. Open the particle system on the Particle Editor, double clicking on it (needs **decompiled particles**!) 
+1. Open the particle system on the Particle Editor, double clicking on it (needs **decompiled particles**!)
 
   ![img](https://puu.sh/f61DF/2ed8e1c122.jpg)
 
@@ -406,7 +387,7 @@ Still following this? Great, it's almost finished, only missing the `"OnInterval
             "Radius" "%radius"
             "Teams"  "DOTA_UNIT_TARGET_TEAM_BOTH"
             "Types"  "DOTA_UNIT_TARGET_BUILDING"
-        }    
+        }
         "Type"   "DAMAGE_TYPE_MAGICAL"
         "Damage"	"%building_damage_per_sec"
     }
@@ -429,7 +410,7 @@ Still following this? Great, it's almost finished, only missing the `"OnInterval
         "EffectName"       "particles/units/heroes/hero_earthshaker/temp_eruption_dirt.vpcf"
         "EffectAttachType" "follow_origin"
         "Target"           "TARGET"
-    }  
+    }
 //...
 ```
 
@@ -447,7 +428,7 @@ To find what each control point does, follow the same method as with the espirit
         {
             "01"	"%radius 50 50"
         }
-    } 
+    }
 
     "AttachEffect"
     {
@@ -468,7 +449,7 @@ To find what each control point does, follow the same method as with the espirit
         "ControlPoints"
         {
             "01"	"1 0 0"
-        }	
+        }
     }
 }
 ```

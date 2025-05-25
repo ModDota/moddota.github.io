@@ -20,8 +20,8 @@
             "items": [
                 "abilities/ability-keyvalues",
                 "abilities/item-keyvalues",
-                "abilities/the-importance-of-abilityspecial-values",
-                "abilities/passing-abilityspecial-values-into-lua",
+                "abilities/the-importance-of-abilityvalues-values",
+                "abilities/passing-abilityvalues-values-into-lua",
                 "abilities/abilityduration-tooltips",
                 "abilities/simple-custom-ability",
                 "abilities/creating-innate-abilities",
