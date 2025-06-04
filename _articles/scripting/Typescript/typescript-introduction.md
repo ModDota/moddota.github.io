@@ -13,7 +13,7 @@ Typescript can work well with most editors using plugins, however, [VSCode](http
 
 <StaticVideo path="videos/ts_example.mp4" controls="true" />
 
-### Pros anc Cons for using Typescript
+### Pros and Cons for using Typescript
 
 **Pros:**
 * Enforces types, prevents you from using irrelevant functions.
