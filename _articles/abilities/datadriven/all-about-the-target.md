@@ -5,7 +5,7 @@ steamId: '76561198046984233'
 date: 23.01.2015
 ---
 
-I wanted to review a [very old thread](http://moddota.com/cmsinternal/index.php/tet/pre-empting-problems-in-dota) which was posted almost one year ago but still isn't completely well documented anywhere:
+I wanted to review a very old thread which was posted almost one year ago but still isn't completely well documented anywhere:
 
 > "Target" is one bitch of a key.
 

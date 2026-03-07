@@ -9,7 +9,7 @@ To suggest a new article go to the [/_articles directory of the ModDota GitHub](
 **Note: You need to be logged in to your GitHub account for this.**
 
 Next, click the 'Create file' button as indicated:
-![Click the create new file button](https://i.imgur.com/hzOmlcA.png)
+![Click the create new file button](/images/external/hzOmlcA.png)
 
 
 
@@ -17,7 +17,7 @@ Next, click the 'Create file' button as indicated:
 
 In the new file window you have to add a descriptive file name and text for your article:
 
-![Fill your article](https://i.imgur.com/4CcOl0i.png)
+![Fill your article](/images/external/4CcOl0i.png)
 
 **Tip:** You can use the preview tab at the top to preview the article!
 
@@ -45,7 +45,7 @@ The only required field is `title`, all other fields can be safely omitted.
 
 Once you're done you just need to add a very short description on the tutorial you just made at the bottom of the page. This will show up in the change history of the website. Once you are done hit the green 'Propose new file' button.
 
-![Submit your tutorial](https://i.imgur.com/xkwdcRx.png)
+![Submit your tutorial](/images/external/xkwdcRx.png)
 
 ### Article review
 
@@ -64,10 +64,6 @@ function foo() {
   -- Highlighted line
 }
 ```
-
-:::note
-Admonitions
-:::
 
 ### Embeds
 

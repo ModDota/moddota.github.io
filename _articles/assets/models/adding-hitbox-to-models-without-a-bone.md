@@ -11,13 +11,13 @@ There is a very easy process that takes no longer than a couple of minutes to ad
 
 In this tutorial, I will add a hitbox to this model: `gryphon_statue001.vmdl.`
 
-![img](https://puu.sh/lLH62/45243b2ded.jpg)
+![img](/images/external/lLH62-45243b2ded.jpg)
 
 ## Step 1. Hammer DMX Export
 
 Open Hammer, make a new map ( File->New or CTRL+N ), and drag the model into the origin. 
 
-![img](https://puu.sh/lLHek/b90cae10f2.png)
+![img](/images/external/lLHek-b90cae10f2.png)
 
 You can also rotate, scale, or displace it as required.
 
@@ -27,7 +27,7 @@ After its done, select the model and right-click on it. Then under the **Selecte
 
 Search for your new model in the Asset Browser and double-click it to open.
 
-![img](https://i.imgur.com/l12Ub1w.png)
+![img](/images/external/l12Ub1w.png)
 
 ## Step 3. Download Cube.fbx
 
@@ -49,7 +49,7 @@ Now go to **Add -> Hitbox** and choose **(New HitboxSet)** as the parent node, a
 
 Now use the blue arrows in the viewport to adjust the size of the hitbox.
 
-![img](https://i.imgur.com/pyrL292.png)
+![img](/images/external/pyrL292.png)
 
 Finally, go to **File -> Save and Compile**
 

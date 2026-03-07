@@ -9,7 +9,7 @@ Here it will be explained how to reuse any Built-In modifier through the datadri
 
 This has many uses, as sometimes it's impossible to replicate some effects that are very hidden/hardcoded within the engine.
 
-In a previous example, the [Illusion Ability Example](http://moddota.com/forums/discussion/62/illusion-ability-example) made use of the `"modifier_illusion modifier"` in Lua like this:
+In a previous example, the [Illusion Ability Example](/abilities/datadriven/illusion-ability-example) made use of the `"modifier_illusion modifier"` in Lua like this:
 
 ```lua
 illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration,
@@ -17,7 +17,7 @@ illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = durat
                                                                 incoming_damage = incomingDamage })
 ```
 
-The fields between { } are **Very** specific. For that particular modifier, I took the values from [this magic list](http://moddota.com/resources/modifier_keys.txt), but this isn't the only way of acquiring them, as this list is very incomplete.
+The fields between { } are **Very** specific.
 
 The Full List of Built-In Modifiers can be found [on the the wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names)
 
@@ -88,7 +88,7 @@ On the desired Ability or Modifier Event, add the ApplyModifier action:
 
 #### Step 4 - Adjusting the Tooltip
 
-![img](https://puu.sh/eHc3N/2b62c46b84.jpg)
+![img](/images/external/eHc3N-2b62c46b84.jpg)
 
 The modifier_alchemist_chemical_rage tooltip needs to be adjusted to ignore AbilityValues we don't need, and instead use our `bonus_attack_speed` and `bonus_movespeed_percent`.
 
@@ -103,9 +103,9 @@ The modifier_alchemist_chemical_rage tooltip needs to be adjusted to ignore Abil
 
 After modifying the addon_english.txt:
 
-![img](https://puu.sh/eHpXB/8fe79a1d57.jpg)
+![img](/images/external/eHpXB-8fe79a1d57.jpg)
 
-Note that you cannot refer to a new custom %dMODIFIER_PROPERTY_[CONSTANT_LIST](http://moddota.com/forums/discussion/14/datadriven-ability-breakdown-documentation##properties)% in the tooltip, because it doesn't have the custom values in its modifier.
+Note that you cannot refer to a new custom %dMODIFIER_PROPERTY_[CONSTANT_LIST](/abilities/ability-keyvalues)% in the tooltip, because it doesn't have the custom values in its modifier.
 
 Instead you can make those tooltips in the separate modifier, or directly add the numbers to the original modifier tooltip if they are static values (like in this cause I could've written 50 and 322). Sadly, you can't set the built-in modifier as hidden either.
 

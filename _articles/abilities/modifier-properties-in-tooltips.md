@@ -8,15 +8,15 @@ date: 05.12.2021
 Any time you see a modifier tooltip using a non-static number it's getting its value from one of that modifier's [MODIFIER_PROPERTY_](https://moddota.com/api/#!/vscripts/modifierfunction)'s
 
 some examples:
-![img](https://i.imgur.com/dngijaZ.png)
+![img](/images/external/dngijaZ.png)
 ```
 "DOTA_Tooltip_modifier_fountain_aura_buff_Description"				"Heals %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% HP and %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% mana per second."
 ```
-![img](https://i.imgur.com/bzU8GAF.png)
+![img](/images/external/bzU8GAF.png)
 ```
 "DOTA_Tooltip_modifier_smoke_of_deceit_Description"	"Invisible, moving %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% faster, and hidden from the minimap. Attacking or moving within %dMODIFIER_PROPERTY_TOOLTIP% range of an enemy hero or tower will break the invisibility."
 ```
-![img](https://i.imgur.com/Xy0hTsD.png)
+![img](/images/external/Xy0hTsD.png)
 ```
 "DOTA_Tooltip_modifier_tower_aura_bonus_Description"    "Armor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% and health regeneration by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
 ```
@@ -138,4 +138,4 @@ end
 ### My %property% always shows 0 ??
 
 If you're having this issue then your returned value is probably only seen on the Server and not the Client.
-See this guide for instruction: [Sending Server values to the Client](https://moddota.com/abilities/server-to-client)
+See this guide for instruction: [Sending Server values to the Client](/abilities/server-to-client)

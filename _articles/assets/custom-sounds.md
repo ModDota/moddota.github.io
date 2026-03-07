@@ -19,13 +19,13 @@ Sound files to be compiled by Source2 dota need to be placed in the **content\do
 
 Folder structure:
 
-![img](https://puu.sh/guI0g/438a0323a4.png)
+![img](/images/external/guI0g-438a0323a4.png)
 
 ## 3 - The Custom Sounds Valve Event
 
 Also inside the content folder of your addon, there should be an soundevents folder:
 
-![img](https://puu.sh/guI3k/1c84b64257.png)
+![img](/images/external/guI3k-1c84b64257.png)
 
 Create one if there isn't. Here is the place where text files with the **.vsndevts** extension are located. You can name it as you want was long as you keep that extension. I usually use custom_sounds.vsndevts for all the addon's sounds, and **make sure to precache this file somewhere** (usually it's easier to do it once in Lua Precache(context) and forget about it).
 
@@ -79,11 +79,11 @@ Once the sound event file is done, you need to force the game to compile it befo
 
 For this, go into the Workshop Tools Asset Browser of your addon, type the name of your custom sound event and do a Full Recompile+Reload
 
-![img](https://puu.sh/guIUd/4ce0b6f142.png)
+![img](/images/external/guIUd-4ce0b6f142.png)
 
 Now, if you go into your game addon folder, there should be a sounds and soundevents folder, which should contain your _c compiled version of the files made in the content folder.
 
-![img](https://puu.sh/guJ7J/00d69a1243.png)
+![img](/images/external/guJ7J-00d69a1243.png)
 
 If this isn't the case, go into the Asset Browser again and instead of your sound event, type the name of your sound file, and click on it, if it starts playing, it has been properly compiled.
 

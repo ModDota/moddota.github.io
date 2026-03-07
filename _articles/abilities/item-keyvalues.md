@@ -118,7 +118,7 @@ This value is the key for Tomes of Stats and other consumable items:
 
 Meaning if the ItemResult you want to get is called *"item_capuchino"*, your recipe would be: *"item_recipe_capuchino"*
 
-![img](https://puu.sh/dyDFL/f0a814100d.jpg)
+![img](/images/external/dyDFL-f0a814100d.jpg)
 
 If you don't, the item will till be combinable but it won't show the neat lines to the possible upgrades.
 
@@ -190,7 +190,7 @@ For your item to have an icon you'll need to go to your addon folder under this 
 
 And put a .PNG file with dimensions **86 x 64**, with the same name as the "item\_custom", WITHOUT the "item_"
 
-![img](https://i.imgur.com/4Jr9cpF.png)
+![img](/images/external/4Jr9cpF.png)
 
 Then in your "item_custom" code, you add the following:
 
@@ -308,7 +308,7 @@ In addon_english.txt:
 
 Displays "[ALLIES] Gather for **ItemName** here."
 
-![img](https://puu.sh/duiGf/025d66f1cd.jpg)
+![img](/images/external/duiGf-025d66f1cd.jpg)
 
 ```~
 "ItemAlertable"	"1"

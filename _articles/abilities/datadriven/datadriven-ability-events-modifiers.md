@@ -7,7 +7,7 @@ date: 10.12.2014
 
 A guide that tries to cover every Ability & Modifier Event of the *ability_datadriven* system, with examples.
 
-[![img](https://i.imgur.com/T7W828Q.png)](http://moddota.com/forums/discussion/13/datadriven-ability-events-modifiers "Start")
+![img](/images/external/T7W828Q.png)
 
 - [Ability Events](#Comment_28)
   - [Spell Start](#Comment_28)
@@ -28,7 +28,7 @@ A guide that tries to cover every Ability & Modifier Event of the *ability_datad
 
 <br />
 <a name="start"></a>
-This is an Intermediate guide that expects some knowledge of the most common first-level keyvalues. If unsure about the meaning of any of them, check the [DataDriven Ability Breakdown](http://moddota.com/forums/discussion/14/datadriven-ability-breakdown).
+This is an Intermediate guide that expects some knowledge of the most common first-level keyvalues. If unsure about the meaning of any of them, check the [DataDriven Ability Breakdown](/abilities/ability-keyvalues).
 
 ### Introduction
 

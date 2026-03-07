@@ -7,7 +7,7 @@ date: 22.04.2015
 
 This document covers every keyvalue of the npc_units_custom file
 
-![img](https://i.imgur.com/T7W828Q.png)
+![img](/images/external/T7W828Q.png)
 
 * [General](#general)
 * [Boolean Values and Flags](#boolean-values-and-flags)
@@ -67,7 +67,7 @@ For the rest of this guide, we'll be assuming a `"BaseClass" "npc_dota_creature"
 "Level"                        "32"
 ```
 
-![img](https://puu.sh/ho10S/fe733ccd2e.jpg)
+![img](/images/external/ho10S-fe733ccd2e.jpg)
 
 This level can be accessed and modified with Lua though various creature functions.
 
@@ -90,7 +90,7 @@ Creatures using models that are broken down for cosmetic equipment will be 'nake
 ```
 
 Produces:
-![img](https://puu.sh/ho19t/c5c7f7bb39.jpg)
+![img](/images/external/ho19t-c5c7f7bb39.jpg)
 
 ### Unit Label
 
@@ -124,7 +124,7 @@ Self explanatory, the default values are 0 for summoned (so the lua IsSummoned w
 
 `"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"` datadriven flag. Gives the unit a hero styled health bar:
 
-![img](https://puu.sh/ho2pt/c687566db4.jpg)
+![img](/images/external/ho2pt-c687566db4.jpg)
 
 <br />
 ```
@@ -159,7 +159,7 @@ Ignores Auto Attack Behavior setting, forces to not autoattack. Used on Visage F
 "ShouldDoFlyHeightVisual"      "0"
 ```
 
-![img](https://puu.sh/ho2MV/7f3e6d0fd8.jpg)
+![img](/images/external/ho2MV-7f3e6d0fd8.jpg)
 
 Seems broken, no noticeable difference.
 
@@ -180,7 +180,7 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 
 * **SelectionGroup** will make it so that all the units of this type are in a group which can be accessed through tab.
 
-![img](https://puu.sh/ho1rl/d0d5e48cd3.jpg)
+![img](/images/external/ho1rl-d0d5e48cd3.jpg)
 *I pressed tab once and all these units got selected after defining them in the same control group*
 
 * **SelectOnSpawn** forces the unit into the selection of the hero, even if the "Auto Select Summoned Units" setting is turned off. It's used on Visage Familiars.
@@ -195,7 +195,7 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 "IdleSoundLoop"                "Hero_DragonKnight.Tutorial_Intro"
 ```
 
-* **SoundSet** with the correct **GameSoundsFile** associated takes care of sounds like attacks and walking footsteps. The SoundSet string should be the first part of each of the hero sounds, which can be easily seen through the [Dota 2 Sound Editor](https://github.com/pingzing/dota2-sound-editor). [Example](https://puu.sh/ho4KA/f7ad0ff2ca.png)
+* **SoundSet** with the correct **GameSoundsFile** associated takes care of sounds like attacks and walking footsteps. The SoundSet string should be the first part of each of the hero sounds, which can be easily seen through the [Dota 2 Sound Editor](https://github.com/pingzing/dota2-sound-editor).
 
 * **IdleSoundLoop** will be played constantly after the unit spawns. Some heroes don't have a loop sound defined, but as in the example above it's possible to use this as an Spawn sound for the unit if you add the string of a non-loopable sound.
 
@@ -320,7 +320,7 @@ Bound Size Reference:
 
   The visible selection ring when the unit is selected
 
-![img](https://puu.sh/ho2lF/02ab15803e.jpg)
+![img](/images/external/ho2lF-02ab15803e.jpg)
 
 ```
 "HealthBarOffset"           "250"
@@ -328,7 +328,7 @@ Bound Size Reference:
 
 The height from the ground at which the Health Bar should be placed. By default this value is set to "-1" to use the models default height. The bigger the Model and ModelScale, this should be adjusted to a higher number so it doesn't look weird.
 
-![img](https://puu.sh/ho2CK/8ae5a734d8.jpg)
+![img](/images/external/ho2CK-8ae5a734d8.jpg)
 
 ## Movement
 
@@ -493,7 +493,7 @@ All these settings can and should be put inside **one** creature block, but they
 
 ### Wearables
 
-See [this](https://moddota.com/units/create-creature-attachwearable-blocks-directly-from-the-keyvalues) guide for more info.
+See [this](/units/create-creature-attachwearable-blocks-directly-from-the-keyvalues) guide for more info.
 
 ```
 "Creature"

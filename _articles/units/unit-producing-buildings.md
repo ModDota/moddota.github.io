@@ -5,7 +5,7 @@ steamId: '76561198046984233'
 date: 08.03.2015
 ---
 
-This is a response tutorial on @Lemon30 [question thread](https://moddota.com/forums/discussion/168/unit-producing-buildings-how-do-they-work), I'm gonna explain the scripting approaches to fully spawning units with a building, including making them controllable and defining initial orders.
+This is a response tutorial on a question thread, I'm gonna explain the scripting approaches to fully spawning units with a building, including making them controllable and defining initial orders.
 
 ## Step 1: The npc_units_custom.txt files
 
@@ -39,7 +39,7 @@ To solve this, we need to use a couple of lines in lua, basically the `SetOwner`
 
 `[CDOTA_BaseNPC] void SetControllableByPlayer( int, bool )` **-- Set this unit controllable by a player.**
 
-To properly call these functions, I'm gonna assume you already know the basics explained under the [Beginners Guide to Scripting](https://moddota.com/scripting-introduction) and just explain where should you call these with an example.
+To properly call these functions, I'm gonna assume you already know the basics explained under the [Beginners Guide to Scripting](/scripting-introduction) and just explain where should you call these with an example.
 
 A good GameMode hook to call these would be after the dota_player_picked_hero, so given a standard barebones listener like this:
 
@@ -51,7 +51,7 @@ In OnPlayerPickHero you need to **find the handle of the BaseEntity/BaseNPC**, t
 
 This can be done in a couple of ways, for example, using the functions defined under [CEntities](https://moddota.com/api/#!/vscripts/CEntities). We want this building to have a unique identifier so its easy to search it, so inside Hammer, select it, go into its properties, and give it a name (I use the Alt+Enter hotkey for this):
 
-![img](https://puu.sh/gs6Ec/c0a81f34ae.jpg)
+![img](/images/external/gs6Ec-c0a81f34ae.jpg)
 
 Now you can search the building and get a local variable to it with this line:
 

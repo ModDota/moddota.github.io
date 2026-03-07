@@ -23,11 +23,11 @@ It should change to the specified (trigger) material.
 Then convert the mesh to Entity by pressing Ctrl+T or find the `Outliner` => Right Click => Selected Meshes => Tie to Entity.
 Afterwards, name it plus assign this Entity script to lavatrigger.lua <-- you can name it whatever you want.
 
-![](https://i.imgur.com/5eZycip.png)
+![](/images/external/5eZycip.png)
 
 Next we go to Outputs tabs in top and click on it add the following in the picture.
 
-![](https://i.imgur.com/nvr9nhv.png)
+![](/images/external/nvr9nhv.png)
 
 Now go to your vscript folder and create a file called lavatrigger.lua and put this script inside.
 

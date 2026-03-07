@@ -7,17 +7,17 @@ date: 10.12.2014
 
 <!--
 TODO: Some categories are missing:
-[![Damage Type](https://i.imgur.com/WwwNkbj.png)](##damage "Damage type of the ability")
-[![Cast Animation](https://i.imgur.com/ewEWcom.png)](##animation "Animation when the spell starts casting")
-[![General Stats](https://i.imgur.com/5mO6j4Z.png)](##stats "General numeric values")
-[![Others](https://i.imgur.com/z73NEKo.png)](##others "Other less common values")
-[![Ability Special](https://i.imgur.com/3ynaE40.png)](##special "AbilityValues block, used for variables")
-[![precache](https://i.imgur.com/qKW3Xs4.png)](##precache "Precache block, used to preload assets")
-[![Ability Events](https://i.imgur.com/6IFhMIu.png)](##abilityevents "Triggers on the ability to perform Actions")
-[![Modifiers](https://i.imgur.com/XEFsYCD.png)](##modifiers "Effects that can be applied on units")
-[![Properties Block](https://i.imgur.com/HFXTmij.png)](##properties "Give numeric stat values for the duration of the modifier")
-[![States Block](https://i.imgur.com/ACfQMmq.png)](##states "Enable or Disable certain states on units")
-[![Modifier Events](https://i.imgur.com/LWPALN8.png)](#modifierevents "Triggers on the modifier to perform Actions")
+[![Damage Type](/images/external/WwwNkbj.png)](##damage "Damage type of the ability")
+[![Cast Animation](/images/external/ewEWcom.png)](##animation "Animation when the spell starts casting")
+[![General Stats](/images/external/5mO6j4Z.png)](##stats "General numeric values")
+[![Others](/images/external/z73NEKo.png)](##others "Other less common values")
+[![Ability Special](/images/external/3ynaE40.png)](##special "AbilityValues block, used for variables")
+[![precache](/images/external/qKW3Xs4.png)](##precache "Precache block, used to preload assets")
+[![Ability Events](/images/external/6IFhMIu.png)](##abilityevents "Triggers on the ability to perform Actions")
+[![Modifiers](/images/external/XEFsYCD.png)](##modifiers "Effects that can be applied on units")
+[![Properties Block](/images/external/HFXTmij.png)](##properties "Give numeric stat values for the duration of the modifier")
+[![States Block](/images/external/ACfQMmq.png)](##states "Enable or Disable certain states on units")
+[![Modifier Events](/images/external/LWPALN8.png)](#modifierevents "Triggers on the modifier to perform Actions")
 -->
 
 ## DataDriven Ability
@@ -140,7 +140,7 @@ For example, an ability with
 ```
 will be shown like this:
 
-![img](https://i.imgur.com/xYjIXM8.jpg)
+![img](/images/external/xYjIXM8.jpg)
 
 ## AbilityType
 
@@ -195,7 +195,7 @@ To use your own icons, place them in `resources/flash3/images/spellicons` in you
 ```
 "AbilityTextureName" "warchasers_buff"
 ```
-![img](https://i.imgur.com/PvTBUis.png)
+![img](/images/external/PvTBUis.png)
 
 ### Reject Self-Cast
 

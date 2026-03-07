@@ -56,7 +56,7 @@ In every single gamemode, a file named addon_game_mode.lua must be present. Whil
 - `Precache`, when the game starts and players pick their heroes, the engine will try to load the associated models/particles/sounds to those heroes. If we’re dynamically using a resource in Lua before preloading it won’t be displayed properly.
 - `Activate`, creates the base game mode entity and calls the initialize function.
 
-![img](https://puu.sh/g2pUC/ca4413cc48.png) <br /> Precache function was folded in sublime
+![img](/images/external/g2pUC-ca4413cc48.png) <br /> Precache function was folded in sublime
 
 Using our barebones, you don’t need to touch this file apart from very specific situations, and all the core game logic will be coded in gamemode.lua (for older versions it's barebones.lua), which has been already required. We’ll call this your *main lua file* from now on.
 
@@ -80,25 +80,25 @@ You can access the game console by pressing the ` key.
 
 This will provide tons of useful information for debugging. The different colors represent the various “channels” of information. By default all the channels are in the same Log: Default tab. It’s very recommended that you make your own tabs to split the log viewer.
 
-![img](https://i.imgur.com/y2BUNcS.png)
+![img](/images/external/y2BUNcS.png)
 
 For Lua Scripting, we want to have a VScript Tab. Messages about the DataDriven system are in the General channel in yellow along with some other info, make a separate viewer for this too.
 
-![img](https://puu.sh/g2nWY/22554172f6.png)
+![img](/images/external/g2nWY-22554172f6.png)
 
 The new tabs:
 
-![img](https://puu.sh/g2o1O/b46e113293.png)
+![img](/images/external/g2o1O-b46e113293.png)
 
 The console will notify whenever a Lua scripting error happens, either when the game is being loaded (a syntax-compilation error) or at runtime. In this error, I wrote GameRules.SetHeroRespawnEnabled with `.` instead of `:`
 
-![img](https://puu.sh/g2jo2/6c85128308.png)
+![img](/images/external/g2jo2-6c85128308.png)
 
 You can then trace the error to that line and attempt to solve it, writing **script_reload** in the console to reload the script and check if it was actually fixed.
 
 A DataDriven syntax error will usually look like this:
 
-![img](https://puu.sh/g3HVp/27ef775669.png)
+![img](/images/external/g3HVp-27ef775669.png)
 
 ### Engine Events
 
@@ -154,7 +154,7 @@ First line will print the string in the VConsole. The print function is native t
 
 `DeepPrintTable` is a Global Valve-made function which will display the information of the table passed. For keys in this case, it will be the .entindex and .splitscreenplayer. The **entity index** is a very important number to reference the entity. Ignore splitscreenplayer, it’s just legacy source stuff and never used in Dota 2.
 
-![img](https://puu.sh/g2iLY/54583b0b65.png)
+![img](/images/external/g2iLY-54583b0b65.png)
 
 The next line defines a local variable. In Lua local variables have their scope limited to the block where they are declared. It is good programming style to use local variables whenever possible. Local variables help you avoid cluttering the global environment with unnecessary names. Moreover, access to local variables is faster than to global ones.
 
@@ -338,11 +338,11 @@ Manually:
 3. Search for the copied number folder
 4. Open the .vpk file with GCFScape or S2V and extract its contents anywhere you want. Now you can access its scripts and compiled models/particles/sounds.
 
-![img](https://puu.sh/g2zNP/d1e018010e.png)
+![img](/images/external/g2zNP-d1e018010e.png)
 
 Whenever you have a doubt about how to use a particular GameAPI function, its possible to find examples all over GitHub by just writing the name of it, additionally filtering by lua like this:
 
-![img](https://puu.sh/g2yTG/93f1641866.png)
+![img](/images/external/g2yTG-93f1641866.png)
 
 Just make sure it's actually Dota Lua and not another game API, as some of the functions might share names with other engines.
 

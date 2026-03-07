@@ -13,7 +13,7 @@ Here are some button examples that you can use in your custom games.
 
 Here is the button that valve mostly uses for Dota 2. (Valve mostly recolor them for different uses: Green for Store,  Gold-ish for Dotaplus etc.)
 
-![https://i.imgur.com/fZyO9sA.png](https://i.imgur.com/fZyO9sA.png)
+![/images/external/fZyO9sA.png](/images/external/fZyO9sA.png)
 
 XML:
 ```xml
@@ -92,7 +92,7 @@ CSS:
 
 ## Example 2 - Purple Button
 
-![https://i.imgur.com/uZKACHo.png](https://i.imgur.com/uZKACHo.png)
+![/images/external/uZKACHo.png](/images/external/uZKACHo.png)
 
 XML:
 ```xml
@@ -153,7 +153,7 @@ CSS:
 
 You can add icon to your button -in this case, it is sized 26x26px default dota 2 logo- to make it look better.
 
-![https://i.imgur.com/Fe5MiGc.png](https://i.imgur.com/Fe5MiGc.png)
+![/images/external/Fe5MiGc.png](/images/external/Fe5MiGc.png)
 
 XML:
 ```xml
@@ -249,7 +249,7 @@ CSS:
 
 ## Example 4 - Popup ESC Menu Buttons
 
-![https://i.imgur.com/v9LFLaw.png](https://i.imgur.com/v9LFLaw.png)
+![/images/external/v9LFLaw.png](/images/external/v9LFLaw.png)
 
 XML:
 ```xml

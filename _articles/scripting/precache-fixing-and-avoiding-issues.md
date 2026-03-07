@@ -5,11 +5,9 @@ steamId: '76561198046984233'
 date: 07.02.2015
 ---
 
-When spawning units through KV and Lua, you might have to deal with the precache-dilemma. This also applies to particles and sounds. I talked about it briefly in the [precache section of the datadriven breakdown](http://moddota.com/forums/discussion/14/datadriven-ability-breakdown-documentation##precache) but here I have an straightforward example to help understand the matter.
+When spawning units through KV and Lua, you might have to deal with the precache-dilemma. This also applies to particles and sounds. I talked about it briefly in the [precache section of the datadriven breakdown](/abilities/ability-keyvalues) but here I have an straightforward example to help understand the matter.
 
 So, if you see an unselectable orange ERROR as the model of a unit, then you have a precache model issue:
-
-https://puu.sh/fBzOp/5c7afff665.jpg
 
 Missing particles are indicated by red crosses:
 
@@ -53,8 +51,6 @@ end
 
 Without any previous precache I'll get something like the ERROR model like before, or if this isn't the first I run the tools (because after the 1st run it attempts to store some models to keep on the cache), something like this:
 
-https://puu.sh/fBwmn/0659d05a11.jpg
-
 So yeah, that's bad, here's how to fix it:
 
 **Always add a datadriven precache block with all models, sounds and particles that your ability would use**
@@ -77,11 +73,7 @@ In this case, I precache all the models and the ambient particles I'm using, ins
 
 Now all the models will load properly.
 
-https://puu.sh/fBx1X/8f04e3cd86.jpg
-
 Final note, some cosmetics you might want to use have their own particles and its hard to know their names. In the first gif (the one with the red crosses) I was missing the wing particle effect for fallenprincess_shoulders. If this is the case, you can also find the particles used by the cosmetic in its [item_game.txt](https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota_pak01/scripts/items/items_game.txt) definition:
-
-https://puu.sh/fBxWT/83cceac063.png
 
 <br />
 

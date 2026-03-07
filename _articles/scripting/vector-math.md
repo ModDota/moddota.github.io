@@ -29,7 +29,7 @@ When using vectors as a movement they only describe a movement TO somewhere, ori
 
 So let's look at how we would think about and vizualize two vectors: `A: (3, 2)` and `B: (-1, 3)`:
 
-![Vector vizualization](https://i.imgur.com/4lalG0u.png)
+![Vector vizualization](/images/external/4lalG0u.png)
 
 **Note:** vectors have no origin and always originate from (0, 0). If you consider vectors as movements from origin to a point, you can also calculate their length, denoted by l_A and l_B.
 
@@ -37,7 +37,7 @@ So let's look at how we would think about and vizualize two vectors: `A: (3, 2)`
 
 So let's say you consider vectors as movements, you can simply add two vectors to get the result of doing both movements. For example if you have a vector `A (xa, ya)` and `B (xb, yb)` indicating two movements, what is the result of doing both `A` and `B`? This is visualized like so:
 
-![Vector addition](https://i.imgur.com/YBzf6oO.png)
+![Vector addition](/images/external/YBzf6oO.png)
 
 **Note:** Moving by vector A first and then by B will result in the same vector as moving by B first followed by A. (This is why visualizing vector addition always results in this parallelogram).
 
@@ -54,7 +54,7 @@ newUnitPos = unitPos + knockbackVector
 
 Now let's say we want to know the inverse question to the previous one: Assuming I have two vector positions `A` and `B`, what movement do I have to do to get from `A` to `B`? The answer to this is a vector subtraction: `C = B - A`. Note that this works exactly like regular math, so doing `A + C = B`:
 
-![Vector subtraction](https://i.imgur.com/Sa4gnxz.png)
+![Vector subtraction](/images/external/Sa4gnxz.png)
 
 **Note:** Just like when subtracting regular numbers, order matters! `B - A` gives the vector from `A` to `B`, while `A - B` gives the opposite vector, from `B` to `A`.
 
@@ -73,7 +73,7 @@ The last 'basic' vector operation I want to go over is multiplication with a num
 
 When multiplying a vector with a number it retains its direction, but its length is multiplied by this number:
 
-![Vector multiplication](https://i.imgur.com/1h83sJr.png)
+![Vector multiplication](/images/external/1h83sJr.png)
 
 :::note Example
 You can use vector multiplication to rescale vectors to a certain length. For example when you have a unit or normal vector (length 1), multiplying with a number will make it that length.
@@ -90,7 +90,7 @@ As seen before, vectors look very much like a direction to somewhere. This makes
 
 To do so, orientation is often expressed as vectors of length 1. This is because of the special relation vectors have with angles: For an angle `a`, `(cos(a), sin(a))` is a vector of length 1, pointing in the direction of angle `a`:
 
-![Vectors and angles](https://i.imgur.com/vjW0ye7.png)
+![Vectors and angles](/images/external/vjW0ye7.png)
 
 You might be wondering what the point of this is, for an application if why storing orientation as vectors of length 1 see section 'Spawning an item in front of the player'.
 
@@ -98,7 +98,7 @@ You might be wondering what the point of this is, for an application if why stor
 
 The final vector concept for this tutorial is the 'dot product' of two vectors. Simply put, this dot product gives you a measure of 'how much vectors are pointing in the same direction'. If two vectors (of length 1) point in exactly the same direction, the dot product is 1. If two vectors (of length 1) point in exactly the opposite direction the dot product is -1. If the two vectors are at a 90 degree angle, the dot product is 0:
 
-![Dot product](https://i.imgur.com/erBE2yl.png)
+![Dot product](/images/external/erBE2yl.png)
 
 :::note
 Technically `dot(A, B) = length(A) * length(B) * cos(angle)`, so watch out when calculating the dot product of non-length-1 vectors: they will no longer range from -1 to 1.
@@ -120,7 +120,7 @@ Let's say we want to spawn an item 100 units in front of a player hero, how do w
 
 We can visualize this question like this:
 
-![Spawning in front of a player](https://i.imgur.com/1ksId50.png)
+![Spawning in front of a player](/images/external/1ksId50.png)
 
 Referencing this visualization it is obvious we can calculate this A as follows:
 
@@ -152,7 +152,7 @@ Another common question is how can we calculate if my unit is facing a specific 
 
 We visualize this problem like this:
 
-![Facing point?](https://i.imgur.com/iBH3cIk.png)
+![Facing point?](/images/external/iBH3cIk.png)
 
 So looking at the visualization, when does a unit face point P? Well it looks like this happens when their forward vector (the orange one) aligns with the vector from the unit to the point (the purple one). So capturing this in code would look a little like this:
 
@@ -194,7 +194,7 @@ function isUnitFacingPoint(unit: CDOTA_BaseNPC, point: Vector): boolean {
 
 This question is similar to the previous question, only now there are two units facing in different ways:
 
-![Attacking from behind](https://i.imgur.com/uLT3QzQ.png)
+![Attacking from behind](/images/external/uLT3QzQ.png)
 
 Looking at this drawing it becomes obvious that the forward vector of unit 2 (F2) actually does **not** matter. What matters is the angle (dot product) between the forward vector of the unit getting attacked, and the where the attack is coming from (the vector from unit 2 to unit 1: `P1 - P2`)
 
@@ -234,7 +234,7 @@ function isAttackedFromBehind(victim: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC): b
 
 Consider the case where you want multiple things to happen evenly spaced in a circle around the player character. We can visualize it as follows:
 
-![Circular effect](https://i.imgur.com/TOqC1Ly.png)
+![Circular effect](/images/external/TOqC1Ly.png)
 
 By now it should be obvious we need to add the green vectors to the player position, the question is however how do you calculate these green vectors?
 
@@ -282,7 +282,7 @@ As you have seen vector math is quite powerful and can be used to express positi
 
 We will express the projectile using two vectors: `position` and `velocity`. This makes the projectile unable to instantly change its direction, but suffer some inertia: it will home in on the player on every tick, but it cannot easily slow down or change direction:
 
-![](https://i.imgur.com/GVK8Nbo.png)
+![](/images/external/GVK8Nbo.png)
 
 To achieve this effect we simply 'accelerate' the velocity of the projectile towards the player on every update, so the velocity turns towards the player a little bit every update. We then simply update the position based on the current velocity:
 

@@ -54,13 +54,13 @@ Now let's get to the advanced part.
 
 We can easily build up a "unit" like scene, using the `portrait_world_unit` entity type. This entity supports all kinds of units and also cosmetic item definitions. The quirk here is that you have to enter the raw properties editing mode to set displayed entity to a hero. Item definitions property all refer to different loadout slots and accept item IDs. Item ID list can be found [here](https://github.com/dotabuff/d2vpk/blob/master/dota_pak01/scripts/items/items_game.txt).
 
-![Lina is awesome](https://i.imgur.com/ZsmLQA3.png "Example")
+![Lina is awesome](/images/external/ZsmLQA3.png "Example")
 
 ### Multiple cameras
 
 This is pretty straightforward, `DOTAScenePanel` also accepts the `camera` parameter in the definition, which will try to find the camera with the provided name.
 
-![https://puu.sh/o3Gv7/783de89488.jpg](https://puu.sh/o3Gv7/783de89488.jpg)
+![/images/external/o3Gv7-783de89488.jpg](/images/external/o3Gv7-783de89488.jpg)
 
 Important to note, compiling the map again does change the look of the panorama panel without restarting the map, but you can't change it at runtime. You'll understand how to achieve the same result in the following parts.
 
