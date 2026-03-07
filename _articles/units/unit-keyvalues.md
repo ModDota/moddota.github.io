@@ -34,7 +34,7 @@ The definition of the default dota units can be found in [npc_units.txt](https:/
 
 ### Base Classes
 
-There are a lot of classes for units, the [complete list can be found in here](https://moddota.com/forums/discussion/comment/746/#Comment_746), but as we don't have much control over their properties, only a few are really useful for custom units in general:
+There are a lot of classes for units, but as we don't have much control over their properties, only a few are really useful for custom units in general:
 
 * ***npc_dota_creature***
 
@@ -44,7 +44,7 @@ There are a lot of classes for units, the [complete list can be found in here](h
 
 * ***npc_dota_building***
 
-  Linked to `"DOTA_UNIT_TARGET_BUILDING"`, this baseclass can prove useful in many situations. 
+  Linked to `"DOTA_UNIT_TARGET_BUILDING"`, this baseclass can prove useful in many situations.
 
   It has the following properties imposed to it, which we have **no control** over them:
 
@@ -53,7 +53,7 @@ There are a lot of classes for units, the [complete list can be found in here](h
   * No visual turning, even if internally the unit is actually changing its forward vector. Usually a good thing, the creature equivalent behavior for this is the stunned state.
 <br />
   Worth mentioning `npc_dota_tower` is a subclass of building, and is coded to trigger stuff like the announcers, team gold sharing and aggro AI. Use npc_dota_building with attack to make towers that aren't forced to use those mechanics.
-  
+
 * ***npc_dota_thinker***
 
   For dummy units. More on this later
@@ -73,7 +73,7 @@ This level can be accessed and modified with Lua though various creature functio
 
 ### Model and Scale
 
-```    
+```
 "Model"                        "models/heroes/dragon_knight/dragon_knight.vmdl"
 "ModelScale"                    "0.8"
 ```
@@ -126,12 +126,12 @@ Self explanatory, the default values are 0 for summoned (so the lua IsSummoned w
 
 ![img](https://puu.sh/ho2pt/c687566db4.jpg)
 
-<br />    
+<br />
 ```
 "IsAncient"                    "1"
 ```
-  
-Associated Lua function: `IsAncient()`<br />`"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"` datadriven flag. 
+
+Associated Lua function: `IsAncient()`<br />`"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"` datadriven flag.
 
 <br />
 ```
@@ -139,8 +139,8 @@ Associated Lua function: `IsAncient()`<br />`"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS
 ```
 
 Associated Lua function: `IsNeutralUnitType()`
- 
-<br /> 
+
+<br />
 ```
 "CanBeDominated"               "0"
 ```
@@ -173,7 +173,7 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 ## Selection properties
 
 ```
-"SelectionGroup"               "string"              
+"SelectionGroup"               "string"
 "SelectOnSpawn"                "1"
 "IgnoreAddSummonedToSelection" "1"
 ```
@@ -189,7 +189,7 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 
 ## Sounds
 
-```    
+```
 "SoundSet"                     "Hero_DragonKnight"
 "GameSoundsFile"               "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
 "IdleSoundLoop"                "Hero_DragonKnight.Tutorial_Intro"
@@ -211,10 +211,10 @@ The unit can hold up to 16 abilities at any time being.
 
 `"AbilityLayout"` is used for the built-in Flash UI to change how many abilities it can display, and currently its limited to 4, 5 and 6 (anything else will malfunction)
 
-## Stats    
+## Stats
 
 Because of :valve: - reasons  , unit stats aren't hover-able, but they are there.
-    
+
 ### Physical and Magical protection
 
 ```
@@ -227,7 +227,7 @@ Because of :valve: - reasons  , unit stats aren't hover-able, but they are there
 ```
 "AttackCapabilities"         "DOTA_UNIT_CAP_NO_ATTACK"
 ```
-   
+
 List of Attack Capabilities:
 
 * `DOTA_UNIT_CAP_NO_ATTACK`
@@ -253,7 +253,7 @@ List of Attack Capabilities:
 "ProjectileSpeed"            "900"
 ```
 
-Find hero/unit attack particles with the asset browser, filtering for the hero name + "attack vpcf" 
+Find hero/unit attack particles with the asset browser, filtering for the hero name + "attack vpcf"
 
 If you have any "Melee to Ranged" mechanic, the unit definition should have a projectile speed, else it will default to 0, effectively making them never reach its target.
 
@@ -394,8 +394,8 @@ The Table of Physical Attacks vs Armor Types can be found [here in this link to 
 
 | Name | Dota Equivalent
 |---|---|
-|  Normal | DOTA_COMBAT_CLASS_ATTACK_BASIC 
-|  Pierce | DOTA_COMBAT_CLASS_ATTACK_PIERCE 
+|  Normal | DOTA_COMBAT_CLASS_ATTACK_BASIC
+|  Pierce | DOTA_COMBAT_CLASS_ATTACK_PIERCE
 |  Siege  |  DOTA_COMBAT_CLASS_ATTACK_SIEGE
 |  Chaos  |  DOTA_COMBAT_CLASS_ATTACK_LIGHT
 |  Hero   |  DOTA_COMBAT_CLASS_ATTACK_HERO
@@ -530,10 +530,10 @@ I highly recommend using [Lua for AI](#lua-vscript-ai) instead, but will leave s
       "RoamDistance"  "2000.0"
     }
   }
-  
+
   "OffensiveAbilities"
   {
-    "Ability1"                
+    "Ability1"
     {
       "Name"        "broodmother_spawn_spiderlings"
     }

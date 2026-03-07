@@ -136,7 +136,6 @@
                     "type": "category",
                     "label": "Models",
                     "items": [
-                        "assets/models/importing-custom-models",
                         "assets/models/mdl-to-vmdl-conversion",
                         "assets/models/adding-hitbox-to-models-without-a-bone",
                         "assets/models/importing-models-and-using-material-editor",
