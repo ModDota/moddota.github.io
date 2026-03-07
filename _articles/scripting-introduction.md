@@ -24,7 +24,7 @@ These files are defined using KeyValues (KV) and are the core of the the **DataD
 
 KV will define the data of abilities/items/units, while more elaborate behavior is handled with Lua or TypeScript.
 
-Each .txt file contains its particular KVs, and when the game starts, each client (and server) will interpret them. Changes to these files won’t take effect until the game is started again, so be very aware of the syntax, as any extra/missing `"` or `{` `}` will usually make all the keyvalues that come after this error unusable. Consistent [indentation](https://en.wikipedia.org/wiki/Indent_style) is a good practice to learn early! KV is case-sensitive, so also pay attention to write everything like the game expects you to write. If your KV is not working, try putting it into [the KV checker](http://arhowk.github.io/) to look for errors.
+Each .txt file contains its particular KVs, and when the game starts, each client (and server) will interpret them. Changes to these files won’t take effect until the game is started again, so be very aware of the syntax, as any extra/missing `"` or `{` `}` will usually make all the keyvalues that come after this error unusable. Consistent [indentation](https://en.wikipedia.org/wiki/Indent_style) is a good practice to learn early! KV is case-sensitive, so also pay attention to write everything like the game expects you to write. If your KV is not working, try putting it into [the KV checker](https://arhowk.github.io/) to look for errors.
 
 Now it’s a good time to get your environment ready to write Dota Scripts. For this, the best way is getting [Visual Studio Code](https://code.visualstudio.com/). Use VSCode to open your addon root directory using File > Open Folder...
 
@@ -204,7 +204,7 @@ public OnNPCSpawned(event: NpcSpawnedEvent) {
 
 Here we make use of the Timers library for a simple 1.0 second delay, there are many different timer functions included and explained in timers.lua. The bool on ForceKill is to enable the death animation.
 
-<Gfycat id="DigitalDefinitiveChimpanzee" />
+<StaticVideo path="/videos/DigitalDefinitiveChimpanzee.mp4" />
 
 
 ### Tables.
@@ -319,7 +319,7 @@ public OnNPCSpawned(event: NpcSpawnedEvent) {
 
 And the result ingame:
 
-<Gfycat id="SkeletalIcyDalmatian" />
+<StaticVideo path="/videos/SkeletalIcyDalmatian.mp4" />
 
 ## Scripting Examples and Sources
 

@@ -7,7 +7,7 @@ date: 13.12.2014
 
 This implements the following mechanic:
 
-<Gfycat id="OfficialAdorableJabiru" />
+<StaticVideo path="/videos/OfficialAdorableJabiru.mp4" />
 
 ### 1. Key Values Table
 

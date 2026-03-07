@@ -69,4 +69,4 @@ If you want to use the example .VTEX_C file created by this tutorial to use in y
 
 ### Bonus GIF
 
-<Gfycat id="AmpleNaiveKiwi" />
+<StaticVideo path="/videos/AmpleNaiveKiwi.mp4" />

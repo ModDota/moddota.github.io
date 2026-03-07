@@ -69,7 +69,7 @@ Here is an example of it in KV; one spider spawns without the `modifier_kill` an
 
 and a short video along with it
 
-<Gfycat id="AmusedScientificHoneybadger" />
+<StaticVideo path="/videos/AmusedScientificHoneybadger.mp4" />
 
 ### Lua example
 

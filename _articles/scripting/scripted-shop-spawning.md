@@ -23,4 +23,4 @@ local newshop = SpawnEntityFromTableSynchronous('trigger_shop', {origin = unit:G
 ```
 
 Example:
-<Gfycat id="DimwittedGlisteningAmericanmarten" />
+<StaticVideo path="/videos/DimwittedGlisteningAmericanmarten.mp4" />

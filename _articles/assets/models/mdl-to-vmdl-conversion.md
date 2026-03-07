@@ -7,7 +7,7 @@ date: 28.05.2015
 
 This guide will go through the process of making a **.vmdl file** (Source 2 Model) from a **.mdl file** and other model-related files from Source 1. The Wyvern Hatchling courier will be used as example, but the same process applies to heroes, buildings and any Valve Dota model.
 
-<Gfycat id="JauntyQuickArcticwolf" />
+<StaticVideo path="/videos/JauntyQuickArcticwolf.mp4" />
 
 ### Required Tools
 

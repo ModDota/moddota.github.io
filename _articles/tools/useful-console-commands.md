@@ -31,6 +31,6 @@ Here are the console commands useful for modding. If you constantly use one whic
 
 `host_timescale <float>`: Speeds the game up to that number
 
-<Gfycat id="OddPaleIbadanmalimbe" />
+<StaticVideo path="/videos/OddPaleIbadanmalimbe.mp4" />
 
 _host_timescale 10_

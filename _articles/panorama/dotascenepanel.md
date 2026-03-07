@@ -44,7 +44,7 @@ Save your map and build it (F9).
 
 I won't describe how to set up a basic panorama environment, if you are having issues with displaying simple panels, refer to [https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Panorama) Once you've ready to go, simply add `<DOTAScenePanel style="width:400px;height:400px;" map="background" light="light" camera="camera1" particleonly="false"/>` to your XML, you should see your donkey movie star in its full glory. Shouldn't take you more than 10 minutes.
 
-<Gfycat id="BlackSameAoudad" />
+<StaticVideo path="/videos/BlackSameAoudad.mp4" />
 
 Now let's get to the advanced part.
 

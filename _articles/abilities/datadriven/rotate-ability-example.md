@@ -46,17 +46,17 @@ date: 23.01.2015
 
 **Pitch** Rotation, 15 every frame (0.03 interval)
 
-<Gfycat id="BothImpureHeterodontosaurus" />
+<StaticVideo path="/videos/BothImpureHeterodontosaurus.mp4" />
 
 <br />
 
 **Yaw** Rotation, 15 every frame
 
-<Gfycat id="MemorableAcceptableDikdik" />
+<StaticVideo path="/videos/MemorableAcceptableDikdik.mp4" />
 
 <br />
 
 **Roll** Rotation, 15 every frame
 
-<Gfycat id="GraciousWebbedHamadryad" />
+<StaticVideo path="/videos/GraciousWebbedHamadryad.mp4" />
 

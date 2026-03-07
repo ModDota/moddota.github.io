@@ -65,7 +65,7 @@ Next, start up the Workshop Tools (or restart them if you have them opened alrea
 
 ## Step #2: Creating your map in Hammer
 
-<Gfycat id="YearlyDismalHuemul" />
+<StaticVideo path="/videos/YearlyDismalHuemul.mp4" />
 
 (Credits to DarkMio for the gfy.)
 

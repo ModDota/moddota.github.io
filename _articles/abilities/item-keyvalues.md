@@ -292,7 +292,7 @@ Alt-click text on items in Inventory and dropped on the ground. Takes the string
 Overrides the default "[ALLIES] **ItemName** dropped here".
  It will look for *#DOTA_Chat_Text_String* (*Text_String* can be whatever) in your addon strings.
 
-<Gfycat id="RemarkableImportantAnt" />
+<StaticVideo path="/videos/RemarkableImportantAnt.mp4" />
 
 In the item_datadriven:
 ```

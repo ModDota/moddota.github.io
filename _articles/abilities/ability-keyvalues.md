@@ -360,7 +360,7 @@ The same applies for **Teams** and **Types**.
 
 With `DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES`, and with `DOTA_UNIT_TARGET_FLAG_NONE`:
 
-<Gfycat id="FloweryUnevenHorseshoeBat" />
+<StaticVideo path="/videos/FloweryUnevenHorseshoeBat.mp4" />
 
 ### Other keyvalues of the Action Target block
 

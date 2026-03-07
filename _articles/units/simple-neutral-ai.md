@@ -5,7 +5,7 @@ steamId: '76561198046986723'
 date: 25.01.2020
 ---
 
-**NOTE:** This article is a rewrite of a very old AI tutorial: [http://yrrep.me/dota/dota-simple-ai.html](http://yrrep.me/dota/dota-simple-ai.html)
+**NOTE:** This article is a rewrite of a very old AI tutorial: [http://yrrep.me/dota/dota-simple-ai.html](https://web.archive.org/web/20191231104348/https://yrrep.me/dota/dota-simple-ai.html)
 
 
 
@@ -32,7 +32,7 @@ In the diagram you can see the different states represented by boxes and transit
 
 ## Implementing a single state
 
-To show how to translate one state to code I will give the example implementation of the aggressive state. I am implementing each state as a 'think' function that will check if any of the transition conditions are true, and execute that transition if they are true. 
+To show how to translate one state to code I will give the example implementation of the aggressive state. I am implementing each state as a 'think' function that will check if any of the transition conditions are true, and execute that transition if they are true.
 
 Look at the 'Aggressive' state in the above diagram. It has two transitions, so I would expect the 'AggressiveThink' function to contain one check for 'Target died', one check for 'Out of leash range', and some aggressive behavior that happens inside the state.
 
@@ -46,14 +46,14 @@ function modifier_ai:AggressiveThink()
         self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
         return -- Stop processing this state
     end
-    
+
     -- Check if the target has died
     if not self.aggroTarget:IsAlive() then
         self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
         self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
         return -- Stop processing this state
     end
-    
+
     -- Still in the aggressive state, so do some aggressive stuff.
     self.unit:MoveToTargetToAttack(self.aggroTarget)
 end
@@ -120,13 +120,13 @@ end
 
 function modifier_ai:OnIntervalThink()
     -- Execute action corresponding to the current state
-    self.stateActions[self.state](self)    
+    self.stateActions[self.state](self)
 end
 
 function modifier_ai:IdleThink()
     -- Find any enemy units around the AI unit inside the aggroRange
     local units = FindUnitsInRadius(self.unit:GetTeam(), self.unit:GetAbsOrigin(), nil,
-        self.aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
+        self.aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER, false)
 
     -- If one or more units were found, start attacking the first one
@@ -148,14 +148,14 @@ function modifier_ai:AggressiveThink()
         self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
         return -- Stop processing this state
     end
-    
+
     -- Check if the target has died
     if not self.aggroTarget:IsAlive() then
         self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
         self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
         return -- Stop processing this state
     end
-    
+
     -- Still in the aggressive state, so do some aggressive stuff.
     self.unit:MoveToTargetToAttack(self.aggroTarget)
 end

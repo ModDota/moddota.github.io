@@ -9,7 +9,7 @@ Here I'll explain how to modify preexisting particles for the creation of a [Vol
 
 I won't be making the particles from scratch or going really deep into its possibilities, so make sure to read the wonderful [Particle Creation Series](/assets/particles/particle-basics) by kritth to get a deeper understanding than just this example.
 
-<Gfycat id="HandsomeImpossibleHyena" />
+<StaticVideo path="/videos/HandsomeImpossibleHyena.mp4" />
 
 <br />
 
@@ -43,7 +43,7 @@ Let's repeat the same steps on the other childs to make the dust-debris effect r
 
 It's looking like this now (I forgot to hide the model for this preview)
 
-<Gfycat id="OptimalRichDeviltasmanian" />
+<StaticVideo path="/videos/OptimalRichDeviltasmanian.mp4" />
 
 <br />
 
@@ -60,7 +60,7 @@ Now the particle system is kinda filling the entire particle with dust, so we do
 
 Finally we finished the core base of the volcano:
 
-<Gfycat id="ClumsyImpishGardensnake" />
+<StaticVideo path="/videos/ClumsyImpishGardensnake.mp4" />
 
 Because I don't want or need to have additional control points, I'll make sure that all the control points of this particle system are fixed to the CP0.
 
@@ -115,7 +115,7 @@ Back to the particle editor, open the recently forked, sf_fire_arcana_wings syst
 
 Now after all that mess:
 
-<Gfycat id="FewLeftAcornbarnacle" />
+<StaticVideo path="/videos/FewLeftAcornbarnacle.mp4" />
 
 ---
 
@@ -146,7 +146,7 @@ We need to change some initializer functions to decrease the speed and make the 
 
 Result:
 
-<Gfycat id="FinishedRewardingBactrian" />
+<StaticVideo path="/videos/FinishedRewardingBactrian.mp4" />
 
 ---
 
@@ -158,7 +158,7 @@ I'll also add a lone_druid_bear_entangle_ground_soil_cauldron effect in here, to
 
 Finally after getting the particle with the ability together...
 
-<Gfycat id="DisastrousRecentBaldeagle" />
+<StaticVideo path="/videos/DisastrousRecentBaldeagle.mp4" />
 
 ---
 

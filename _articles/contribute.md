@@ -65,13 +65,12 @@ function foo() {
 }
 ```
 
-### Embeds
+### Images and Videos
 
-**To add a Gfycat gif to the page use the following format:**
+All images and videos should be stored locally in the repository, not linked from external URLs.
 
-To embed https://gfycat.com/remarkableimportantant:
-
-Use `<Gfycat id="remarkableimportantant" />`
+- **Images:** Place in the `static/images/` folder and reference as `![alt text](/images/your-image.png)`
+- **Videos:** Place `.mp4` files in the `static/videos/` folder and use `<StaticVideo path="/videos/your-video.mp4" />`
 
 **To add a YouTube player to the page use the following:**
 

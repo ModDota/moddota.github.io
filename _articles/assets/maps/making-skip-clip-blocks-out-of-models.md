@@ -13,10 +13,10 @@ When you drag a prop model into the map, it won't have any collision, so if you 
 2. Selected props -> Convert into Editable Mesh (Ctrl+Shift+T with the newly selected pasted model)
 3. Apply material (Shift+T)
 
-<Gfycat id="RemarkableWetDotterel" />
+<StaticVideo path="/videos/RemarkableWetDotterel.mp4" />
 
 That's it.
 
-<Gfycat id="CarefreeScarceEthiopianwolf" />
+<StaticVideo path="/videos/CarefreeScarceEthiopianwolf.mp4" />
 
 Thanks BMD for the gyfs

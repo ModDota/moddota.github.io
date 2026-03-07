@@ -7,7 +7,7 @@ date: 19.12.2014
 
 This is a datadriven + lua ability that will apply the invis state and texture, with some extra particles and effects.
 
-<Gfycat id="MajesticDimpledIrishwaterspaniel" />
+<StaticVideo path="/videos/MajesticDimpledIrishwaterspaniel.mp4" />
 
 (Some effects might not be from this example, as this video shows the Assassin hero, find it in the repository later on)
 

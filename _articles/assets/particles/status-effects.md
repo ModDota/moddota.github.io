@@ -70,7 +70,7 @@ _Note:_ Only colorwarp textures will work for this.
 
 Results with different Colorwarp textures:  
 
-<Gfycat id="UnkemptFarawayGossamerwingedbutterfly" />
+<StaticVideo path="/videos/UnkemptFarawayGossamerwingedbutterfly.mp4" />
 
 _Associated Parameters_:
 
@@ -82,7 +82,7 @@ A texture that is repeatedly overlaid on the model. You can basically use any te
 
 Results with different Detail 2 Textures(Blend Mode: 5):  
 
-<Gfycat id="PowerfulBlueBilby" />
+<StaticVideo path="/videos/PowerfulBlueBilby.mp4" />
 
 _Associated Parameters_:
 
@@ -114,7 +114,7 @@ Determines where the specular reflection occurs. Specular reflection is a mirror
 
 Results with different amounts of Specular Reflection:
 
-<Gfycat id="SkeletalEmptyArieltoucan" />
+<StaticVideo path="/videos/SkeletalEmptyArieltoucan.mp4" />
 
 _Associated Parameters_:
 

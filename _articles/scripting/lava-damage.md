@@ -18,7 +18,7 @@ Once you've created your Block, we have to assign it a trigger material.
 This can be done by going to the material library and name filtering "trigger", then drag and drop this material onto the block.  
 It should change to the specified (trigger) material.
 
-<Gfycat id="WaterloggedQuarrelsomeDutchshepherddog" />
+<StaticVideo path="/videos/WaterloggedQuarrelsomeDutchshepherddog.mp4" />
 
 Then convert the mesh to Entity by pressing Ctrl+T or find the `Outliner` => Right Click => Selected Meshes => Tie to Entity.
 Afterwards, name it plus assign this Entity script to lavatrigger.lua <-- you can name it whatever you want.
