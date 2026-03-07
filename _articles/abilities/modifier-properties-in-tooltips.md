@@ -20,7 +20,7 @@ some examples:
 ```
 "DOTA_Tooltip_modifier_tower_aura_bonus_Description"    "Armor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% and health regeneration by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
 ```
-and approximately 560 more examples in valve's [abilities_english.txt](https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_english.txt)
+and approximately 560 more examples in valve's abilities_english.txt.
 
 
 As you can see, all of those numbers are not manually written into the modifier description, they are dynamically grabbed from the modifier.
@@ -43,7 +43,7 @@ In your modifier script:
 function modifier_example:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-	} 
+	}
 end
 
 function modifier_example:GetModifierPreAttack_BonusDamage()
@@ -63,7 +63,7 @@ If the contents between the %'s don't match the format then it wont work.
 ### The Format
 `%<-><number><d|f>MODIFIER_PROPERTY_%`
 
-Snippet from [abilities_english.txt](https://raw.githubusercontent.com/SteamDatabase/GameTracking-Dota2/master/game/dota/pak01_dir/resource/localization/abilities_english.txt):
+Snippet from abilities_english.txt:
 
 ```
 // substitution for modifier tooltips
@@ -72,8 +72,8 @@ Snippet from [abilities_english.txt](https://raw.githubusercontent.com/SteamData
 // 'f' for float
 // optional '-' to not abs() the values
 // optional number to specify the number of decimals to print after a float
-// eg: %-2fMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE% 
-// use %% to draw a percentage sign 
+// eg: %-2fMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%
+// use %% to draw a percentage sign
 test
 ```
 
@@ -123,7 +123,7 @@ function modifier_example:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_TOOLTIP,
 		MODIFIER_PROPERTY_TOOLTIP2,
-	} 
+	}
 end
 
 function modifier_example:OnTooltip()

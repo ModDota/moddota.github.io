@@ -8,7 +8,7 @@ date: 21.01.2015
 Hello everybody. Recently, I've been looking through the .VTEX files used by most of the sprites and particle effects in-game, but I couldn't find any extensive documentation about it. Therefore, I decided to write this little guide in case anybody else finds it useful.
 
 ### Extracting from VTEX
-1) Extracting images from compiled VTEX files (.VTEX_C) is actually quite simple, but we need those files first. If you haven't already extracted them, you can find them in pak01_dir.vpk, which is located in your dota_ugc\game\dota_imported folder. Use a tool like GCFScape to open and extract the files that you need.
+1) Extracting images from compiled VTEX files (.VTEX_C) is actually quite simple, but we need those files first. If you haven't already extracted them, you can find them in pak01_dir.vpk, which is located in your dota_ugc\game\dota_imported folder. Use a tool like GCFScape or [Source 2 Viewer](https://s2v.app/) to open and extract the files that you need.
 
 ![img](https://i.imgur.com/xsQnBg9.png)
 

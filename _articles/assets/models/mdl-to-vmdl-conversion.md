@@ -11,12 +11,12 @@ This guide will go through the process of making a **.vmdl file** (Source 2 Mode
 
 ### Required Tools
 
-* [GCFScape](https://developer.valvesoftware.com/wiki/GCFScape)
+* [GCFScape](https://developer.valvesoftware.com/wiki/GCFScape) or [Source 2 Viewer](https://s2v.app/)
 * [Crowbar](https://steamcommunity.com/groups/CrowbarTool/discussions/0/617328415069203029/)
 * [VTFEdit](https://developer.valvesoftware.com/wiki/VTFEdit)
 * Workshop Tools (Material and Model Editor)
 
-### 1. Acquire the **model** and **material** files from the main game VPK (*pak01_dir.vpk*) using GCFScape. 
+### 1. Acquire the **model** and **material** files from the main game VPK (*pak01_dir.vpk*) using GCFScape.
 
 The following file types are required:
 
@@ -33,7 +33,7 @@ Right-click extract into a folder of your choice.
 
 ![img](https://puu.sh/i3aCO/4887dee9a8.png)
 
-Color Material files are located in the  the *materials/models/* folder. In this example this courier has 3 associated color files, one for each skin, so we'll get 
+Color Material files are located in the  the *materials/models/* folder. In this example this courier has 3 associated color files, one for each skin, so we'll get
 
 ![img](https://puu.sh/i3aCw/5df098fb34.png)
 
@@ -75,7 +75,7 @@ Result ([IrfanView](https://www.irfanview.com/) is an oldschool image viewer tha
 
 Create new folders on each or just drop the files over the respective directories. Make sure to use the content folder (not the /game/). <br />The location of the reference mesh in /content/models/ will determine the location where the .vmdl file will be saved.
 
-### 5. Generate a .vmat file from the TGA files. 
+### 5. Generate a .vmat file from the TGA files.
 
 - Open the Material Editor
 - File -> New Material

@@ -306,7 +306,7 @@ public OnNPCSpawned(event: NpcSpawnedEvent) {
             const units = FindUnitsInRadius(npc.GetTeamNumber(), npc.GetAbsOrigin(), undefined, 500,
                                             UnitTargetTeam.ENEMY, UnitTargetType.Basic | UnitTargetType.HERO,
                                             UnitTargetFlags.NONE, FindOrder.FIND_ANY_ORDER, false);
-            
+
             for (const unit of units) {
                 unit.ForceKill(true);
             }
@@ -328,11 +328,15 @@ The best GitHub repo to look for Dota 2 spells is [Elfansoer's dota 2 abilities 
 
 If you want to check the scripts of a certain game on the [Custom Games Workshop](https://steamcommunity.com/workshop/browse/?appid=570&browsesort=trend&section=readytouseitems) which hasn't made their source public on GitHub (because they are fools), just follow these steps:
 
-1. Subscribe to the game. Download [Valve Resource Viewer](https://vrf.steamdb.info/) if you haven't done so yet.
-2. Check the URL, steamcommunity.com/sharedfiles/filedetails/?id=**copy this number**
-3. Go to your Steam folder -> SteamApps -> workshop -> content -> 570 (this is the dota folder)
-4. Search for the copied number folder
-5. Open the .vpk file with GCFScape or VRF and extract its contents anywhere you want. Now you can access its scripts and compiled models/particles/sounds.
+1. Subscribe to the game. Download [Source 2 Viewer](https://s2v.app/) if you haven't done so yet.
+2. Open Explorer in the app.
+3. Open the workshop vpk.
+
+Manually:
+1. Check the URL, steamcommunity.com/sharedfiles/filedetails/?id=**copy this number**
+2. Go to your Steam folder -> SteamApps -> workshop -> content -> 570 (this is the dota folder)
+3. Search for the copied number folder
+4. Open the .vpk file with GCFScape or S2V and extract its contents anywhere you want. Now you can access its scripts and compiled models/particles/sounds.
 
 ![img](https://puu.sh/g2zNP/d1e018010e.png)
 
