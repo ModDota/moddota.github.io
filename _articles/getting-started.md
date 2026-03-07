@@ -86,3 +86,7 @@ BMD has made some rather nice beginner Hammer tutorial videos:
 Scripting is the next most important part of your addon. It is divided into Lua scripting, and KeyValue scripting. I'm going to go ahead and redirect you to [Noya's Beginner Scripting Guide](scripting-introduction.md), since it has essentially the same information that would go in this section.
 
 Now I'm going keep this short and sweet. I've already presented a ton of information for you to begin delving yourself into Dota 2 modding! Becoming good at Hammer mapping and good at Lua and KeyValue scripting will go a very long way in making successful, fun Dota 2 custom games. Please don't hesitate to ask questions in [the Moddota Discord channel](https://discord.gg/Mvn4gww).
+
+## Additional Resources
+
+For Source 2 topics that go beyond Dota 2 custom game modding, check out [source2.wiki](https://www.source2.wiki/). It covers a broader range of Source 2 engine information and may have more up-to-date documentation on general Source 2 features.
