@@ -58,10 +58,10 @@ const ReferenceType: React.FC<{ name: string }> = ({ name }) => {
       type.kind === "class" || type.kind === "enum"
         ? name
         : type.kind === "constant"
-        ? "constants"
-        : type.kind === "function"
-        ? "functions"
-        : undefined,
+          ? "constants"
+          : type.kind === "function"
+            ? "functions"
+            : undefined,
       type.kind === "constant" || type.kind === "function" ? name : undefined,
     ];
   }, [name]);

@@ -142,7 +142,7 @@ The 'or 100' and 'or 1' are just to make sure that if the "Chance" or "Multiple"
 
 Sometimes doing "50% of item 1 and 50% of item 2" is too random, because it will mean sometimes a mob will drop nothing, and sometimes it might drop 2. In order to reduce the randomness and ensure a certain combination of items will drop, the most common approach is to have a set list of possible drops, and make it so that the unit will drop only one of that set at random.
 
-To do this, instead of tying a single item to each item table, there will be yet another table of the { possible Set of items } that we want this creature to drop:
+To do this, instead of tying a single item to each item table, there will be yet another table of the \{possible Set of items\} that we want this creature to drop:
 
 ```
 "Drops" 

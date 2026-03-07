@@ -11,8 +11,10 @@ A comprehensive guide to npc_items_custom and coding items
 
 Start with "item_" and your item name. If you **don't** put `item_` at the begging of an item, bad things happen
 
-`"item_custom"
-{ ... }`
+```
+"item_custom"
+{ ... }
+```
 
 Each item needs its proper ID for purchasing on the shop, although you can define items without an ID if you only plan to create them through Lua.
 Do not override Dota IDs, use IDs between 1000~2000
@@ -173,7 +175,7 @@ Apart from this values specially related to items, you can add ***everything*** 
 "AbilityCastAnimation" "ACT_DOTA_CAST_ABILITY_1"
 "AbilityManaCost" "100"
 "AbilityValues"
-{ ... }
+{...}
 ```
 
 **[Ability Events](datadriven/datadriven-ability-events-modifiers)** like `"OnSpellStart"`, `"OnOwnerDied"` or `"OnEquip"` also go here in the main block.
@@ -278,7 +280,7 @@ This is how Basher is disallowed for certain heroes
 "InvalidHeroes" "npc_dota_hero_spirit_breaker;npc_dota_hero_faceless_void"
 ```
 
-For the Scripted, more powerful version, read more on [Item Restrictions & Requirements](scripting/item-restrictions-requirements)
+For the Scripted, more powerful version, read more on [Item Restrictions & Requirements](/scripting/item-restrictions-requirements)
 
 ------
 
@@ -310,9 +312,9 @@ Displays "[ALLIES] Gather for **ItemName** here."
 
 ![img](/images/external/duiGf-025d66f1cd.jpg)
 
-```~
+```
 "ItemAlertable"	"1"
-```~
+```
 
 
 ---

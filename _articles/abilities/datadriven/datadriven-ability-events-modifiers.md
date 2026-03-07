@@ -9,24 +9,6 @@ A guide that tries to cover every Ability & Modifier Event of the *ability_datad
 
 ![img](/images/external/T7W828Q.png)
 
-- [Ability Events](#Comment_28)
-  - [Spell Start](#Comment_28)
-  - [Toggleable Abilities](#Comment_29)
-  - [Channeled Abilities](#Comment_30)
-  - [Death and Spawn](#Comment_31)
-  - [Projectiles](#Comment_32)
-  - [Item Equip](#Comment_33)
-  - [Others](#Comment_34)
-- [Modifier Events](#Comment_35)
-  - [Create and Destroy](#Comment_35)
-  - [Repeating Actions](#Comment_36)
-  - [Attacks](#Comment_37)
-  - [Damage](#Comment_38)
-  - [Killing and Dying](#Comment_39)
-  - [Orbs](#Comment_40)
-  - [Others](#Comment_41)
-
-<br />
 <a name="start"></a>
 This is an Intermediate guide that expects some knowledge of the most common first-level keyvalues. If unsure about the meaning of any of them, check the [DataDriven Ability Breakdown](/abilities/ability-keyvalues).
 

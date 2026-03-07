@@ -121,11 +121,11 @@ export function doSearch(declarations: api.Declaration[], words: string[]): api.
               ),
             }
           : declaration.kind === "enum"
-          ? {
-              ...declaration,
-              members: declaration.members.filter(composeFilters([filterName, filterAvailability])),
-            }
-          : undefined;
+            ? {
+                ...declaration,
+                members: declaration.members.filter(composeFilters([filterName, filterAvailability])),
+              }
+            : undefined;
 
       if (partialDeclaration && partialDeclaration.members.length > 0) {
         return partialDeclaration;

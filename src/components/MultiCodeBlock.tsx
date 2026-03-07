@@ -1,4 +1,3 @@
-import invariant from "tiny-invariant";
 import TabItem from "@theme/TabItem";
 import Tabs from "@theme/Tabs";
 import React from "react";
@@ -20,8 +19,6 @@ export function MultiCodeBlock({
     group: string | undefined;
     titles: string | undefined;
 }) {
-    invariant(typeof group === "string" || group === undefined);
-
     const tabs = React.Children.toArray(children).map((element: any, index) => {
         const language = element.props.children.props.className?.replace(/language-/, "") ?? `Tab ${index + 1}`;
         const tabTitles = titles !== undefined && titles.length > 0 ? titles.split("|") : [];

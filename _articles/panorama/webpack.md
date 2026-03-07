@@ -162,7 +162,7 @@ You can find more packages built for Panorama using this search query: [keywords
 
 webpack loaders are packages that process your files before webpack puts them into a bundle.
 
-One good example of a loader is [`babel-loader`](https://www.npmjs.com/package/babel-loader), which processes your code with Babel, allowing you to use newer JavaScript features, and non-standard syntax extensions, such as [JSX](react#JSX).
+One good example of a loader is [`babel-loader`](https://www.npmjs.com/package/babel-loader), which processes your code with Babel, allowing you to use newer JavaScript features, and non-standard syntax extensions, such as [JSX](react#jsx).
 
 First you need to install a few dependencies:
 

@@ -20,7 +20,7 @@ Go into your &lt;addonName&gt;/scripts/ folder. The 2 main script folders are **
 * npc_**abilities**_override.txt - Modified dota abilities/items with changed values.
 * **herolist**.txt - List of the heroes available for picking.
 
-These files are defined using KeyValues (KV) and are the core of the the **DataDriven system**. While they fulfill the definition of a programming language, it’s more like a big table containing all the possible data in a static document. it uses a relatively simple syntax whose only special characters are curly braces and quotes, with alternating sets of "Key" and "Value" or "Key" {table} pairs, where table is another set of KeyValues.
+These files are defined using KeyValues (KV) and are the core of the the **DataDriven system**. While they fulfill the definition of a programming language, it’s more like a big table containing all the possible data in a static document. it uses a relatively simple syntax whose only special characters are curly braces and quotes, with alternating sets of "Key" and "Value" or "Key" `{table}` pairs, where `table` is another set of KeyValues.
 
 KV will define the data of abilities/items/units, while more elaborate behavior is handled with Lua or TypeScript.
 

@@ -21,7 +21,7 @@ It should change to the specified (trigger) material.
 <StaticVideo path="/videos/WaterloggedQuarrelsomeDutchshepherddog.mp4" />
 
 Then convert the mesh to Entity by pressing Ctrl+T or find the `Outliner` => Right Click => Selected Meshes => Tie to Entity.
-Afterwards, name it plus assign this Entity script to lavatrigger.lua <-- you can name it whatever you want.
+Afterwards, name it plus assign this Entity script to lavatrigger.lua &lt;-- you can name it whatever you want.
 
 ![](/images/external/5eZycip.png)
 

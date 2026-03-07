@@ -1,3 +1,5 @@
+const { themes } = require("prism-react-renderer");
+
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
     title: "ModDota",
@@ -24,8 +26,8 @@ module.exports = {
         },
         prism: {
             additionalLanguages: ["lua"],
-            theme: require("prism-react-renderer/themes/github"),
-            darkTheme: require("prism-react-renderer/themes/dracula"),
+            theme: themes.github,
+            darkTheme: themes.dracula,
         },
         algolia: {
             appId: "53WE0HHYGT",
@@ -49,10 +51,9 @@ module.exports = {
                     ],
                 },
                 theme: {
-                    customCss: require.resolve("./src/custom.scss"),
+                    customCss: require.resolve("./src/custom.css"),
                 },
             },
         ],
     ],
-    plugins: ["docusaurus-plugin-sass", require.resolve("./docusaurus/plugin")],
 };
