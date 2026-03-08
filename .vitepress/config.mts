@@ -29,7 +29,10 @@ export default defineConfig({
             },
         ],
 
-        socialLinks: [{ icon: "discord", link: "https://discord.gg/gRmZgvz" }],
+        socialLinks: [
+            { icon: "github", link: "https://github.com/moddota" },
+            { icon: "discord", link: "https://discord.gg/gRmZgvz" },
+        ],
 
         sidebar: [
             { text: "Getting Started", link: "/getting-started" },
