@@ -33,7 +33,7 @@ export const ReferencesLink: React.FC<{ name: string }> = ({ name }) => {
   return (
     <StyledReferencesLink
       to={`/vscripts${search}`}
-      className={isActive ? "active" : undefined}
+      className={() => isActive ? "active" : ""}
       title="Find all usages of this API"
     >
       {referencesCount} reference{referencesCount === 1 ? "" : "s"}

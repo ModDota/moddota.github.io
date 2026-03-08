@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",
+    "@vitejs/plugin-react": "^5.1.4",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^5.2.0",
     "typescript": "^5.9.3",

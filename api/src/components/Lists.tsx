@@ -8,7 +8,8 @@ interface Props<T> {
 }
 
 export function LazyList<T>({ className, data, render }: Props<T>) {
-  const cache = useMemo(() => new CellMeasurerCache({ fixedWidth: true }), []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- recreate cache when data changes to remeasure row heights
+  const cache = useMemo(() => new CellMeasurerCache({ fixedWidth: true }), [data]);
   const renderRow = useCallback<ListRowRenderer>(
     ({ key, parent, style, index }) => (
       <CellMeasurer cache={cache} key={key} parent={parent} rowIndex={index}>
