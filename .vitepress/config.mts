@@ -9,6 +9,7 @@ export default defineConfig({
     outDir: "build",
     cleanUrls: true,
     ignoreDeadLinks: [/\.fbx$/],
+    assetsDir: "_assets", // Do not conflict with assets articles
 
     markdown: {
         lineNumbers: true,
@@ -283,7 +284,7 @@ export default defineConfig({
     },
 
     vite: {
-        publicDir: "../static",
+        publicDir: "../public",
     },
 
     sitemap: {
