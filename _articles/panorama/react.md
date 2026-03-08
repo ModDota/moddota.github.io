@@ -53,7 +53,6 @@ Components can accept parameters as a function argument:
 import React from 'react';
 import { render } from 'react-panorama';
 
-// highlight-next-line
 function HeroRow({ heroName }: { heroName: string }) {
   return (
     <Panel style={{ flowChildren: 'right' }}>
@@ -66,11 +65,11 @@ function HeroRow({ heroName }: { heroName: string }) {
 function HeroList() {
   return (
     <Panel style={{ flowChildren: 'down' }}>
-      {/* highlight-start */}
+
       <HeroRow heroName="npc_dota_hero_abaddon" />
       <HeroRow heroName="npc_dota_hero_abyssal_underlord" />
       <HeroRow heroName="npc_dota_hero_alchemist" />
-      {/* highlight-end */}
+
     </Panel>
   );
 }
@@ -103,16 +102,9 @@ render(<Counter />, $.GetContextPanel());
 
 Similarly, you can use `useState` to bind state to input elements:
 
-<Tabs
-  defaultValue="ToggleButton"
-  values={[
-    { label: 'ToggleButton', value: 'ToggleButton' },
-    { label: 'Slider', value: 'Slider' },
-    { label: 'TextEntry', value: 'TextEntry' },
-  ]}>
-  <TabItem value="ToggleButton">
+::: code-group
 
-```jsx
+```jsx [ToggleButton]
 import React, { useState } from 'react';
 import { render } from 'react-panorama';
 
@@ -135,10 +127,7 @@ function ConditionalRendering() {
 render(<ConditionalRendering />, $.GetContextPanel());
 ```
 
-  </TabItem>
-  <TabItem value="Slider">
-
-```jsx
+```jsx [Slider]
 import React, { useState } from 'react';
 import { render } from 'react-panorama';
 
@@ -166,10 +155,7 @@ function ColorPicker() {
 render(<ColorPicker />, $.GetContextPanel());
 ```
 
-  </TabItem>
-  <TabItem value="TextEntry">
-
-```jsx
+```jsx [TextEntry]
 import React, { useState } from 'react';
 import { render } from 'react-panorama';
 
@@ -187,8 +173,7 @@ function ReservedText() {
 render(<ReservedText />, $.GetContextPanel());
 ```
 
-  </TabItem>
-</Tabs>
+:::
 
 ## Listening to events
 
@@ -207,18 +192,16 @@ function KDA() {
   const [deaths, setDeaths] = useState(() => Game.GetLocalPlayerInfo().player_deaths);
   const [assists, setAssists] = useState(() => Game.GetLocalPlayerInfo().player_assists);
 
-  // highlight-start
-  useEffect(() => {
-    const handle = GameEvents.Subscribe('dota_player_kill', () => {
-      const playerInfo = Game.GetLocalPlayerInfo();
-      setKills(playerInfo.player_kills);
-      setDeaths(playerInfo.player_deaths);
-      setAssists(playerInfo.player_assists);
-    });
-
-    return () => GameEvents.Unsubscribe(handle);
-  }, []);
-  // highlight-end
+  useEffect(() => { // [!code highlight]
+    const handle = GameEvents.Subscribe('dota_player_kill', () => { // [!code highlight]
+      const playerInfo = Game.GetLocalPlayerInfo(); // [!code highlight]
+      setKills(playerInfo.player_kills); // [!code highlight]
+      setDeaths(playerInfo.player_deaths); // [!code highlight]
+      setAssists(playerInfo.player_assists); // [!code highlight]
+    }); // [!code highlight]
+ // [!code highlight]
+    return () => GameEvents.Unsubscribe(handle); // [!code highlight]
+  }, []); // [!code highlight]
 
   return <Label style={{ color: 'white' }} text={`KDA: ${kills}/${deaths}/${assists}`} />;
 }
@@ -237,17 +220,13 @@ function KDA() {
   const [deaths, setDeaths] = useState(() => Game.GetLocalPlayerInfo().player_deaths);
   const [assists, setAssists] = useState(() => Game.GetLocalPlayerInfo().player_assists);
 
-  // @remove-line: A hook with 3 parameters doesn't look nice with Prettier
-  // @remove-next-line
-  // prettier-ignore
-  // highlight-start
-  useGameEvent('dota_player_kill', () => {
-    const playerInfo = Game.GetLocalPlayerInfo();
-    setKills(playerInfo.player_kills);
-    setDeaths(playerInfo.player_deaths);
-    setAssists(playerInfo.player_assists);
-  }, []);
-  // highlight-end
+
+  useGameEvent('dota_player_kill', () => { // [!code highlight]
+    const playerInfo = Game.GetLocalPlayerInfo(); // [!code highlight]
+    setKills(playerInfo.player_kills); // [!code highlight]
+    setDeaths(playerInfo.player_deaths); // [!code highlight]
+    setAssists(playerInfo.player_assists); // [!code highlight]
+  }, []); // [!code highlight]
 
   return <Label style={{ color: 'white' }} text={`KDA: ${kills}/${deaths}/${assists}`} />;
 }
@@ -265,7 +244,6 @@ One of things that React Hooks make easier is code reuse. For example, we can ex
 import React, { useState } from 'react';
 import { render, useGameEvent } from 'react-panorama';
 
-// highlight-next-line
 function useKDA() {
   // Since both initializing and updating state is the same process,
   // we can extract it into a regular function
@@ -286,14 +264,14 @@ function useKDA() {
 }
 
 function KDA() {
-  // highlight-next-line
+
   const { kills, deaths, assists } = useKDA();
 
   return <Label style={{ color: 'white' }} text={`KDA: ${kills}/${deaths}/${assists}`} />;
 }
 
 function KDARatio() {
-  // highlight-next-line
+
   const { kills, deaths, assists } = useKDA();
   const ratio = (kills + assists) / (deaths || 1);
 

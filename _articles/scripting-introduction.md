@@ -118,9 +118,9 @@ Enough theory, let’s see how this all comes together. Let's take a look at OnN
 
 Let’s analyze the contents of the `OnNPCSpawned` default function:
 
-<MultiCodeBlock group="vscripts">
+::: code-group
 
-```lua
+```lua [Lua]
 -- An NPC has spawned somewhere in game.  This includes heroes
 function GameMode:OnNPCSpawned(keys)
     print("[BAREBONES] NPC Spawned")
@@ -134,7 +134,7 @@ function GameMode:OnNPCSpawned(keys)
 end
 ```
 
-```ts
+```ts [TypeScript]
 // An NPC has spawned somewhere in game.  This includes heroes
 public OnNPCSpawned(event: NpcSpawnedEvent) {
     print("[BAREBONES] NPC Spawned");
@@ -148,7 +148,7 @@ public OnNPCSpawned(event: NpcSpawnedEvent) {
 }
 ```
 
-</MultiCodeBlock>
+:::
 
 First line will print the string in the VConsole. The print function is native to Lua, and accepts multiple parameters separated by commas.
 
@@ -168,9 +168,9 @@ The next line is a conditional, first it checks if the npc is a real hero (this 
 
 To finish this basic Dota Lua tutorial, let’s modify the OnNPCSpawned function so that if a unit named npc_dota_neutral_kobold is spawned, wait 1 seconds and then kill itself. Added to the first if statement there’s this else-if condition:
 
-<MultiCodeBlock group="vscripts">
+::: code-group
 
-```lua
+```lua [Lua]
 function GameMode:OnNPCSpawned(keys)
     local npc = EntIndexToHScript(keys.entindex)
 
@@ -185,7 +185,7 @@ function GameMode:OnNPCSpawned(keys)
 end
 ```
 
-```ts
+```ts [TypeScript]
 public OnNPCSpawned(event: NpcSpawnedEvent) {
     const npc = EntIndexToHScript(keys.entindex);
 
@@ -200,7 +200,7 @@ public OnNPCSpawned(event: NpcSpawnedEvent) {
 }
 ```
 
-</MultiCodeBlock>
+:::
 
 Here we make use of the Timers library for a simple 1.0 second delay, there are many different timer functions included and explained in timers.lua. The bool on ForceKill is to enable the death animation.
 
@@ -229,40 +229,40 @@ As for the cache parameters, just leave it nil and false, they aren't of much us
 
 The complete function call to get the heroes in 500 radius from the spawned kobold would be:
 
-<MultiCodeBlock group="vscripts">
+::: code-group
 
-```lua
+```lua [Lua]
 local units = FindUnitsInRadius(npc:GetTeamNumber(), npc:GetAbsOrigin(), nil, 500,
                                 DOTA_UNIT_TARGET_TEAM_ENEMY, bit.bor(DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_HERO),
                                 DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 ```
 
-```ts
+```ts [TypeScript]
 const units = FindUnitsInRadius(npc.GetTeamNumber(), npc.GetAbsOrigin(), undefined, 500,
                                 UnitTargetTeam.ENEMY, UnitTargetType.Basic | UnitTargetType.HERO,
                                 UnitTargetFlags.NONE, FindOrder.FIND_ANY_ORDER, false);
 ```
 
-</MultiCodeBlock>
+:::
 
 The use of extra break lines is just to make it more readable. Now we want to **iterate over the entities of this table**, which is done like this:
 
-<MultiCodeBlock group="vscripts">
+::: code-group
 
-```lua
+```lua [Lua]
 for key, unit in pairs(units) do
     print(key, value)
     unit:ForceKill(true)
 end
 ```
 
-```ts
+```ts [TypeScript]
 for (const unit of units) {
     unit.ForceKill(true);
 }
 ```
 
-</MultiCodeBlock>
+:::
 
 The `key` and `unit` are the chosen names to refer to the position and value inside the *units* table, which will be read in pairs. Using `_` as the name of the key is a good convention when you want to make it clear that the first parameter won't be used. The 2nd parameter, unit, is used to iterate handles of the units found.
 
@@ -270,9 +270,9 @@ There is one more thing to consider: the "wait one frame" issue. Because all uni
 
 So, `OnNPCSpawned` is looking like this:
 
-<MultiCodeBlock group="vscripts">
+::: code-group
 
-```lua
+```lua [Lua]
 function GameMode:OnNPCSpawned(keys)
     local npc = EntIndexToHScript(keys.entindex)
 
@@ -294,7 +294,7 @@ function GameMode:OnNPCSpawned(keys)
 end
 ```
 
-```ts
+```ts [TypeScript]
 public OnNPCSpawned(event: NpcSpawnedEvent) {
     const npc = EntIndexToHScript(keys.entindex);
 
@@ -315,7 +315,7 @@ public OnNPCSpawned(event: NpcSpawnedEvent) {
 }
 ```
 
-</MultiCodeBlock>
+:::
 
 And the result ingame:
 

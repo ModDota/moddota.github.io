@@ -37,7 +37,7 @@ ListenToGameEvent("npc_spawned", event => {
 }, undefined);
 ```
 
-:::note
+:::info
 I do not recommend writing function bodies in this manner unless it is a few lines at most, as the code can get messy and not very readable.
 :::
 
@@ -67,7 +67,7 @@ If you're unsure which type you should use, you can hover over `event` in the ev
 
 Since the event triggered, we know something spawned. In the function itself, we want to know what spawned and refer to it. If we check the properties of the `NpcSpawnedEvent` event, we can see that it has two properties: `entindex`, which is of type EntityIndex, and `is_respawn`, which is of type boolean.
 
-:::note
+:::info
 You can look up types in the editor by clicking on a type and pressing F12.
 :::
 
@@ -81,7 +81,7 @@ Before we begin, we must first define the event. For that, we use a .d.ts file. 
 
 Navigate to `/src/common/events.d.ts`. There you can use the `CustomGameEventDeclarations` interface to add as many custom events as you want. The template designed the custom events to be pulled from events shown in this interface. We can see that it already has the `example_event` event which will be used as its name, and a type of `ExampleEventData`, which is later defined as an object that has various properties, such as `myNumber`.
 
-:::note
+:::info
 The `/common` folder is for all types shared by both serverside and panorama, such as events or nettables. This means that you can define the event once and both sides will be able to see and use that event.
 :::
 
@@ -93,7 +93,7 @@ You can find an example of the `CustomGameEventManager.Send_ServerToPlayer` func
 
 Timers is a library written in lua. We can use the Timers library to delay actions for a certain amount of time, after which a callback function is called. It can be used as a delay or as a repeat call that happens every few seconds, for example.
 
-:::note
+:::info
 Timers is written in lua. Instead of converting it to Typescript, we use the file `timers.d.ts` to describe to Typescript how Timers is structured, allowing us to use the Timers library as is.
 :::
 
@@ -126,7 +126,7 @@ Doing this will create a timer that initially takes 5 seconds to execute. Since 
 Note that you can return different values on each run to make the timer run with various delays on each repeat.
 Additionally, returning with no value or with `undefined` will make the timer no longer repeat, which can be used as a stop condition for a repeating timer.
 
-:::note
+:::info
 Timers respect pauses. This means that they will not progress while the game is paused, postponing the code execution until the game is unpaused.
 :::
 

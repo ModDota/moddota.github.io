@@ -1,4 +1,5 @@
 node_modules
-.docusaurus
+.vitepress/cache
+.vitepress/dist
 /build
 api/dist/

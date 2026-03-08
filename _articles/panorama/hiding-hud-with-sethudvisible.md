@@ -5,7 +5,7 @@ steamId: '76561198046984233'
 date: 07.02.2015
 ---
 
-:::caution
+:::danger
 This tutorial is outdated. It's recommended to use Panorama for UI manipulation now.
 
 **Example:**

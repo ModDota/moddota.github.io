@@ -2,7 +2,7 @@
 
 ModDota GitHub Pages project.
 
-This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern static website generator.
+This website is built using [VitePress](https://vitepress.dev/), a modern static website generator.
 
 ### Installation
 
@@ -13,7 +13,13 @@ $ npm install
 ### Local Development
 
 ```bash
-$ npm run start
+$ npm run dev
 ```
 
-This command starts a local development server and open up a browser window. Most changes are reflected live without having to restart the server.
+This command starts a local development server. Most changes are reflected live without having to restart the server.
+
+### Build
+
+```bash
+$ npm run build
+```

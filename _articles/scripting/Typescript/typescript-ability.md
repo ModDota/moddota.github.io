@@ -82,7 +82,7 @@ Now that the ability is defined, it is time to start coding it. The first step w
 
 We'll add the `.ts` extension, so the file that we'll be editing is `typescript_skywrath_mage_arcane_bolt.ts`.
 
-:::note
+:::info
 While the [Watcher is active](typescript-introduction#activating-the-watcher), each time you save your file, a `.lua` file of the same name will be created in the respective output folder. This lua file will be used by the game, and will immediately update to correspond for any changes you do in your Typescript file.
 :::
 
@@ -113,7 +113,7 @@ Let's go over it quickly:
 
 While your cursor is inside that block, all functions inherited from `BaseAbility` will show up here. Simply start typing for the auto complete to immediately show you possible completions of what you typed.
 
-:::note
+:::info
 If either @registerAbility() or BaseAbility are not recognized and show an error, highlight them, and use the `Ctrl + .` hotkey shortcut, which opens a small menu that suggests to import them. You'll see the top of the file now has the import statement: `import { BaseAbility, registerAbility } from "../lib/dota_ts_adapter";`, which shows that those are now imported from their respective files.
 :::
 
@@ -142,7 +142,7 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
 }
 ```
 
-:::note
+:::info
 The property names are arbitrary, and could be anything you'd like.
 :::
 
@@ -175,7 +175,7 @@ Inside OnSpellStart(), we want to fetch the target of the ability, which the bol
 
 For this case, once we'll fetch our target, it should never change this cast, which is a good indication that we should use `const`. It will be immediately assigned to the ability's cursor target, using `this.GetCursorTarget()`.
 
-:::note
+:::info
 `this` refers to the instance of the class where it is called, in this case, the `typescript_skywrath_mage_arcane_bolt` class. Since it inherits BaseAbility, it also inherits its functionality of fetching its cursor target.
 :::
 
@@ -210,7 +210,7 @@ In other words, `target` will either be assigned a CDOTA_BaseNPC, which usually 
 
 Typescript knows this, and will mark `target` as a potential undefined variable. Whenever we will try to use this variable, such as `target.GetHealth()`, it will warn us that `target` might be undefined, and therefore might not be able to call the function. The best practice is to use an if to check that target actually exists before any function that involves it.
 
-:::note
+:::info
 If you're sure that variables that are potential undefined will be assigned with a valid value. You can force Typescript to ignore the potential for undefined by adding "!" to the end of the assignment. For example, we can use `const target = this.GetCursorTarget()!`. However, this is not recommended, as it defeats the purpose of having types in the first place - to make sure you don't do something that you cannot.
 :::
 
@@ -236,9 +236,9 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
 }
 ```
 
-```note
+:::info
 Since GetSpecialValueFor always returns a number, it doesn't have a potential for undefined. However, it will still return 0 if the engine will not be able to find the string provided for the ability.
-```
+:::
 
 Next, we want to fire a tracking projectile at the target. The projectile cannot be dodged, and provides vision during its journey to the target, among other properties. Most of them have default values and can be omitted.
 
@@ -246,7 +246,7 @@ One of the great advantages of Typescript is that things like tracking projectil
 
 ![Tracking Projectile Properties](/images/typescript-tutorial/trackingProjectileProperties.png)
 
-:::note
+:::info
 In most editors, `ctrl + spacebar` is the hotkey to show auto-complete if it is not shown.
 :::
 
@@ -402,7 +402,7 @@ If we hover over `this.GetCaster()`, we'll see the following information on it:
 
 According to the return type, GetCaster() returns a CDOTA_BaseNPC. But as we've established before, GetIntellect() only applies for the `CDOTA_BaseNPC_Hero` class. So we'll have to let Typescript know that our caster is a hero by casting. We cast by adding `as classname`; in this case, `this.GetCaster() as CDOTA_BaseNPC_Hero`. As the caster's type is now a hero, you can call hero related functions, such as `GetIntellect()`.
 
-:::note
+:::info
 Generally, casting is not considered a good practice as you force Typescript to assume you're absolutely sure that the type is correct. Typeguards, which will be covered in a later tutorial, are considered a good way to make sure you don't use a type that doesn't support it. For instance, imagine what happens if at some point in your custom game, you give this ability to a creep, which doesn't have any Intelligence stat.
 :::
 

@@ -21,7 +21,7 @@ or
 
 > Movement from (0, 0) to point (x, y)
 
-:::note
+:::info
 When using vectors as a movement they only describe a movement TO somewhere, originating from the origin (0, 0). If you want to describe a movement that also has a FROM part, you need a second vector to describe the initial position.
 :::
 
@@ -41,7 +41,7 @@ So let's say you consider vectors as movements, you can simply add two vectors t
 
 **Note:** Moving by vector A first and then by B will result in the same vector as moving by B first followed by A. (This is why visualizing vector addition always results in this parallelogram).
 
-:::note Example
+:::info Example
 You can use calculate things like offsets or knockbacks using addition, i.e where does a unit end after getting knocked back in some direction?
 
 ```
@@ -58,7 +58,7 @@ Now let's say we want to know the inverse question to the previous one: Assuming
 
 **Note:** Just like when subtracting regular numbers, order matters! `B - A` gives the vector from `A` to `B`, while `A - B` gives the opposite vector, from `B` to `A`.
 
-:::note Example
+:::info Example
 You can use vector subtraction to calculate the difference in position between two units, and get for example the distance between them:
 
 ```
@@ -75,7 +75,7 @@ When multiplying a vector with a number it retains its direction, but its length
 
 ![Vector multiplication](/images/external/1h83sJr.png)
 
-:::note Example
+:::info Example
 You can use vector multiplication to rescale vectors to a certain length. For example when you have a unit or normal vector (length 1), multiplying with a number will make it that length.
 
 ```
@@ -100,7 +100,7 @@ The final vector concept for this tutorial is the 'dot product' of two vectors. 
 
 ![Dot product](/images/external/erBE2yl.png)
 
-:::note
+:::info
 Technically `dot(A, B) = length(A) * length(B) * cos(angle)`, so watch out when calculating the dot product of non-length-1 vectors: they will no longer range from -1 to 1.
 :::
 
@@ -108,7 +108,7 @@ Technically `dot(A, B) = length(A) * length(B) * cos(angle)`, so watch out when 
 
 As mentioned shown above it is often very useful to have vectors of length 1 (only the direction, not the distance). This is so common there is a standard procedure to calculate this: Normalization. When normalizing a vector you simply divide it by its length (or multiply with 1/length). This will always give you a vector of length 1.
 
-:::note
+:::info
 Vectors with length 1 are referred to as 'Normal' or 'Unit' vectors.
 :::
 
@@ -124,9 +124,9 @@ We can visualize this question like this:
 
 Referencing this visualization it is obvious we can calculate this A as follows:
 
-<MultiCodeBlock group="vscripts">
+::: code-group
 
-```lua
+```lua [Lua]
 -- Calculate the vector from the hero to the point by multiplying
 -- their forward vector (length 1) with the desired distance.
 local heroToPoint = hero:GetForwardVector() * 100
@@ -135,7 +135,7 @@ local heroToPoint = hero:GetForwardVector() * 100
 local itemPos = hero:GetAbsOrigin() + heroToPoint
 ```
 
-```ts
+```ts [TypeScript]
 // Calculate the vector from the hero to the point by multiplying
 // their forward vector (length 1) with the desired distance.
 const heroToPoint = (hero.GetForwardVector() * 100) as Vector;
@@ -144,7 +144,7 @@ const heroToPoint = (hero.GetForwardVector() * 100) as Vector;
 const itemPos = (hero.GetAbsOrigin() + heroToPoint) as Vector;
 ```
 
-</MultiCodeBlock>
+:::
 
 ### Checking if unit is facing a direction
 
@@ -156,9 +156,9 @@ We visualize this problem like this:
 
 So looking at the visualization, when does a unit face point P? Well it looks like this happens when their forward vector (the orange one) aligns with the vector from the unit to the point (the purple one). So capturing this in code would look a little like this:
 
-<MultiCodeBlock group="vscripts">
+::: code-group
 
-```lua
+```lua [Lua]
 function isUnitFacingPoint(unit, point)
   -- Calculate the relative position of the unit to the point
   local relativePosition = point - unit:GetAbsOrigin()
@@ -173,7 +173,7 @@ function isUnitFacingPoint(unit, point)
 end
 ```
 
-```ts
+```ts [TypeScript]
 function isUnitFacingPoint(unit: CDOTA_BaseNPC, point: Vector): boolean {
   // Calculate the relative position of the unit to the point
   const relativePosition = (point - unit.GetAbsOrigin()) as Vector;
@@ -188,7 +188,7 @@ function isUnitFacingPoint(unit: CDOTA_BaseNPC, point: Vector): boolean {
 }
 ```
 
-</MultiCodeBlock>
+:::
 
 ### Checking if unit is attacked from behind
 
@@ -198,9 +198,9 @@ This question is similar to the previous question, only now there are two units 
 
 Looking at this drawing it becomes obvious that the forward vector of unit 2 (F2) actually does **not** matter. What matters is the angle (dot product) between the forward vector of the unit getting attacked, and the where the attack is coming from (the vector from unit 2 to unit 1: `P1 - P2`)
 
-<MultiCodeBlock group="vscripts">
+::: code-group
 
-```lua
+```lua [Lua]
 function isAttackedFromBehind(victim, attacker)
   -- Calculate the relative position from attacker to victim (P1 - P2)
   local relativePosition = victim:GetAbsOrigin() - attacker:GetAbsOrigin()
@@ -214,7 +214,7 @@ function isAttackedFromBehind(victim, attacker)
 end
 ```
 
-```ts
+```ts [TypeScript]
 function isAttackedFromBehind(victim: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC): boolean {
   // Calculate the relative position from attacker to victim (P1 - P2)
   const relativePosition = (victim.GetAbsOrigin() - attacker.GetAbsOrigin()) as Vector;
@@ -228,7 +228,7 @@ function isAttackedFromBehind(victim: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC): b
 }
 ```
 
-</MultiCodeBlock>
+:::
 
 ### Creating some effects around player
 
@@ -240,9 +240,9 @@ By now it should be obvious we need to add the green vectors to the player posit
 
 What we can simply do is divide the full circle radius (2 \* pi) by the number of points we want to use, and then for each angle calculate the unit vector from the angle, multiply it with the desired length and add it to the player position:
 
-<MultiCodeBlock group="vscripts">
+::: code-group
 
-```lua
+```lua [Lua]
 -- Calculate the angle between each point on the circle
 -- (This is in radians, the full circle is 2*pi radians)
 local angle = 2 * math.pi / numPoints
@@ -258,7 +258,7 @@ for i=1,numPoints do
 end
 ```
 
-```ts
+```ts [TypeScript]
 // Calculate the angle between each point on the circle
 // (This is in radians, the full circle is 2*pi radians)
 const angle = (2 * Math.PI) / numPoints;
@@ -274,7 +274,7 @@ for (let i = 0; i < numPoints; i++) {
 }
 ```
 
-</MultiCodeBlock>
+:::
 
 ### Physics with vectors - Homing projectile
 
@@ -286,9 +286,9 @@ We will express the projectile using two vectors: `position` and `velocity`. Thi
 
 To achieve this effect we simply 'accelerate' the velocity of the projectile towards the player on every update, so the velocity turns towards the player a little bit every update. We then simply update the position based on the current velocity:
 
-<MultiCodeBlock group="vscripts">
+::: code-group
 
-```lua
+```lua [Lua]
 function updateProjectile(projectile, target)
     -- Calculate direction from projectile to target
     local relativeTargetPos = target:GetAbsOrigin() - projectile:GetAbsOrigin()
@@ -304,7 +304,7 @@ function updateProjectile(projectile, target)
 end
 ```
 
-```ts
+```ts [TypeScript]
 function updateProjectile(projectile: Projectile, target: CDOTA_BaseNPC): void {
   // Calculate direction from projectile to target
   const relativeTargetPos = (target.GetAbsOrigin() - projectile.GetAbsOrigin()) as Vector;
@@ -320,4 +320,4 @@ function updateProjectile(projectile: Projectile, target: CDOTA_BaseNPC): void {
 }
 ```
 
-</MultiCodeBlock>
+:::

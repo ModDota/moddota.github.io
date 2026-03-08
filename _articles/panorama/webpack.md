@@ -40,7 +40,7 @@ In addition, webpack:
 
 ## Getting Started
 
-:::note
+:::info
 You can skip most of the manual configuration in this guide by using a [JavaScript](https://github.com/ark120202/dota-templates/tree/webpack) or [TypeScript](https://github.com/ark120202/dota-templates/tree/webpack-typescript) templates.
 :::
 
@@ -58,7 +58,7 @@ You can skip most of the manual configuration in this guide by using a [JavaScri
 }
 ```
 
-:::note
+:::info
 We have to use `node --preserve-symlinks node_modules/webpack/bin/webpack.js` instead of just `webpack` because of reverse symlinking.
 :::
 
@@ -114,7 +114,7 @@ And layout files to make Panorama run our script:
 ```xml title="content/panorama/layout/custom_game/hud.xml"
 <root>
   <scripts>
-    <!-- highlight-next-line -->
+
     <include src="file://{resources}/scripts/custom_game/hud.js" />
   </scripts>
   <Panel />
@@ -124,7 +124,7 @@ And layout files to make Panorama run our script:
 ```xml title="content/panorama/layout/custom_game/custom_ui_manifest.xml"
 <root>
   <Panel>
-    <!-- highlight-next-line -->
+
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud.xml" />
   </Panel>
 </root>
@@ -285,7 +285,7 @@ Now you need to move layout file to the source directory, and use relative scrip
 ```xml title="content/panorama/src/hud/layout.xml"
 <root>
   <scripts>
-    <!-- highlight-next-line -->
+
     <include src="./script.js" />
   </scripts>
   <Panel />
@@ -325,7 +325,7 @@ module.exports = {
 };
 ```
 
-:::note
+:::info
 Since webpack 5 is currently in beta, some transitive dependencies might yield deprecation warnings. They can be safely ignored.
 :::
 

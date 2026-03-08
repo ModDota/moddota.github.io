@@ -37,7 +37,7 @@ Typescript can work well with most editors using plugins, however, [VSCode](http
 
 ### Setting Up TypeScript
 
-:::note
+:::info
 This guide assumes your operating system is Windows. If you have other operating systems, please contact us in the Typescript channel in the [Discord](#dedicated-typescript-channel-in-moddota-discord) below.
 :::
 
@@ -68,7 +68,7 @@ Now that we have the files on our computer, we can set up a new addon game very 
 
 Save and close the file.
 
-:::note
+:::info
 Make sure there is no folder with that name inside both the `game/dota_addons` and `content/dota_addons` of your Dota 2 game folder. The installation process will create those folders for you. If the folders exist, delete them first, or change the name in `package.json` to something else.
 :::
 
@@ -80,7 +80,7 @@ Make sure there is no folder with that name inside both the `game/dota_addons` a
 
 * Type `npm install` and press enter. You'll see a loading bar, which should take up to a minute to complete. If it was successful, you should see that your `game` and `content` folders now have a "shortcut" icon next to them. They're now symlinked to your Dota 2 folder. The `typescript_tutorial` folder now exists for both `game/dota_addons/` and `content/dota_addons` in your Dota 2 folder.
 
-:::note
+:::info
 Symlinked folders are copies of each other, where any action done on one is also applied on the other folder. Therefore, you can simply work on your conveniently placed folder (`Desktop/Dota 2 custom games/typescript-example` in my example), and it will automatically be applied on the Steam Dota 2 folder as well.
 :::
 
@@ -91,7 +91,7 @@ Note the `src` folder in the project's root. This is where you create and work o
 
 You can change the structure of the folders inside the addon. However, you might need to adjust the output paths to match those changes. Some changes might break the mod, as Dota expects a specific structure to be set up (such as `game/scripts/vscripts`).
 
-:::note
+:::info
 In `src`, you'll also find the `common` folder. This folder is extremely useful to storing interface decalarations that are shared between game logic and panorama, such as events and nettables, among other custom declarations such as enums. **This folder should only include d.ts files**.
 :::
 

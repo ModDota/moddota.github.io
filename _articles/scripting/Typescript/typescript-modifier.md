@@ -9,7 +9,7 @@ Modifiers are an extremely important part of almost any Dota custom game. They a
 
 We'll use an easy example which should cover a lot of common concepts for modifiers. This example is Skywrath's Ancient seal, which is an ability that simply applies a modifier to an enemy. The modifier applies the Silenced state on the enemy, and reduces its magic resist property by a percentage.
 
-:::note
+:::info
 For simplicity sake, assume the ability has no shard or talents upgrades.
 :::
 
@@ -92,7 +92,7 @@ export class typescript_skywrath_mage_ancient_seal extends BaseAbility {
 
 Great! This applies the modifier on the target. The caster of the ability, denoted by `this.GetCaster()` in the first argument, is assigned to be modifier's associated caster, while the ability itself, denoted by `this` in the second argument, is assigned as the modifier's associated ability. We can get those by calling `this.GetCaster()` and `this.GetAbility()`, respectively from the modifier.
 
-:::note
+:::info
 The unit we're adding the modifier to, in this case our `target`, becomes the parent of the modifier. We can get it from the modifier with `this.GetParent()`. This can be useful in various cases, such as when emitting sound from it, dealing damage to it, or placing particles on its current location.
 :::
 
@@ -120,23 +120,23 @@ Before we continue, one thing we must do is link the ability to the modifier, wh
 
 To do so, simply remove the quotation marks around the modifier name, then add `.name` to it. See below the code before and after linking the class:
 
-<MultiCodeBlock titles="Before|After">
+::: code-group
 
-```ts
+```ts [Before]
 // Add modifier
 target.AddNewModifier(this.GetCaster(), this, "modifier_typescript_ancient_seal", { duration: seal_duration });
 ```
 
-```ts
+```ts [After]
 // Add modifier
 target.AddNewModifier(this.GetCaster(), this, modifier_typescript_ancient_seal.name, { duration: seal_duration });
 ```
 
-</MultiCodeBlock>
+:::
 
 This results at the exact name of the modifier as a string, which is enforced by Typescript.
 
-:::note
+:::info
 If your modifier is in another file, you'll have to import it first before you can link it in the above fashion.
 :::
 
@@ -210,7 +210,7 @@ DeclareFunctions() {
 
 Unlike states, DeclareFunctions expects an array of modifier functions. If you have multiple modifier functions, separate them with a comma.
 
-:::note
+:::info
 When hovering over a modifier function's name (e.g. `MAGICAL_RESISTANCE_BONUS`), a tooltip appears, showing you the name of the linked property function call. Simply copy the function into the modifier. This also has auto complete, if you prefer to do so manually.
 :::
 
@@ -223,7 +223,7 @@ GetModifierMagicalResistanceBonus() {
 
 Note that this function expects a number - anything else is not accepted.
 
-:::note
+:::info
 `this.resist_debuff` is supposedly a number that is fetched from the ability special value. However, if for some reason `this.resist_debuff` is not initialized, it would be undefined, which is not accepted by this function. Using [Nullish Coalescing](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#nullish-coalescing), the value is defaulted to 0 if `this.resist_debuff` is undefined.
 :::
 

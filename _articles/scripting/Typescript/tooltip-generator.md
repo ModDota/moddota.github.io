@@ -15,7 +15,7 @@ The tooltip generator creates predefined Typescript objects which fit into one o
 
 This project is designed to work on both lua and Typescript based addons. While you will have to use Typescript specifically to make the localization, the rest of your addon is completely unaffected by this.
 
-:::note
+:::info
 Most editors have plugins that add Typescript support. VSCode has built-in Typescript support and requires no plugins. In order to view Typescript syntax, make sure that your editor has Typescript support installed or enabled.
 :::
 
@@ -67,7 +67,7 @@ The installation assumes that your `resource` folder is located on your root, wh
 
 On the command line, type `npm run init` and press enter. This added a few files to the your `resource` folder, which you can also ignore. You'll also see a new folder, `localization`, which is the core of all your Typescript-coded localization files.
 
-:::warning
+:::danger
 The next step activates the Tooltip Generator, which will completely erase all of your addon localization files (such as addon_english.txt) and replace them with your code. Make sure to back them up before proceeding!
 :::
 
@@ -89,7 +89,7 @@ Using the same command line as before, run `npm run dev`. If works as expected, 
 
 Check the addon_english.txt file. It should now have only one localization, as we only have the single test object.
 
-:::note
+:::info
 While the command line is running the `npm run dev` command, a "watcher" process is running and is waiting for changes. Any changes done in files in the `localization` folder will immediately re-compile the files and re-create the `addon_<language>` files.
 :::
 
@@ -106,7 +106,7 @@ StandardTooltips.push({
 
 Save your file. Your command line have refreshed (don't worry if you missed it). Check your `addon_english.txt` (you might have to close it and open it again to see changes). If can now also see a second localization `"watcher_test" "This should be automatically added"`, the test is successful.
 
-:::note
+:::info
 You can activate the watcher in any editor that supports npm builds, like VSCode, by running the `npm run dev` in it. Sublime also has this support, but requires a short setup which you can find in the readme of the [Tooltip Generator Github repo](https://github.com/Shushishtok/tooltip_generator). Regardless, you can always use the command line to do so. The downside to it is needing to have the command line window open while the watcher is running, which isn't as fun.
 :::
 
@@ -307,7 +307,7 @@ It is very quickly processed to the following KV:
 
 This time, we want to also include the exact bonus to the base damage and the move speed bonus that you get from this modifier. Assuming you increase your base damage by using the `MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE` modifier property, we can use an enum to use it. Note that in order to be able to insert variables into strings, we need to use string interpolation, which is done by encasing the string with with backticks (see example if this isn't clear). In addition, we must adhere to the following structure: `{${LocalizationModifierProperty.SOME_PROPERTY}}`. When using string interpolation, `${variable}` convert during compilation to the actual variable's value. This allows us to use enums for those modifier properties.
 
-:::note
+:::info
 When calling enums, you only need to specify the property's name, not the entire string. For instance, `MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE` will be called by simply typing `PREATTACK_BONUS_DAMAGE`. This will still be correctly processed by the compiler to the form the game expects.
 :::
 
@@ -330,7 +330,7 @@ Those values are enums, so the compiler makes sure those are typed correctly, an
 
 This works for all modifier properties.
 
-:::note
+:::info
 The property assumes the `d` (integer) prefix. If you want to use `f` (float) prefix instead, you can call it with `{f${LocalizationModifierProperty.PREATTACK_BONUS_DAMAGE}}`. Right now, `f` is the only additional supported keyword - contact me if you wish to add additional keywords.
 :::
 
@@ -363,21 +363,21 @@ StandardTooltips.push({
 
 As the example shows, we're overriding the `name` field of the `standard_tooltip_example` classname with a different text. This is done specifically for the Russian language using a language override object for the Standard Tooltip. Additional objects can be added for every language that we want to have a different text for. This results in the following KVs:
 
-<MultiCodeBlock titles="English|Russian|Standard Chinese">
+::: code-group
 
-```
+``` [English]
 "standard_tooltip_example"    "Tooltip Example"
 ```
 
-```
+``` [Russian]
 "standard_tooltip_example"    "Пример всплывающей подсказки"
 ```
 
-```
+``` [Standard Chinese]
 "standard_tooltip_example"    "Tooltip Example"
 ```
 
-</MultiCodeBlock>
+:::
 
 If you checked the Standard Chinese KV, you probably saw that it retains its English language. Because it was not overriden, it still used the "main" value provided by the `name` property of the Standard Tooltip object.
 
@@ -418,7 +418,7 @@ export function GenerateLocalizationData(): LocalizationData
 
 It doesn't matter what name it has, as long as it has the `.ts` extension. The tooltips go between the `Enter localization data below!` comment and the `Return data to compiler` comment.
 
-:::note
+:::info
 I recommend making it into a snippet for easy creation of this signature for every file created.
 You can copy it from sample file `localizationData.ts` for every file that you need it .
 :::
