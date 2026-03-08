@@ -19,7 +19,7 @@ First we want a ~250 AoE radius volcano earth cone.
 
 There is a useful particle system for this, espirit_spawn.vpcf, open it.
 
-Go into its first child, \_ground.
+Go into its first child, `_ground`.
 
 I want to hide the solid model because this spell will need some collision with the volcano, spawning a [simple volcano unit](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/units/firelord_volcano.txt). So in the main particle, disable the Render Model.
 
@@ -35,7 +35,7 @@ Now we need to adjust its child to fit the parent size and duration, making it l
 
 Let's repeat the same steps on the other children to make the dust-debris effect repeat
 
-- On the \_groundburst:
+- On the `_groundburst`:
   - Add Emit continuously.
   - Because more particles is always better, we want more debris to be launched.
     For this, go to its base properties, filter for Max, and double the max particles value.
@@ -49,7 +49,7 @@ It's looking like this now (I forgot to hide the model for this preview)
 
 <br />
 
-Moving onto \_grounddustbdust, we see that the particle already has an Emit continuously, but it isn't actually looping as we'd want to, it's just emitting a single cloud.
+Moving onto `_grounddustbdust`, we see that the particle already has an Emit continuously, but it isn't actually looping as we'd want to, it's just emitting a single cloud.
 
 - Change Emit continuously to emission duration 0
 - Disable Remap scalar to Vector on the bottom of the Initializer functions (this gets rid of the black clouds)
@@ -91,7 +91,7 @@ Back to the particle editor, open the recently forked, sf_fire_arcana_wings syst
 - Going into sf_fire_arcana_wings_smoke_body you can see there are many wings_rope children copied, each one of these childs has a different ground position.
 
   Let's keep only 1 at the middle and disable the rest while also making it emit continuously.
-  The \_wings_rope is already set to emit continuously but has a limited emission duration to 2.0, change it to 0.
+  The `_wings_rope` is already set to emit continuously but has a limited emission duration to 2.0, change it to 0.
 
   Also disable the 2nd Remap initial scalars to properly get the permanent particle.
 
@@ -100,20 +100,20 @@ Back to the particle editor, open the recently forked, sf_fire_arcana_wings syst
 
 - Go back to wings_smoke, and disable the Initializer: Position modify offset random, as this is preventing the rope from starting at the center of CP1.
 
-- For the \_beams, also make them permanent, disable the Stop effect after duration, durations on the Emit continuously have to be 0.
+- For the `_beams`, also make them permanent, disable the Stop effect after duration, durations on the Emit continuously have to be 0.
   Decrease the max particle count to a third of its value, 36->12.
   Change the offset to 0,0,10
 
 - In grow_rope, add Emit continuously and disable the Initializers for remap Particle count to scalar
   on its child rope_glow, only need to change emission duration to 0.
 
-- \_ember emission duration 0 also
+- `_ember` emission duration 0 also
 
-- Add an emit continuously to \_core
+- Add an emit continuously to `_core`
 
-- \_souls_hands_pnt is supposed to be attached to shadow fiends hands, but our model doesn't use that, so we need to change it a bit, basically doing the same as before (changing or adding constant emitting, removing stuff that makes it stop, etc)
+- `_souls_hands_pnt` is supposed to be attached to shadow fiends hands, but our model doesn't use that, so we need to change it a bit, basically doing the same as before (changing or adding constant emitting, removing stuff that makes it stop, etc)
 
-- I'll disable \_souls_hands_tail because it's too much noise already, and replace the Pull towards control point by a movement basic Z of 50, so that it looks like the light is coming from the center and flowing up.
+- I'll disable `_souls_hands_tail` because it's too much noise already, and replace the Pull towards control point by a movement basic Z of 50, so that it looks like the light is coming from the center and flowing up.
 
 Now after all that mess:
 
@@ -129,9 +129,9 @@ I will use a modified warlock_rain_of_chaos_explosion.vpcf with sf_fire_arcana_s
 
 - First add a shadowraze children and increase the duration of most explosion effects, so it lasts a bit more after the explosion.
 
-- \_char increased lifetime random to 4 and 5. child char_fire doubled emit continously emission duration
+- `_char` increased lifetime random to 4 and 5. child char_fire doubled emit continously emission duration
 
-- \_end_smoke emission duration to 3.0 seconds
+- `_end_smoke` emission duration to 3.0 seconds
 
 That's it for the shadowraze, now changing the rocks to move slower, last for longer and have an endcap animation when they hit the ground!
 

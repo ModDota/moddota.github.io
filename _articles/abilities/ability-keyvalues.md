@@ -240,19 +240,19 @@ Added in Reborn:
 
 ### Type
 
-| **AbilityUnitTargetType**   | **Targets**                                                                                                                              |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| DOTA_UNIT_TARGET_ALL        | Everything, including hidden entities.                                                                                                   |
-| DOTA_UNIT_TARGET_HERO       | npc_dota_hero Heroes.<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO                                                                           |
-| DOTA_UNIT_TARGET_BASIC      | Basic units, including summons.                                                                                                          |
-| DOTA_UNIT_TARGET_MECHANICAL | npc_dota_creep_siege<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_SIEGE                                                                           |
-| DOTA_UNIT_TARGET_BUILDING   | npc_dota_tower, npc_dota_building<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING                                                           |
-| DOTA_UNIT_TARGET_TREE       | ent_dota_tree<br/>Examples: Tangos, Quelling Blade.                                                                                      |
-| DOTA_UNIT_TARGET_CREEP      | npc_dota_creature, npc_dota_creep<br/>Same as BASIC, but _might_ not include things like some summons.<br/>Examples: Death Pact, Devour. |
-| DOTA_UNIT_TARGET_COURIER    | npc_dota_courier, npc_dota_flying_courier<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER                                                    |
-| DOTA_UNIT_TARGET_NONE       | Nothing!                                                                                                                                 |
-| DOTA_UNIT_TARGET_OTHER      | Everything not included in the previous types.                                                                                           |
-| DOTA_UNIT_TARGET_CUSTOM     | Not exposed?<br/>Examples: Replicate, Sunder, Demonic Conversion, Tether, Infest...                                                      |
+| **AbilityUnitTargetType**   | **Targets**                                                                                                                                  |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| DOTA_UNIT_TARGET_ALL        | Everything, including hidden entities.                                                                                                       |
+| DOTA_UNIT_TARGET_HERO       | npc_dota_hero Heroes.<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO                                                                               |
+| DOTA_UNIT_TARGET_BASIC      | Basic units, including summons.                                                                                                              |
+| DOTA_UNIT_TARGET_MECHANICAL | `npc_dota_creep_siege`<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_SIEGE                                                                             |
+| DOTA_UNIT_TARGET_BUILDING   | `npc_dota_tower`, `npc_dota_building`<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING                                                           |
+| DOTA_UNIT_TARGET_TREE       | `ent_dota_tree`<br/>Examples: Tangos, Quelling Blade.                                                                                        |
+| DOTA_UNIT_TARGET_CREEP      | `npc_dota_creature`, `npc_dota_creep`<br/>Same as BASIC, but _might_ not include things like some summons.<br/>Examples: Death Pact, Devour. |
+| DOTA_UNIT_TARGET_COURIER    | `npc_dota_courier`, `npc_dota_flying_courier`<br/>DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER                                                    |
+| DOTA_UNIT_TARGET_NONE       | Nothing!                                                                                                                                     |
+| DOTA_UNIT_TARGET_OTHER      | Everything not included in the previous types.                                                                                               |
+| DOTA_UNIT_TARGET_CUSTOM     | Not exposed?<br/>Examples: Replicate, Sunder, Demonic Conversion, Tether, Infest...                                                          |
 
 ### Flags
 

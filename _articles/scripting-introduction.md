@@ -15,11 +15,11 @@ So now you have your freshly created gamemode running and have played around the
 
 Go into your &lt;addonName&gt;/scripts/ folder. The 2 main script folders are **npc** and **vscripts**. The first holds the following .txt files:
 
-- npc\_**abilities**\_custom.txt - Contains all the custom abilities of the gamemode.
-- npc\_**heroes**\_custom.txt - Heroes with its abilities and stats
-- npc\_**items**\_custom.txt - Items are abilities that go into a units inventory
-- npc\_**units**\_custom.txt - All the data for non-hero units like buildings or creatures.
-- npc\_**abilities**\_override.txt - Modified dota abilities/items with changed values.
+- `npc_abilities_custom.txt` - Contains all the custom abilities of the gamemode.
+- `npc_heroes_custom.txt` - Heroes with its abilities and stats
+- `npc_items_custom.txt` - Items are abilities that go into a units inventory
+- `npc_units_custom.txt` - All the data for non-hero units like buildings or creatures.
+- `npc_abilities_override.txt` - Modified dota abilities/items with changed values.
 - **herolist**.txt - List of the heroes available for picking.
 
 These files are defined using KeyValues (KV) and are the core of the **DataDriven system**. While they fulfill the definition of a programming language, it's more like a big table containing all the possible data in a static document. It uses a relatively simple syntax whose only special characters are curly braces and quotes, with alternating sets of "Key" and "Value" or "Key" `{table}` pairs, where `table` is another set of KeyValues.

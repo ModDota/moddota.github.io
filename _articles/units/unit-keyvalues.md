@@ -27,7 +27,7 @@ This document covers every keyvalue of the npc_units_custom file
 
 ## General
 
-Most unit names start with "npc\_" but this isn't necessary. A basic unit definition looks like this:
+Most unit names start with `npc_` but this isn't necessary. A basic unit definition looks like this:
 
 ```
 "human_footman"
@@ -194,7 +194,9 @@ This can be any name, its only useful purpose is to use with Lua `GetUnitLabel()
 
 Associated Lua functions: `HasInventory()` and `SetHasInventory(bool)`
 
-**Note:** `SetHasInventory(true)` won't work on units that didn't have `"HasInventory"  "1"` previously defined.
+::: info
+`SetHasInventory(true)` won't work on units that didn't have `"HasInventory"  "1"` previously defined.
+:::
 
 ```
 "IsSummoned"				"1"

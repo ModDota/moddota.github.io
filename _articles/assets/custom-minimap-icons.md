@@ -22,7 +22,7 @@ This contains the following files:
 
 addon_hud_textures is a unique file to define the paths for every custom icon.
 
-The 3 minimap_icon files are used together, and should be renamed to the name your future icon, like _minimap_questgiver_ or _boss_kappa_.
+The 3 `minimap_icon` files are used together, and should be renamed to the name your future icon, like `_minimap_questgiver_` or `_boss_kappa_`.
 
 ## Step 2. Edit the files
 
@@ -37,7 +37,9 @@ In the example source file, I quickly made this transparent image from [this sou
 The suggested image size is **64x64**.<br />
 If you want to use a different image size it **must be a power of two**.
 
-**Important**: You need to have an Alpha layer filled with the transparent figure you want to display:
+::: warning
+You need to have an Alpha layer filled with the transparent figure you want to display:
+:::
 
 ![img](/images/external/lhQL0-81b3632bad.png)
 

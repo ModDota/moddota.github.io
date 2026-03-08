@@ -21,11 +21,11 @@ And then have your modifier refer to %AbilityDuration in the "Duration" modifier
 
 But when you want to indicate that your ability lasts for said duration, this AbilityDuration doesn't generate a **"DURATION:"** tooltip by itself, so you have 3 options:
 
-**Option 1.** Write "Last 3 seconds at level 1 and then 2 at level 2 and 3" in the \_Description.
+**Option 1.** Write "Last 3 seconds at level 1 and then 2 at level 2 and 3" in the `_Description`.
 
 This is bad for the reasons explained before.
 
-**Option 2\*.** Have a "duration" AbilityValue in addition to the "AbilityDuration" and keep both values synchronized.
+**Option 2\*.** Have a "duration" AbilityValue in addition to the `AbilityDuration` and keep both values synchronized.
 
 Suboptimal but decent solution, as it allows you to use ability:GetAbilityDuration() which takes its value from AbilityDuration.
 

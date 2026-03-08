@@ -110,7 +110,7 @@ After modifying the addon_english.txt:
 
 ![img](/images/external/eHpXB-8fe79a1d57.jpg)
 
-Note that you cannot refer to a new custom %dMODIFIER*PROPERTY*[CONSTANT_LIST](/abilities/ability-keyvalues)% in the tooltip, because it doesn't have the custom values in its modifier.
+Note that you cannot refer to a new custom `%dMODIFIER_PROPERTY_`[CONSTANT_LIST](/abilities/ability-keyvalues)`%` in the tooltip, because it doesn't have the custom values in its modifier.
 
 Instead you can make those tooltips in the separate modifier, or directly add the numbers to the original modifier tooltip if they are static values (like in this case I could've written 50 and 322). Sadly, you can't set the built-in modifier as hidden either.
 

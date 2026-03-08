@@ -25,7 +25,7 @@ This extracts the various mip maps and stores them as individual TGA images. If 
 
 ![img](/images/external/HrXehTo.png)
 
-Additionally, you should also have one or more TGA images in your win64 directory, depending on how many mip levels the texture has. Open the one with "\_mip0", as this is the base (original) image.
+Additionally, you should also have one or more TGA images in your win64 directory, depending on how many mip levels the texture has. Open the one with `_mip0`, as this is the base (original) image.
 
 ![img](/images/external/nKUPQQG.png)
 

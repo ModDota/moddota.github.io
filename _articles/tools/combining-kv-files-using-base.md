@@ -71,7 +71,7 @@ When loading this KV file, the engine will now automatically add the contents of
 
 This also supports directories. Keep in mind all paths are relative. Say I create `scripts/npc/customAbilities/ability1.txt`, I can include this from `scripts/npc/npc_abilities_custom.txt` using `#base "customAbilities/ability1.txt"`.
 
-**PS:** Other extensions are also allowed, you could name your included files \*.kv
+**PS:** Other extensions are also allowed, you could name your included files `*.kv`
 
 ## Credits for pointing out this is part of the KV spec:
 

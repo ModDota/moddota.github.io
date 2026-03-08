@@ -11,7 +11,7 @@ A comprehensive guide to npc_items_custom and coding items
 
 ## General
 
-Start with "item*" and your item name. If you **don't** put `item*` at the beginning of an item, bad things happen.
+Start with `item_` and your item name. If you **don't** put `item_` at the beginning of an item, bad things happen.
 
 ```
 "item_custom"
@@ -199,7 +199,7 @@ For your item to have an icon you'll need to go to your addon folder under this 
 
 `/resource/flash3/images/items`
 
-And put a .PNG file with dimensions **86 x 64**, with the same name as the "item_custom", WITHOUT the "item\_"
+And put a .PNG file with dimensions **86 x 64**, with the same name as the `item_custom`, WITHOUT the `item_`
 
 ![img](/images/external/4Jr9cpF.png)
 
@@ -216,7 +216,7 @@ For this, inside your addon folder you need to go inside scripts/shops and make/
 
 mapName should be the name of YOUR MAP (.vmap file in Hammer or content folder), NOT your addon name (both could be the same, or you could have multiple maps with different shops)
 
-Adding "\_shops" to the mapName is also mandatory.
+Adding `_shops` to the mapName is also mandatory.
 
 A template shop file:
 
@@ -598,7 +598,7 @@ Important: If you create the item through lua [CreateItemOnPositionSync], you ne
 
 ### Tags & Alias
 
-Tags are defined in addon_english, find them in [dota_english] under _// Tags_
+Tags are defined in `addon_english`, find them in [dota_english] under `// Tags`
 Aliases help the search bar to find the item quickly with abbreviations
 
 ```

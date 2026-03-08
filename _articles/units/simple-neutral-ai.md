@@ -7,7 +7,9 @@ date: 25.01.2020
 
 # Writing a simple AI for neutrals
 
-**NOTE:** This article is a rewrite of a very old AI tutorial: [http://yrrep.me/dota/dota-simple-ai.html](https://web.archive.org/web/20191231104348/https://yrrep.me/dota/dota-simple-ai.html)
+::: info
+This article is a rewrite of a very old AI tutorial: [http://yrrep.me/dota/dota-simple-ai.html](https://web.archive.org/web/20191231104348/https://yrrep.me/dota/dota-simple-ai.html)
+:::
 
 I have encountered many questions about AI on the modding irc over the time, so I decided to write up a tutorial for a very basic AI that can be used in Lua. The term AI might seem intimidating as a programmer that has little to no experience with it. I will try however to lay out the process for a simple state-driven AI in a way that is as clear as possible. Hopefully by the end of this article writing your own AI does not seem as scary anymore.
 

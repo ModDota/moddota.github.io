@@ -489,6 +489,8 @@ local particle_name = "particles/units/heroes/hero_abaddon/abaddon_death_coil.vp
 
 <br />
 
-**Note**: You can't generally use a particle designed to be Linear in a Tracking action and vice versa.
+::: info
+You can't generally use a particle designed to be Linear in a Tracking action and vice versa.
+:::
 
 You might be able to mimic a Linear behavior using a Tracking projectile if you make it to track a dummy unit that can't move, but you need another invisible Linear projectile to do the hit effects.

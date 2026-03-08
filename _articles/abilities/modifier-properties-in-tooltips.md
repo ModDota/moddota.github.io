@@ -7,7 +7,7 @@ date: 05.12.2021
 
 # Using Modifier Properties in tooltips
 
-Any time you see a modifier tooltip using a non-static number it's getting its value from one of that modifier's [MODIFIER*PROPERTY*](https://moddota.com/api/#!/vscripts/modifierfunction)'s
+Any time you see a modifier tooltip using a non-static number it's getting its value from one of that modifier's [`MODIFIER_PROPERTY_`](https://moddota.com/api/#!/vscripts/modifierfunction)'s
 
 some examples:
 ![img](/images/external/dngijaZ.png)
@@ -59,7 +59,7 @@ function modifier_example:GetModifierPreAttack_BonusDamage()
 end
 ```
 
-In your addon\_\<language\>.txt
+In your `addon_<language>.txt`
 
 ```json
 "DOTA_Tooltip_modifier_example_Description" "Granting %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage!"
@@ -67,7 +67,7 @@ In your addon\_\<language\>.txt
 
 This would result in a tooltip that says: **`Granting 100 bonus damage!`**
 
-In the tooltip the percentage `%` sign surrounds the MODIFIER*PROPERTY* to mark it as text to be replaced with the value of the modifier property.
+In the tooltip the percentage `%` sign surrounds the `MODIFIER_PROPERTY_` to mark it as text to be replaced with the value of the modifier property.
 If the contents between the %'s don't match the format then it won't work.
 
 ## The Format

@@ -60,11 +60,9 @@ Many names will speak for themselves.
 
 We are interested in the `m_SubTools` section of this file.
 
----
-
-## ****Important : DOTA2 may overwrite this file after an update (not always), make sure to make a backup copy (with your edits).****
-
----
+::: warning
+DOTA2 may overwrite this file after an update (not always), make sure to make a backup copy (with your edits).
+:::
 
 Examples from my config.
 restarting the map with clearing the console :

@@ -19,7 +19,7 @@ The best way for this is to have a text file to configure what items can drop fr
 
 ## Step 1. Key Values Table
 
-I recommend having a _kv_ folder under scripts to store this and other similar table files. The file can have any extension, but using _.kv_ is a good convention.
+I recommend having a `kv` folder under scripts to store this and other similar table files. The file can have any extension, but using `.kv` is a good convention.
 
 ```
 "Drops"

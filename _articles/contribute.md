@@ -8,7 +8,9 @@ title: Contribute
 
 To suggest a new article go to the [/\_articles directory of the ModDota GitHub](https://github.com/ModDota/moddota.github.io/tree/source/_articles).
 
-**Note: You need to be logged in to your GitHub account for this.**
+::: info
+You need to be logged in to your GitHub account for this.
+:::
 
 Next, click the 'Create file' button as indicated:
 ![Click the create new file button](/images/external/hzOmlcA.png)
@@ -19,7 +21,9 @@ In the new file window you have to add a descriptive file name and text for your
 
 ![Fill your article](/images/external/4CcOl0i.png)
 
-**Tip:** You can use the preview tab at the top to preview the article!
+::: tip
+You can use the preview tab at the top to preview the article!
+:::
 
 #### IMPORTANT: Mandatory fields
 
@@ -87,7 +91,9 @@ Only headings of levels 2 (##) and 3 (###) would appear in the outline by defaul
 
 ## Using a git fork
 
-**Warning: Advanced users only**
+::: warning
+Advanced users only
+:::
 
 This website is set up as a GitHub Pages project built with VitePress. Content is rendered automatically after each push to the `source` branch and published to the website.
 

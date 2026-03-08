@@ -83,7 +83,7 @@ Create new folders on each or just drop the files over the respective directorie
 - File -> New Material
 - Without doing anything yet, **Save** the empty material with the name of the TGA you want to make a .vmat for. ![img](/images/external/i3d02-b647383364.png)
 - Browse and find the TGA to use ![img](/images/external/i3d8I-b8d0e0b25d.png)
-- The file should be visible by default with the \_color. extension ![img](/images/external/Bbu4VtP.jpg)
+- The file should be visible by default with the `_color.` extension ![img](/images/external/Bbu4VtP.jpg)
 - Save the final material. ![img](/images/external/Jbw6kyq.jpg)
 
 ## Step 6. Make a New VMDL from the Mesh file (.smd)
@@ -104,7 +104,7 @@ Create new folders on each or just drop the files over the respective directorie
 
 - IF the model shows as **Error**, something went wrong. Make sure to delete the auto-compiled models and materials of the same name on the /game/ folders, which are now corrupted. Make sure everything is using the proper names and directories, sometimes the Model/Material editor feel like not working and doing Volvo things.
 
-## Step 8. Add the Animations on the \_anims folder and make Activities for them.
+## Step 8. Add the Animations on the `_anims` folder and make Activities for them.
 
 ![img](/images/external/5BvFhPg.png)
 
@@ -134,7 +134,9 @@ Finally, we have usable animations:
 
 ![img](/images/external/i3yyc-2bde52de31.png)
 
-**Note:** This is also useful to be able to have access to some of the ACT_DOTA_ACTIVITY+**string** activities that some of the Taunt and Alternative animations use which currently can't be used for abilities and other purposes (as it just ignores the **+string** part). <br />Knowing this, it's possible to assign some unused activity string like "ACT_DOTA_MINI_TAUNT" and force its usage through the `OverrideAnimation` KV.
+::: info
+This is also useful to be able to have access to some of the ACT_DOTA_ACTIVITY+**string** activities that some of the Taunt and Alternative animations use which currently can't be used for abilities and other purposes (as it just ignores the **+string** part). Knowing this, it's possible to assign some unused activity string like "ACT_DOTA_MINI_TAUNT" and force its usage through the `OverrideAnimation` KV.
+:::
 
 ## Step 9. Add the Hitboxes
 

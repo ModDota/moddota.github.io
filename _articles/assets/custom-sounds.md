@@ -83,7 +83,7 @@ For this, go into the Workshop Tools Asset Browser of your addon, type the name 
 
 ![img](/images/external/guIUd-4ce0b6f142.png)
 
-Now, if you go into your game addon folder, there should be a sounds and soundevents folder, which should contain your \_c compiled version of the files made in the content folder.
+Now, if you go into your game addon folder, there should be a sounds and soundevents folder, which should contain your `_c` compiled version of the files made in the content folder.
 
 ![img](/images/external/guJ7J-00d69a1243.png)
 

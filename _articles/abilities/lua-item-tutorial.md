@@ -55,7 +55,7 @@ The image I will be using for this item is this one: ![enter image description h
 }
 ```
 
-The last part we must add is link to the script file. You should create new \*.lua file somewhere in your scripts\vscripts folder. You can even create sub-folder for it if you want to be organized. Now your 'npc_items_custom.txt' should be something like this.
+The last part we must add is link to the script file. You should create new `*.lua` file somewhere in your `scripts\vscripts` folder. You can even create sub-folder for it if you want to be organized. Now your `npc_items_custom.txt` should be something like this.
 
 ```
 "DOTAAbilities"

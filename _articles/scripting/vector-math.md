@@ -33,7 +33,9 @@ So let's look at how we would think about and visualize two vectors: `A: (3, 2)`
 
 ![Vector visualization](/images/external/4lalG0u.png)
 
-**Note:** vectors have no origin and always originate from (0, 0). If you consider vectors as movements from origin to a point, you can also calculate their length, denoted by l_A and l_B.
+::: info
+Vectors have no origin and always originate from (0, 0). If you consider vectors as movements from origin to a point, you can also calculate their length, denoted by l_A and l_B.
+:::
 
 ### Adding vectors
 
@@ -41,7 +43,9 @@ So let's say you consider vectors as movements, you can simply add two vectors t
 
 ![Vector addition](/images/external/YBzf6oO.png)
 
-**Note:** Moving by vector A first and then by B will result in the same vector as moving by B first followed by A. (This is why visualizing vector addition always results in this parallelogram).
+::: info
+Moving by vector A first and then by B will result in the same vector as moving by B first followed by A. (This is why visualizing vector addition always results in this parallelogram).
+:::
 
 :::info Example
 You can calculate things like offsets or knockbacks using addition, i.e where does a unit end after getting knocked back in some direction?
@@ -58,7 +62,9 @@ Now let's say we want to know the inverse question to the previous one: Assuming
 
 ![Vector subtraction](/images/external/Sa4gnxz.png)
 
-**Note:** Just like when subtracting regular numbers, order matters! `B - A` gives the vector from `A` to `B`, while `A - B` gives the opposite vector, from `B` to `A`.
+::: info
+Just like when subtracting regular numbers, order matters! `B - A` gives the vector from `A` to `B`, while `A - B` gives the opposite vector, from `B` to `A`.
+:::
 
 :::info Example
 You can use vector subtraction to calculate the difference in position between two units, and get for example the distance between them:

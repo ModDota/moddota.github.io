@@ -168,7 +168,9 @@ And the passive ability:
 }
 ```
 
-**IMPORTANT:** The dummy doesn't have `MODIFIER_STATE_INVULNERABLE` enabled, because that state is a bitch, usually preventing from applying modifiers even if they have `MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE`. That's why I called it \_vulnerable even though it can't take damage.
+::: warning
+The dummy doesn't have `MODIFIER_STATE_INVULNERABLE` enabled, because that state is a bitch, usually preventing from applying modifiers even if they have `MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE`. That's why I called it `_vulnerable` even though it can't take damage.
+:::
 
 ---
 
