@@ -72,11 +72,11 @@ export default defineConfig({
                         text: "Lua Modifiers",
                         collapsed: true,
                         items: [
-                            { text: "Part 1", link: "/abilities/lua-modifiers/1" },
-                            { text: "Part 2", link: "/abilities/lua-modifiers/2" },
-                            { text: "Part 3", link: "/abilities/lua-modifiers/3" },
-                            { text: "Part 4", link: "/abilities/lua-modifiers/4" },
-                            { text: "Part 5", link: "/abilities/lua-modifiers/5" },
+                            { text: "Extending Hero/NPC API", link: "/abilities/lua-modifiers/1" },
+                            { text: "Linken's Sphere & Lotus Orb", link: "/abilities/lua-modifiers/2" },
+                            { text: "Transformations", link: "/abilities/lua-modifiers/3" },
+                            { text: "Enchanting Trees", link: "/abilities/lua-modifiers/4" },
+                            { text: "Custom Barriers", link: "/abilities/lua-modifiers/5" },
                         ],
                     },
                     {
