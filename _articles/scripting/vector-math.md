@@ -7,7 +7,6 @@ date: 01.10.2020
 
 # Basic Vector Math
 
-
 While creating games it is hard to avoid using vector math, however they are not commonly taught in schools. While they are fairly intuitive once you get used to them, learning about vector math for the first time can be a bit difficult, therefore this tutorial.
 
 ## Introduction to vectors

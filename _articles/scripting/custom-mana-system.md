@@ -7,10 +7,10 @@ date: 01.12.2014
 
 # Custom Mana System
 
-
 This is a guide to make a simple custom mana system. A working barebones addon is assumed.
 
-In this example we'll make a classic *Rage* system, meaning:
+In this example we'll make a classic _Rage_ system, meaning:
+
 1. No normal mana regeneration, starting mana 0
 2. Gain mana after an attack, scaling with level
 3. Gain mana after being attacked, scaling with level
@@ -19,11 +19,10 @@ In this example we'll make a classic *Rage* system, meaning:
 
 Hope this is enough for most systems, let me know if you have another concept that I should add.
 
-
 ## No normal mana regeneration and start mana at 0
- The easier approach is to nullify your hero's Intelligence
- For this you'll need to set the following in your hero definition
 
+The easier approach is to nullify your hero's Intelligence
+For this you'll need to set the following in your hero definition
 
 ```
 //KV code inside npc_heroes_custom.txt
@@ -39,7 +38,6 @@ If you need to keep your Int stat but still have 0 natural mana regen, you'll ne
 I won't be following this process in this guide, but you can check the guide [on the wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Using_Bitfields_To_Adjust_Stat_Value_Bonuses).
 
 For your mana to start at 0, we'll begin by making the passive hidden ability which will be the base for our Rage system:
-
 
 ```
 //KV code inside npc_abilities_custom.txt
@@ -71,8 +69,7 @@ For your mana to start at 0, we'll begin by making the passive hidden ability wh
 }
 ```
 
-
-This requires a barbarian.lua script inside *your_addon/scripts/vscripts* folder.
+This requires a barbarian.lua script inside _your_addon/scripts/vscripts_ folder.
 The script is very simple:
 
 ```lua
@@ -89,9 +86,9 @@ The script is very simple:
 We need to do a wait a bit for the hero to be properly spawned else it might fail. Notice the use of [BMD's Timers](https://github.com/bmddota/barebones/blob/source2/game/dota_addons/barebones/scripts/vscripts/timers.lua).
 
 ### Before we continue:
-Right now our spell is not even available on the hero, and we want it to be learned when we spawn.
- For this we'll need to add the following in our `OnHeroInGame`* listener (*function hook of npc_spawned, see [barebones Event Hooks](https://github.com/bmddota/barebones/blob/source2/game/dota_addons/barebones/scripts/vscripts/barebones.lua#L443) )
 
+Right now our spell is not even available on the hero, and we want it to be learned when we spawn.
+For this we'll need to add the following in our `OnHeroInGame`* listener (*function hook of npc_spawned, see [barebones Event Hooks](https://github.com/bmddota/barebones/blob/source2/game/dota_addons/barebones/scripts/vscripts/barebones.lua#L443) )
 
 ```lua
 -- lua code inside OnHeroInGame(hero)
@@ -105,7 +102,6 @@ end
 ```
 
 The if is not exactly necessary but you'll need to filter your desired hero somehow. We'll use Beastmaster for our example
-
 
 ## Gain mana after an attack, scaling with level
 
@@ -135,7 +131,6 @@ function ManaOnAttack( event )
 end
 ```
 
-
 ## Gain mana after being attacked, scaling with level
 
 Our modifier block gains another modifier event:
@@ -161,7 +156,6 @@ function ManaOnAttacked( event )
    hero:GiveMana(0.01 * level + 0.4)
 end
 ```
-
 
 ## Gain mana on particular spell cast
 
@@ -213,17 +207,16 @@ end
 
 With this, our hero's mana will decrease over time by ~0.3 and slightly faster on higher levels.
 
-
 I hope I covered everything and kept a middle ground explanation style for those who are new to scripted abilities, without boring those who aren't.
 
 Thanks for reading, feel free to ask any questions or discuss variations of mana systems.
 
 Check the original complete file scripts in TBR Github
 
-* [main lua scripts](https://github.com/Aleteh/TBR3/blob/master/scripts/vscripts/tbr.lua)
+- [main lua scripts](https://github.com/Aleteh/TBR3/blob/master/scripts/vscripts/tbr.lua)
 
-* [barbarian lua scripts](https://github.com/Aleteh/TBR3/blob/master/scripts/vscripts/abilities/barbarian.lua)
+- [barbarian lua scripts](https://github.com/Aleteh/TBR3/blob/master/scripts/vscripts/abilities/barbarian.lua)
 
-* [heroes_custom file](https://github.com/Aleteh/TBR3/blob/master/scripts/npc/npc_heroes_custom.txt)
+- [heroes_custom file](https://github.com/Aleteh/TBR3/blob/master/scripts/npc/npc_heroes_custom.txt)
 
-* [abilities file](https://github.com/Aleteh/TBR3/blob/master/scripts/npc/npc_abilities_custom.txt)
+- [abilities file](https://github.com/Aleteh/TBR3/blob/master/scripts/npc/npc_abilities_custom.txt)

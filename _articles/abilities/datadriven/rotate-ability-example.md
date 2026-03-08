@@ -7,8 +7,8 @@ date: 23.01.2015
 
 # Rotate Ability Example
 
-
 **Block**
+
 ```
 "Rotate"
 {
@@ -18,6 +18,7 @@ date: 23.01.2015
 ```
 
 **Example:** Rotate the caster every interval
+
 ```
 "OnSpellStart"
 {
@@ -29,10 +30,10 @@ date: 23.01.2015
 }
 
 "Modifiers"
-{ 
+{
     "modifier_rotating"
     {
-        "ThinkInterval" "%interval"	
+        "ThinkInterval" "%interval"
         "OnIntervalThink"
         {
             "Rotate"
@@ -62,4 +63,3 @@ date: 23.01.2015
 **Roll** Rotation, 15 every frame
 
 <StaticVideo path="/videos/GraciousWebbedHamadryad.mp4" />
-

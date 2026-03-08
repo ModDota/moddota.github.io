@@ -7,7 +7,6 @@ date: 02.04.2016
 
 # DOTAScenePanel
 
-
 In this tutorial we'll go through the tricks you can do with the undocumented DOTAScenePanel class in panorama.
 
 Now, you might have seen its usage if you looked through the sources in the main menu. This panel allows us to display 3D content in panorama. You might have tried using it yourself. It's pretty easy to setup a simple panel to display a unit, with code like
@@ -57,7 +56,7 @@ Now let's get to the advanced part.
 
 We can easily build up a "unit" like scene, using the `portrait_world_unit` entity type. This entity supports all kinds of units and also cosmetic item definitions. The quirk here is that you have to enter the raw properties editing mode to set displayed entity to a hero. Item definitions property all refer to different loadout slots and accept item IDs. Item ID list can be found [here](https://github.com/dotabuff/d2vpk/blob/master/dota_pak01/scripts/items/items_game.txt).
 
-![Lina is awesome](/images/external/ZsmLQA3.png "Example")
+![Lina is awesome](/images/external/ZsmLQA3.png 'Example')
 
 ### Multiple cameras
 
@@ -101,7 +100,13 @@ Also notice how we've used `DOTAGlobalSceneFireEntityInput` in onactivate as if 
 Example
 
 ```js
-$.DispatchEvent("DOTAGlobalSceneFireEntityInput", "LightBuilder", "donkey", "SetAnimation", "spawn");
+$.DispatchEvent(
+  'DOTAGlobalSceneFireEntityInput',
+  'LightBuilder',
+  'donkey',
+  'SetAnimation',
+  'spawn',
+);
 ```
 
 #### Scripts? Scripts!

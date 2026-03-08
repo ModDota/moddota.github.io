@@ -7,7 +7,6 @@ date: 26.06.2016
 
 # Using the order filter and other filters
 
-
 ## Filters in general
 
 This tutorial explains the use of the different filter functions currently in the API, and illustrates this using a small example in the order filter.

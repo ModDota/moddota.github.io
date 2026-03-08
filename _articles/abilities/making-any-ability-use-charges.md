@@ -7,7 +7,6 @@ date: 28.12.2015
 
 # Making any ability use charges
 
-
 A guide/snippet which will help you to make any ability use charges like Shrapnel or Stone Caller.
 
 First, save the following code with a name "modifier_charges.lua" to your vscripts folder (or any subfolder inside of it)

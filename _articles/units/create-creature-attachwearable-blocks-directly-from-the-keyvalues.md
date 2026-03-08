@@ -7,7 +7,6 @@ date: 15.12.2015
 
 # Create Creature AttachWearable blocks directly from the keyvalues
 
-
 For those still Ctrl+F'ing and copying from [items_game.txt](https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/scripts/items/items_game.txt) I bring you the better solution:
 
 First, "Map" the valid wearables from items_game:
@@ -26,15 +25,16 @@ end
 
 Then, there's 2 options:
 
-* Generate a default set for a hero name (internal `npc_dota_hero_name`)
-* Generate a bundle set, you can use this list for set names: https://dota2.gamepedia.com/Equipment
+- Generate a default set for a hero name (internal `npc_dota_hero_name`)
+- Generate a bundle set, you can use this list for set names: https://dota2.gamepedia.com/Equipment
 
 **Usage**
 
-* For default hero sets, run `GenerateDefaultBlock(hero_name)`
-* For generating a bundle set, run: `GenerateBundleBlock(set_name)`
+- For default hero sets, run `GenerateDefaultBlock(hero_name)`
+- For generating a bundle set, run: `GenerateBundleBlock(set_name)`
 
 **Code, using 4 space indents**
+
 ```lua
 function GenerateDefaultBlock( heroName )
     print("    \"Creature\"")
@@ -56,7 +56,7 @@ function GenerateDefaultBlock( heroName )
     print("        }")
     print("    }")
 end
- 
+
 function GenerateBundleBlock( setname )
     local bundle = {}
     for code,values in pairs(GameRules.items) do
@@ -80,7 +80,7 @@ function GenerateBundleBlock( setname )
     print("        }")
     print("    }")
 end
- 
+
 function GenerateItemDefLine( i, itemID, comment )
     print("            \""..tostring(i).."\" { ".."\"ItemDef\" \""..itemID.."\" } // "..comment)
 end

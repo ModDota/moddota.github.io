@@ -7,7 +7,6 @@ date: 07.03.2021
 
 # Modifiers in Typescript
 
-
 Modifiers are an extremely important part of almost any Dota custom game. They allow you to modify certain properties of your hero, deal damage to it over time, or apply various effects on it. Like abilities, we'll also create them in Typescript.
 
 We'll use an easy example which should cover a lot of common concepts for modifiers. This example is Skywrath's Ancient seal, which is an ability that simply applies a modifier to an enemy. The modifier applies the Silenced state on the enemy, and reduces its magic resist property by a percentage.
@@ -65,31 +64,32 @@ We'll begin with the KV, which is straightforward. Open `/game/scripts/npc/npc_a
 
 As the `ScriptFile` denotes it, the lua file should be in `vscripts/abilities/`. To do so, we'll create our TS file in `src/vscripts/abilities/`, where it would be appropriately routed when compiled. Create the `typescript_skywrath_mage_ancient_seal.ts` file and open it.
 
-
 ## Coding The Ability
 
 The ability itself is very straightforward, since all it does is apply a modifier on the target. For simplicity sake, let's decide the modifier will be named `modifier_typescript_ancient_seal`. Following is the ability:
 
 ```ts
-import { BaseAbility, registerAbility } from "../lib/dota_ts_adapter";
+import { BaseAbility, registerAbility } from '../lib/dota_ts_adapter';
 
 @registerAbility()
 export class typescript_skywrath_mage_ancient_seal extends BaseAbility {
-	sound_cast = "Hero_SkywrathMage.AncientSeal.Target";
+  sound_cast = 'Hero_SkywrathMage.AncientSeal.Target';
 
-	OnSpellStart() {
-		// Special values
-		const seal_duration = this.GetSpecialValueFor("seal_duration");
+  OnSpellStart() {
+    // Special values
+    const seal_duration = this.GetSpecialValueFor('seal_duration');
 
-		// Fetch target
-		const target = this.GetCursorTarget()!;
+    // Fetch target
+    const target = this.GetCursorTarget()!;
 
-		// Play sound
-		target.EmitSound(this.sound_cast);
+    // Play sound
+    target.EmitSound(this.sound_cast);
 
-		// Add modifier
-		target.AddNewModifier(this.GetCaster(), this, "modifier_typescript_ancient_seal", { duration: seal_duration });
-	}
+    // Add modifier
+    target.AddNewModifier(this.GetCaster(), this, 'modifier_typescript_ancient_seal', {
+      duration: seal_duration,
+    });
+  }
 }
 ```
 
@@ -109,9 +109,7 @@ Very similar to an ability in TS, modifiers are also a class. We create a modifi
 
 ```ts
 @registerModifier()
-export class modifier_typescript_ancient_seal extends BaseModifier {
-
-}
+export class modifier_typescript_ancient_seal extends BaseModifier {}
 ```
 
 As you can see, it's very similar to an ability, replacing `@registerAbility()` with `@registerModifier()`, and the `BaseAbility` extension with `BaseModifier`.
@@ -127,12 +125,16 @@ To do so, simply remove the quotation marks around the modifier name, then add `
 
 ```ts [Before]
 // Add modifier
-target.AddNewModifier(this.GetCaster(), this, "modifier_typescript_ancient_seal", { duration: seal_duration });
+target.AddNewModifier(this.GetCaster(), this, 'modifier_typescript_ancient_seal', {
+  duration: seal_duration,
+});
 ```
 
 ```ts [After]
 // Add modifier
-target.AddNewModifier(this.GetCaster(), this, modifier_typescript_ancient_seal.name, { duration: seal_duration });
+target.AddNewModifier(this.GetCaster(), this, modifier_typescript_ancient_seal.name, {
+  duration: seal_duration,
+});
 ```
 
 :::
@@ -151,37 +153,50 @@ Also, this is my personal choice, but I usually put ability specials as a class 
 ```ts
 @registerModifier()
 export class modifier_typescript_ancient_seal extends BaseModifier {
-	particle_seal = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff.vpcf";
-	resist_debuff?: number;
+  particle_seal =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff.vpcf';
+  resist_debuff?: number;
 
-	// When set to false, shows the modifier icon on the HUD. Otherwise, the modifier is hidden.
-	IsHidden() {
-		return false;
-	}
+  // When set to false, shows the modifier icon on the HUD. Otherwise, the modifier is hidden.
+  IsHidden() {
+    return false;
+  }
 
-	// When set to true, the outer circle of the modifier is red, indicating that the modifier is a debuff. Otherwise, the outer circle is green.
-	IsDebuff() {
-		return true;
-	}
+  // When set to true, the outer circle of the modifier is red, indicating that the modifier is a debuff. Otherwise, the outer circle is green.
+  IsDebuff() {
+    return true;
+  }
 
-	// When set to true, the modifier can be purged by basic dispels.
-	IsPurgable() {
-		return true;
-	}
+  // When set to true, the modifier can be purged by basic dispels.
+  IsPurgable() {
+    return true;
+  }
 
-	// Event call that is triggered when the modifier is created and attached to a unit.
-	OnCreated() {
-		// Get the ability and fetch ability specials from it
-		const ability = this.GetAbility();
-		if (ability) {
-			this.resist_debuff = ability.GetSpecialValueFor("resist_debuff");
-		}
+  // Event call that is triggered when the modifier is created and attached to a unit.
+  OnCreated() {
+    // Get the ability and fetch ability specials from it
+    const ability = this.GetAbility();
+    if (ability) {
+      this.resist_debuff = ability.GetSpecialValueFor('resist_debuff');
+    }
 
-		// Add particle effect
-		const particle = ParticleManager.CreateParticle(this.particle_seal, ParticleAttachment.OVERHEAD_FOLLOW, this.GetParent());
-		ParticleManager.SetParticleControlEnt(particle, 1, this.GetParent(), ParticleAttachment.ABSORIGIN_FOLLOW, "hitloc", this.GetParent().GetAbsOrigin(), true);
-		this.AddParticle(particle, false, false, -1, false, true);
-	}
+    // Add particle effect
+    const particle = ParticleManager.CreateParticle(
+      this.particle_seal,
+      ParticleAttachment.OVERHEAD_FOLLOW,
+      this.GetParent(),
+    );
+    ParticleManager.SetParticleControlEnt(
+      particle,
+      1,
+      this.GetParent(),
+      ParticleAttachment.ABSORIGIN_FOLLOW,
+      'hitloc',
+      this.GetParent().GetAbsOrigin(),
+      true,
+    );
+    this.AddParticle(particle, false, false, -1, false, true);
+  }
 }
 ```
 
@@ -218,6 +233,7 @@ When hovering over a modifier function's name (e.g. `MAGICAL_RESISTANCE_BONUS`),
 :::
 
 Now that we declared the magical resistance bonus, let's return a negative bonus so the enemy gets a negative magic resistance bonus from this modifier:
+
 ```ts
 GetModifierMagicalResistanceBonus() {
     return this.resist_debuff ?? 0;

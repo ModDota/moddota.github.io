@@ -41,10 +41,10 @@ features:
 ---
 
 <div style="display: flex; gap: 16px;">
-<div style="flex: 1;">
-<YouTube playlistId="PL7yysLaMSd3uY4iJKJdRrTkN1gYePkMz2" />
-</div>
-<div style="flex: 1;">
-<YouTube playlistId="PLyIBVOr2Rw7H5e8JkEF9C9GCf3RsODsuD" />
-</div>
+  <div style="flex: 1;">
+    <YouTube playlistId="PL7yysLaMSd3uY4iJKJdRrTkN1gYePkMz2" />
+  </div>
+  <div style="flex: 1;">
+    <YouTube playlistId="PLyIBVOr2Rw7H5e8JkEF9C9GCf3RsODsuD" />
+  </div>
 </div>

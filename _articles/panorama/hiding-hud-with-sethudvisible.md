@@ -7,14 +7,15 @@ date: 07.02.2015
 
 # Hiding HUD with SetHUDVisible
 
-
 :::danger
 This tutorial is outdated. It's recommended to use Panorama for UI manipulation now.
 
 **Example:**
+
 ```js
 GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_TIMEOFDAY, false);
 ```
+
 :::
 
 There's a function currently missing from the API page: SetHUDVisible(int, bool) which I want to document here.

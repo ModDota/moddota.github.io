@@ -7,7 +7,6 @@ date: 12.12.2014
 
 # Passing AbilityValues values into Lua
 
-
 Given this "AbilityValues" block in the ability:
 
 ```

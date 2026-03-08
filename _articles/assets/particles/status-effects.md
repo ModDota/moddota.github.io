@@ -7,7 +7,6 @@ date: 09.10.2016
 
 # Status Effects
 
-
 This is a basic guide on how to create/modify status effect particles in the particle editor. This is my first tutorial so any feedback is welcome. A template file is at the bottom of the tutorial if you want to create a status effect quickly.
 
 ## What is a Status Effect?
@@ -28,17 +27,16 @@ Create a new File in the Particle Editor and Save it. Now before you start make 
 
 What you need for a basic Status Effect:
 
-*   **Renderers:**  
+- **Renderers:**
+  - Render status effect
 
-    *   Render status effect
-*   **Operators:**  
+- **Operators:**
+  - Lifespan endcap timed decay
 
-    *   Lifespan endcap timed decay
-*   **Initializers:**  
-
-    *   9x Scalar random
-    *   8x Vector component random or 3x Vector random
-    *   2x Color random
+- **Initializers:**
+  - 9x Scalar random
+  - 8x Vector component random or 3x Vector random
+  - 2x Color random
 
 **_This is how the functions window should look like in the end when using "Vector component random" (order is not important):_**
 
@@ -71,27 +69,27 @@ A 3D texture that applies a color transformation like hue shift or contrast adju
 
 _Note:_ Only colorwarp textures will work for this.
 
-Results with different Colorwarp textures:  
+Results with different Colorwarp textures:
 
 <StaticVideo path="/videos/UnkemptFarawayGossamerwingedbutterfly.mp4" />
 
 _Associated Parameters_:
 
-*   ColorWarpBlendFactor
+- ColorWarpBlendFactor
 
 #### Detail 2 texture
 
 A texture that is repeatedly overlaid on the model. You can basically use any texture for this. You can even use your own(just look up how to convert .tga to .vtex on google). Make sure you select an appropriate blend mode for your texture with **D_DETAIL_2** (will be covered later on). If you don't need this set Detail2BlendFactor to 0.
 
-Results with different Detail 2 Textures(Blend Mode: 5):  
+Results with different Detail 2 Textures(Blend Mode: 5):
 
 <StaticVideo path="/videos/PowerfulBlueBilby.mp4" />
 
 _Associated Parameters_:
 
-*   Detail2BlendFactor
-*   D_DETAIL_2
-*   Detail2TexCoordScale
+- Detail2BlendFactor
+- D_DETAIL_2
+- Detail2TexCoordScale
 
 #### Diffuse warp texture
 
@@ -99,7 +97,7 @@ Determines where diffuse reflections occur. This is mostly obsolete since it is 
 
 _Associated Parameters_:
 
-*   DiffuseWarpBlendToFull
+- DiffuseWarpBlendToFull
 
 #### Fresnel color warp texture
 
@@ -121,11 +119,11 @@ Results with different amounts of Specular Reflection:
 
 _Associated Parameters_:
 
-*   SpecularColor
-*   SpecularScale
-*   SpecularExponent
-*   SpecularExponentBlendToFull
-*   SpecularBlendToFull
+- SpecularColor
+- SpecularScale
+- SpecularExponent
+- SpecularExponentBlendToFull
+- SpecularBlendToFull
 
 #### Environment map texture
 
@@ -141,33 +139,33 @@ In the properties window you can set what the scalar random function should do. 
 
 _Note_: In this guide min and max will always be equal. If you don't know what does what just play around with the values and observe the changes ingame.
 
-*   **ColorWarpBlendFactor**
-    *   Defines how much the Color Warp Texture is applied.
-    *   _Values_: 1 = Fully applied, 0 = Fully Ignored.
-*   **D_DETAIL_2**
-    *   Blend method of the detail 2 texture. (Some of them are: Add, Add SelfIllum, Mod2X)
-    *   _Values_: 0 to 5 in whole numbers.
-*   **Detail2TexCoordScale**
-    *   Sets the coordinate scale of the Detail2 Texture.
-    *   _Values_: 0 to 8\. The larger the number the smaller the Detail2 Texture and the more often it needs to be placed on the model. Typical Values: 2-5\.
-*   **Detail2BlendFactor**
-    *   Defines how much the Detail2 Texture is blended in.
-    *   _Values_: 1 = Fully blended in, 0 = Fully transparent, can also be >1\.
-*   **CubeMapScalar**
-    *   Multiplier that controls the overall intensity of the Cube Map. You don't need to know what this does exactly since it doesn't seem to have much impact.
-    *   _Values_: 0 to 20\.
-*   **AmbientScale**
-    *   Sets how strong Ambient Lighting is applied.
-    *   _Values_: Larger Values will make the Ambient Lighting appear stronger.
-*   **RimLightScale**
-    *   Sets how strong the Rim Light is shown. Rim Light is the highlighting around the edges of the model.
-    *   _Values_: 0 to 100\. Larger Values will make the Rim Light appear stronger.
-*   **NONE($RIMLIGHTBLENDTOFULL)**
-    *   Defines how much the Rim Light is blended in.(I'm not sure on this)
-    *   _Values_: 0 to 1\.
-*   **NONE($FRESNELCOLORWARPBLENDTOFULL)**
-    *   Defines how much the Fresnel Colorwarp Texture is blended in. (I'm not sure on this)
-    *   _Values_: 0 to 1\.
+- **ColorWarpBlendFactor**
+  - Defines how much the Color Warp Texture is applied.
+  - _Values_: 1 = Fully applied, 0 = Fully Ignored.
+- **D_DETAIL_2**
+  - Blend method of the detail 2 texture. (Some of them are: Add, Add SelfIllum, Mod2X)
+  - _Values_: 0 to 5 in whole numbers.
+- **Detail2TexCoordScale**
+  - Sets the coordinate scale of the Detail2 Texture.
+  - _Values_: 0 to 8\. The larger the number the smaller the Detail2 Texture and the more often it needs to be placed on the model. Typical Values: 2-5\.
+- **Detail2BlendFactor**
+  - Defines how much the Detail2 Texture is blended in.
+  - _Values_: 1 = Fully blended in, 0 = Fully transparent, can also be >1\.
+- **CubeMapScalar**
+  - Multiplier that controls the overall intensity of the Cube Map. You don't need to know what this does exactly since it doesn't seem to have much impact.
+  - _Values_: 0 to 20\.
+- **AmbientScale**
+  - Sets how strong Ambient Lighting is applied.
+  - _Values_: Larger Values will make the Ambient Lighting appear stronger.
+- **RimLightScale**
+  - Sets how strong the Rim Light is shown. Rim Light is the highlighting around the edges of the model.
+  - _Values_: 0 to 100\. Larger Values will make the Rim Light appear stronger.
+- **NONE($RIMLIGHTBLENDTOFULL)**
+  - Defines how much the Rim Light is blended in.(I'm not sure on this)
+  - _Values_: 0 to 1\.
+- **NONE($FRESNELCOLORWARPBLENDTOFULL)**
+  - Defines how much the Fresnel Colorwarp Texture is blended in. (I'm not sure on this)
+  - _Values_: 0 to 1\.
 
 ### Vector component random/Vector random
 
@@ -192,44 +190,41 @@ With _Vector random_ you only need one of each set.
 
 #### 2x/1x SpecularScale +NONE+DiffuseWarpBlendToFull
 
-*   **SpecularScale**  
+- **SpecularScale**
+  - Sets how strong the Specular Reflection is visible.
+  - _Values_: 0 to 1000\. Larger Values result in stronger Specular Reflection. Typically: 0 to 100\.
 
-    *   Sets how strong the Specular Reflection is visible.
-    *   _Values_: 0 to 1000\. Larger Values result in stronger Specular Reflection. Typically: 0 to 100\.
-*   **DiffuseWarpBlendToFull**  
-
-    *   Defines how much the Diffuse Warp Texture is blended in.
-    *   _Values_: 1 = Fully blended in, 0 = Fully transparent.
+- **DiffuseWarpBlendToFull**
+  - Defines how much the Diffuse Warp Texture is blended in.
+  - _Values_: 1 = Fully blended in, 0 = Fully transparent.
 
 #### 3x/1x SpecularExponent+SpecularExponentBlendToFull+SpecularBlendToFull
 
-*   **SpecularExponent**  
+- **SpecularExponent**
+  - Sets the size of the Specular Highlight Spot.
+  - _Values_: 1 to 512\. Typically 5 to 20\.
 
-    *   Sets the size of the Specular Highlight Spot.
-    *   _Values_: 1 to 512\. Typically 5 to 20\.
-*   **SpecularExponentBlendToFull**  
+- **SpecularExponentBlendToFull**
+  - Defines how much the Specular Exponent is blended in.
+  - _Values_: 1 = Fully blended in, 0 = Fully transparent.
 
-    *   Defines how much the Specular Exponent is blended in.
-    *   _Values_: 1 = Fully blended in, 0 = Fully transparent.
-*   **SpecularBlendToFull**  
-
-    *   Defines how much the Specular is blended in.
-    *   _Values_: 1 = Fully blended in, 0 = Fully transparent.
+- **SpecularBlendToFull**
+  - Defines how much the Specular is blended in.
+  - _Values_: 1 = Fully blended in, 0 = Fully transparent.
 
 #### 3x/1x ReflectionsTintBaseBlendToNone+MetalnessBlendToFull+SelfIllumBlendToFull
 
-*   **ReflectionsTintBaseBlendToNone**  
+- **ReflectionsTintBaseBlendToNone**
+  - I'm not certain on this but it has something to do with Specular Reflection.
+  - _Values_: 0 to 1\. Larger Values will make the Specular Reflection appear stronger.
 
-    *   I'm not certain on this but it has something to do with Specular Reflection.
-    *   _Values_: 0 to 1\. Larger Values will make the Specular Reflection appear stronger.
-*   **MetalnessBlendToFull**  
+- **MetalnessBlendToFull**
+  - Determines how metallic the Status Effect appears.
+  - _Values_: 0 = no metalness, 1 = full metalness.
 
-    *   Determines how metallic the Status Effect appears.
-    *   _Values_: 0 = no metalness, 1 = full metalness.
-*   **SelfIllumBlendToFull**  
-
-    *   Sets how much self illumination the status effect will have.
-    *   _Values_: 0 = no self Illumination, 1 = full self Illumination.
+- **SelfIllumBlendToFull**
+  - Sets how much self illumination the status effect will have.
+  - _Values_: 0 = no self Illumination, 1 = full self Illumination.
 
 ### Color random
 
@@ -241,12 +236,11 @@ With the Color random function we can define the Rim Light Color and the Specula
 
 _Note_: Color 1 and 2 don't need to be the same but in most cases they should be.
 
-*   **RimLightColor**  
+- **RimLightColor**
+  - Sets the Rim Light Color.
 
-    *   Sets the Rim Light Color.
-*   **SpecularColor**  
-
-    *   Sets the Specular Color.
+- **SpecularColor**
+  - Sets the Specular Color.
 
 ## Template
 

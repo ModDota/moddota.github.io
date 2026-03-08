@@ -7,7 +7,6 @@ date: 27.01.2015
 
 # Point Channeling AoE Ability Example
 
-
 Here I'll explain a method to do this type of abilities effectively, based on this Earthquake Example:
 
 <StaticVideo path="/videos/CarefreeAridBantamrooster.mp4" />
@@ -15,6 +14,7 @@ Here I'll explain a method to do this type of abilities effectively, based on th
 We will review each important section of the code with comments on it, including how to get the particles to show.
 
 ## General Definition:
+
 ```
 "far_seer_earthquake"
 {
@@ -90,6 +90,7 @@ Paths were copied directly from the asset browser, unmodified particles. I'll ex
 ## Spell Start
 
 When the cast point is complete, perform the following actions:
+
 ```
 "OnSpellStart"
 {
@@ -106,9 +107,10 @@ When the cast point is complete, perform the following actions:
 This calls a very simple Lua script which creates a dummy unit to apply a thinker modifier which does the "waves".
 
 When using an `"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"`, you can pass the POINT targeted as an extra parameter to the function (it won't be passed automatically, like CASTER or TARGET). This can be accessed as the **target_points[1]**
- on the event.
+on the event.
 
 **Lua**
+
 ```lua
 function EarthquakeStart( event )
     -- Variables
@@ -120,7 +122,7 @@ function EarthquakeStart( event )
 end
 ```
 
-There is a Datadriven function to do something similar, **"CreateThinker"**, but because we need to stop the ability from casting the waves if the hero stops channeling the ability, its better to have the dummy "indexed" on the *caster handle* so that we can run another script to remove it without the need to do a search for it.
+There is a Datadriven function to do something similar, **"CreateThinker"**, but because we need to stop the ability from casting the waves if the hero stops channeling the ability, its better to have the dummy "indexed" on the _caster handle_ so that we can run another script to remove it without the need to do a search for it.
 
 Back to the dummy unit, this is its definition:
 
@@ -138,6 +140,7 @@ Back to the dummy unit, this is its definition:
 ```
 
 And the passive ability:
+
 ```
 "dummy_passive_vulnerable"
 {
@@ -165,11 +168,12 @@ And the passive ability:
 }
 ```
 
-**IMPORTANT:** The dummy doesn't have `MODIFIER_STATE_INVULNERABLE` enabled, because that state is a bitch, usually preventing from applying modifiers even if they have `MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE`. That's why I called it _vulnerable even though it can't take damage.
+**IMPORTANT:** The dummy doesn't have `MODIFIER_STATE_INVULNERABLE` enabled, because that state is a bitch, usually preventing from applying modifiers even if they have `MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE`. That's why I called it \_vulnerable even though it can't take damage.
 
 ---
 
 Back to the OnSpellStart, 2 more actions:
+
 ```
 "OnSpellStart"
 {   //...
@@ -204,6 +208,7 @@ Animation needs to start half a second later to sync with the damage, this is a 
 ## Channel Finish
 
 When the ability finishes channeling either because the channel time has finished or it was cancelled, we need to stop the animation and the dummy thinker:
+
 ```
 "OnChannelFinish"
 {
@@ -264,7 +269,6 @@ Now lets move to the the Modifiers block, the first couple handles the animation
 
 //...
 ```
-
 
 "modifier_earthquake_thinker" is the modifier applied in Lua to the dummy, and has the main logic for all the damage, particles, sounds and other effects needed. It has a lot of actions, so I'll break it up
 
@@ -360,7 +364,7 @@ To realize that the CP1 needs to be set else the particle will fail to display p
 
 3. Hold and drag the control point to somewhere else by clicking on the blue rectangle:
 
-  ![img](/images/external/f61MV-9d913ef133.jpg)
+![img](/images/external/f61MV-9d913ef133.jpg)
 
 4. Notice that there's some dust that moved with the Control Point.
 
@@ -460,13 +464,13 @@ Not gonna lie, it's mostly trial and error and just a bit of reading whatever th
 ## Complete code can be found at the following links:
 
 ## [DataDriven](https://github.com/MNoya/DotaCraft/blob/master/game/dota_addons/dotacraft/scripts/npc/abilities/heroes/far_seer_earthquake.txt)
+
 ## [Lua](https://github.com/MNoya/DotaCraft/blob/master/scripts/vscripts/heroes/far_seer/earthquake.lua)
 
-* For more examples of this style of ability, check:
-
-  * [Blizzard](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/archmage_blizzard.txt)
-  * [Rain of Fire](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/pit_lord_rain_of_fire.txt)
-  * [Tornado](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/naga_sea_witch_tornado.txt)
+- For more examples of this style of ability, check:
+  - [Blizzard](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/archmage_blizzard.txt)
+  - [Rain of Fire](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/pit_lord_rain_of_fire.txt)
+  - [Tornado](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/naga_sea_witch_tornado.txt)
 
 ---
 

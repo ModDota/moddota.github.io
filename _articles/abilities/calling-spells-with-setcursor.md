@@ -7,15 +7,14 @@ date: 10.01.2015
 
 # Calling Spells with SetCursor
 
-
 `CDotaBaseAbility:OnSpellStart` in combination with `CDotaBaseNPC:SetCursorCastTarget` and `CDOTABaseNPC:SetCursorPosition` are used to "Call" spells.
 
 This is a powerful way to interact with Valve's spells in particular. This allows you to:
 
-* Activate hidden abilities
-* Ignore turn-restrictions
-* Ignore castpoint or cooldown
-* Ignore any other cruft associated with the formal spell-casting methods
+- Activate hidden abilities
+- Ignore turn-restrictions
+- Ignore castpoint or cooldown
+- Ignore any other cruft associated with the formal spell-casting methods
 
 This is easy to use, easy to configure and easy to think about. Here is an example that casts Tether on a hidden dummy unit, activated by a datadriven spell:
 
@@ -26,4 +25,3 @@ tether:EndCooldown()
 caster:SetCursorCastTarget(dummy)
 tether:OnSpellStart()
 ```
- 

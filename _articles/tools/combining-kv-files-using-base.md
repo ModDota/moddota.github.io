@@ -7,7 +7,6 @@ date: 06.04.2016
 
 # Combining KV files using #base
 
-
 Having one kv file containing every unit or ability definition as is default in the mod interface can become very annoying very quickly. Splitting up this one file into several smaller KV files makes it easier to keep an overview and manage your files. Usually people would use modkit for this, but:
 
 **[ModKit](https://github.com/stephenfournier/Dota-2-ModKit) is not needed to combine KV files**
@@ -16,9 +15,9 @@ Thanks to some detective work done in #steamdb and some testing on my part, we d
 
 **This method works for:**
 
-*   Unit/Ability definition files (like npc_units_custom.txt or npc_abilities_custom.txt).
-*   Custom key value files loaded into lua with LoadKeyValues.
-*   Localisation files (addon_english.txt)
+- Unit/Ability definition files (like npc_units_custom.txt or npc_abilities_custom.txt).
+- Custom key value files loaded into lua with LoadKeyValues.
+- Localisation files (addon_english.txt)
 
 ## How it works
 
@@ -72,10 +71,10 @@ When loading this KV file, the engine will now automatically add the contents of
 
 This also supports directories. Keep in mind all paths are relative. Say I create `scripts/npc/customAbilities/ability1.txt`, I can include this from `scripts/npc/npc_abilities_custom.txt` using `#base "customAbilities/ability1.txt"`.
 
-**PS:** Other extensions are also allowed, you could name your included files *.kv
+**PS:** Other extensions are also allowed, you could name your included files \*.kv
 
 ## Credits for pointing out this is part of the KV spec:
 
-*   XMPPwocky
-*   xPaw
-*   Netshroud
+- XMPPwocky
+- xPaw
+- Netshroud

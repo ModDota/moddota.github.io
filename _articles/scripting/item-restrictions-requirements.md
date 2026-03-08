@@ -7,7 +7,6 @@ date: 13.12.2014
 
 # Item Restrictions & Requirements
 
-
 This implements the following mechanic:
 
 <StaticVideo path="/videos/OfficialAdorableJabiru.mp4" />
@@ -24,10 +23,10 @@ For this example, we will use this path: **scripts**/**maps**/**item_info**.kv
     "item_name_here" //change it to a custom items
     {
         "levelRequired"	"10"
-        "classRequired"	"Warrior" 
+        "classRequired"	"Warrior"
     }
 
-    "item_other_name_here" 
+    "item_other_name_here"
     {
         "levelRequired"	"25"
     }
@@ -37,7 +36,7 @@ For this example, we will use this path: **scripts**/**maps**/**item_info**.kv
 To load a table into your game mode, you need to use the `LoadKeyValues( "path/to/file" )` lua function. This can be called at GameMode:InitGameMode() inside your main lua addon. GameMode = self
 
 ```lua
-self.ItemInfoKV = LoadKeyValues( "scripts/maps/item_info.kv" ) 
+self.ItemInfoKV = LoadKeyValues( "scripts/maps/item_info.kv" )
 ```
 
 If your table is badly formed (e.g. you missed a quotation mark or a bracket), this will fail and you'll get a lua console error when starting the game.
@@ -53,7 +52,7 @@ function GameMode:OnHeroInGame(hero)
         hero.class = "Warrior"
         print("Axe is ready!")
     end
-    
+
 end
 ```
 
@@ -64,8 +63,8 @@ Add this datadriven event on every item that needs to do a check for restriction
 This is needed because the listener for inventory changed is broken, and the Lua `OnItemPickedUp` event hook doesn't account for someone dragging an item into another players inventory.
 
 ```
-"OnEquip" 
-{   
+"OnEquip"
+{
     "RunScript"
     {
         "ScriptFile"	"items.lua"
@@ -98,7 +97,7 @@ function ItemCheck( event )
     -- This timer is needed because OnEquip triggers before the item actually being in inventory
     Timers:CreateTimer(0.1,function()
         -- Go through every item slot
-        for itemSlot = 0, 5, 1 do 
+        for itemSlot = 0, 5, 1 do
             local Item = hero:GetItemInSlot( itemSlot )
             -- When we find the item we want to check
             if Item ~= nil and itemName == Item:GetName() then
@@ -112,7 +111,7 @@ function ItemCheck( event )
                     if itemTable.levelRequired > hero:GetLevel() then
                         FireGameEvent( 'custom_error_show', { player_ID = pID, _error = "You need level "..itemTable.levelRequired.." to use this." } )
                         DropItem(Item, hero)
-                    end 
+                    end
                 end
 
                 -- Check Class Restriction
@@ -146,7 +145,7 @@ function DropItem( item, hero )
     spawnPoint = hero:GetAbsOrigin()
     local drop = CreateItemOnPositionSync( spawnPoint, newItem )
     newItem:LaunchLoot( false, 200, 0.75, spawnPoint + RandomVector( RandomFloat( 50, 150 ) ) )
-    
+
     --finally, remove the item
     hero:RemoveItem(item)
 end

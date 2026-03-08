@@ -7,7 +7,6 @@ date: 18.01.2021
 
 # Tooltip Generator
 
-
 Recently, the development of a new project that named the Tooltip Generator has been completed. This project was inspired by Ark's Eaglesong idea whose purpose was to make adding localization as easy as possible, while reducing the chance to make mistakes. This project includes a secondary part, completely optional, named the Tooltip Codemaker, which helps those that already have a working addon with a lot of localization.
 
 ## The Tooltip Generator
@@ -29,12 +28,13 @@ There are a few reasons why I've started this project in the first place. I was 
 In addition, as I've developed my game, my addon file became **HUGE**. Because of the way Dota reads this file, you cannot use #base to split this into files, and some people have resorted to making a manual script that does that. It's a lot of hassle and wasted time for everyone involved.
 
 This project attempts to solve all those problems:
-* It makes sure you never do any formatting mistake.
-* You only make a single object per ability or modifier and fill all the details for it.
-* You can use predefined enums to call modifier properties correctly.
-* You can split it to as many files as you want.
-* You can easily use your own variables to use keywords that repeat.
-* All languages are managed in a single location and are properly distributed to the appropriate files.
+
+- It makes sure you never do any formatting mistake.
+- You only make a single object per ability or modifier and fill all the details for it.
+- You can use predefined enums to call modifier properties correctly.
+- You can split it to as many files as you want.
+- You can easily use your own variables to use keywords that repeat.
+- All languages are managed in a single location and are properly distributed to the appropriate files.
 
 I encourage you to at least give this project a try. You won't be disappointed.
 
@@ -80,8 +80,8 @@ Navigate to the `localization` folder inside your `resource` folder. In this fol
 
 ```ts
 StandardTooltips.push({
-    classname: "Hello",
-    name: "test"
+  classname: 'Hello',
+  name: 'test',
 });
 ```
 
@@ -102,8 +102,8 @@ Just to make sure that the watcher is working correctly, go back to `localizatio
 
 ```ts
 StandardTooltips.push({
-    classname: "watcher_test",
-    name: "This should be automatically added"
+  classname: 'watcher_test',
+  name: 'This should be automatically added',
 });
 ```
 
@@ -116,26 +116,28 @@ You can activate the watcher in any editor that supports npm builds, like VSCode
 ## Localization Types
 
 In the base form of the localization generator, each localization goes into one of three categories:
-* Standard Tooltips: Everything that isn't an ability or a modifier. Has no predefined key structure, and can be everything. The above examples are Standard Tooltips. Those are the most simple types of KVs.
 
-* Ability Tooltips: All abilities adhere to the key structure of `DOTA_Tooltip_ability_abilityname`. They also have predefined suffix keys such as `_Description`, `_Lore`, `_Note0` etc. A single ability tooltip object can include many properties, as mentioned above, and supports all ability suffix keys.
+- Standard Tooltips: Everything that isn't an ability or a modifier. Has no predefined key structure, and can be everything. The above examples are Standard Tooltips. Those are the most simple types of KVs.
 
-* Modifier Tooltips: All modifiers adhere to the key structure of `DOTA_Tooltip_modifiername`. It is common to start every modifier's name with `modifier_...`, but those should work here even if you named your modifiers differently.
+- Ability Tooltips: All abilities adhere to the key structure of `DOTA_Tooltip_ability_abilityname`. They also have predefined suffix keys such as `_Description`, `_Lore`, `_Note0` etc. A single ability tooltip object can include many properties, as mentioned above, and supports all ability suffix keys.
+
+- Modifier Tooltips: All modifiers adhere to the key structure of `DOTA_Tooltip_modifiername`. It is common to start every modifier's name with `modifier_...`, but those should work here even if you named your modifiers differently.
 
 In my personal mod, Dota Reimagined, I've created two more Tooltip Localization types: Reimagined Tooltips and Talent Tooltips. Those are disabled (commented out) in the compiler because they do not work on standard modes (even talents, that system is custom made in my mod). However, they can be used as good reference to setting up additional localization types if you so desire. Feel free to check the compiler (found at `node_modules/@shushishtok/tooltip_generator/localizationCompiler.ts`) and tweak it as you see fit. The above Tooltips types should be sufficient for most modes.
 
 ## Standard Tooltip Example
 
 Standard Tooltips are extremely straightforward and are very easy to make. They have the following fields:
-* Classname: string
-* Name: string
+
+- Classname: string
+- Name: string
 
 Classname is the left side of the KV and Name is on the right. For instance, the following tooltip object:
 
 ```ts
 StandardTooltips.push({
-    classname: "standard_tooltip_example",
-    name: "Tooltip Example"
+  classname: 'standard_tooltip_example',
+  name: 'Tooltip Example',
 });
 ```
 
@@ -151,23 +153,23 @@ As you can see, it produces exactly the class-name relationship of an object, wi
 
 Ability Tooltips probably have the biggest objects, because abilities can include a lot of properties. Each property has an expected type (explained later). Ability Tooltips have the following fields:
 
-* Ability Classname: string
-* Name: string
-* Description: string
-* Lore: string
-* Notes: Array of strings
-* Scepter description: string
-* Shard description: string
-* Ability specials: Array of Ability special objects.
+- Ability Classname: string
+- Name: string
+- Description: string
+- Lore: string
+- Notes: Array of strings
+- Scepter description: string
+- Shard description: string
+- Ability specials: Array of Ability special objects.
 
 You may notice that notes and ability specials are arrays. This is because an ability can (technically) have an indefinite amount of notes and ability specials, those are defined here. Let's begin with a simple ability example:
 
 ```ts
 Abilities.push({
-    ability_classname: "aghanims_shard_explosion",
-    name: "Shard Explosion",
-    description: "Fires a shard at the target point which deals damage on impact.",
-    lore: "Aghanims' signature move, firing shards of arcane energy.",
+  ability_classname: 'aghanims_shard_explosion',
+  name: 'Shard Explosion',
+  description: 'Fires a shard at the target point which deals damage on impact.',
+  lore: "Aghanims' signature move, firing shards of arcane energy.",
 });
 ```
 
@@ -183,12 +185,12 @@ Pretty nifty, right? Let's add scepter and shards effects to the ability:
 
 ```ts
 Abilities.push({
-    ability_classname: "aghanims_shard_explosion",
-    name: "Shard Explosion",
-    description: "Fires a shard at the target point which deals damage to all enemies on impact.",
-    lore: "Aghanims' signature move, firing shards of arcane energy.",
-    scepter_description: "Increases damage and explosion range.",
-    shard_description: "Decreases cooldown of the ability."
+  ability_classname: 'aghanims_shard_explosion',
+  name: 'Shard Explosion',
+  description: 'Fires a shard at the target point which deals damage to all enemies on impact.',
+  lore: "Aghanims' signature move, firing shards of arcane energy.",
+  scepter_description: 'Increases damage and explosion range.',
+  shard_description: 'Decreases cooldown of the ability.',
 });
 ```
 
@@ -206,12 +208,14 @@ You may have noticed that I didn't use any number or ability special variable on
 
 ```ts
 Abilities.push({
-    ability_classname: "aghanims_shard_explosion",
-    name: "Shard Explosion",
-    description: "Fires a shard at the target point which deals {damage} damage to all enemies on impact.",
-    lore: "Aghanims' signature move, firing shards of arcane energy.",
-    scepter_description: "Increases damage by {scepter_damage} and explosion range by {scepter_aoe_bonus}.",
-    shard_description: "Decreases cooldown of the ability by {shard_cd_pct}%."
+  ability_classname: 'aghanims_shard_explosion',
+  name: 'Shard Explosion',
+  description:
+    'Fires a shard at the target point which deals {damage} damage to all enemies on impact.',
+  lore: "Aghanims' signature move, firing shards of arcane energy.",
+  scepter_description:
+    'Increases damage by {scepter_damage} and explosion range by {scepter_aoe_bonus}.',
+  shard_description: 'Decreases cooldown of the ability by {shard_cd_pct}%.',
 });
 ```
 
@@ -229,44 +233,44 @@ Finally, let's talk about notes and ability specials. Notes are arrays of string
 
 Ability specials are slightly more complex. Those are arrays of ability special objects. Each object expects, at the very least, the ability special name and its ingame text, like "shard_damage" and "DAMAGE". It expects nothing else except the text. However, it supports two optional fields:
 
-* Percentage
-* Item stat
+- Percentage
+- Item stat
 
 Those are both booleans that default to false if omitted, and would only be included if you want to specifically enable them. The percentage field adds a `%` to the beginning of the text, while the item stat adds `+$` instead. Let's make our complete ability tooltip by integrating those into our example above:
 
 ```ts
 Abilities.push({
-    ability_classname: "aghanims_shard_explosion",
-    name: "Shard Explosion",
-    description: "Fires a shard at the target point which deals {damage} damage to all enemies on impact.",
-    lore: "Aghanims' signature move, firing shards of arcane energy.",
-    scepter_description: "Increases damage by {scepter_damage} and explosion range by {scepter_aoe_bonus}.",
-    shard_description: "Decreases cooldown of the ability by {shard_cd_pct}%.",
-    notes:
-    [
-        "The projectile moves at {projectile_speed} speed.",
-        "Despite the visual effect, all enemies in range immediately take damage upon impact.",
-        "Can be disjointed."
-    ],
+  ability_classname: 'aghanims_shard_explosion',
+  name: 'Shard Explosion',
+  description:
+    'Fires a shard at the target point which deals {damage} damage to all enemies on impact.',
+  lore: "Aghanims' signature move, firing shards of arcane energy.",
+  scepter_description:
+    'Increases damage by {scepter_damage} and explosion range by {scepter_aoe_bonus}.',
+  shard_description: 'Decreases cooldown of the ability by {shard_cd_pct}%.',
+  notes: [
+    'The projectile moves at {projectile_speed} speed.',
+    'Despite the visual effect, all enemies in range immediately take damage upon impact.',
+    'Can be disjointed.',
+  ],
 
-    ability_specials:
-    [
-        {
-            ability_special: "damage",
-            text: "DAMAGE"
-        },
+  ability_specials: [
+    {
+      ability_special: 'damage',
+      text: 'DAMAGE',
+    },
 
-        {
-            ability_special: "radius",
-            text: "EXPLOSION RADIUS"
-        },
+    {
+      ability_special: 'radius',
+      text: 'EXPLOSION RADIUS',
+    },
 
-        {
-            ability_special: "scepter_cd_reduction",
-            text: "COOLDOWN REDUCTION",
-            percentage: true
-        }
-    ]
+    {
+      ability_special: 'scepter_cd_reduction',
+      text: 'COOLDOWN REDUCTION',
+      percentage: true,
+    },
+  ],
 });
 ```
 
@@ -288,16 +292,15 @@ This is processed to the final KV that the game reads perfectly:
 "DOTA_Tooltip_Ability_aghanims_shard_explosion_scepter_cd_reduction"    "%COOLDOWN REDUCTION"
 ```
 
-
 ## Modifier Localization Example
 
 The last group is a Modifier Tooltip. Unlike abilities, modifiers only have a classname, a name and a description. However, they also have an element of their own: they can present dynamic values by using modifier properties. I've always incorrectly used them, so I've taken an extra step to fix this. For now, let's make a simple modifier:
 
 ```ts
 Modifiers.push({
-    modifier_classname: "modifier_greater_power",
-    name: "Greater Power",
-    description: "Increases your base damage and your move speed."
+  modifier_classname: 'modifier_greater_power',
+  name: 'Greater Power',
+  description: 'Increases your base damage and your move speed.',
 });
 ```
 
@@ -318,9 +321,9 @@ Let's improve the above example with dynamic variables. The move speed bonus is 
 
 ```ts
 Modifiers.push({
-    modifier_classname: "modifier_greater_power",
-    name: "Greater Power",
-    description: `Increases your base damage by {${LocalizationModifierProperty.PREATTACK_BONUS_DAMAGE}} and your move speed by {${LocalizationModifierProperty.MOVESPEED_BONUS_PERCENTAGE}}%.`
+  modifier_classname: 'modifier_greater_power',
+  name: 'Greater Power',
+  description: `Increases your base damage by {${LocalizationModifierProperty.PREATTACK_BONUS_DAMAGE}} and your move speed by {${LocalizationModifierProperty.MOVESPEED_BONUS_PERCENTAGE}}%.`,
 });
 ```
 
@@ -351,32 +354,30 @@ By default, all language files will have the same KVs. You can, however, overrid
 
 ```ts
 StandardTooltips.push({
-    classname: "standard_tooltip_example",
-    name: "Tooltip Example",
-    language_overrides:
-    [
-        {
-            language: Language.Russian,
-            name_override: "Пример всплывающей подсказки"
-        }
-    ]
+  classname: 'standard_tooltip_example',
+  name: 'Tooltip Example',
+  language_overrides: [
+    {
+      language: Language.Russian,
+      name_override: 'Пример всплывающей подсказки',
+    },
+  ],
 });
-
 ```
 
 As the example shows, we're overriding the `name` field of the `standard_tooltip_example` classname with a different text. This is done specifically for the Russian language using a language override object for the Standard Tooltip. Additional objects can be added for every language that we want to have a different text for. This results in the following KVs:
 
 ::: code-group
 
-``` [English]
+```[English]
 "standard_tooltip_example"    "Tooltip Example"
 ```
 
-``` [Russian]
+```[Russian]
 "standard_tooltip_example"    "Пример всплывающей подсказки"
 ```
 
-``` [Standard Chinese]
+```[Standard Chinese]
 "standard_tooltip_example"    "Tooltip Example"
 ```
 
@@ -391,31 +392,34 @@ One of the biggest annoyances with the localization files is the inability to sp
 For a tooltip file to also properly be watched and processed, it must have the following code:
 
 ```ts
-import { AbilityLocalization, Language, LocalizationData, ModifierLocalization, StandardLocalization } from "~generator/localizationInterfaces";
+import {
+  AbilityLocalization,
+  Language,
+  LocalizationData,
+  ModifierLocalization,
+  StandardLocalization,
+} from '~generator/localizationInterfaces';
 
-export function GenerateLocalizationData(): LocalizationData
-{
-    // This section can be safely ignored, as it is only logic.
-    //#region Localization logic
-    // Arrays
-    const Abilities: Array<AbilityLocalization> = new Array<AbilityLocalization>();
-    const Modifiers: Array<ModifierLocalization> = new Array<ModifierLocalization>();
-    const StandardTooltips: Array<StandardLocalization> = new Array<StandardLocalization>();
+export function GenerateLocalizationData(): LocalizationData {
+  // This section can be safely ignored, as it is only logic.
+  //#region Localization logic
+  // Arrays
+  const Abilities: Array<AbilityLocalization> = new Array<AbilityLocalization>();
+  const Modifiers: Array<ModifierLocalization> = new Array<ModifierLocalization>();
+  const StandardTooltips: Array<StandardLocalization> = new Array<StandardLocalization>();
 
-    // Create object of arrays
-    const localization_info: LocalizationData =
-    {
-        AbilityArray: Abilities,
-        ModifierArray: Modifiers,
-        StandardArray: StandardTooltips,
-    };
-    //#endregion
+  // Create object of arrays
+  const localization_info: LocalizationData = {
+    AbilityArray: Abilities,
+    ModifierArray: Modifiers,
+    StandardArray: StandardTooltips,
+  };
+  //#endregion
 
-    // Enter localization data below!
+  // Enter localization data below!
 
-
-    // Return data to compiler
-    return localization_info;
+  // Return data to compiler
+  return localization_info;
 }
 ```
 

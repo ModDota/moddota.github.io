@@ -7,7 +7,6 @@ date: 15.01.2015
 
 # Apply Hero and Creep modifier durations
 
-
 I came up with this method after kritth showed us that you can directly add a `"Duration"` key value to an `"ApplyModifier"` block and the use of the `"Target"` block without a Radius (defaulting to 0).
 
 Basically, abusing the datadriven system we can do this on any event:
@@ -21,7 +20,7 @@ Basically, abusing the datadriven system we can do this on any event:
         "Center"	"TARGET"
         "Types"  "DOTA_UNIT_TARGET_HERO"
     }
-    "Duration"	"%hero_duration"	
+    "Duration"	"%hero_duration"
 }
 
 "ApplyModifier"

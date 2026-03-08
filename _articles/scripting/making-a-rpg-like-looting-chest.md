@@ -7,7 +7,6 @@ date: 18.12.2015
 
 # Making a "rpg-like" looting chest
 
-
 Hello, it's the first time i'm making a tutorial here (and on lua too)
 I was working on this for the last 2 days for my mod, and I didn't see something similar for now
 So today i'll teach you how to make a chest you must open , and then you can obtain item or gold from it (or anything you want idc)
@@ -29,12 +28,12 @@ first off, you need to create your chest item in npc_item_custom.txt :
 		"ItemSellable"					"0" // can't be sold at a shop
 		"ItemPurchasable"				"0" //can't be purchased
 		"ItemDroppable"					"1" // can be put on the ground (set it to 0 if you don't want allow the player to
-		"ItemCost"						"99999" 
+		"ItemCost"						"99999"
 		"ItemQuality"					"artifact"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"AbilityCooldown"				"1.0" //time before the player can open another chest
 		"AbilityChannelTime"			"1.0" //time the player must channel to open the chest
-		
+
 
 
 		"OnChannelSucceeded"
@@ -43,7 +42,7 @@ first off, you need to create your chest item in npc_item_custom.txt :
 		    {
 		        "ScriptFile"			"lua_datadriven/chest.lua" //create a folder named lua_item in "your_game_mode\scripts\vscripts" and create a text file called chest.lua
 				"Function"				"chest_open" // here we call the function
-				"chest_name"				"chest_1" // here you can give a name to this chest in case you want more than 1 chest type 
+				"chest_name"				"chest_1" // here you can give a name to this chest in case you want more than 1 chest type
 				"gold"				"1" // does this chest give gold or only item ? (0 = no gold , 1 = gold instead of item , 2 = gold + item)
 				"gold_amt"				"1500" // how many gold the chest give if it give out
 				"gold_rand"				"250" // if you want gold to be random
@@ -52,12 +51,14 @@ first off, you need to create your chest item in npc_item_custom.txt :
 		}
 	}
 ```
-then your script in lua_datadriven/chest.lua 
+
+then your script in lua_datadriven/chest.lua
+
 ```lua
 function chest_open(keys)
 	local item_list = LoadKeyValues("scripts/kv/chest_result.kv") --Here we load a kv file where we will put all the item you can find in chest
 	local caster = keys.caster
-	local Player_ID = caster:GetPlayerOwnerID() 
+	local Player_ID = caster:GetPlayerOwnerID()
 	local item = keys.ability
 	local gold = 0
 	if keys.gold >0 then
@@ -79,32 +80,33 @@ function chest_open(keys)
 		item_number = math.random(1,len)
 	end
 	if item_number > len then --in case the player obtains gold instead of item
-	       PlayerResource:ModifyGold(Player_ID, gold, true, 0 ) 
+	       PlayerResource:ModifyGold(Player_ID, gold, true, 0 )
 	else
 		local item_name = item_list[tostring(item_number)] -- i know it could be better, but i'm not really used to kv
 		local item_reward = CreateItem( item_name, caster, caster )
 		caster:AddItem(item_reward)
 		if keys.gold == 2 then
-			PlayerResource:ModifyGold(Player_ID, gold, true, 0 ) 
+			PlayerResource:ModifyGold(Player_ID, gold, true, 0 )
 		end
 	end
 end
 ```
 
-and finally we create our kv file where we put all the item for each chest 
+and finally we create our kv file where we put all the item for each chest
 "scripts/kv/chest_result.kv"
+
 ```
-"put_the_name_you_wanna" 
-{ 
+"put_the_name_you_wanna"
+{
     "chest_1"
-    { 
+    {
         "1" "item_assault"
         "2" "item_desolator"
-        "3" "item_sange_and_yasha"   
+        "3" "item_sange_and_yasha"
         "4" "item_butterfly"
     }
     "chest_2"
-    { 
+    {
         "1" "item_youritem"
     }
 }

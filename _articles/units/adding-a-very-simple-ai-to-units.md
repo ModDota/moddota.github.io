@@ -7,16 +7,17 @@ date: 27.07.2015
 
 # Adding a Very Simple AI to Units
 
-
 This tutorial will cover how to issue very simple orders to units. This tutorial uses a move order to make a unit wander inside an area randomly, and a cast order to make a unit cast an untargeted spell randomly.
 
 This tutorial assumes a basic knowledge of Lua scripting.
 
 ## Drawbacks
- - This technique should not be used for units which need to perform more than one kind of order each. If a more advanced AI is required, you should check holdout_example's lua ai scripts.
- - Some functionality is hard-coded into this script. If you want to iterate on your game and change the behaviour often, I would suggest having some global constants or loading in the values from an external KV file. Doing this allows you to keep all the values in one place.
+
+- This technique should not be used for units which need to perform more than one kind of order each. If a more advanced AI is required, you should check holdout_example's lua ai scripts.
+- Some functionality is hard-coded into this script. If you want to iterate on your game and change the behaviour often, I would suggest having some global constants or loading in the values from an external KV file. Doing this allows you to keep all the values in one place.
 
 ## References
+
 I've copied some units from holdout_example for testing, and copied Berserkers Call from [Spell Library](https://github.com/Pizzalol/SpellLibrary).
 
 If you need help on making your own units or abilities, Noya's documentation is an excellent resource:
@@ -24,9 +25,11 @@ If you need help on making your own units or abilities, Noya's documentation is 
 [DataDriven Ability Breakdown - Documentation](/abilities/ability-keyvalues)
 
 ## Hammer Setup
+
 In Hammer, I've placed an info_target entity named "spawn_loc_test" which can be found in lua. This allows me to place the units spawn location in Hammer without changing the lua scripts around. If you wish to do this, give each entity a unique name and place them where you want the spawn point on your map.
 
 ## Lua Setup
+
 In the InitGameMode() function we do a few things: seed the random number generator, create an empty table in order to keep track of every unit with behaviour, spawn some units, and set a thinker function up.
 
 Settings which aren't relevant to this tutorial have been omitted, but in this function you can set up things like GameRules for your game mode.
@@ -54,6 +57,7 @@ end
 ```
 
 ## Spawning a Wanderer
+
 This function will spawn a unit with wandering behaviour. The bounds which the unit wanders between are hard coded. An easy way to determine these bounds is to spawn a simple entity in Hammer (such as info_target), move it about and read the coordinates. In this example, my info_target entity is named "spawn_loc_test".
 
 ```lua
@@ -89,6 +93,7 @@ end
 ```
 
 ## Spawning a Caster
+
 This function will spawn a unit with casting behaviour. The bounds which the unit is spawned in are hard coded. The spell is an untargeted spell which requires no additional variables to cast.
 
 ```lua
@@ -116,6 +121,7 @@ end
 ```
 
 ## Thinker Function
+
 This function gets called every second. It will read each of the units and determine if they should be issued with a new order, then issue that order.
 
 ```lua
@@ -190,6 +196,7 @@ end
 ```
 
 ## Finishing Up
+
 If you need more advanced behaviour, an AI script should be used. The method covered in this tutorial can be extended up to a point however, for example casting a ground-targeted ability in a random area would be possible using only code posted here.
 
 The full files for this example can be found here:

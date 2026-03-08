@@ -7,13 +7,14 @@ date: 10.12.2014
 
 # DataDriven Ability Events & Modifiers
 
-
-A guide that tries to cover every Ability & Modifier Event of the *ability_datadriven* system, with examples.
+A guide that tries to cover every Ability & Modifier Event of the _ability_datadriven_ system, with examples.
 
 ![img](/images/external/T7W828Q.png)
 
 <a name="start"></a>
-This is an Intermediate guide that expects some knowledge of the most common first-level keyvalues. If unsure about the meaning of any of them, check the [DataDriven Ability Breakdown](/abilities/ability-keyvalues).
+This is an Intermediate guide that expects some knowledge of the most common first-level keyvalues.
+If unsure about the meaning of any of them, check the [DataDriven Ability
+Breakdown](/abilities/ability-keyvalues).
 
 ## Introduction
 
@@ -30,6 +31,7 @@ There are 2 types, **Ability Events** and **Modifier Events**.
 Ability Events go on the "first level" of the ability. Modifier Events need to be inside a modifier block.
 
 Basic Skeleton looks like this:
+
 ```
 "ability_custom"
 {
@@ -65,7 +67,7 @@ To test if your Event is actually happening when you expect, you can add the fol
 }
 ```
 
-`RunScript` is one of the most common and potent Actions you'll use for creating complex abilities. For it to work, you need to have a Script File, in this case *utilities.lua*, inside the vscripts folder.
+`RunScript` is one of the most common and potent Actions you'll use for creating complex abilities. For it to work, you need to have a Script File, in this case _utilities.lua_, inside the vscripts folder.
 
 The Function called can have this:
 

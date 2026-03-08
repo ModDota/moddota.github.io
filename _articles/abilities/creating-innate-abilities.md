@@ -7,7 +7,6 @@ date: 27.09.2019
 
 # Creating innate (available from level 1) abilities
 
-
 This article will guide you through creating an ability which is available to the given hero right away, like Earth Spirit's Stone Remnant.
 This guide assumes you already have an ability set up on a hero.
 
@@ -27,6 +26,7 @@ end
 ## Datadriven and builtin abilities
 
 The plan is:
+
 1. Subscribe to the hero spawn event
 2. Determine if the spawned hero has a specific ability
 3. Level it up
@@ -52,7 +52,7 @@ Let's create the `HandleNpcSpawned` function, put it in the same file just below
 function HandleNpcSpawned(entityIndex)
     local entity = EntIndexToHScript(entityIndex)
     local innateAbilityName = "my_innate_ability"
-    
+
     if entity:IsRealHero() and entity:HasAbility(innateAbilityName) then
         entity:FindAbilityByName(innateAbilityName):SetLevel(1)
     end

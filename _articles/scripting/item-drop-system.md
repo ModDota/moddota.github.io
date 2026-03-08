@@ -7,25 +7,25 @@ date: 17.05.2015
 
 # Item Drop System
 
-
 Here I'll go over the implementation of a flexible item drop system for any sort of gamemode, mostly useful for RPGs.
 
-There are multiple ways to do this, for example [Warchasers uses a pure datadriven system](https://github.com/MNoya/Warchasers/blob/master/scripts/npc/npc_abilities_custom.txt#L3687-L5667) that goes over 2 thousand lines of abilities, each one for a different drop type... yeah you don't want to do that :sweat_smile: 
+There are multiple ways to do this, for example [Warchasers uses a pure datadriven system](https://github.com/MNoya/Warchasers/blob/master/scripts/npc/npc_abilities_custom.txt#L3687-L5667) that goes over 2 thousand lines of abilities, each one for a different drop type... yeah you don't want to do that :sweat_smile:
 
 The best way for this is to have a text file to configure what items can drop from each unit, how many, its chances, etc, then whenever a unit dies, if it has an entry for item drops, handle the chances and drops accordingly, with a couple of choices that can be further extended if necessary.
 
 <StaticVideo path="/videos/PowerlessCourageousAsiantrumpetfish.mp4" />
 
 ---
+
 ## Step 1. Key Values Table
 
-I recommend having a *kv* folder under scripts to store this and other similar table files. The file can have any extension, but using *.kv* is a good convention.
+I recommend having a _kv_ folder under scripts to store this and other similar table files. The file can have any extension, but using _.kv_ is a good convention.
 
 ```
-"Drops" 
-{ 
+"Drops"
+{
     "creature_name1"
-    { 
+    {
         "item_name1" "10"
         "item_name2" "50"
         "item_name3" "100"
@@ -91,10 +91,10 @@ The way Lua KV tables work, it's not possible to have more than 1 of the same in
 To get around this, the table has to use another level and have each possible item drop of the unit be a table by itself:
 
 ```
-"Drops" 
-{ 
+"Drops"
+{
     "creature_name1"
-    { 
+    {
         "1"
         {
             "Item"     "item_name1"
@@ -111,7 +111,7 @@ To get around this, the table has to use another level and have each possible it
 }
 ```
 
-This structure along with the Multiple value will allow an item to be dropped more than once from the same creature. *"Multiple" "1"* will just be 1 drop max.
+This structure along with the Multiple value will allow an item to be dropped more than once from the same creature. _"Multiple" "1"_ will just be 1 drop max.
 
 The RollDrops function needs to be adjusted to read the subtables and the Item/Chance in a slightly different way:
 
@@ -148,10 +148,10 @@ Sometimes doing "50% of item 1 and 50% of item 2" is too random, because it will
 To do this, instead of tying a single item to each item table, there will be yet another table of the \{possible Set of items\} that we want this creature to drop:
 
 ```
-"Drops" 
-{ 
+"Drops"
+{
     "creature_name1"
-    { 
+    {
         "1"
         {
             "ItemSets"

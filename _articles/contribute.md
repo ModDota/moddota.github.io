@@ -4,17 +4,14 @@ title: Contribute
 
 # Contribute
 
-
 ## Suggest an article on GitHub
 
-To suggest a new article go to the [/_articles directory of the ModDota GitHub](https://github.com/ModDota/moddota.github.io/tree/source/_articles).
+To suggest a new article go to the [/\_articles directory of the ModDota GitHub](https://github.com/ModDota/moddota.github.io/tree/source/_articles).
 
 **Note: You need to be logged in to your GitHub account for this.**
 
 Next, click the 'Create file' button as indicated:
 ![Click the create new file button](/images/external/hzOmlcA.png)
-
-
 
 ### Fill your article
 
@@ -23,7 +20,6 @@ In the new file window you have to add a descriptive file name and text for your
 ![Fill your article](/images/external/4CcOl0i.png)
 
 **Tip:** You can use the preview tab at the top to preview the article!
-
 
 #### IMPORTANT: Mandatory fields
 
@@ -35,10 +31,10 @@ Second, you need to set some basic article information at the top, the layout is
 
 ```yaml
 ---
-title: <Title of your article>    # Title of your article (required)
-author: <your name>               # Your name
-steamId: '<your steam ID>'        # Your steam ID to link to your steam profile
-date: <date>                      # The date of writing
+title: <Title of your article> # Title of your article (required)
+author: <your name> # Your name
+steamId: '<your steam ID>' # Your steam ID to link to your steam profile
+date: <date> # The date of writing
 ---
 ```
 

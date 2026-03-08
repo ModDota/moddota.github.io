@@ -7,7 +7,6 @@ date: 07.03.2021
 
 # Abilities in Typescript
 
-
 Regardless of what kind of game you're going for, you'll most probably have to code a couple of abilities for your characters to use to fight whatever they need to fight. Typescript enables coding many abilities with a ton of flexibility.
 
 For this tutorial, I'm going to be demonstrating Typescript with a fairly simple ability: Skywrath's Arcane Bolt. It fires a slow moving tracking projectile that deals damage that equals a base damage, plus a multiplier of the hero's intelligence.
@@ -73,11 +72,11 @@ Note that has slight changes: the ability was renamed to `typescript_skywrath_ma
 
 Three new fields were added:
 
-* `"BaseClass" "ability_lua"` - though we code in Typescript, the resulting file will still be lua, which is what the engine expects. Therefore, we'll use "ability_lua" as the ability class type.
+- `"BaseClass" "ability_lua"` - though we code in Typescript, the resulting file will still be lua, which is what the engine expects. Therefore, we'll use "ability_lua" as the ability class type.
 
-* `"AbilityTextureName" "skywrath_mage_arcane_bolt"` - since we're not using the original ability, it is necessary to add this field to tell the game which icon to use for the ability.
+- `"AbilityTextureName" "skywrath_mage_arcane_bolt"` - since we're not using the original ability, it is necessary to add this field to tell the game which icon to use for the ability.
 
-* `"ScriptFile" "abilities/typescript_skywrath_mage_arcane_bolt"` - this is the path of the file that has the code for the ability. Remember that it uses a relative path starting from the `/game/scripts/vscripts`, which has the `abilities` folder.
+- `"ScriptFile" "abilities/typescript_skywrath_mage_arcane_bolt"` - this is the path of the file that has the code for the ability. Remember that it uses a relative path starting from the `/game/scripts/vscripts`, which has the `abilities` folder.
 
 ## Creating The Ability File
 
@@ -95,24 +94,22 @@ First, we need to declare the ability's class. This is done by adding the follow
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-
-}
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {}
 ```
 
 Let's go over it quickly:
-* `@registerAbility()` - This assigns the class to the global scope, which allows Dota to recognize the ability.
 
-* `export` - Including this keyword is not actually required, but is recommended. It allows you to call this class as a type, if you need to do so at some point. For example, your ability might have a unique function or property that others might want to reference or call.
+- `@registerAbility()` - This assigns the class to the global scope, which allows Dota to recognize the ability.
 
-* `class` - Standard keyword for creating classes.
+- `export` - Including this keyword is not actually required, but is recommended. It allows you to call this class as a type, if you need to do so at some point. For example, your ability might have a unique function or property that others might want to reference or call.
 
-* `typescript_skywrath_mage_arcane_bolt` - This is exactly the same as the ability name. It must be identical to the name of the ability at the top of the ability definition.
+- `class` - Standard keyword for creating classes.
 
-* `extends BaseAbility` - All standard abilities extend the `BaseAbility` class, and inherit various traits of it, such as it being an entity.
+- `typescript_skywrath_mage_arcane_bolt` - This is exactly the same as the ability name. It must be identical to the name of the ability at the top of the ability definition.
 
-* `{}` - Your entire code for that ability will be inside of those curly brackets.
+- `extends BaseAbility` - All standard abilities extend the `BaseAbility` class, and inherit various traits of it, such as it being an entity.
+
+- `{}` - Your entire code for that ability will be inside of those curly brackets.
 
 While your cursor is inside that block, all functions inherited from `BaseAbility` will show up here. Simply start typing for the auto complete to immediately show you possible completions of what you typed.
 
@@ -124,24 +121,24 @@ If either @registerAbility() or BaseAbility are not recognized and show an error
 
 Before we actually add any functions, we should add properties to the class. Those are very easily accessible from everywhere in the class, and are very useful to store information for that ability instance there. This is not required, but this is where I usually store any of the values for:
 
-* Particle paths
+- Particle paths
 
-* Sounds
+- Sounds
 
-* Models
+- Models
 
-* Any other information needed for the ability to function, such as a boolean or a number.
+- Any other information needed for the ability to function, such as a boolean or a number.
 
 Let's add the ability properties for Ancient Bolt: its cast sound, its projectile particle, and its impact sound. Those are fetched from the asset browser.
 The class should now look like this:
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-    sound_cast: string = "Hero_SkywrathMage.ArcaneBolt.Cast";
-    sound_impact: string = "Hero_SkywrathMage.ArcaneBolt.Impact";
-    projectile_arcane_bolt: string = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf";
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
+  sound_cast: string = 'Hero_SkywrathMage.ArcaneBolt.Cast';
+  sound_impact: string = 'Hero_SkywrathMage.ArcaneBolt.Impact';
+  projectile_arcane_bolt: string =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf';
 }
 ```
 
@@ -157,24 +154,21 @@ Now that we've set up everything we need for the ability, let's start coding it.
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-    sound_cast: string = "Hero_SkywrathMage.ArcaneBolt.Cast";
-    sound_impact: string = "Hero_SkywrathMage.ArcaneBolt.Impact";
-    projectile_arcane_bolt: string = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf";
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
+  sound_cast: string = 'Hero_SkywrathMage.ArcaneBolt.Cast';
+  sound_impact: string = 'Hero_SkywrathMage.ArcaneBolt.Impact';
+  projectile_arcane_bolt: string =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf';
 
-    OnSpellStart()
-    {
-
-    }
+  OnSpellStart() {}
 }
 ```
 
 Inside OnSpellStart(), we want to fetch the target of the ability, which the bolt will be fired at. We'll initialize a variable to hold that information. We have two main types of variables that we can initialize:
 
-* `const` - A constant. This variable must be assigned a value when it's called. This variables can never be reassigned. Useful for variables that should never change, such as instances of classes, or definitive results of a function that will be used as is.
+- `const` - A constant. This variable must be assigned a value when it's called. This variables can never be reassigned. Useful for variables that should never change, such as instances of classes, or definitive results of a function that will be used as is.
 
-* `let` - A standard variable. This variable can be undefined, be assigned immediately, or be assigned later. It can be reassigned as many times as you need. Useful for things that change, such as numerical calculations, or boolean operators.
+- `let` - A standard variable. This variable can be undefined, be assigned immediately, or be assigned later. It can be reassigned as many times as you need. Useful for things that change, such as numerical calculations, or boolean operators.
 
 For this case, once we fetch our target, it should never change this cast, which is a good indication that we should use `const`. It will be immediately assigned to the ability's cursor target, using `this.GetCursorTarget()`.
 
@@ -184,16 +178,15 @@ For this case, once we fetch our target, it should never change this cast, which
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-    sound_cast: string = "Hero_SkywrathMage.ArcaneBolt.Cast";
-    sound_impact: string = "Hero_SkywrathMage.ArcaneBolt.Impact";
-    projectile_arcane_bolt: string = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf";
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
+  sound_cast: string = 'Hero_SkywrathMage.ArcaneBolt.Cast';
+  sound_impact: string = 'Hero_SkywrathMage.ArcaneBolt.Impact';
+  projectile_arcane_bolt: string =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf';
 
-    OnSpellStart()
-    {
-        const target = this.GetCursorTarget();
-    }
+  OnSpellStart() {
+    const target = this.GetCursorTarget();
+  }
 }
 ```
 
@@ -217,25 +210,23 @@ Typescript knows this, and will mark `target` as a potential undefined variable.
 If you're sure that variables that are potentially undefined will be assigned with a valid value, you can force Typescript to ignore the potential for undefined by adding "!" to the end of the assignment. For example, we can use `const target = this.GetCursorTarget()!`. However, this is not recommended, as it defeats the purpose of having types in the first place - to make sure you don't do something that you cannot.
 :::
 
-
 ## Coding The Ability: Firing a projectile
 
 The next step would be to collect all remaining information for the projectile out of our ability definition. We want the projectile speed (`bolt_speed`) and vision range (`bolt_vision`). The rest will be collected on impact. Our function should now look like this:
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-    sound_cast: string = "Hero_SkywrathMage.ArcaneBolt.Cast";
-    sound_impact: string = "Hero_SkywrathMage.ArcaneBolt.Impact";
-    projectile_arcane_bolt: string = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf";
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
+  sound_cast: string = 'Hero_SkywrathMage.ArcaneBolt.Cast';
+  sound_impact: string = 'Hero_SkywrathMage.ArcaneBolt.Impact';
+  projectile_arcane_bolt: string =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf';
 
-    OnSpellStart()
-    {
-        const target = this.GetCursorTarget();
-        const bolt_speed = this.GetSpecialValueFor("bolt_speed");
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
-    }
+  OnSpellStart() {
+    const target = this.GetCursorTarget();
+    const bolt_speed = this.GetSpecialValueFor('bolt_speed');
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
+  }
 }
 ```
 
@@ -257,31 +248,29 @@ Let's fill it with properties we care about. The code will now look like this:
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-    sound_cast: string = "Hero_SkywrathMage.ArcaneBolt.Cast";
-    sound_impact: string = "Hero_SkywrathMage.ArcaneBolt.Impact";
-    projectile_arcane_bolt: string = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf";
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
+  sound_cast: string = 'Hero_SkywrathMage.ArcaneBolt.Cast';
+  sound_impact: string = 'Hero_SkywrathMage.ArcaneBolt.Impact';
+  projectile_arcane_bolt: string =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf';
 
-    OnSpellStart()
-    {
-        const target = this.GetCursorTarget();
-        const bolt_speed = this.GetSpecialValueFor("bolt_speed");
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
+  OnSpellStart() {
+    const target = this.GetCursorTarget();
+    const bolt_speed = this.GetSpecialValueFor('bolt_speed');
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
 
-        ProjectileManager.CreateTrackingProjectile(
-        {
-            Ability: this,
-            EffectName: this.projectile_arcane_bolt,
-            Source: this.GetCaster(),
-            Target: target,
-            bDodgeable: false,
-            bProvidesVision: true,
-            iMoveSpeed: bolt_speed,
-            iVisionRadius: bolt_vision,
-            iVisionTeamNumber: this.GetCaster().GetTeamNumber()
-        })
-    }
+    ProjectileManager.CreateTrackingProjectile({
+      Ability: this,
+      EffectName: this.projectile_arcane_bolt,
+      Source: this.GetCaster(),
+      Target: target,
+      bDodgeable: false,
+      bProvidesVision: true,
+      iMoveSpeed: bolt_speed,
+      iVisionRadius: bolt_vision,
+      iVisionTeamNumber: this.GetCaster().GetTeamNumber(),
+    });
+  }
 }
 ```
 
@@ -305,36 +294,33 @@ We need to make sure there's a target. If there's no target, it means that the p
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-    sound_cast: string = "Hero_SkywrathMage.ArcaneBolt.Cast";
-    sound_impact: string = "Hero_SkywrathMage.ArcaneBolt.Impact";
-    projectile_arcane_bolt: string = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf";
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
+  sound_cast: string = 'Hero_SkywrathMage.ArcaneBolt.Cast';
+  sound_impact: string = 'Hero_SkywrathMage.ArcaneBolt.Impact';
+  projectile_arcane_bolt: string =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf';
 
-    OnSpellStart()
-    {
-        const target = this.GetCursorTarget();
-        const bolt_speed = this.GetSpecialValueFor("bolt_speed");
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
+  OnSpellStart() {
+    const target = this.GetCursorTarget();
+    const bolt_speed = this.GetSpecialValueFor('bolt_speed');
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
 
-        ProjectileManager.CreateTrackingProjectile(
-        {
-            Ability: this,
-            EffectName: this.projectile_arcane_bolt,
-            Source: this.GetCaster(),
-            Target: target,
-            bDodgeable: false,
-            bProvidesVision: true,
-            iMoveSpeed: bolt_speed,
-            iVisionRadius: bolt_vision,
-            iVisionTeamNumber: this.GetCaster().GetTeamNumber()
-        })
-    }
+    ProjectileManager.CreateTrackingProjectile({
+      Ability: this,
+      EffectName: this.projectile_arcane_bolt,
+      Source: this.GetCaster(),
+      Target: target,
+      bDodgeable: false,
+      bProvidesVision: true,
+      iMoveSpeed: bolt_speed,
+      iVisionRadius: bolt_vision,
+      iVisionTeamNumber: this.GetCaster().GetTeamNumber(),
+    });
+  }
 
-    OnProjectileHit(target: CDOTA_BaseNPC | undefined, location: Vector)
-    {
-        if (!target) return;
-    }
+  OnProjectileHit(target: CDOTA_BaseNPC | undefined, location: Vector) {
+    if (!target) return;
+  }
 }
 ```
 
@@ -342,41 +328,38 @@ Next, let's quickly collect the remaining information of the ability from the ab
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-    sound_cast: string = "Hero_SkywrathMage.ArcaneBolt.Cast";
-    sound_impact: string = "Hero_SkywrathMage.ArcaneBolt.Impact";
-    projectile_arcane_bolt: string = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf";
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
+  sound_cast: string = 'Hero_SkywrathMage.ArcaneBolt.Cast';
+  sound_impact: string = 'Hero_SkywrathMage.ArcaneBolt.Impact';
+  projectile_arcane_bolt: string =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf';
 
-    OnSpellStart()
-    {
-        const target = this.GetCursorTarget();
-        const bolt_speed = this.GetSpecialValueFor("bolt_speed");
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
+  OnSpellStart() {
+    const target = this.GetCursorTarget();
+    const bolt_speed = this.GetSpecialValueFor('bolt_speed');
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
 
-        ProjectileManager.CreateTrackingProjectile(
-        {
-            Ability: this,
-            EffectName: this.projectile_arcane_bolt,
-            Source: this.GetCaster(),
-            Target: target,
-            bDodgeable: false,
-            bProvidesVision: true,
-            iMoveSpeed: bolt_speed,
-            iVisionRadius: bolt_vision,
-            iVisionTeamNumber: this.GetCaster().GetTeamNumber()
-        })
-    }
+    ProjectileManager.CreateTrackingProjectile({
+      Ability: this,
+      EffectName: this.projectile_arcane_bolt,
+      Source: this.GetCaster(),
+      Target: target,
+      bDodgeable: false,
+      bProvidesVision: true,
+      iMoveSpeed: bolt_speed,
+      iVisionRadius: bolt_vision,
+      iVisionTeamNumber: this.GetCaster().GetTeamNumber(),
+    });
+  }
 
-    OnProjectileHit(target: CDOTA_BaseNPC | undefined, location: Vector)
-    {
-        if (!target) return;
+  OnProjectileHit(target: CDOTA_BaseNPC | undefined, location: Vector) {
+    if (!target) return;
 
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
-        const bolt_damage = this.GetSpecialValueFor("bolt_damage");
-        const int_multiplier = this.GetSpecialValueFor("int_multiplier");
-        const vision_duration = this.GetSpecialValueFor("vision_duration");
-    }
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
+    const bolt_damage = this.GetSpecialValueFor('bolt_damage');
+    const int_multiplier = this.GetSpecialValueFor('int_multiplier');
+    const vision_duration = this.GetSpecialValueFor('vision_duration');
+  }
 }
 ```
 
@@ -414,49 +397,45 @@ After the check and the cast, our code should look like this:
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-    sound_cast: string = "Hero_SkywrathMage.ArcaneBolt.Cast";
-    sound_impact: string = "Hero_SkywrathMage.ArcaneBolt.Impact";
-    projectile_arcane_bolt: string = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf";
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
+  sound_cast: string = 'Hero_SkywrathMage.ArcaneBolt.Cast';
+  sound_impact: string = 'Hero_SkywrathMage.ArcaneBolt.Impact';
+  projectile_arcane_bolt: string =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf';
 
-    OnSpellStart()
-    {
-        const target = this.GetCursorTarget();
-        const bolt_speed = this.GetSpecialValueFor("bolt_speed");
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
+  OnSpellStart() {
+    const target = this.GetCursorTarget();
+    const bolt_speed = this.GetSpecialValueFor('bolt_speed');
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
 
-        ProjectileManager.CreateTrackingProjectile(
-        {
-            Ability: this,
-            EffectName: this.projectile_arcane_bolt,
-            Source: this.GetCaster(),
-            Target: target,
-            bDodgeable: false,
-            bProvidesVision: true,
-            iMoveSpeed: bolt_speed,
-            iVisionRadius: bolt_vision,
-            iVisionTeamNumber: this.GetCaster().GetTeamNumber()
-        })
+    ProjectileManager.CreateTrackingProjectile({
+      Ability: this,
+      EffectName: this.projectile_arcane_bolt,
+      Source: this.GetCaster(),
+      Target: target,
+      bDodgeable: false,
+      bProvidesVision: true,
+      iMoveSpeed: bolt_speed,
+      iVisionRadius: bolt_vision,
+      iVisionTeamNumber: this.GetCaster().GetTeamNumber(),
+    });
+  }
+
+  OnProjectileHit(target: CDOTA_BaseNPC | undefined, location: Vector) {
+    if (!target) return;
+
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
+    const bolt_damage = this.GetSpecialValueFor('bolt_damage');
+    const int_multiplier = this.GetSpecialValueFor('int_multiplier');
+    const vision_duration = this.GetSpecialValueFor('vision_duration');
+
+    AddFOWViewer(this.GetCaster().GetTeamNumber(), location, bolt_vision, vision_duration, false);
+
+    let damage = bolt_damage;
+    if (this.GetCaster().IsHero()) {
+      damage += (this.GetCaster() as CDOTA_BaseNPC_Hero).GetIntellect() * int_multiplier;
     }
-
-    OnProjectileHit(target: CDOTA_BaseNPC | undefined, location: Vector)
-    {
-        if (!target) return;
-
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
-        const bolt_damage = this.GetSpecialValueFor("bolt_damage");
-        const int_multiplier = this.GetSpecialValueFor("int_multiplier");
-        const vision_duration = this.GetSpecialValueFor("vision_duration");
-
-        AddFOWViewer(this.GetCaster().GetTeamNumber(), location, bolt_vision, vision_duration, false);
-
-        let damage = bolt_damage;
-        if (this.GetCaster().IsHero())
-        {
-            damage += (this.GetCaster() as CDOTA_BaseNPC_Hero).GetIntellect() * int_multiplier;
-        }
-    }
+  }
 }
 ```
 
@@ -466,59 +445,54 @@ Our code should now look like this:
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-    sound_cast: string = "Hero_SkywrathMage.ArcaneBolt.Cast";
-    sound_impact: string = "Hero_SkywrathMage.ArcaneBolt.Impact";
-    projectile_arcane_bolt: string = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf";
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
+  sound_cast: string = 'Hero_SkywrathMage.ArcaneBolt.Cast';
+  sound_impact: string = 'Hero_SkywrathMage.ArcaneBolt.Impact';
+  projectile_arcane_bolt: string =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf';
 
-    OnSpellStart()
-    {
-        const target = this.GetCursorTarget();
-        const bolt_speed = this.GetSpecialValueFor("bolt_speed");
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
+  OnSpellStart() {
+    const target = this.GetCursorTarget();
+    const bolt_speed = this.GetSpecialValueFor('bolt_speed');
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
 
-        ProjectileManager.CreateTrackingProjectile(
-        {
-            Ability: this,
-            EffectName: this.projectile_arcane_bolt,
-            Source: this.GetCaster(),
-            Target: target,
-            bDodgeable: false,
-            bProvidesVision: true,
-            iMoveSpeed: bolt_speed,
-            iVisionRadius: bolt_vision,
-            iVisionTeamNumber: this.GetCaster().GetTeamNumber()
-        })
+    ProjectileManager.CreateTrackingProjectile({
+      Ability: this,
+      EffectName: this.projectile_arcane_bolt,
+      Source: this.GetCaster(),
+      Target: target,
+      bDodgeable: false,
+      bProvidesVision: true,
+      iMoveSpeed: bolt_speed,
+      iVisionRadius: bolt_vision,
+      iVisionTeamNumber: this.GetCaster().GetTeamNumber(),
+    });
+  }
+
+  OnProjectileHit(target: CDOTA_BaseNPC | undefined, location: Vector) {
+    if (!target) return;
+
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
+    const bolt_damage = this.GetSpecialValueFor('bolt_damage');
+    const int_multiplier = this.GetSpecialValueFor('int_multiplier');
+    const vision_duration = this.GetSpecialValueFor('vision_duration');
+
+    AddFOWViewer(this.GetCaster().GetTeamNumber(), location, bolt_vision, vision_duration, false);
+
+    let damage = bolt_damage;
+    if (this.GetCaster().IsHero()) {
+      damage += (this.GetCaster() as CDOTA_BaseNPC_Hero).GetIntellect() * int_multiplier;
     }
 
-    OnProjectileHit(target: CDOTA_BaseNPC | undefined, location: Vector)
-    {
-        if (!target) return;
-
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
-        const bolt_damage = this.GetSpecialValueFor("bolt_damage");
-        const int_multiplier = this.GetSpecialValueFor("int_multiplier");
-        const vision_duration = this.GetSpecialValueFor("vision_duration");
-
-        AddFOWViewer(this.GetCaster().GetTeamNumber(), location, bolt_vision, vision_duration, false);
-
-        let damage = bolt_damage;
-        if (this.GetCaster().IsHero())
-        {
-            damage += (this.GetCaster() as CDOTA_BaseNPC_Hero).GetIntellect() * int_multiplier;
-        }
-
-        ApplyDamage(
-        {
-            attacker: this.GetCaster(),
-            damage: damage,
-            damage_type: DamageTypes.MAGICAL,
-            victim: target,
-            ability: this,
-            damage_flags: DamageFlag.NONE
-        });
-    }
+    ApplyDamage({
+      attacker: this.GetCaster(),
+      damage: damage,
+      damage_type: DamageTypes.MAGICAL,
+      victim: target,
+      ability: this,
+      damage_flags: DamageFlag.NONE,
+    });
+  }
 }
 ```
 
@@ -527,66 +501,59 @@ The final code should look like this:
 
 ```ts
 @registerAbility()
-export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
-{
-    sound_cast: string = "Hero_SkywrathMage.ArcaneBolt.Cast";
-    sound_impact: string = "Hero_SkywrathMage.ArcaneBolt.Impact";
-    projectile_arcane_bolt: string = "particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf";
+export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
+  sound_cast: string = 'Hero_SkywrathMage.ArcaneBolt.Cast';
+  sound_impact: string = 'Hero_SkywrathMage.ArcaneBolt.Impact';
+  projectile_arcane_bolt: string =
+    'particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt.vpcf';
 
-    OnSpellStart()
-    {
-        const target = this.GetCursorTarget();
+  OnSpellStart() {
+    const target = this.GetCursorTarget();
 
-        const bolt_speed = this.GetSpecialValueFor("bolt_speed");
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
+    const bolt_speed = this.GetSpecialValueFor('bolt_speed');
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
 
-        EmitSoundOn(this.sound_cast, this.GetCaster());
+    EmitSoundOn(this.sound_cast, this.GetCaster());
 
-        ProjectileManager.CreateTrackingProjectile(
-            {
-                Ability: this,
-                EffectName: this.projectile_arcane_bolt,
-                Source: this.GetCaster(),
-                Target: target,
-                bDodgeable: false,
-                bProvidesVision: true,
-                iMoveSpeed: bolt_speed,
-                iVisionRadius: bolt_vision,
-                iVisionTeamNumber: this.GetCaster().GetTeamNumber(),
-            }
-        )
+    ProjectileManager.CreateTrackingProjectile({
+      Ability: this,
+      EffectName: this.projectile_arcane_bolt,
+      Source: this.GetCaster(),
+      Target: target,
+      bDodgeable: false,
+      bProvidesVision: true,
+      iMoveSpeed: bolt_speed,
+      iVisionRadius: bolt_vision,
+      iVisionTeamNumber: this.GetCaster().GetTeamNumber(),
+    });
+  }
+
+  OnProjectileHit(target: CDOTA_BaseNPC | undefined, location: Vector) {
+    if (!target) return;
+
+    EmitSoundOn(this.sound_impact, target);
+
+    const bolt_vision = this.GetSpecialValueFor('bolt_vision');
+    const bolt_damage = this.GetSpecialValueFor('bolt_damage');
+    const int_multiplier = this.GetSpecialValueFor('int_multiplier');
+    const vision_duration = this.GetSpecialValueFor('vision_duration');
+
+    AddFOWViewer(this.GetCaster().GetTeamNumber(), location, bolt_vision, vision_duration, false);
+
+    let damage = bolt_damage;
+    if (this.GetCaster().IsHero()) {
+      damage += (this.GetCaster() as CDOTA_BaseNPC_Hero).GetIntellect() * int_multiplier;
     }
 
-    OnProjectileHit(target: CDOTA_BaseNPC | undefined, location: Vector)
-    {
-        if (!target) return;
-
-        EmitSoundOn(this.sound_impact, target);
-
-        const bolt_vision = this.GetSpecialValueFor("bolt_vision");
-        const bolt_damage = this.GetSpecialValueFor("bolt_damage");
-        const int_multiplier = this.GetSpecialValueFor("int_multiplier");
-        const vision_duration = this.GetSpecialValueFor("vision_duration");
-
-        AddFOWViewer(this.GetCaster().GetTeamNumber(), location, bolt_vision, vision_duration, false);
-
-        let damage = bolt_damage;
-        if (this.GetCaster().IsHero())
-        {
-            damage += (this.GetCaster() as CDOTA_BaseNPC_Hero).GetIntellect() * int_multiplier;
-        }
-
-        ApplyDamage(
-            {
-                attacker: this.GetCaster(),
-                damage: damage,
-                damage_type: DamageTypes.MAGICAL,
-                victim: target,
-                ability: this,
-                damage_flags: DamageFlag.NONE
-            }
-        );
-    }
+    ApplyDamage({
+      attacker: this.GetCaster(),
+      damage: damage,
+      damage_type: DamageTypes.MAGICAL,
+      victim: target,
+      ability: this,
+      damage_flags: DamageFlag.NONE,
+    });
+  }
 }
 ```
 
@@ -595,7 +562,6 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
 Below is a short video record that shows the application of Skywrath Mage's Ancient Bolt in Typescript as explained in this section.
 
 <YouTube id="jiKNIkJ8TDE" />
-
 
 ## What's Next?
 

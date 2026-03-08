@@ -7,7 +7,6 @@ date: 05.10.2022
 
 # Events and Timers in Typescript
 
-
 As you may know, Dota has many events. While developing a custom game, listening to events is very useful, as it allows you to do something when something occurs. For example, listening to an event that triggers on death, whenever a hero, unit or building are killed. Events will supply some information about the instance of that event. For example, in the above event, the killer and the victim will be included in the parameters.
 
 ## Important Note Before We Begin
@@ -24,7 +23,7 @@ Open the `GameMode.ts` file in the `/src/vscripts` folder of your project.
 There, you can find examples of events that we're listening to. For example, let's take the following event:
 
 ```ts
-ListenToGameEvent("npc_spawned", event => this.OnNpcSpawned(event), undefined);
+ListenToGameEvent('npc_spawned', (event) => this.OnNpcSpawned(event), undefined);
 ```
 
 Calling the `ListenToGameEvent` creates a new listener to that event. In the first argument, a valid event's name must be provided. Typescript knows which event names are allowed and will refuse any other name that is not one of the known events. Not only that, it also knows what type of parameters each event pass along.
@@ -35,9 +34,13 @@ Then, the second argument is the callback function. Note that it has the `event 
 The function can be an external function, like `this.OnNpcSpawned` in the example above where it is defined, or you can write out the function body right there. For example:
 
 ```ts
-ListenToGameEvent("npc_spawned", event => {
-    print("we just fired npc spawned event!");
-}, undefined);
+ListenToGameEvent(
+  'npc_spawned',
+  (event) => {
+    print('we just fired npc spawned event!');
+  },
+  undefined,
+);
 ```
 
 :::info
@@ -105,9 +108,9 @@ Going back to `GameMode.ts`, the file includes a couple of Timers examples. In b
 ```ts
 // Automatically skip setup in tools
 if (IsInToolsMode()) {
-    Timers.CreateTimer(3, () => {
-        GameRules.FinishCustomGameSetup();
-    });
+  Timers.CreateTimer(3, () => {
+    GameRules.FinishCustomGameSetup();
+  });
 }
 ```
 
@@ -145,9 +148,9 @@ There, we want to create the sleep function, which looks like this:
 
 ```ts
 export function sleep(duration: number) {
-    return new Promise((resolve, reject) => {
-        Timers.CreateTimer(duration, () => resolve(""));
-    });
+  return new Promise((resolve, reject) => {
+    Timers.CreateTimer(duration, () => resolve(''));
+  });
 }
 ```
 
@@ -162,7 +165,7 @@ private async OnNpcSpawned(event: NpcSpawnedEvent) {
 Then, import `sleep` from `utils.ts`:
 
 ```ts
-import { sleep } from "./lib/util";
+import { sleep } from './lib/util';
 ```
 
 And now we can sleep for 5 seconds using await:

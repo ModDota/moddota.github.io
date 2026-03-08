@@ -7,29 +7,27 @@ date: 22.04.2015
 
 # Unit KeyValues
 
-
 This document covers every keyvalue of the npc_units_custom file
 
 ![img](/images/external/T7W828Q.png)
 
-* [General](#general)
-* [Boolean Values and Flags](#boolean-values-and-flags)
-* [Selection Properties](#selection-properties)
-* [Sounds](#sounds)
-* [Abilities](#abilities)
-* [Stats](#stats)
-* [Bounds](#bounds)
-* [Movement](#movement)
-* [Health and Mana](#health-and-mana)
-* [Armor and Attack Types](#armor-and-attack-types)
-* [Vision](#vision)
-* [Lua VScript AI](#lua-vscript-ai)
-* [Creature Block](#creature-block)
-
+- [General](#general)
+- [Boolean Values and Flags](#boolean-values-and-flags)
+- [Selection Properties](#selection-properties)
+- [Sounds](#sounds)
+- [Abilities](#abilities)
+- [Stats](#stats)
+- [Bounds](#bounds)
+- [Movement](#movement)
+- [Health and Mana](#health-and-mana)
+- [Armor and Attack Types](#armor-and-attack-types)
+- [Vision](#vision)
+- [Lua VScript AI](#lua-vscript-ai)
+- [Creature Block](#creature-block)
 
 ## General
 
-Most unit names start with "npc_" but this isn't necessary. A basic unit definition looks like this:
+Most unit names start with "npc\_" but this isn't necessary. A basic unit definition looks like this:
 
 ```
 "human_footman"
@@ -123,25 +121,26 @@ The definition of the default dota units can be found in [npc_units.txt](https:/
 
 There are a lot of classes for units, but as we don't have much control over their properties, only a few are really useful for custom units in general:
 
-* ***npc_dota_creature***
+- **_npc_dota_creature_**
 
   The most useful baseclass, it doesn't have any critical hardcoded property so it's the go-to unit type for most units. It also allows the usage of the "Creature" block, which is reviewed in the next section. It's linked to the `"DOTA_UNIT_TARGET_BASIC"` target type in abilities.
 
-  There is however one simple property imposed to this unit type, which for the most part it's useful but it's good to keep in mind, and it's that **abilities are automatically skilled** up to the MaxLevel if possible (limited by the Level*2 of the creature, meaning a Level 1 creature will autolearn its abilities up to the 2nd rank). This can be of course modified through Lua `SetLevel` on each ability.
+  There is however one simple property imposed to this unit type, which for the most part it's useful but it's good to keep in mind, and it's that **abilities are automatically skilled** up to the MaxLevel if possible (limited by the Level\*2 of the creature, meaning a Level 1 creature will autolearn its abilities up to the 2nd rank). This can be of course modified through Lua `SetLevel` on each ability.
 
-* ***npc_dota_building***
+- **_npc_dota_building_**
 
   Linked to `"DOTA_UNIT_TARGET_BUILDING"`, this baseclass can prove useful in many situations.
 
   It has the following properties imposed to it, which we have **no control** over them:
+  - Invulnerable by default. Very annoying, it can be removed through Lua with `building_handle:RemoveModifierByName("modifier_invulnerable")`
+  - Visible through fog. This is troublesome, and forces any game that wants to have building strategies to use npc_dota_creature and define custom building damage, with some other downsides.
+  - No visual turning, even if internally the unit is actually changing its forward vector. Usually a good thing, the creature equivalent behavior for this is the stunned state.
+    <br />
+    Worth mentioning `npc_dota_tower` is a subclass of building, and is coded to trigger stuff like
+    the announcers, team gold sharing and aggro AI. Use npc_dota_building with attack to make towers
+    that aren't forced to use those mechanics.
 
-  * Invulnerable by default. Very annoying, it can be removed through Lua with `building_handle:RemoveModifierByName("modifier_invulnerable")`
-  * Visible through fog. This is troublesome, and forces any game that wants to have building strategies to use npc_dota_creature and define custom building damage, with some other downsides.
-  * No visual turning, even if internally the unit is actually changing its forward vector. Usually a good thing, the creature equivalent behavior for this is the stunned state.
-<br />
-  Worth mentioning `npc_dota_tower` is a subclass of building, and is coded to trigger stuff like the announcers, team gold sharing and aggro AI. Use npc_dota_building with attack to make towers that aren't forced to use those mechanics.
-
-* ***npc_dota_thinker***
+- **_npc_dota_thinker_**
 
   For dummy units. More on this later
 
@@ -205,55 +204,41 @@ Associated Lua functions: `HasInventory()` and `SetHasInventory(bool)`
 Self-explanatory, the default values are 0 for summoned (so the lua IsSummoned will always return false unless you set this), and 1 for dominated creatures.
 
 <br />
-```
-"ConsideredHero"		"1"
-```
+``` "ConsideredHero" "1" ```
 
 `"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"` datadriven flag. Gives the unit a hero styled health bar:
 
 ![img](/images/external/ho2pt-c687566db4.jpg)
 
 <br />
-```
-"IsAncient"                    "1"
-```
+``` "IsAncient" "1" ```
 
 Associated Lua function: `IsAncient()`<br />`"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"` datadriven flag.
 
 <br />
-```
-"IsNeutralUnitType"            "1"
-```
+``` "IsNeutralUnitType" "1" ```
 
 Associated Lua function: `IsNeutralUnitType()`
 
 <br />
-```
-"CanBeDominated"               "0"
-```
+``` "CanBeDominated" "0" ```
 
 Helm of the Dominator specific. No associated Lua function, but it's easy to make one to read from this value if you wish.
 
 <br />
-```
-"AutoAttacksByDefault"         "0"
-```
+``` "AutoAttacksByDefault" "0" ```
 
 Ignores Auto Attack Behavior setting, forces to not autoattack. Used on Visage Familiars.
 
 <br />
-```
-"ShouldDoFlyHeightVisual"      "0"
-```
+``` "ShouldDoFlyHeightVisual" "0" ```
 
 ![img](/images/external/ho2MV-7f3e6d0fd8.jpg)
 
 Seems broken, no noticeable difference.
 
 <br />
-```
-"WakesNeutrals"                "1"
-```
+``` "WakesNeutrals" "1" ```
 
 Unit won't aggro units on the Neutral team within their acquisition range.
 
@@ -265,14 +250,14 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 "IgnoreAddSummonedToSelection" "1"
 ```
 
-* **SelectionGroup** will make it so that all the units of this type are in a group which can be accessed through tab.
+- **SelectionGroup** will make it so that all the units of this type are in a group which can be accessed through tab.
 
 ![img](/images/external/ho1rl-d0d5e48cd3.jpg)
-*I pressed tab once and all these units got selected after defining them in the same control group*
+_I pressed tab once and all these units got selected after defining them in the same control group_
 
-* **SelectOnSpawn** forces the unit into the selection of the hero, even if the "Auto Select Summoned Units" setting is turned off. It's used on Visage Familiars.
+- **SelectOnSpawn** forces the unit into the selection of the hero, even if the "Auto Select Summoned Units" setting is turned off. It's used on Visage Familiars.
 
-* **IgnoreAddSummonedToSelection** if set to 1, makes the "Auto Select Summoned Units" ignore this unit when it spawns. It's used on Brewmaster Primal Split units.
+- **IgnoreAddSummonedToSelection** if set to 1, makes the "Auto Select Summoned Units" ignore this unit when it spawns. It's used on Brewmaster Primal Split units.
 
 ## Sounds
 
@@ -282,9 +267,9 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 "IdleSoundLoop"                "Hero_DragonKnight.Tutorial_Intro"
 ```
 
-* **SoundSet** with the correct **GameSoundsFile** associated takes care of sounds like attacks and walking footsteps. The SoundSet string should be the first part of each of the hero sounds, which can be easily seen through the [Dota 2 Sound Editor](https://github.com/pingzing/dota2-sound-editor).
+- **SoundSet** with the correct **GameSoundsFile** associated takes care of sounds like attacks and walking footsteps. The SoundSet string should be the first part of each of the hero sounds, which can be easily seen through the [Dota 2 Sound Editor](https://github.com/pingzing/dota2-sound-editor).
 
-* **IdleSoundLoop** will be played constantly after the unit spawns. Some heroes don't have a loop sound defined, but as in the example above it's possible to use this as a spawn sound for the unit if you add the string of a non-loopable sound.
+- **IdleSoundLoop** will be played constantly after the unit spawns. Some heroes don't have a loop sound defined, but as in the example above it's possible to use this as a spawn sound for the unit if you add the string of a non-loopable sound.
 
 ## Abilities
 
@@ -317,11 +302,11 @@ Because of :valve: reasons, unit stats aren't hover-able, but they are there.
 
 List of Attack Capabilities:
 
-* `DOTA_UNIT_CAP_NO_ATTACK`
-* `DOTA_UNIT_CAP_MELEE_ATTACK`
-* `DOTA_UNIT_CAP_RANGED_ATTACK`
+- `DOTA_UNIT_CAP_NO_ATTACK`
+- `DOTA_UNIT_CAP_MELEE_ATTACK`
+- `DOTA_UNIT_CAP_RANGED_ATTACK`
 
-###  Other Attack Stats:
+### Other Attack Stats:
 
 ```
 "AttackDamageMin"            "50"       // Damage range min.
@@ -386,26 +371,25 @@ This defines the unit collision with other units.
 
 Bound Size Reference:
 
-| Value | Radius in Hammer units
-|---|---|
-| DOTA_HULL_SIZE_SMALL | 8
-| DOTA_HULL_SIZE_REGULAR| 16
-| DOTA_HULL_SIZE_SIEGE | 16
-| DOTA_HULL_SIZE_HERO | 24
-| DOTA_HULL_SIZE_HUGE | 80
-| DOTA_HULL_SIZE_BUILDING | 81
-| DOTA_HULL_SIZE_FILLER | 96
-| DOTA_HULL_SIZE_BARRACKS | 144
-| DOTA_HULL_SIZE_TOWER | 144
+| Value                   | Radius in Hammer units |
+| ----------------------- | ---------------------- |
+| DOTA_HULL_SIZE_SMALL    | 8                      |
+| DOTA_HULL_SIZE_REGULAR  | 16                     |
+| DOTA_HULL_SIZE_SIEGE    | 16                     |
+| DOTA_HULL_SIZE_HERO     | 24                     |
+| DOTA_HULL_SIZE_HUGE     | 80                     |
+| DOTA_HULL_SIZE_BUILDING | 81                     |
+| DOTA_HULL_SIZE_FILLER   | 96                     |
+| DOTA_HULL_SIZE_BARRACKS | 144                    |
+| DOTA_HULL_SIZE_TOWER    | 144                    |
 
-* Lua `SetHullRadius(float)` can change this to any value in between or even above 144.
-
+- Lua `SetHullRadius(float)` can change this to any value in between or even above 144.
 
 ```
 "RingRadius"                "70"
 ```
 
-  The visible selection ring when the unit is selected
+The visible selection ring when the unit is selected
 
 ![img](/images/external/ho2lF-02ab15803e.jpg)
 
@@ -427,9 +411,9 @@ The height from the ground at which the Health Bar should be placed. By default 
 
 List of Movement Capabilities
 
-* `DOTA_UNIT_CAP_MOVE_NONE`
-* `DOTA_UNIT_CAP_MOVE_GROUND`
-* `DOTA_UNIT_CAP_MOVE_FLY`
+- `DOTA_UNIT_CAP_MOVE_NONE`
+- `DOTA_UNIT_CAP_MOVE_GROUND`
+- `DOTA_UNIT_CAP_MOVE_FLY`
 
 ### Less used movement-related values:
 
@@ -456,9 +440,9 @@ Distance to keep when following. Healing Ward/Sigil have it set at 250.
 
 **Notes:**
 
-* Negative Health/Mana Regen doesn't work.
-* Setting StatusMana on 0 will make it not have a mana bar.
-* There is currently **no way of Setting MAX Mana** in Lua! Unit mana pool modification has to be done with the Creature block and Levels.
+- Negative Health/Mana Regen doesn't work.
+- Setting StatusMana on 0 will make it not have a mana bar.
+- There is currently **no way of Setting MAX Mana** in Lua! Unit mana pool modification has to be done with the Creature block and Levels.
 
 ### Rarely used:
 
@@ -479,24 +463,24 @@ The Table of Physical Attacks vs Armor Types can be found [here in this link to 
 
 ### Attack Types Table
 
-| Name | Dota Equivalent
-|---|---|
-|  Normal | DOTA_COMBAT_CLASS_ATTACK_BASIC
-|  Pierce | DOTA_COMBAT_CLASS_ATTACK_PIERCE
-|  Siege  |  DOTA_COMBAT_CLASS_ATTACK_SIEGE
-|  Chaos  |  DOTA_COMBAT_CLASS_ATTACK_LIGHT
-|  Hero   |  DOTA_COMBAT_CLASS_ATTACK_HERO
+| Name   | Dota Equivalent                 |
+| ------ | ------------------------------- |
+| Normal | DOTA_COMBAT_CLASS_ATTACK_BASIC  |
+| Pierce | DOTA_COMBAT_CLASS_ATTACK_PIERCE |
+| Siege  | DOTA_COMBAT_CLASS_ATTACK_SIEGE  |
+| Chaos  | DOTA_COMBAT_CLASS_ATTACK_LIGHT  |
+| Hero   | DOTA_COMBAT_CLASS_ATTACK_HERO   |
 
 ### Armor Types Table
 
-| Name | Dota Equivalent
-|---|---|
-| Unarmored | DOTA_COMBAT_CLASS_DEFEND_SOFT
-| Light     | DOTA_COMBAT_CLASS_DEFEND_WEAK
-| Medium    |  DOTA_COMBAT_CLASS_DEFEND_BASIC
-| Heavy     |  DOTA_COMBAT_CLASS_DEFEND_STRONG
-| Fortified |  DOTA_COMBAT_CLASS_DEFEND_STRUCTURE
-| Hero      | DOTA_COMBAT_CLASS_DEFEND_HERO
+| Name      | Dota Equivalent                    |
+| --------- | ---------------------------------- |
+| Unarmored | DOTA_COMBAT_CLASS_DEFEND_SOFT      |
+| Light     | DOTA_COMBAT_CLASS_DEFEND_WEAK      |
+| Medium    | DOTA_COMBAT_CLASS_DEFEND_BASIC     |
+| Heavy     | DOTA_COMBAT_CLASS_DEFEND_STRONG    |
+| Fortified | DOTA_COMBAT_CLASS_DEFEND_STRUCTURE |
+| Hero      | DOTA_COMBAT_CLASS_DEFEND_HERO      |
 
 ## Vision
 
@@ -518,13 +502,13 @@ This doesn't seem to make any difference, might be deprecated or just used for t
 
 List:
 
-* `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BARRACKS`
-* `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING`
-* `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER`
-* `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT`
-* `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO`
-* `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_SIEGE`
-* `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD`
+- `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BARRACKS`
+- `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING`
+- `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER`
+- `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT`
+- `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_HERO`
+- `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_SIEGE`
+- `DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD`
 
 ## Lua VScript AI
 

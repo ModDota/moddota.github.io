@@ -7,7 +7,6 @@ date: 18.01.2015
 
 # Reutilizing Built-In Modifiers
 
-
 Here it will be explained how to reuse any Built-In modifier through the datadriven system.
 
 This has many uses, as sometimes it's impossible to replicate some effects that are very hidden/hardcoded within the engine.
@@ -27,6 +26,7 @@ The Full List of Built-In Modifiers can be found [on the wiki](https://developer
 `AddNewModifier` can be replaced by the datadriven `"ApplyNewModifier"` Action block like this:
 
 **Basic Example:** This will apply 1 frame of MODIFIER_STATE_NO_UNIT_COLLISION
+
 ```
 "ApplyModifier"
 {
@@ -71,11 +71,13 @@ Copy the ability specials from the main ability into your datadriven AbilityValu
   "bonus_attack_speed" "322"
 }
 ```
+
 <br />
 
 ## Step 3. Applying the modifier
 
 On the desired Ability or Modifier Event, add the ApplyModifier action:
+
 ```
 "ApplyModifier"
 {
@@ -108,13 +110,14 @@ After modifying the addon_english.txt:
 
 ![img](/images/external/eHpXB-8fe79a1d57.jpg)
 
-Note that you cannot refer to a new custom %dMODIFIER_PROPERTY_[CONSTANT_LIST](/abilities/ability-keyvalues)% in the tooltip, because it doesn't have the custom values in its modifier.
+Note that you cannot refer to a new custom %dMODIFIER*PROPERTY*[CONSTANT_LIST](/abilities/ability-keyvalues)% in the tooltip, because it doesn't have the custom values in its modifier.
 
 Instead you can make those tooltips in the separate modifier, or directly add the numbers to the original modifier tooltip if they are static values (like in this case I could've written 50 and 322). Sadly, you can't set the built-in modifier as hidden either.
 
 <br />
 
 ## Full Example
+
 ```
 "alchemist_chemical_rage_warcraft"
 {
@@ -192,6 +195,6 @@ Instead you can make those tooltips in the separate modifier, or directly add th
 
 Hopefully this will help you have more options if the ability you want to modify hasn't been rewritten yet, or to get a particular effect which is hard to replicate by normal means.
 
-*Remember to share any interesting discoveries in here, for the benefit of everyone in the community.*
+_Remember to share any interesting discoveries in here, for the benefit of everyone in the community._
 
 Thanks for reading!

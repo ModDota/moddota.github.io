@@ -7,12 +7,11 @@ date: 01.12.2014
 
 # Item KeyValues
 
-
 A comprehensive guide to npc_items_custom and coding items
 
 ## General
 
-Start with "item_" and your item name. If you **don't** put `item_` at the beginning of an item, bad things happen.
+Start with "item*" and your item name. If you **don't** put `item*` at the beginning of an item, bad things happen.
 
 ```
 "item_custom"
@@ -48,8 +47,8 @@ Now that we settled that, I'll review the most common key values seen in items.
 
 ItemKillable lets both allies and enemies destroy the dropped item by attacking it.
 
-
 ### Stock
+
 ```
 "ItemStockMax" "1"
 "ItemStockTime" "100"
@@ -59,6 +58,7 @@ ItemKillable lets both allies and enemies destroy the dropped item by attacking 
 ### Ownership
 
 If you omit the following, its behavior will be NOT_SHAREABLE
+
 ```
 "ItemShareability" "ITEM_NOT_SHAREABLE"             //Rapier
                    "ITEM_PARTIALLY_SHAREABLE"       //Ring of Regen
@@ -67,6 +67,7 @@ If you omit the following, its behavior will be NOT_SHAREABLE
 ```
 
 ### Charges
+
 ```
 "ItemInitialCharges" "1" //How many charges should the item start with - Tango x3
 "ItemDisplayCharges" "1" //Hide the charges of the item - Aegis
@@ -87,19 +88,21 @@ Also remember to add this somewhere, normally at the beginning of a OnSpellStart
 If "ItemPermanent" is set to 1, charged items won't disappear when they hit 0 charges (Bottle, Urn, etc)
 By omitting it will also default to 1.
 
-
 ### Auto Cast
+
 This value is the key for Tomes of Stats and other consumable items:
 
 `"ItemCastOnPickup" "1"`
 
 ### Upgradeable items
+
 ```
 "MaxUpgradeLevel" "5" // Dagon - 5
 "ItemBaseLevel" "1" //You'll need 5 different items, and change each accordingly
 ```
 
 ### Recipes
+
 ```
 "item_recipe_custom"
 {
@@ -117,17 +120,19 @@ This value is the key for Tomes of Stats and other consumable items:
 ```
 
 **IMPORTANT NOTE:** Your item name for the recipe to be recognized by the Dota Shop UI NEEDS to have this format:
+
 ```
 "item_recipe_(name of your item)"
 ```
 
-Meaning if the ItemResult you want to get is called *"item_capuchino"*, your recipe would be: *"item_recipe_capuchino"*
+Meaning if the ItemResult you want to get is called _"item_capuchino"_, your recipe would be: _"item_recipe_capuchino"_
 
 ![img](/images/external/dyDFL-f0a814100d.jpg)
 
 If you don't, the item will still be combinable but it won't show the neat lines to the possible upgrades.
 
 ### Disassembling
+
 ```
 "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
                       "DOTA_ITEM_DISASSEMBLE_NEVER"
@@ -169,7 +174,8 @@ For more on Modifiers, check the [Constants in the wiki]
 ```
 
 ## Adding spell functionality
-Apart from this values specially related to items, you can add ***everything*** that could be part of a datadriven ability, for example:
+
+Apart from this values specially related to items, you can add **_everything_** that could be part of a datadriven ability, for example:
 
 ```
 "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -193,7 +199,7 @@ For your item to have an icon you'll need to go to your addon folder under this 
 
 `/resource/flash3/images/items`
 
-And put a .PNG file with dimensions **86 x 64**, with the same name as the "item\_custom", WITHOUT the "item_"
+And put a .PNG file with dimensions **86 x 64**, with the same name as the "item_custom", WITHOUT the "item\_"
 
 ![img](/images/external/4Jr9cpF.png)
 
@@ -210,7 +216,7 @@ For this, inside your addon folder you need to go inside scripts/shops and make/
 
 mapName should be the name of YOUR MAP (.vmap file in Hammer or content folder), NOT your addon name (both could be the same, or you could have multiple maps with different shops)
 
-Adding "_shops" to the mapName is also mandatory.
+Adding "\_shops" to the mapName is also mandatory.
 
 A template shop file:
 
@@ -306,6 +312,7 @@ To make an actual shop area inside your map on Hammer, check this other tutorial
 To disable your dota items, use this `npc_abilities_override.txt` inside the scripts/npc folder:
 
 ::: details npc_abilities_override.txt
+
 ```
 // Dota Abilities Override File
 "DOTAAbilities"
@@ -550,12 +557,15 @@ To disable your dota items, use this `npc_abilities_override.txt` inside the scr
 	"item_winter_greevil_chewy"			"REMOVE"
 }
 ```
+
 :::
 
 ## Cosmetic Values: Models, Effects, Tags and others.
+
 These values are optional but greatly improve the quality of your item
 
 ### Sounds when Picked, Dropped
+
 ```
 "UIPickupSound" "Item.PickUpRingShop" //Sound when acquiring the item
 "UIDropSound" "Item.DropRecipeShop" //Sound when dropping the item manually
@@ -563,17 +573,20 @@ These values are optional but greatly improve the quality of your item
 ```
 
 ### Model and Glow in the world.
+
 VMDL and Particle files can be seen through the [Asset Browser]
 
 ```
 "Model" "models/chest_worlddrop.vmdl"
 "Effect" "particles/generic_gameplay/dropped_item.vpcf"
 ```
+
 You can find good models in /props_gameplay, /econ or use your own customs
 
 Important: If you create the item through lua [CreateItemOnPositionSync], you need to provide vision of the world position where the item is being created, at least briefly, to properly display the particle effect.
 
 ### Change the displayed color of the item
+
 ```
 "ItemQuality"    "artifact" //Orange
                  "epic" //Purple
@@ -585,7 +598,7 @@ Important: If you create the item through lua [CreateItemOnPositionSync], you ne
 
 ### Tags & Alias
 
-Tags are defined in addon_english, find them in [dota_english] under *// Tags*
+Tags are defined in addon_english, find them in [dota_english] under _// Tags_
 Aliases help the search bar to find the item quickly with abbreviations
 
 ```
@@ -594,6 +607,7 @@ Aliases help the search bar to find the item quickly with abbreviations
 ```
 
 Omit to not announce.
+
 ```
 "ItemDeclarations" "DECLARE_PURCHASES_TO_TEAMMATES"
                    "DECLARE_PURCHASES_IN_SPEECH"
@@ -603,32 +617,35 @@ Omit to not announce.
 ### Restrictions
 
 This is how Basher is disallowed for certain heroes
+
 ```
 "InvalidHeroes" "npc_dota_hero_spirit_breaker;npc_dota_hero_faceless_void"
 ```
 
 For the Scripted, more powerful version, read more on [Item Restrictions & Requirements](/scripting/item-restrictions-requirements)
 
-------
+---
 
 ## Alt-Click
 
 Alt-click text on items in Inventory and dropped on the ground. Takes the strings from resource/addon_english.txt
- or any other languages.
+or any other languages.
 
 ### PingOverrideText
 
 Overrides the default "[ALLIES] **ItemName** dropped here".
- It will look for *#DOTA_Chat_Text_String* (*Text_String* can be whatever) in your addon strings.
+It will look for _#DOTA_Chat_Text_String_ (_Text_String_ can be whatever) in your addon strings.
 
 <StaticVideo path="/videos/RemarkableImportantAnt.mp4" />
 
 In the item_datadriven:
+
 ```
 "PingOverrideText" "DOTA_Chat_Text_String"
 ```
 
 In addon_english.txt:
+
 ```
 "DOTA_Chat_Text_String" "[VOLVO] Giff"
 ```
@@ -642,7 +659,6 @@ Displays "[ALLIES] Gather for **ItemName** here."
 ```
 "ItemAlertable"	"1"
 ```
-
 
 ---
 

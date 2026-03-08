@@ -7,7 +7,6 @@ date: 06.12.2015
 
 # Adding Hitbox to Models without a Bone
 
-
 If you tried some of Valve's prop models, you had already noticed that many of them don't have a hitbox, so they can't be used for selectable units.
 
 There is a very easy process that takes no longer than a couple of minutes to add one.
@@ -44,7 +43,7 @@ This is the critical part. Basically you'll be adding the cube mesh into the new
 
 ## Step 5. Add a "Bone"
 
-Now go to **Add -> Bone** and name it 'bone.' 
+Now go to **Add -> Bone** and name it 'bone.'
 
 ## Step 6. Add and Adjust the "Hitbox"
 

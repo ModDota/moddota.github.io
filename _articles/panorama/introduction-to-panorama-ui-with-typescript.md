@@ -7,7 +7,6 @@ date: 26.07.2017
 
 # Introduction to Panorama UI with TypeScript
 
-
 ## What is TypeScript and why should I use it
 
 [TypeScript](https://www.typescriptlang.org/) is a language created by and for people that were unhappy with Javascript and all of its quirks and flaws. TypeScript is a language with its own syntax (although similar to Javascript) that compiles to Javascript in a way that avoids a lot of Javascript's issues.
@@ -16,16 +15,16 @@ The name TypeScript comes from the fact that the language is basically Javascrip
 
 **Pros of using TypeScript:**
 
-*   Type checking
-*   Code completion based on type (also for API!)
-*   Prevents scoping issues
-*   Proper OOP constructs (such as classes, interfaces, inheritance...)
+- Type checking
+- Code completion based on type (also for API!)
+- Prevents scoping issues
+- Proper OOP constructs (such as classes, interfaces, inheritance...)
 
 **Cons of using TypeScript:**
 
-*   Requires some setup
-*   Remember to compile
-*   Requires good definitions for Panorama
+- Requires some setup
+- Remember to compile
+- Requires good definitions for Panorama
 
 ## How to install TypeScript
 
@@ -43,12 +42,12 @@ TypeScript requires a `tsconfig.json` used to configure it for your project. Put
 
 ```json
 {
-    "compilerOptions": {
-        "target": "es2017",
-        "lib": ["es2017"],
-        "types": ["panorama-types"],
-        "strict": true
-    }
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": ["es2017"],
+    "types": ["panorama-types"],
+    "strict": true
+  }
 }
 ```
 
@@ -66,7 +65,7 @@ content/dota_addons/[addon]/
 
 ## Your first TypeScript UI
 
-To illustrate why I like using TypeScript for modular UI I will walk through a small example. We will be making some hero portraits with player name and a health bar: ![What we are making](/images/external/ZrqqlFo.png "Example UI")
+To illustrate why I like using TypeScript for modular UI I will walk through a small example. We will be making some hero portraits with player name and a health bar: ![What we are making](/images/external/ZrqqlFo.png 'Example UI')
 
 Since this tutorial is about TypeScript I will just quickly give the xml and css, this is standard stuff:
 
@@ -103,40 +102,40 @@ CSS:
 
 ```css
 #HeroPortraits {
-    width: 300px;
-    height: 650px;
-    margin-top: 150px;
-    flow-children: down;
+  width: 300px;
+  height: 650px;
+  margin-top: 150px;
+  flow-children: down;
 }
 .PlayerPortrait {
-    background-color: blue;
-    height: 80px;
-    width: 300px;
-    margin-bottom: 10px;
+  background-color: blue;
+  height: 80px;
+  width: 300px;
+  margin-bottom: 10px;
 }
 #HeroImage {
-    width: 80px;
-    height: 80px;
-    background-color: black;
+  width: 80px;
+  height: 80px;
+  background-color: black;
 }
 #PlayerName {
-    color: white;
-    font-size: 25px;
-    margin-top: 10px;
-    margin-left: 90px;
+  color: white;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-left: 90px;
 }
 .HealthContainer {
-    width: 200px;
-    height: 20px;
-    x: 90px;
-    y: 50px;
-    background-color: black;
+  width: 200px;
+  height: 20px;
+  x: 90px;
+  y: 50px;
+  background-color: black;
 }
 #HealthBar {
-    height: 20px;
-    width: 50%;
+  height: 20px;
+  width: 50%;
 
-    background-color: green;
+  background-color: green;
 }
 ```
 
@@ -148,14 +147,14 @@ First we want to define a class of our UI and to link that to the XML. We do thi
 
 ```typescript
 class ExampleUI {
-    // Instance variables
-    panel: Panel;
+  // Instance variables
+  panel: Panel;
 
-    // ExampleUI constructor
-    constructor(panel: Panel) {
-        this.panel = panel;
-        $.Msg(panel); // Print the panel
-    }
+  // ExampleUI constructor
+  constructor(panel: Panel) {
+    this.panel = panel;
+    $.Msg(panel); // Print the panel
+  }
 }
 
 let ui = new ExampleUI($.GetContextPanel());
@@ -167,39 +166,39 @@ Now let's create a class for a hero portrait. In this case we do not wrap an exi
 
 ```typescript
 class PlayerPortrait {
-    // Instance variables
-    panel: Panel;
-    heroImage: ImagePanel;
-    playerLabel: LabelPanel;
-    hpBar: Panel;
+  // Instance variables
+  panel: Panel;
+  heroImage: ImagePanel;
+  playerLabel: LabelPanel;
+  hpBar: Panel;
 
-    constructor(parent: Panel, heroName: string, playerName: string) {
-        // Create new panel
-        const panel = $.CreatePanel("Panel", parent, "");
-        this.panel = panel;
+  constructor(parent: Panel, heroName: string, playerName: string) {
+    // Create new panel
+    const panel = $.CreatePanel('Panel', parent, '');
+    this.panel = panel;
 
-        // Load snippet into panel
-        panel.BLoadLayoutSnippet("PlayerPortrait");
+    // Load snippet into panel
+    panel.BLoadLayoutSnippet('PlayerPortrait');
 
-        // Find components
-        this.heroImage = panel.FindChildTraverse("HeroImage") as ImagePanel;
-        this.playerLabel = panel.FindChildTraverse("PlayerName") as LabelPanel;
-        this.hpBar = panel.FindChildTraverse("HealthBar")!;
+    // Find components
+    this.heroImage = panel.FindChildTraverse('HeroImage') as ImagePanel;
+    this.playerLabel = panel.FindChildTraverse('PlayerName') as LabelPanel;
+    this.hpBar = panel.FindChildTraverse('HealthBar')!;
 
-        // Set player name label
-        this.playerLabel.text = playerName;
+    // Set player name label
+    this.playerLabel.text = playerName;
 
-        // Set hero image
-        this.heroImage.SetImage("s2r://panorama/images/heroes/" + heroName + "_png.vtex");
+    // Set hero image
+    this.heroImage.SetImage('s2r://panorama/images/heroes/' + heroName + '_png.vtex');
 
-        // Initialise health at 100%
-        this.SetHealthPercent(100);
-    }
+    // Initialise health at 100%
+    this.SetHealthPercent(100);
+  }
 
-    // Set the health bar to a certain percentage (0-100)
-    SetHealthPercent(percentage: number) {
-        this.hpBar.style.width = Math.floor(percentage) + "%";
-    }
+  // Set the health bar to a certain percentage (0-100)
+  SetHealthPercent(percentage: number) {
+    this.hpBar.style.width = Math.floor(percentage) + '%';
+  }
 }
 ```
 
@@ -211,25 +210,25 @@ Now we go back to the ExampleUI class and make a couple PlayerPortrait instances
 
 ```typescript
 class ExampleUI {
-    // Instance variables
-    panel: Panel;
+  // Instance variables
+  panel: Panel;
 
-    // ExampleUI constructor
-    constructor(panel: Panel) {
-        this.panel = panel;
+  // ExampleUI constructor
+  constructor(panel: Panel) {
+    this.panel = panel;
 
-        // Find container element
-        const container = this.panel.FindChild("HeroPortraits")!;
+    // Find container element
+    const container = this.panel.FindChild('HeroPortraits')!;
 
-        // Create portrait for player 0, 1 and 2
-        const portrait0 = new PlayerPortrait(container, "npc_dota_hero_juggernaut", "Player0");
-        const portrait1 = new PlayerPortrait(container, "npc_dota_hero_omniknight", "Player1");
-        const portrait2 = new PlayerPortrait(container, "npc_dota_hero_invoker", "Player2");
+    // Create portrait for player 0, 1 and 2
+    const portrait0 = new PlayerPortrait(container, 'npc_dota_hero_juggernaut', 'Player0');
+    const portrait1 = new PlayerPortrait(container, 'npc_dota_hero_omniknight', 'Player1');
+    const portrait2 = new PlayerPortrait(container, 'npc_dota_hero_invoker', 'Player2');
 
-        // Set HP of player 1 and 2 to a different value
-        portrait0.SetHealthPercent(80);
-        portrait2.SetHealthPercent(20);
-    }
+    // Set HP of player 1 and 2 to a different value
+    portrait0.SetHealthPercent(80);
+    portrait2.SetHealthPercent(20);
+  }
 }
 
 let ui = new ExampleUI($.GetContextPanel());
@@ -247,8 +246,8 @@ One of the advantages of TypeScript is that you can explicitly define which even
 
 ```typescript
 interface HPChangedEvent {
-    playerID: PlayerID,
-    hpPercentage: number
+  playerID: PlayerID;
+  hpPercentage: number;
 }
 ```
 
@@ -256,39 +255,39 @@ Putting these together our ExampleUI.ts file now looks as follows:
 
 ```typescript
 interface HPChangedEvent {
-    playerID: PlayerID;
-    hpPercentage: number;
+  playerID: PlayerID;
+  hpPercentage: number;
 }
 
 class ExampleUI {
-    // Instance variables
-    panel: Panel;
-    playerPanels: Partial<Record<PlayerID, PlayerPortrait>> = {}; // A map with number keys and PlayerPortrait values
+  // Instance variables
+  panel: Panel;
+  playerPanels: Partial<Record<PlayerID, PlayerPortrait>> = {}; // A map with number keys and PlayerPortrait values
 
-    // ExampleUI constructor
-    constructor(panel: Panel) {
-        this.panel = panel;
+  // ExampleUI constructor
+  constructor(panel: Panel) {
+    this.panel = panel;
 
-        const container = this.panel.FindChild("HeroPortraits")!;
-        container.RemoveAndDeleteChildren();
+    const container = this.panel.FindChild('HeroPortraits')!;
+    container.RemoveAndDeleteChildren();
 
-        // Create portrait for player 0, 1 and 2
-        this.playerPanels[0] = new PlayerPortrait(container, "npc_dota_hero_juggernaut", "Player0");
-        this.playerPanels[1] = new PlayerPortrait(container, "npc_dota_hero_omniknight", "Player1");
-        this.playerPanels[2] = new PlayerPortrait(container, "npc_dota_hero_invoker", "Player2");
+    // Create portrait for player 0, 1 and 2
+    this.playerPanels[0] = new PlayerPortrait(container, 'npc_dota_hero_juggernaut', 'Player0');
+    this.playerPanels[1] = new PlayerPortrait(container, 'npc_dota_hero_omniknight', 'Player1');
+    this.playerPanels[2] = new PlayerPortrait(container, 'npc_dota_hero_invoker', 'Player2');
 
-        // Listen for health changed event, when it fires, handle it with this.OnHPChanged
-        GameEvents.Subscribe<HPChangedEvent>("hp_changed", (event) => this.OnHPChanged(event));
-    }
+    // Listen for health changed event, when it fires, handle it with this.OnHPChanged
+    GameEvents.Subscribe<HPChangedEvent>('hp_changed', (event) => this.OnHPChanged(event));
+  }
 
-    // Event handler for HP Changed event
-    OnHPChanged(event: HPChangedEvent) {
-        // Get portrait for this player
-        const playerPortrait = this.playerPanels[event.playerID];
+  // Event handler for HP Changed event
+  OnHPChanged(event: HPChangedEvent) {
+    // Get portrait for this player
+    const playerPortrait = this.playerPanels[event.playerID];
 
-        // Set HP on the player panel
-        playerPortrait.SetHealthPercent(event.hpPercentage);
-    }
+    // Set HP on the player panel
+    playerPortrait.SetHealthPercent(event.hpPercentage);
+  }
 }
 
 let ui = new ExampleUI($.GetContextPanel());

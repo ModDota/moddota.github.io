@@ -7,7 +7,6 @@ date: 08.03.2015
 
 # Unit producing buildings
 
-
 This is a response tutorial on a question thread, I'm gonna explain the scripting approaches to fully spawning units with a building, including making them controllable and defining initial orders.
 
 ## Step 1. The npc_units_custom.txt files
@@ -146,7 +145,6 @@ end
 
 Now your building should be fully controllable for ability usage, and even subtract gold from the player if you use abilities with gold cost.
 
-
 ### Scripting Approach
 
 Hey Hammer is good and everything, but its behavior is very static. You need to have predefined positions for the units, build the map every time you make a change, and can't choose to not spawn any of them if there are less players than expected, etc.
@@ -155,7 +153,7 @@ There is a fully scripted method for placing units on the map, which is done by 
 
 `handle CreateUnitByName( szUnitName, vLocation, bFindClearSpace, hNPCOwner, hUnitOwner, iTeamNumber )`
 
-Still working inside the same OnPlayerPickHero, we can either make a static position for each playerID, such as *Vector(450,322,128)*, doing random positions with named info_target entities in Hammer, or a dynamic position based on the hero spawn location. Let's do the latter:
+Still working inside the same OnPlayerPickHero, we can either make a static position for each playerID, such as _Vector(450,322,128)_, doing random positions with named info_target entities in Hammer, or a dynamic position based on the hero spawn location. Let's do the latter:
 
 ```lua
 local origin = hero:GetAbsOrigin() -- Spawn position

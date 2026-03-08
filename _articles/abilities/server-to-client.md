@@ -7,7 +7,6 @@ date: 05.12.2021
 
 # Sending Server values to the Client in a modifier.
 
-
 Modifier scripts are run on both the server, and every client in the game.
 A lot of the [Lua API](https://moddota.com/api/#!/vscripts) is server-side functions that the client cannot use.
 
@@ -18,6 +17,7 @@ Usually the server is what handles the functionality, while the client is just f
 So if you for example gave your hero bonus damage that you calculated or stored only on the server then you would see that your hero does deal the bonus damage, but its not displayed on the UI or any Tooltips.
 
 Example that grants 2x your primary attribute as bonus damage:
+
 ```lua
 modifier_example = class({})
 
@@ -44,6 +44,7 @@ There are 2 primary methods for doing this, though there are other less convenie
 This is the most basic method, where all you need to do is Set the modifiers stack count on the server and the stack count is automatically synced to the client.
 
 Example using this method:
+
 ```lua
 modifier_example = class({})
 
@@ -66,9 +67,10 @@ end
 Great, now the damage is applied and displayed correctly!
 
 But, there are some limitations with using modifier stacks.
-* You can only set integer values. No floats, booleans, strings, or tables.
-* You can only set one stack count per modifier.
-* The stack count is displayed on the modifier buff icon, and this is not always wanted.
+
+- You can only set integer values. No floats, booleans, strings, or tables.
+- You can only set one stack count per modifier.
+- The stack count is displayed on the modifier buff icon, and this is not always wanted.
 
 So what can you do if you need to send one of these unsupported values or even send multiple values to the client?
 
@@ -81,19 +83,20 @@ But they require a bit of set-up.
 
 There are 3 functions needed to make use of transmitters.
 
-* `SetHasCustomTransmitterData`
-	This should be called in your modifier's `OnCreated` function
-	to tell the server you want your modifier to transmit data to the client
+- `SetHasCustomTransmitterData`
+  This should be called in your modifier's `OnCreated` function
+  to tell the server you want your modifier to transmit data to the client
 
-* `AddCustomTransmitterData`
-	This is where you pick the data you want to send to the client, run on server-side only
+- `AddCustomTransmitterData`
+  This is where you pick the data you want to send to the client, run on server-side only
 
-* `HandleCustomTransmitterData`
-	This is where the server data is sent to, run on client-side only.
+- `HandleCustomTransmitterData`
+  This is where the server data is sent to, run on client-side only.
 
-* and also `SendBuffRefreshToClients` for refreshing the transmitted data if needed.
+- and also `SendBuffRefreshToClients` for refreshing the transmitted data if needed.
 
 Example that grants bonus damage and attack speed based on your current health.
+
 ```lua
 modifier_example = class({})
 
@@ -128,7 +131,7 @@ function modifier_example:OnRefresh( kv )
 	if IsServer() then
     --call OnCreated again to recalculate our values
     self:OnCreated()
-    
+
 		--SendBuffRefreshToClients is a server-only function
 		self:SendBuffRefreshToClients()
 	end

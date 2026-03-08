@@ -7,7 +7,6 @@ date: 18.02.2015
 
 # Scripting Introduction
 
-
 Part 2 of [Getting Started With Dota 2 Modding](getting-started), this tutorial is meant to explain the basics of programming Dota 2 custom mods.
 
 ## Scripting
@@ -16,12 +15,12 @@ So now you have your freshly created gamemode running and have played around the
 
 Go into your &lt;addonName&gt;/scripts/ folder. The 2 main script folders are **npc** and **vscripts**. The first holds the following .txt files:
 
-* npc_**abilities**_custom.txt - Contains all the custom abilities of the gamemode.
-* npc_**heroes**_custom.txt - Heroes with its abilities and stats
-* npc_**items**_custom.txt - Items are abilities that go into a units inventory
-* npc_**units**_custom.txt - All the data for non-hero units like buildings or creatures.
-* npc_**abilities**_override.txt - Modified dota abilities/items with changed values.
-* **herolist**.txt - List of the heroes available for picking.
+- npc\_**abilities**\_custom.txt - Contains all the custom abilities of the gamemode.
+- npc\_**heroes**\_custom.txt - Heroes with its abilities and stats
+- npc\_**items**\_custom.txt - Items are abilities that go into a units inventory
+- npc\_**units**\_custom.txt - All the data for non-hero units like buildings or creatures.
+- npc\_**abilities**\_override.txt - Modified dota abilities/items with changed values.
+- **herolist**.txt - List of the heroes available for picking.
 
 These files are defined using KeyValues (KV) and are the core of the **DataDriven system**. While they fulfill the definition of a programming language, it's more like a big table containing all the possible data in a static document. It uses a relatively simple syntax whose only special characters are curly braces and quotes, with alternating sets of "Key" and "Value" or "Key" `{table}` pairs, where `table` is another set of KeyValues.
 
@@ -36,6 +35,7 @@ Now it's a good time to get your environment ready to write Dota Scripts. For th
 Once your environment is set up you can try to run your addon. Open the workshop tools (if you can't find them, they are in `/Steam/steamapps/common/dota 2 beta/game/bin/win64/dota2cfg.exe`, bookmark this) and select your addon.
 
 Once the asset browser has launched, open the Console from the buttons at the top. To launch your addon simply type the following command into the bottom of the console:
+
 ```
 dota_launch_custom_game <custom_game_name> <map_name>
 ```
@@ -79,7 +79,7 @@ function Activate()
 end
 ```
 
-Using our barebones, you don't need to touch this file apart from very specific situations, and all the core game logic will be coded in gamemode.lua (for older versions it's barebones.lua), which has been already required. We'll call this your *main lua file* from now on.
+Using our barebones, you don't need to touch this file apart from very specific situations, and all the core game logic will be coded in gamemode.lua (for older versions it's barebones.lua), which has been already required. We'll call this your _main lua file_ from now on.
 
 After addon_game_mode `Precache` & `Activate` are finished, the first function to be executed in the barebones.lua file is `GameMode:InitGameMode()`.
 
@@ -89,7 +89,7 @@ This is the syntax of a function applied over GameRules, with one bool parameter
 
 `GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )`
 
-Just as KV, Lua is Case Sensitive. Also the placement of the functions within your main Lua file doesn't generally matter. All the script lines within a function call will be run one after another, potentially on the same *frame*; one frame in Dota is 1/30 of a second.
+Just as KV, Lua is Case Sensitive. Also the placement of the functions within your main Lua file doesn't generally matter. All the script lines within a function call will be run one after another, potentially on the same _frame_; one frame in Dota is 1/30 of a second.
 
 Note the use of `:` colon before the function. In Lua, this is how we access the various **Game API functions**. We say that `GameRules` is an **HScript** or a **handle**. Handles are basically huge tables, with all the pertinent info of the entity. Over the [Scripting API page](https://moddota.com/api/#!/vscripts) you'll see many different types of functions which can use different handles.
 
@@ -258,9 +258,17 @@ local units = FindUnitsInRadius(npc:GetTeamNumber(), npc:GetAbsOrigin(), nil, 50
 ```
 
 ```ts [TypeScript]
-const units = FindUnitsInRadius(npc.GetTeamNumber(), npc.GetAbsOrigin(), undefined, 500,
-                                UnitTargetTeam.ENEMY, UnitTargetType.Basic | UnitTargetType.HERO,
-                                UnitTargetFlags.NONE, FindOrder.FIND_ANY_ORDER, false);
+const units = FindUnitsInRadius(
+  npc.GetTeamNumber(),
+  npc.GetAbsOrigin(),
+  undefined,
+  500,
+  UnitTargetTeam.ENEMY,
+  UnitTargetType.Basic | UnitTargetType.HERO,
+  UnitTargetFlags.NONE,
+  FindOrder.FIND_ANY_ORDER,
+  false,
+);
 ```
 
 :::
@@ -278,13 +286,13 @@ end
 
 ```ts [TypeScript]
 for (const unit of units) {
-    unit.ForceKill(true);
+  unit.ForceKill(true);
 }
 ```
 
 :::
 
-The `key` and `unit` are the chosen names to refer to the position and value inside the *units* table, which will be read in pairs. Using `_` as the name of the key is a good convention when you want to make it clear that the first parameter won't be used. The 2nd parameter, unit, is used to iterate handles of the units found.
+The `key` and `unit` are the chosen names to refer to the position and value inside the _units_ table, which will be read in pairs. Using `_` as the name of the key is a good convention when you want to make it clear that the first parameter won't be used. The 2nd parameter, unit, is used to iterate handles of the units found.
 
 There is one more thing to consider: the "wait one frame" issue. Because all units are actually spawned at the (0,0,0) coordinates and then moved to the desired position, many times you'll need to create a 0 second timer (executes next frame) for some scripts to work, and this is one of those cases.
 
@@ -353,6 +361,7 @@ If you want to check the scripts of a certain game on the [Custom Games Workshop
 3. Open the workshop vpk.
 
 Manually:
+
 1. Check the URL, steamcommunity.com/sharedfiles/filedetails/?id=**copy this number**
 2. Go to your Steam folder -> SteamApps -> workshop -> content -> 570 (this is the dota folder)
 3. Search for the copied number folder
@@ -369,4 +378,3 @@ Just make sure it's actually Dota Lua and not another game API, as some of the f
 That's all for the Scripting basics. I expect you to have more questions than when you started reading, feel free to drop all your doubts at the community's [Discord channel](https://discord.com/invite/tPvHaRz), you'll find help there 24/7.
 
 ---
-

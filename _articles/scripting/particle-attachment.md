@@ -7,10 +7,9 @@ date: 13.01.2015
 
 # Particle Attachment
 
-
 ## Particle Types
 
-  Each particle system in Dota is designed for a certain purpose, for example: 
+Each particle system in Dota is designed for a certain purpose, for example:
 
 - Buff/Debuff or Ambient effect
 - Explosions and other limited-time effects
@@ -38,63 +37,61 @@ Else you won't see them unless they belonged originally to the hero that is cast
 
 ## Parents and Children
 
-  A Parent Particle is indicated by a P in the Asset Browser.
+A Parent Particle is indicated by a P in the Asset Browser.
 
-  ![img](/images/external/esM9P-998defaf12.jpg)
+![img](/images/external/esM9P-998defaf12.jpg)
 
-  You normally want to use a Parent because it will show the complete particle effect. Children are harder to display and might not show or display properly.
+You normally want to use a Parent because it will show the complete particle effect. Children are harder to display and might not show or display properly.
 
-  ![img](/images/external/esz6V-b4912e2ca5.png)
+![img](/images/external/esz6V-b4912e2ca5.png)
 
 Copy this entire path for the particleName
 
 ## Attachments
 
-  Particles need to be Attached to some entity location to begin its behavior. 
-  This can be as easy as a single `"Target" "TARGET"` line, or contain many weird attach points that you will need to discover through numerous trial and error attempts.
+Particles need to be Attached to some entity location to begin its behavior.
+This can be as easy as a single `"Target" "TARGET"` line, or contain many weird attach points that you will need to discover through numerous trial and error attempts.
 
-  Here is a list of every attach type, in order of importance/relevance. 
+Here is a list of every attach type, in order of importance/relevance.
 
-Constant | String | Attachment Description
---- | --- | ---
-PATTACH_ABSORIGIN_FOLLOW | follow_origin | Follows the movement of the target at its origin location
-PATTACH_OVERHEAD_FOLLOW | follow_overhead | Follows the movement of the target over its head
-PATTACH_ABSORIGIN | attach_origin | Starts at the origin of the target and stays there
-PATTACH_POINT | attach_hitloc | Normally the body of the model, where the attack projectiles hit
-PATTACH_POINT_FOLLOW | follow_hitloc | Follows the body
-PATTACH_CUSTOMORIGIN | start_at_customorigin | Enables the attachment to a custom origin
-PATTACH_CUSTOMORIGIN_FOLLOW | follow_customorigin | Follow the movement of the custom origin set
-PATTACH_WORLDORIGIN | world_origin | Targets a Point entity in the world, use with "TargetPoint" key
-PATTACH_EYES_FOLLOW | follow_eyes | Fills the screen, used for the damage stun or arcana drop indicator.
-PATTACH_POINT_FOLLOW_SUBSTEPPED | follow_attachment_substepped |
-PATTACH_RENDERORIGIN_FOLLOW | follow_renderorigin |
-PATTACH_ROOTBONE_FOLLOW | follow_rootbone |
-Attach to an specific bone | attach_attack1 | You can check these by opening the hero VMDL file in the Model Editor.
-- | start_at_origin |
-- | start_at_attachment |
-- | follow_attachment |
+| Constant                        | String                       | Attachment Description                                                 |
+| ------------------------------- | ---------------------------- | ---------------------------------------------------------------------- |
+| PATTACH_ABSORIGIN_FOLLOW        | follow_origin                | Follows the movement of the target at its origin location              |
+| PATTACH_OVERHEAD_FOLLOW         | follow_overhead              | Follows the movement of the target over its head                       |
+| PATTACH_ABSORIGIN               | attach_origin                | Starts at the origin of the target and stays there                     |
+| PATTACH_POINT                   | attach_hitloc                | Normally the body of the model, where the attack projectiles hit       |
+| PATTACH_POINT_FOLLOW            | follow_hitloc                | Follows the body                                                       |
+| PATTACH_CUSTOMORIGIN            | start_at_customorigin        | Enables the attachment to a custom origin                              |
+| PATTACH_CUSTOMORIGIN_FOLLOW     | follow_customorigin          | Follow the movement of the custom origin set                           |
+| PATTACH_WORLDORIGIN             | world_origin                 | Targets a Point entity in the world, use with "TargetPoint" key        |
+| PATTACH_EYES_FOLLOW             | follow_eyes                  | Fills the screen, used for the damage stun or arcana drop indicator.   |
+| PATTACH_POINT_FOLLOW_SUBSTEPPED | follow_attachment_substepped |
+| PATTACH_RENDERORIGIN_FOLLOW     | follow_renderorigin          |
+| PATTACH_ROOTBONE_FOLLOW         | follow_rootbone              |
+| Attach to an specific bone      | attach_attack1               | You can check these by opening the hero VMDL file in the Model Editor. |
+| -                               | start_at_origin              |
+| -                               | start_at_attachment          |
+| -                               | follow_attachment            |
 
-  Basically the engine will try to find the "bone" or attach point and type of the constant/string used,
-  if the model has it and the particle is designed to properly attach to that point you will get a nice behavior. 
+Basically the engine will try to find the "bone" or attach point and type of the constant/string used,
+if the model has it and the particle is designed to properly attach to that point you will get a nice behavior.
 
-  Numerous times when dealing with complex particle systems you will get errors like:
+Numerous times when dealing with complex particle systems you will get errors like:
 
-- Particle children showing at the Vector (0,0,0). 
+- Particle children showing at the Vector (0,0,0).
   - This is what normally happens when you miss a Control Point (explained later)
-- Effect appearing in a different position than expected. 
+- Effect appearing in a different position than expected.
   - Wrong attachment or particle can't attach that place.
-
 
 ## Control Points
 
-  Control points are x,y,z values that are used to set the particle to a target entity location or a vector for radius, color, duration, speed, etc.
+Control points are x,y,z values that are used to set the particle to a target entity location or a vector for radius, color, duration, speed, etc.
 
-  It's easier to understand them with examples, so we'll move through some basic particles that don't need specific control points and then see some that need them to display properly.
+It's easier to understand them with examples, so we'll move through some basic particles that don't need specific control points and then see some that need them to display properly.
 
 ### Decompiled Particles
 
 With Reborn, now the default dota particles can be opened directly with the Particle Editor and make copies of them. Read more about this on the wiki in [Particle Copy Tool](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Particle_Copy_Tool)
-
 
 ## Examples
 
@@ -105,6 +102,7 @@ This type of particles is the easiest to attach. They are tied to a modifier and
 For this too, the particle system duration usually needs to be infinite, designed as a simple buff, internally they have a single control point which is set with the `EffectAttachType` key.
 
 **Example**
+
 ```
 "modifier_borrowed_time"
 {
@@ -145,12 +143,13 @@ When the easy attachment procedure fails, it means the particle has Control Poin
 
 To know what each CP controls, you need to open the particle in the Particle Editor. Now you will be able to double click any of the copied particles in the Asset Browser and try to understand how to set each CP
 
-Control Points can be either set in the datadriven `"AttachEffect"` or in lua. 
+Control Points can be either set in the datadriven `"AttachEffect"` or in lua.
 Doing it in Lua has the advantage that you can dynamically reload the control points by doing script_reload after changing the code.
 
 #### 3.1 Lua Particle Attachment with `SetParticleControl`
 
 **Example**
+
 ```lua
 local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
@@ -163,13 +162,14 @@ CP1.x controls the radius of the particle, as seen in the Particle Editor after 
 
 ![img](/images/external/esEVP-9c852a02ca.png)
 
-Hovering over the button tells us its a "Position along ring" 
+Hovering over the button tells us its a "Position along ring"
 
 **Example**
+
 ```lua
 local target = event.unit
 local player = PlayerResource:GetPlayer( caster:GetPlayerID() )
-local particleName = "particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf" 
+local particleName = "particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf"
 local particle = ParticleManager:CreateParticleForPlayer( particleName, PATTACH_ABSORIGIN, target, player )
 ParticleManager:SetParticleControl( particle, 0, target:GetAbsOrigin() )
 ParticleManager:SetParticleControl( particle, 1, target:GetAbsOrigin() )
@@ -179,7 +179,7 @@ In this particular case, we are using `CreateParticleForPlayer` to only display 
 
 #### 3.2 Datadriven `"ControlPoints"` block
 
-The same can be translated to datadriven, except if you need the control points to be decided at runtime (like, doing a radius * some variable)
+The same can be translated to datadriven, except if you need the control points to be decided at runtime (like, doing a radius \* some variable)
 
 ```
 "FireEffect"
@@ -199,6 +199,7 @@ The same can be translated to datadriven, except if you need the control points 
 Keep in mind that a `"FireEffect"` or `"AttachEffect"` action can be inside any Ability or Modifier Event, not only on the `"OnCreated"` / `"OnDestroy"` Modifier Events.
 
 **Example:**
+
 ```
 "OnSpellStart"
 {
@@ -225,6 +226,7 @@ If your attachment is not working with the simple lua method, you need to try th
 #### 4.1 Lua `SetParticleControlEnt`
 
 **Example**: This is the proper lua attachment for Abaddon Aphotic Shield Particle:
+
 ```lua
 target.ShieldParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 ParticleManager:SetParticleControl(target.ShieldParticle, 1, Vector(shield_size,0,shield_size))
@@ -291,7 +293,7 @@ This works by setting each CP in order to its key. If you need to set the CP8 to
                 "ATTACKER" "attach_hitloc"
             }
         }
-    } 
+    }
 }
 ```
 
@@ -307,11 +309,11 @@ This works by setting each CP in order to its key. If you need to set the CP8 to
         "Target" "TARGET"
         "ControlPointEntities"
         {
-            "TARGET" "attach_hitloc" 
             "TARGET" "attach_hitloc"
             "TARGET" "attach_hitloc"
             "TARGET" "attach_hitloc"
-        } 
+            "TARGET" "attach_hitloc"
+        }
     }
 }
 ```
@@ -337,7 +339,6 @@ Custom bones!
 
 ControlPointEntities is the hardest method of Particle Attachment. Use it with caution and pride.
 
-
 ### 5. Stopping a Lua Particle
 
 If the entity dies, it will normally destroy the particle.
@@ -355,34 +356,34 @@ end
 If the particle has a fixed duration you can also easily use BMD Timers:
 
 ```lua
-Timers:CreateTimer(duration, function() 
+Timers:CreateTimer(duration, function()
     ParticleManager:DestroyParticle(particle,false))
 end)
 ```
 
-
 ### 6. Difference between "FireEffect" and "AttachEffect"
 
-When used inside a modifier, *AttachEffect* will automatically stop the particle after the modifier is destroyed, while *FireEffect* won't (if the particle duration is infinite)
+When used inside a modifier, _AttachEffect_ will automatically stop the particle after the modifier is destroyed, while _FireEffect_ won't (if the particle duration is infinite)
 
 FireEffect is pretty much the same as doing the lua `ParticleManager:CreateParticle` in this sense.
 
 So if you FireEffect with a particle of infinite duration inside a modifier, it will still live after the modifier ends.
- 
+
 If the particle duration has a short duration, using any of the 2 Effect actions has the same results.
 
 ### 7. Projectile Particles
 
-There are two types of projectile particles: Linear and Tracking. 
+There are two types of projectile particles: Linear and Tracking.
 
-Linear follow a straight line and collide with anything in its path. 
-    Use `"DeleteOnHit" "0"` inside the `"OnProjectileHitUnit"` Ability Event if you want them to continue going up to its fixed distance.
+Linear follow a straight line and collide with anything in its path.
+Use `"DeleteOnHit" "0"` inside the `"OnProjectileHitUnit"` Ability Event if you want them to continue going up to its fixed distance.
 
 Tracking can curve and follow a target movement. Every ranged attack particle is of this type.
 
 #### LinearProjectile
 
 **DataDriven Example**
+
 ```
 "LinearProjectile"
 {
@@ -401,6 +402,7 @@ Tracking can curve and follow a target movement. Every ranged attack particle is
 ```
 
 **Lua Example**
+
 ```lua
 --[[
     Author: kritth
@@ -446,10 +448,10 @@ function ghostship_start_traverse( keys )
 end
 ```
 
-
 #### TrackingProjectile
 
 **DataDriven Example**
+
 ```
 "TrackingProjectile"
 {
@@ -464,6 +466,7 @@ end
 ```
 
 **Lua Example**
+
 ```lua
 local projectile_speed = ability:GetSpecialValueFor( "projectile_speed" )
 local particle_name = "particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
@@ -486,6 +489,6 @@ local particle_name = "particles/units/heroes/hero_abaddon/abaddon_death_coil.vp
 
 <br />
 
-**Note**: You can't generally use a particle designed to be Linear in a Tracking action and vice versa. 
+**Note**: You can't generally use a particle designed to be Linear in a Tracking action and vice versa.
 
 You might be able to mimic a Linear behavior using a Tracking projectile if you make it to track a dummy unit that can't move, but you need another invisible Linear projectile to do the hit effects.

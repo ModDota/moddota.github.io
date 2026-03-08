@@ -7,7 +7,6 @@ date: 24.07.2015
 
 # Keybindings
 
-
 ## Introduction
 
 With the recent update (20th of july) valve added support for custom keybindings. That is, you can bind keys to fire a custom command.
@@ -17,6 +16,7 @@ The technique used is derived from rpg_example.
 Although this method is not necessarily limited to panorama this tutorial will focus on using them within panorama.
 
 ## Setup
+
 Start by adding a couple of lines to your `addoninfo.txt` file located in `/game/<your addon>/addoninfo.txt`
 
 ```
@@ -61,15 +61,16 @@ Name of the command, used for debugging purposes.
 
 #### Command Prefixes
 
-| Prefix        | Example    | Description                                             |
-| ------------- |------------|---------------------------------------------------------|
-| *(nothing)*   | *command*  | Command will trigger on press and release               |
-| **+**         | *+command* | Trigger when key is pressed (used for normal key press) |
-| **-**         | *-command* | Command will trigger when key is released               |
+| Prefix      | Example    | Description                                             |
+| ----------- | ---------- | ------------------------------------------------------- |
+| _(nothing)_ | _command_  | Command will trigger on press and release               |
+| **+**       | _+command_ | Trigger when key is pressed (used for normal key press) |
+| **-**       | _-command_ | Command will trigger when key is released               |
 
 The prefixes do not lock the command to be triggered only in that event. But is a good self-reference for what you want the keybind to do.
 
 ## Panorama
+
 Catching the keybind commands in Panorama is easy:
 
 ```lua
@@ -95,4 +96,4 @@ function OnTestButtonReleased()
 })();
 ```
 
-Note how the prefixes are used again. Even though we only defined `CustomGameTestButton` to be fired on *key down*, we can easily catch the release event in our JS as well.
+Note how the prefixes are used again. Even though we only defined `CustomGameTestButton` to be fired on _key down_, we can easily catch the release event in our JS as well.

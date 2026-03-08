@@ -7,24 +7,28 @@ date: 05.12.2021
 
 # Using Modifier Properties in tooltips
 
-
-Any time you see a modifier tooltip using a non-static number it's getting its value from one of that modifier's [MODIFIER_PROPERTY_](https://moddota.com/api/#!/vscripts/modifierfunction)'s
+Any time you see a modifier tooltip using a non-static number it's getting its value from one of that modifier's [MODIFIER*PROPERTY*](https://moddota.com/api/#!/vscripts/modifierfunction)'s
 
 some examples:
 ![img](/images/external/dngijaZ.png)
+
 ```
 "DOTA_Tooltip_modifier_fountain_aura_buff_Description"				"Heals %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% HP and %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% mana per second."
 ```
+
 ![img](/images/external/bzU8GAF.png)
+
 ```
 "DOTA_Tooltip_modifier_smoke_of_deceit_Description"	"Invisible, moving %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% faster, and hidden from the minimap. Attacking or moving within %dMODIFIER_PROPERTY_TOOLTIP% range of an enemy hero or tower will break the invisibility."
 ```
+
 ![img](/images/external/Xy0hTsD.png)
+
 ```
 "DOTA_Tooltip_modifier_tower_aura_bonus_Description"    "Armor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% and health regeneration by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
 ```
-and approximately 560 more examples in valve's abilities_english.txt.
 
+and approximately 560 more examples in valve's abilities_english.txt.
 
 As you can see, all of those numbers are not manually written into the modifier description, they are dynamically grabbed from the modifier.
 
@@ -42,6 +46,7 @@ First, please note that this only works with Lua Modifiers and Valve's built in 
 Any time you use a modifier property in a lua modifier the value you `return` will be available for use in the modifier's description tooltip.
 
 In your modifier script:
+
 ```lua
 function modifier_example:DeclareFunctions()
 	return {
@@ -53,17 +58,20 @@ function modifier_example:GetModifierPreAttack_BonusDamage()
 	return 100
 end
 ```
-In your addon_\<language\>.txt
+
+In your addon\_\<language\>.txt
+
 ```json
 "DOTA_Tooltip_modifier_example_Description" "Granting %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage!"
 ```
 
 This would result in a tooltip that says: **`Granting 100 bonus damage!`**
 
-In the tooltip the percentage `%` sign surrounds the MODIFIER_PROPERTY_ to mark it as text to be replaced with the value of the modifier property.
+In the tooltip the percentage `%` sign surrounds the MODIFIER*PROPERTY* to mark it as text to be replaced with the value of the modifier property.
 If the contents between the %'s don't match the format then it won't work.
 
 ## The Format
+
 `%<-><number><d|f>MODIFIER_PROPERTY_%`
 
 Snippet from abilities_english.txt:
@@ -114,13 +122,13 @@ and finally, if you want to write a percentage sign `%` in your modifier tooltip
 
 `"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% bonus movement speed"`
 
-
 ## MODIFIER_PROPERTY_TOOLTIP
 
 I'll leave a special note here for MODIFIER_PROPERTY_TOOLTIP and MODIFIER_PROPERTY_TOOLTIP2
 These modifier properties do not do anything functionality wise, they exist only to display a custom number in your tooltip.
 
 A simple example could be:
+
 ```lua
 function modifier_example:DeclareFunctions()
 	return {
@@ -136,7 +144,6 @@ function modifier_example:OnTooltip2()
 	return self.number_of_killed_units
 end
 ```
-
 
 ## My %property% always shows 0 ??
 

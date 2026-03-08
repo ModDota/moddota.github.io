@@ -7,21 +7,18 @@ date: 25.01.2020
 
 # Writing a simple AI for neutrals
 
-
 **NOTE:** This article is a rewrite of a very old AI tutorial: [http://yrrep.me/dota/dota-simple-ai.html](https://web.archive.org/web/20191231104348/https://yrrep.me/dota/dota-simple-ai.html)
-
-
 
 I have encountered many questions about AI on the modding irc over the time, so I decided to write up a tutorial for a very basic AI that can be used in Lua. The term AI might seem intimidating as a programmer that has little to no experience with it. I will try however to lay out the process for a simple state-driven AI in a way that is as clear as possible. Hopefully by the end of this article writing your own AI does not seem as scary anymore.
 
 ## What are we making
+
 We will make a little state-driven AI that mimics how neutrals behave in DotA 2. This means it will do these things:
 
 - It will stand idle in its location until an enemy comes in range.
 - After spotting an enemy it will run to attack them.
 - If the neutral runs too far from its initial 'idle location' it will return back to it.
 - Repeat from the first point.
-
 
 The first phase to making reliable AI (in the sense that it will always do what you expect it to) is planning. I personally think that making a diagram representing the different states and the transitions between these states are a big help when making an AI like this. The more effort you put into this diagram, the easier the actual implementation of your AI will be.
 
@@ -70,9 +67,9 @@ Now we have one function that describes one 'tick' of one of our AI states, how 
 
 The easiest way to create an AI tied to one unit is to make the AI a Lua modifier. This modifier has some very convenient properties built in:
 
-* The AI will stop once the unit dies
-* The modifier provides convenient created/destroyed handlers to setup/cleanup your AI
-* The modifier provides an interval think
+- The AI will stop once the unit dies
+- The modifier provides convenient created/destroyed handlers to setup/cleanup your AI
+- The modifier provides an interval think
 
 So really, the very core of your AI comes down to calling `StartIntervalThink(interval)` in your modifier's `OnCreated`, and then in the `OnIntervalThink` calling the correct 'state' function that you created like in the previous section.
 
@@ -179,6 +176,6 @@ end
 
 This tutorial only covers very basic concepts for making your first AI, but if you want to extend this here are some more interesting ideas:
 
-* Since you are using a lua modifier, you do not have to change state in a think function, you can also just register a modifier event listener and change state inside those!
-* Generalize state classes and give each state `OnStateEnter`, `OnStateThink` and `OnStateLeave` functions.
-* You can nest these AIs! You could make the internal behavior of one state be its own AI built in the same way.
+- Since you are using a lua modifier, you do not have to change state in a think function, you can also just register a modifier event listener and change state inside those!
+- Generalize state classes and give each state `OnStateEnter`, `OnStateThink` and `OnStateLeave` functions.
+- You can nest these AIs! You could make the internal behavior of one state be its own AI built in the same way.

@@ -7,7 +7,6 @@ date: 11.11.2015
 
 # Custom Minimap Icons
 
-
 Here is a quick and simple step by step guide on how to make and use your own minimap icons for creatures.
 
 ## Step 1. Get the files
@@ -16,20 +15,20 @@ Here is a quick and simple step by step guide on how to make and use your own mi
 
 This contains the following files:
 
-* **addon_hud_textures.txt**
-* **vgui/hud/minimap_icon.txt**
-* **vgui/hud/minimap_icon.vmat**
-* **vgui/hud/minimap_icon.psd**
+- **addon_hud_textures.txt**
+- **vgui/hud/minimap_icon.txt**
+- **vgui/hud/minimap_icon.vmat**
+- **vgui/hud/minimap_icon.psd**
 
 addon_hud_textures is a unique file to define the paths for every custom icon.
 
-The 3 minimap_icon files are used together, and should be renamed to the name your future icon, like *minimap_questgiver* or *boss_kappa*.
+The 3 minimap_icon files are used together, and should be renamed to the name your future icon, like _minimap_questgiver_ or _boss_kappa_.
 
 ## Step 2. Edit the files
 
 ### PSD Image
 
-Use a graphic editor such as Photoshop or GIMP to edit the PSD file. 
+Use a graphic editor such as Photoshop or GIMP to edit the PSD file.
 
 In the example source file, I quickly made this transparent image from [this source](/images/external/x3L74Hw.png):
 
@@ -83,9 +82,9 @@ For more icons, just copy the minimap_icon block again with another name inside 
 
 ## Step 3. Move the files
 
-* **minimap_icon** files go in **content**/dota_addons/YOUR_ADDON/materials/**vgui/hud/**. 
+- **minimap_icon** files go in **content**/dota_addons/YOUR_ADDON/materials/**vgui/hud/**.
 
-* **addon_hud_textures.txt** file goes in **game**/dota_addons/YOUR_ADDON/scripts/
+- **addon_hud_textures.txt** file goes in **game**/dota_addons/YOUR_ADDON/scripts/
 
 ## Step 4. Compile and check
 
@@ -96,6 +95,7 @@ Go into the asset browser, write the name of your icon, open the vmat by double 
 ## Step 5. Set your unit to use the new icon
 
 In the unit definition, add these lines:
+
 ```
 "MinimapIcon"        "minimap_icon"
 "MinimapIconSize"    "1000"
