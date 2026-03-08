@@ -72,7 +72,7 @@ First **`"AddonName.FileName"`**, which is your desired sound string and will be
 
 Last and most important, the **`"sounds/FileName.vsnd"`** contains a relative path to the sound files **compiled valveSound**. The sound you added on the step 2 was an mp3, the engine will convert this sound to .vsnd when the **.vsndevts** file is compiled/build.
 
-In this whole block, those are the only lines you want to change when adding a new sound. Here's the whole [CourierMadness' custom_sounds.vsndevts](https://pastebin.com/kcuLqZBm), as you can see, it's basically a big copy paste of the same block, just changing those 2 lines.
+In this whole block, those are the only lines you want to change when adding a new sound. It's basically a big copy paste of the same block, just changing those 2 lines.
 
 You can change the volume/pitch of your sounds of course, play around the operator_variables for this.
 

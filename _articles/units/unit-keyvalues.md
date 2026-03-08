@@ -31,7 +31,91 @@ This document covers every keyvalue of the npc_units_custom file
 
 Most unit names start with "npc_" but this isn't necessary. A basic unit definition looks like this:
 
-https://pastebin.com/KB7EsSLF
+```
+"human_footman"
+{
+	// General
+	//----------------------------------------------------------------
+	"BaseClass"		"npc_dota_creature"
+	"Model"			"models/heroes/dragon_knight/dragon_knight.vmdl"
+	"ModelScale"		"0.8"
+	"Level"			"2"
+	"HealthBarOffset"	"140"
+	"HasInventory"		"1"
+
+	// Abilities
+	//----------------------------------------------------------------
+	"Ability1"		"human_defend"
+	"Ability2"		"human_backpack"
+
+	// Armor
+	//----------------------------------------------------------------
+	"ArmorPhysical"		"2"
+	"MagicalResistance"	"0"
+
+	// Attack
+	//----------------------------------------------------------------
+	"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
+	"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+	"AttackDamageMin"	"12.0"
+	"AttackDamageMax"	"13.0"
+	"AttackRate"		"1.35"
+	"AttackAnimationPoint"	"0.5"
+	"AttackAcquisitionRange" "500"
+	"AttackRange"		"90"
+
+	// Bounty
+	//----------------------------------------------------------------
+	"BountyGoldMin"		"26.0"
+	"BountyGoldMax"		"38.0"
+
+	// Bounds
+	//----------------------------------------------------------------
+	"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
+	"RingRadius"		"70"
+
+	// Movement
+	//----------------------------------------------------------------
+	"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"		"270"
+	"MovementTurnRate"	"0.6"
+
+	// Status
+	//----------------------------------------------------------------
+	"StatusHealth"		"420"
+	"StatusHealthRegen"	"0.25"
+	"StatusMana"		"0"
+	"StatusManaRegen"	"0"
+
+	// Vision
+	//----------------------------------------------------------------
+	"VisionDaytimeRange"	"1400"
+	"VisionNighttimeRange"	"800"
+
+	// Team
+	//----------------------------------------------------------------
+	"TeamName"		"DOTA_TEAM_NEUTRALS"
+	"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+	"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Creature Data
+	//----------------------------------------------------------------
+	"Creature"
+	{
+		"DisableClumpingBehavior"	"1"
+		"AttachWearables"
+		{
+			"Wearable1" { "ItemDef" "63" }
+			"Wearable2" { "ItemDef" "64" }
+			"Wearable3" { "ItemDef" "65" }
+			"Wearable4" { "ItemDef" "66" }
+			"Wearable5" { "ItemDef" "67" }
+			"Wearable6" { "ItemDef" "68" }
+		}
+	}
+}
+```
 
 The definition of the default dota units can be found in [npc_units.txt](https://github.com/dotabuff/d2vpk/blob/master/dota_pak01/scripts/npc/npc_units.txt)
 
