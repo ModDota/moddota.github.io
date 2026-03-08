@@ -14,7 +14,7 @@ Typescript is more strict compared to Lua, will use types to enforce certain fun
 
 Typescript can work well with most editors using plugins, however, [VSCode](https://code.visualstudio.com/) is recommended as it comes with Typescript support built in, and is a very powerful editor.
 
-<StaticVideo path="videos/ts_example.mp4" controls="true" />
+<StaticVideo path="/videos/ts_example.mp4" controls="true" />
 
 ## Pros and Cons for using Typescript
 

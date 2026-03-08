@@ -2,11 +2,17 @@ import { defineConfig } from "vitepress";
 
 export default defineConfig({
     title: "ModDota",
+    description: "Community-driven Dota 2 modding resource",
+    lang: "en-US",
     head: [["link", { rel: "icon", href: "/images/favicon.ico" }]],
     srcDir: "_articles",
     outDir: "build",
     cleanUrls: true,
     ignoreDeadLinks: [/\.fbx$/],
+
+    markdown: {
+        lineNumbers: true,
+    },
 
     themeConfig: {
         logo: "/images/logo.svg",
@@ -25,7 +31,6 @@ export default defineConfig({
         socialLinks: [{ icon: "discord", link: "https://discord.gg/gRmZgvz" }],
 
         sidebar: [
-            { text: "Introduction", link: "/" },
             { text: "Getting Started", link: "/getting-started" },
             { text: "Scripting Introduction", link: "/scripting-introduction" },
             {
@@ -265,6 +270,9 @@ export default defineConfig({
             { text: "Contribute", link: "/contribute" },
         ],
 
+        externalLinkIcon: true,
+        outline: [2, 3],
+
         editLink: {
             pattern: "https://github.com/ModDota/moddota.github.io/edit/source/_articles/:path",
         },
@@ -283,7 +291,7 @@ export default defineConfig({
         publicDir: "../static",
     },
 
-    markdown: {
-        languages: ["lua"],
+    sitemap: {
+        hostname: "https://moddota.com/",
     },
 });
