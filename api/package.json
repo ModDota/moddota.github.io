@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "test": "tsc --noEmit && eslint ."
+    "lint": "eslint .",
+    "test": "tsc --noEmit && npm run lint"
   },
   "dependencies": {
     "@moddota/dota-data": "^0.45.0",
