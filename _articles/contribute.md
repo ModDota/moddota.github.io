@@ -2,9 +2,12 @@
 title: Contribute
 ---
 
+# Contribute
+
+
 ## Suggest an article on GitHub
 
-To suggest a new article go to the [/_articles directory of the ModDota GitHub](https://github.com/ModDota/moddota.github.io/tree/source/_articles)
+To suggest a new article go to the [/_articles directory of the ModDota GitHub](https://github.com/ModDota/moddota.github.io/tree/source/_articles).
 
 **Note: You need to be logged in to your GitHub account for this.**
 
@@ -57,12 +60,12 @@ Once your tutorial is merged it is automatically released to the website.
 
 Tutorials can be written in Markdown markup language, with some extra features from GitHub Flavored Markdown supported. To get familiar with the syntax, you can visit [this page](https://commonmark.org/help/).
 
-In addition, this website supports markdown extensions provided by [Docusaurus](https://v2.docusaurus.io/docs/markdown-features):
+In addition, this website supports markdown extensions provided by [VitePress](https://vitepress.dev/guide/markdown):
 
-```lua title="named-code-example.lua" {2}
-function foo() {
+```lua{2}
+function foo()
   -- Highlighted line
-}
+end
 ```
 
 ### Images and Videos
@@ -80,21 +83,17 @@ Use `<YouTube id="GMvmdnNM6Sc" />`
 
 ### Headings
 
-In Docusaurus, Markdown's [headings] get an additional meaning - they are used to generate Table of Contents, which you can see on the right side from the article.
+In VitePress, Markdown's [headings] get an additional meaning - they are used to generate the "On this page" outline, which you can see on the right side of the article.
 
 :::info
-Only headings of levels 2 (##) and 3 (###) would appear in the Table of Contents.
-:::
-
-:::caution
-Do not use headings of the first level (#) in tutorials. It would be automatically added based on the `title` field.
+Only headings of levels 2 (##) and 3 (###) would appear in the outline by default.
 :::
 
 ## Using a git fork
 
 **Warning: Advanced users only**
 
-This website is set up as a Github Pages project which is automatically rendered from its source contents by Jekyll. Content is rendered automatically after each push to master and published to the website.
+This website is set up as a GitHub Pages project built with VitePress. Content is rendered automatically after each push to the `source` branch and published to the website.
 
 You can simply fork or clone the repository to edit the files and submit a pull request to the main repository.
 
@@ -102,14 +101,14 @@ File structure is as follows:
 
 ```
 .
-_articles/         # Directory storing all articles on the website as markdown files
-  | article1.md
+_articles/              # Directory storing all articles as markdown files
+  | index.md            # Homepage
+  | contribute.md       # This page
   | ...
-_includes/         # Directory containing Jekyll includes
-_layouts/          # Website layout files. (NOTE: We override the Jekyll Minima theme, only overrides   | ...                  are in this directory, the default minima files are not in this repo)
-_sass/             # Sass stylesheets, will automatically be built when releasing
-
-ask-a-question.md  # The 'Ask-A-Question' page
-contribute.md      # This page
-index.md           # Homepage
+.vitepress/
+  | config.mts          # VitePress configuration (sidebar, nav, etc.)
+  | theme/              # Custom theme, components, and CSS
+static/
+  | images/             # Static images
+  | videos/             # Static videos
 ```

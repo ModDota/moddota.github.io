@@ -5,9 +5,12 @@ steamId: '76561198015886976'
 date: 15.01.2015
 ---
 
-This is a quick tutorial on how to create custom units so that they appear with a circular timer next to their health bar and the time remaining on the XP bar
+# Creating units with a duration
 
-If you are not sure to what I am referring to then look at these images ![img](/images/external/NL1Gqmr.png) and ![img](/images/external/GOeKyp7.png)
+
+This is a quick tutorial on how to create custom units so that they appear with a circular timer next to their health bar and the time remaining on the XP bar.
+
+If you are not sure what I am referring to then look at these images ![img](/images/external/NL1Gqmr.png) and ![img](/images/external/GOeKyp7.png)
 
 The thing that we will need is `modifier_kill`
 
@@ -15,7 +18,7 @@ You can either apply it in KV using `ApplyModifier` or in Lua using `AddNewModif
 
 It allows for more flexibility and allows for the proper creation of summoned timed units through Lua
 
-### KV example
+## KV example
 
 Here is an example of it in KV; one spider spawns without the `modifier_kill` and the other one with it
 
@@ -71,7 +74,7 @@ and a short video along with it
 
 <StaticVideo path="/videos/AmusedScientificHoneybadger.mp4" />
 
-### Lua example
+## Lua example
 
 This is a really simple example on how to use it with Lua
 

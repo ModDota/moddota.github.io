@@ -5,7 +5,10 @@ steamId: '76561198046984233'
 date: 07.02.2015
 ---
 
-When spawning units through KV and Lua, you might have to deal with the precache-dilemma. This also applies to particles and sounds. I talked about it briefly in the [precache section of the datadriven breakdown](/abilities/ability-keyvalues) but here I have an straightforward example to help understand the matter.
+# Precache, Fixing and avoiding issues
+
+
+When spawning units through KV and Lua, you might have to deal with the precache-dilemma. This also applies to particles and sounds. I talked about it briefly in the [precache section of the datadriven breakdown](/abilities/ability-keyvalues) but here I have a straightforward example to help understand the matter.
 
 So, if you see an unselectable orange ERROR as the model of a unit, then you have a precache model issue:
 

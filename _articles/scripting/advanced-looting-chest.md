@@ -5,12 +5,15 @@ steamId: 76561198385531121                          # Your steam ID to link to y
 date: 10.07.2021                                    # The date of writing
 ---
 
+# Advanced rpg looting chest in typescript
+
+
 
 In this guide you will learn to create a channeling chest, which drops loot.
 The tricky part is to scale that item, because "Scale" is not supported, and to keep that item while channeling. Also you want to replace it with a opened chest model after successfully opening it. If the channeling fails, you also want to keep the chest.
-It also should keep the scale and rotation. Also the chest we are using has two different material sets and of course we want to support "Skin" either.
+It also should keep the scale and rotation. Also the chest we are using has two different material sets and of course we want to support "Skin" as well.
 
-So we gotta implement that. Lets go.
+So we gotta implement that. Let's go.
 
 In our example we use models/props_generic/chest_treasure_02.vmdl and models\props_generic\chest_treasure_02_open.vmdl, which both have a golden and brown material. 0 is brown, 1 is gold.
 
@@ -53,7 +56,7 @@ In our example we use models/props_generic/chest_treasure_02.vmdl and models\pro
 Instead of item_desolator, you should use a better icon :)
 
 ```ts
-// registerAbility() and BaseItem is provided by dota_ts_adapter and needs to imported.
+// registerAbility() and BaseItem is provided by dota_ts_adapter and needs to be imported.
 
 @registerAbility()
 class item_treasure_chest_2 extends BaseItem {
@@ -192,5 +195,5 @@ class item_treasure_chest_2 extends BaseItem {
 
 Finally you will want to give your chest a tooltip name. Add "DOTA_Tooltip_ability_item_treasure_chest_2"			"Testchest" to your addon_*.txt.
 
-There are some drawbacks to this approach. You cant change the pickup range and the itemquality. Please leave a comment in discord or edit this page, if you know.
+There are some drawbacks to this approach. You can't change the pickup range and the item quality. Please leave a comment in discord or edit this page, if you know.
 

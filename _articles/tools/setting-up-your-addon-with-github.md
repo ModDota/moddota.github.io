@@ -4,6 +4,9 @@ author: Veggiesama
 date: 06.03.2024
 ---
 
+# Setting Up Your Addon With GitHub
+
+
 Split the game into a `game` and `content` folder, then add junctions or symlinks to link them with the Dota files.
 
 ## Windows - Create the junctions
@@ -38,7 +41,7 @@ ln -s /home/username/games/Steam/steamapps/common/dota2/content/dota_addons/my_c
 Remove the symlinks by using
 ```shell
 unlink /home/username/workspaces/dota2-workshops/my_custom_game/content
-umlink /home/username/workspaces/dota2-workshops/my_custom_game/game
+unlink /home/username/workspaces/dota2-workshops/my_custom_game/game
 ```
 
-Now you can do modifications from the steamapps folder and still use Github for version control from a linked folder.
+Now you can do modifications from the steamapps folder and still use GitHub for version control from a linked folder.

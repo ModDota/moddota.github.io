@@ -5,13 +5,16 @@ steamId: '76561198249367546'      # Your steam ID to link to your steam profile
 date: 08.08.2020                  # The date of writing
 ---
 
+# Button Examples
+
+
 Here are some button examples that you can use in your custom games.
 
 ---
 
 ## Example 1 - Default Valve Button
 
-Here is the button that valve mostly uses for Dota 2. (Valve mostly recolor them for different uses: Green for Store,  Gold-ish for Dotaplus etc.)
+Here is the button that valve mostly uses for Dota 2. (Valve mostly recolor them for different uses: Green for Store, Gold-ish for Dotaplus etc.)
 
 ![/images/external/fZyO9sA.png](/images/external/fZyO9sA.png)
 
@@ -88,6 +91,7 @@ CSS:
 	sound: "ui_generic_button_click";
 }
 ```
+
 ---
 
 ## Example 2 - Purple Button
@@ -151,7 +155,7 @@ CSS:
 
 ## Example 3 - Text Button with Icon
 
-You can add icon to your button -in this case, it is sized 26x26px default dota 2 logo- to make it look better.
+You can add an icon to your button -in this case, it is sized 26x26px default dota 2 logo- to make it look better.
 
 ![/images/external/Fe5MiGc.png](/images/external/Fe5MiGc.png)
 

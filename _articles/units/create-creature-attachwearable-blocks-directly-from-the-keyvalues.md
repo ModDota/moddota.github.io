@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 15.12.2015
 ---
 
+# Create Creature AttachWearable blocks directly from the keyvalues
+
+
 For those still Ctrl+F'ing and copying from [items_game.txt](https://raw.githubusercontent.com/dotabuff/d2vpkr/master/dota/scripts/items/items_game.txt) I bring you the better solution:
 
 First, "Map" the valid wearables from items_game:

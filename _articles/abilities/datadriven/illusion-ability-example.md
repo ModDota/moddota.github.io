@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 11.01.2015
 ---
 
+# Illusion Ability Example
+
+
 This is a lua script to properly create an illusion.
 
 Note: Datadriven Modifiers with "AllowIllusionDuplicate" aren't automatically created with this method and need to be added manually in lua. In this same script we also attempt to add the datadriven version of `modifier_metamorphosis` which can also be found [here in the SpellLibrary](https://github.com/Pizzalol/SpellLibrary/blob/SpellLibrary/game/dota_addons/spelllibrary/scripts/npc/abilities/terrorblade_metamorphosis_datadriven.txt)
@@ -55,7 +58,7 @@ function ConjureImage( event )
   end
  end
 
- -- Add our datadriven Metamorphosis modifier if appropiate
+ -- Add our datadriven Metamorphosis modifier if appropriate
  -- You can add other buffs that want to be passed to illusions this way
  if caster:HasModifier("modifier_metamorphosis") then
   local meta_ability = caster:FindAbilityByName("terrorblade_metamorphosis_datadriven")

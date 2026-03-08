@@ -5,9 +5,12 @@ steamId: '76561198046984233'
 date: 11.11.2015
 ---
 
-Here is a quick and simple step by step guide on how to make and use your own minimap icons for creatures
+# Custom Minimap Icons
 
-## Step 1: Get the files
+
+Here is a quick and simple step by step guide on how to make and use your own minimap icons for creatures.
+
+## Step 1. Get the files
 
 [minimap_icon.zip](https://drive.google.com/file/d/1nsisy1oPKXsGR3LFhfRjBhwQIp9A7jY2/view?usp=sharing)
 
@@ -18,11 +21,11 @@ This contains the following files:
 * **vgui/hud/minimap_icon.vmat**
 * **vgui/hud/minimap_icon.psd**
 
-addon_hud_textures is an unique file to define the paths for every custom icon.
+addon_hud_textures is a unique file to define the paths for every custom icon.
 
 The 3 minimap_icon files are used together, and should be renamed to the name your future icon, like *minimap_questgiver* or *boss_kappa*.
 
-## Step 2: Edit the files
+## Step 2. Edit the files
 
 ### PSD Image
 
@@ -78,19 +81,19 @@ Same process in the addon_hud_textures.txt file
 
 For more icons, just copy the minimap_icon block again with another name inside TextureData
 
-### Step 3: Move the files
+## Step 3. Move the files
 
 * **minimap_icon** files go in **content**/dota_addons/YOUR_ADDON/materials/**vgui/hud/**. 
 
 * **addon_hud_textures.txt** file goes in **game**/dota_addons/YOUR_ADDON/scripts/
 
-### Step 4: Compile and check
+## Step 4. Compile and check
 
 Go into the asset browser, write the name of your icon, open the vmat by double clicking on it (this will compile it).
 
 ![img](/images/external/lhRLL-31d63b48d9.jpg)
 
-### Step 5: Set your unit to use the new icon
+## Step 5. Set your unit to use the new icon
 
 In the unit definition, add these lines:
 ```
@@ -101,7 +104,7 @@ In the unit definition, add these lines:
 
 `MinimapIconSize` determines the relative size of the minimap icon, while `MinimapDisableTint` can be 0 or omitted if you want the creature to use different team colors.
 
-### 6. Try it ingame
+## Step 6. Try it ingame
 
 ![img](/images/external/lhQFp-37192e1e63.jpg)
 

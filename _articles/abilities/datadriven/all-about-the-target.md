@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 23.01.2015
 ---
 
+# All about the Target
+
+
 I wanted to review a very old thread which was posted almost one year ago but still isn't completely well documented anywhere:
 
 > "Target" is one bitch of a key.
@@ -19,7 +22,7 @@ Quoting the [wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tool
 
 This thread intends to compile every Target-related decision.
 
-To test everything and get results, I used some simple scrips to test which parameters are seen in each event context. The KV and Lua Scripts are found in the second post, which also contains all the debug data.
+To test everything and get results, I used some simple scripts to test which parameters are seen in each event context. The KV and Lua Scripts are found in the second post, which also contains all the debug data.
 
 After running many tests with different ability behaviors, here's what I got:
 
@@ -81,7 +84,7 @@ OnOwnerSpawned | CASTER
 OnUpgrade | CASTER
 
 
-## MODIFER EVENT CONTEXTS
+## MODIFIER EVENT CONTEXTS
 
 ### Caster-Target
 

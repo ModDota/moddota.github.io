@@ -5,17 +5,20 @@ steamId: '76561197975484185'
 date: 07.08.2015
 ---
 
+# Lua Item Tutorial
+
+
 This tutorial is walk-through of creating completely new item with the new item_lua base class. <br />
 For this first tutorial we create upgrade from Blink Dagger to Blink Staff. How it will work is that when targeting any point in ground it will work like Blink Dagger does but if you target allied Unit you can 'tag' it to blink instead of you. We will also add passive bonuses from the item we will have in the recipe.
 
-### Blink Staff
-First open up your npc_items_custom.txt in your favourite text editor. (I use notepad++) If  you don't have this file in your scripts\npc\ folder then create it and copy following into it.
+## Blink Staff
+First open up your npc_items_custom.txt in your favourite text editor. (I use notepad++) If you don't have this file in your scripts\npc\ folder then create it and copy following into it.
 ```
 "DOTAAbilities"
 {
 }
 ```
-First and most important thing is naming your item. for this example I will use "item_blink_staff". Note that using the same name when referring to this item is important as dota 2 assumes some naming schemes.<br />
+First and most important thing is naming your item. For this example I will use "item_blink_staff". Note that using the same name when referring to this item is important as dota 2 assumes some naming schemes.<br />
 We will also setup unique ID for the item and a base class that tells the game that we are intending to create a lua item.
 ```
 "DOTAAbilities"
@@ -64,7 +67,7 @@ if item_blink_staff == nil then
 end
 ```
 IMPORTANT: Make sure you use same name as you defined in your npc_items_custom.txt<br />
-Now next we want to define cooldown and mana cost for our blink staff. This can be done through 'npc_items_custom.txt' or through lua. Note that everything we define through lua we can manipulate more dynamically. For example we could reduce cooldown by half durring night time or double the mana cost if player has positive k/d ratio.<br />
+Now next we want to define cooldown and mana cost for our blink staff. This can be done through 'npc_items_custom.txt' or through lua. Note that everything we define through lua we can manipulate more dynamically. For example we could reduce cooldown by half during night time or double the mana cost if player has positive k/d ratio.<br />
 Also advantage of defining them in npc_items_custom.txt is that what ever shows in the store (before player has the item) is the values defined there. Also currently there is issue that Manacost will always display the value defined by 'npc_item_custom.txt' but the item will still grey(blue?)-out when your mana is lower than what is defined in lua for mana cost.<br />
 Because we want things to look smooth lets define some basic parameters we can later over ride in lua as we like:
 ```
@@ -88,7 +91,7 @@ Because we want things to look smooth lets define some basic parameters we can l
 For more key-value stuff involving items use Noyas guide: [Datadriven items](item-keyvalues)
 <br /> Its great reference but lets get on with the lua stuff!
 
-### Defining Cast Rules
+## Defining Cast Rules
 First we add behaviours. This will define what happens when player activates the hot-key of the item.
 ```lua
 function item_blink_staff:GetBehavior()
@@ -96,7 +99,7 @@ function item_blink_staff:GetBehavior()
 	return behav
 end
 ```
-The GetBehaviour() function is called by the engine when it needs to know how the ability should act on different occations. The 'return' should return number 'int' value. Valve has made defining this easy for us by providing them as keys we can just sum together. These values take advantage of bit band where for example:
+The GetBehaviour() function is called by the engine when it needs to know how the ability should act on different occasions. The 'return' should return number 'int' value. Valve has made defining this easy for us by providing them as keys we can just sum together. These values take advantage of bit band where for example:
 ```
 Key ------ Value ------ Bytes
 DOTA_ABILITY_BEHAVIOR_UNIT_TARGET ------ 8 ------ 01000
@@ -165,7 +168,7 @@ This is what our item should do right now:
 
 <StaticVideo path="/videos/RepentantYellowishDiscus.mp4" />
 
-### Cast on Allied
+## Cast on Allied
 Now we are going to create the part that makes this item unique compared to blink dagger. First we if statement in our cast function that distinguishes how it should act depending on the target. Also at same time we make sure that double tapping the item works like it does with blink dagger (self targeting blinks towards base)
 
 Because this lua ability stuff still has some minor issues we have to return to our 'npc_items_custom.txt' file to add some targeting help. Just add the following to the item.
@@ -532,7 +535,7 @@ function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the t
 	end
 end
 ```
-Now if we want to make sure the consistancy between npc_items_custom.txt and our lua file is complete we can use self.BaseClass for things like cooldown or castrange. Lets replace our mana cost and cooldown functions to see how it works.
+Now if we want to make sure the consistency between npc_items_custom.txt and our lua file is complete we can use self.BaseClass for things like cooldown or castrange. Lets replace our mana cost and cooldown functions to see how it works.
 ```lua
 function item_blink_staff:GetManaCost()
 	return self.BaseClass.GetManaCost( self, nLevel )
@@ -608,7 +611,7 @@ function item_blink_staff:GetCustomCastErrorTarget( hTarget) -- hTarget is the t
 	end
 end
 ```
-Problem with this method is that its easier for user to blink towards the enemy rather than even try 'helping' him/her. But in this tutorial we assume you can figure it out your how to edit the code to blink when caster and target have different teams using the cast filter changes as example.<br />
+Problem with this method is that its easier for user to blink towards the enemy rather than even try 'helping' him/her. But in this tutorial we assume you can figure out yourself how to edit the code to blink when caster and target have different teams using the cast filter changes as example.<br />
 Now the thing that makes blink dagger less as efficient as escape tool is it's Cooldown when hurt. Lets add that in! To do that we create Intrinsic modifier. Lets link our new modifier:
 ```lua
 LinkLuaModifier( "item_blink_staff_passive_modifier", "lua_items/blink_staff/passive_modifier.lua", LUA_MODIFIER_MOTION_NONE )
@@ -643,7 +646,7 @@ function item_blink_staff_passive_modifier:OnTakeDamage( params ) --When ever th
 	end
 end
 ```
-As you can see used declare functions to tell the game what to expect from this modifier. This makes sure the game doesn't check this modifier with every event that might be effected.<br />
+As you can see used declare functions to tell the game what to expect from this modifier. This makes sure the game doesn't check this modifier with every event that might be affected.<br />
 We also added new special value for cooldown when caster gets hurt. Remember to add that to your 'npc_items_custom.txt' as float value preferably.
 ```
 			"05"
@@ -654,7 +657,7 @@ We also added new special value for cooldown when caster gets hurt. Remember to 
 ```
 Now we should have covered all the main issues. Next we add recipe for the item and add stats from the components.
 
-### Recipe and Stats
+## Recipe and Stats
 As you might have noticed testing our item, it right now costs no gold to purchase. There are two things we can do here. We can either add ItemCost into our 'npc_items_custom.txt' file or create a recipe for the item. When you create a recipe for your item the game automatically calculates the item cost. We can also add ItemCost to our new recipe to let the game know that you have to buy it aswell instead of items being automatically combined into one. We are also adding the stats from our component items so be sure to add special values to your item reflecting the component stats.
 
 I will be using item_quarterstaff, item_robe and item_blink for my components. I also make the recipe cost 325 gold. One important thing to note when creating recipe is the naming scheme. The recipe name should always be
@@ -774,7 +777,7 @@ After that our file should have something like this:
 
 Now we are pretty much done. But because the biggest advantage of lua items is that we can define so many things dynamically so rest of this tutorial we will do few experiments that might not seem very balanced or sensible from game play perspective but just because we can!
 
-### Advanced Uses
+## Advanced Uses
 First Lets try effecting the help casting range if we are dealing with large mana pool hero. Since we are using cast filters for the help range limitation we can do this part there. To do this we use our already defined hCaster handle and use function :GetMaxMana() to return the hero's mana pool. Then we add that value to our already existing help range. This means that if our caster has 5000 mana pool to use late game he or she will have massive support range of 8000 units.<br />
 So lets change the CastFilterResult target and error functions with following:
 ```lua
@@ -880,7 +883,7 @@ function item_blink_staff:CCastFilter( hTarget, bError )
 end
 ```
 
-### Item Levels
+## Item Levels
 As I mentioned early in the tutorial things like bkb and dagon has item levels used. Dagon uses separate items to define the levels while bkb has built-in leveling when ever it is used. We are going to code where we reduce our blink staff help range when ever it is used to help a player.<br />First we need  to add new values for our help ranges between the levels. These are simply separated by spaces between values.
 ```
 			"03"
@@ -945,10 +948,10 @@ Or we can use more elegant choice of modifying our recipe to act like charge ref
 ```
 Notice how we added "02" to the item requirements and it only requires the item "item_blink_staff". This means we can combine our original blink staff to create fully new one with level set to its default value.<br />Now what you should remember to do is change the description of the item and not keep the player guessing.
 ```
-		"DOTA_Tooltip_ability_item_blink_staff_Description"                               "Teleport to a target point up to 1200 units away. Can be used on allied units to select them to blink instead of you. If you take damage the Blink Staff is put on 3.0 second cooldown. Every time you help ally the help range is reduced by 500. This doesn't apply if used durring night time. You maximum mana is added to the help distance."
+		"DOTA_Tooltip_ability_item_blink_staff_Description"                               "Teleport to a target point up to 1200 units away. Can be used on allied units to select them to blink instead of you. If you take damage the Blink Staff is put on 3.0 second cooldown. Every time you help ally the help range is reduced by 500. This doesn't apply if used during night time. You maximum mana is added to the help distance."
 ```
 
-### The End
+## The End
 That is end of this tutorial. If you have requests concerning this tutorial or improvements/corrections please comment bellow.<br />
 You can find this and other lua items and abilities from my Dota2Overflow github repo.<br />
 https://github.com/DrTeaSpoon/Dota2Overflow

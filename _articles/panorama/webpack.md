@@ -3,11 +3,13 @@ title: Bundling scripts with webpack
 author: ark120202
 ---
 
+# Bundling scripts with webpack
+
 ## What is webpack and why should I use it?
 
 Working on a large codebase there are two ways to organize your code. The first is just keeping all logic in a single `.js` file, which quickly becomes hard to change and comprehend. The second approach is splitting code by functionality, creating multiple `.js` files and including all of them in the layout file.
 
-While the second approach is preferred it also has some problems. Lack of explicit references to value definitions makes it hard to track where a certain values comes from, and, since all files use a single shared scope, naming conflicts can arise.
+While the second approach is preferred it also has some problems. Lack of explicit references to value definitions makes it hard to track where a certain value comes from, and, since all files use a single shared scope, naming conflicts can arise.
 
 In Lua these problems are solved with `require` function, which allows one script to include another. JavaScript also got an official solution to this problem in EcmaScript 2015 - modules.
 
@@ -40,7 +42,7 @@ In addition, webpack:
 
 ## Getting Started
 
-:::note
+:::info
 You can skip most of the manual configuration in this guide by using a [JavaScript](https://github.com/ark120202/dota-templates/tree/webpack) or [TypeScript](https://github.com/ark120202/dota-templates/tree/webpack-typescript) templates.
 :::
 
@@ -58,7 +60,7 @@ You can skip most of the manual configuration in this guide by using a [JavaScri
 }
 ```
 
-:::note
+:::info
 We have to use `node --preserve-symlinks node_modules/webpack/bin/webpack.js` instead of just `webpack` because of reverse symlinking.
 :::
 
@@ -111,20 +113,20 @@ export function sayHello() {
 
 And layout files to make Panorama run our script:
 
-```xml title="content/panorama/layout/custom_game/hud.xml"
+```xml{4} title="content/panorama/layout/custom_game/hud.xml"
 <root>
   <scripts>
-    <!-- highlight-next-line -->
+
     <include src="file://{resources}/scripts/custom_game/hud.js" />
   </scripts>
   <Panel />
 </root>
 ```
 
-```xml title="content/panorama/layout/custom_game/custom_ui_manifest.xml"
+```xml{4} title="content/panorama/layout/custom_game/custom_ui_manifest.xml"
 <root>
   <Panel>
-    <!-- highlight-next-line -->
+
     <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hud.xml" />
   </Panel>
 </root>
@@ -282,10 +284,10 @@ module.exports = {
 
 Now you need to move layout file to the source directory, and use relative script path:
 
-```xml title="content/panorama/src/hud/layout.xml"
+```xml{4} title="content/panorama/src/hud/layout.xml"
 <root>
   <scripts>
-    <!-- highlight-next-line -->
+
     <include src="./script.js" />
   </scripts>
   <Panel />
@@ -325,7 +327,7 @@ module.exports = {
 };
 ```
 
-:::note
+:::info
 Since webpack 5 is currently in beta, some transitive dependencies might yield deprecation warnings. They can be safely ignored.
 :::
 

@@ -5,15 +5,18 @@ steamId: 76561197994333648
 date: 07.03.2021
 ---
 
+# Abilities in Typescript
+
+
 Regardless of what kind of game you're going for, you'll most probably have to code a couple of abilities for your characters to use to fight whatever they need to fight. Typescript enables coding many abilities with a ton of flexibility.
 
-For this tutorial, I'm going to be demonstrating Typescript with a fairly, simple ability: Skywrath's Arcane Bolt. It fires a slow moving tracking projectile that deals damage that equals a base damage, plus a multiplier of the hero's intelligence.
+For this tutorial, I'm going to be demonstrating Typescript with a fairly simple ability: Skywrath's Arcane Bolt. It fires a slow moving tracking projectile that deals damage that equals a base damage, plus a multiplier of the hero's intelligence.
 
 This tutorial assumes you have basic knowledge of how abilities are registered for units or heroes. If you're not aware, I'd recommend the amazing guides by Elfansoer: [Ability Form](https://github.com/Elfansoer/dota-2-lua-abilities/wiki/Ability-Lua-Tutorial-1%3A-Ability-Form) and [Registering and Testing Ability](https://github.com/Elfansoer/dota-2-lua-abilities/wiki/Ability-Lua-Tutorial-2:-Registering-and-Testing-Ability). Note, however, that this guide assumes you'll be using Typescript instead of lua, so going over the rest of tutorials in Elfansoer's Ability Lua Tutorial are not required; however, he does a fantastic job explaining mechanics and techniques which are employed whenever coding an ability, regardless of language, so I'm going ahead and recommend going over those if you're interested.
 
 Before we start, I'm going to go ahead and link the [moddota tools](https://moddota.com/api/#!/vscripts), which feature the most up to date API for custom games in Dota 2. If you were using Valve's wiki, ditch it; it hasn't been updated in years.
 
-### Creating A New Ability
+## Creating A New Ability
 
 Before we can start coding an ability, we need to define it. Typescript only replaces lua files, so anything with KVs, like the npc_abilities_custom.txt or npc_heroes_custom.txt files is completely unchanged.
 
@@ -76,17 +79,17 @@ Three new fields were added:
 
 * `"ScriptFile" "abilities/typescript_skywrath_mage_arcane_bolt"` - this is the path of the file that has the code for the ability. Remember that it uses a relative path starting from the `/game/scripts/vscripts`, which has the `abilities` folder.
 
-### Creating The Ability File
+## Creating The Ability File
 
 Now that the ability is defined, it is time to start coding it. The first step would be to create a file named in `typescript_skywrath_mage_arcane_bolt` inside of source folder `src/vscripts/abilities`. The source is where we'll create the file, but when we compile it, it will be produce a lua file in `/game/vscripts/abilities`, as the game expects. Remember that even though we create the ability in Typescript, the engine works with lua files, which is what we need to produce.
 
 We'll add the `.ts` extension, so the file that we'll be editing is `typescript_skywrath_mage_arcane_bolt.ts`.
 
-:::note
+:::info
 While the [Watcher is active](typescript-introduction#activating-the-watcher), each time you save your file, a `.lua` file of the same name will be created in the respective output folder. This lua file will be used by the game, and will immediately update to correspond for any changes you do in your Typescript file.
 :::
 
-### Adding The Ability Class
+## Adding The Ability Class
 
 First, we need to declare the ability's class. This is done by adding the following:
 
@@ -113,11 +116,11 @@ Let's go over it quickly:
 
 While your cursor is inside that block, all functions inherited from `BaseAbility` will show up here. Simply start typing for the auto complete to immediately show you possible completions of what you typed.
 
-:::note
+:::info
 If either @registerAbility() or BaseAbility are not recognized and show an error, highlight them, and use the `Ctrl + .` hotkey shortcut, which opens a small menu that suggests to import them. You'll see the top of the file now has the import statement: `import { BaseAbility, registerAbility } from "../lib/dota_ts_adapter";`, which shows that those are now imported from their respective files.
 :::
 
-### Ability Properties
+## Ability Properties
 
 Before we actually add any functions, we should add properties to the class. Those are very easily accessible from everywhere in the class, and are very useful to store information for that ability instance there. This is not required, but this is where I usually store any of the values for:
 
@@ -142,13 +145,13 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
 }
 ```
 
-:::note
+:::info
 The property names are arbitrary, and could be anything you'd like.
 :::
 
-Note that after the property name, comes `: string`. This defines the type of the proeprty. Technically, this is not required, as Typescript will know that it is a string due to it being assigned to a string. However, it is good practice to add the type to increase readability and to make sure you don't assign it with something you didn't intend to.
+Note that after the property name, comes `: string`. This defines the type of the property. Technically, this is not required, as Typescript will know that it is a string due to it being assigned to a string. However, it is good practice to add the type to increase readability and to make sure you don't assign it with something you didn't intend to.
 
-### Coding The Ability: Properties and Methods
+## Coding The Ability: Properties and Methods
 
 Now that we've set up everything we need for the ability, let's start coding it. First, we'll add a OnSpellStart() method, which is called when the unit or hero casts it.
 
@@ -171,11 +174,11 @@ Inside OnSpellStart(), we want to fetch the target of the ability, which the bol
 
 * `const` - A constant. This variable must be assigned a value when it's called. This variables can never be reassigned. Useful for variables that should never change, such as instances of classes, or definitive results of a function that will be used as is.
 
-* `let` - A standard variable. This variable can be undefined, be assigned immediately, or be assigned later. It can be reassigned as many times you need. Useful for things that change, such as numerical calculations, or boolean operators.
+* `let` - A standard variable. This variable can be undefined, be assigned immediately, or be assigned later. It can be reassigned as many times as you need. Useful for things that change, such as numerical calculations, or boolean operators.
 
-For this case, once we'll fetch our target, it should never change this cast, which is a good indication that we should use `const`. It will be immediately assigned to the ability's cursor target, using `this.GetCursorTarget()`.
+For this case, once we fetch our target, it should never change this cast, which is a good indication that we should use `const`. It will be immediately assigned to the ability's cursor target, using `this.GetCursorTarget()`.
 
-:::note
+:::info
 `this` refers to the instance of the class where it is called, in this case, the `typescript_skywrath_mage_arcane_bolt` class. Since it inherits BaseAbility, it also inherits its functionality of fetching its cursor target.
 :::
 
@@ -194,7 +197,7 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
 }
 ```
 
-### Checking Function's Arguments And Return Type
+## Checking Function's Arguments And Return Type
 
 In VSCode and similar editors that support it, hovering over a function will show a short explanation about it. For example, if we hover over `this.GetCursorTarget()`, we'll see the following:
 
@@ -210,12 +213,12 @@ In other words, `target` will either be assigned a CDOTA_BaseNPC, which usually 
 
 Typescript knows this, and will mark `target` as a potential undefined variable. Whenever we will try to use this variable, such as `target.GetHealth()`, it will warn us that `target` might be undefined, and therefore might not be able to call the function. The best practice is to use an if to check that target actually exists before any function that involves it.
 
-:::note
-If you're sure that variables that are potential undefined will be assigned with a valid value. You can force Typescript to ignore the potential for undefined by adding "!" to the end of the assignment. For example, we can use `const target = this.GetCursorTarget()!`. However, this is not recommended, as it defeats the purpose of having types in the first place - to make sure you don't do something that you cannot.
+:::info
+If you're sure that variables that are potentially undefined will be assigned with a valid value, you can force Typescript to ignore the potential for undefined by adding "!" to the end of the assignment. For example, we can use `const target = this.GetCursorTarget()!`. However, this is not recommended, as it defeats the purpose of having types in the first place - to make sure you don't do something that you cannot.
 :::
 
 
-### Coding The Ability: Firing a projectile
+## Coding The Ability: Firing a projectile
 
 The next step would be to collect all remaining information for the projectile out of our ability definition. We want the projectile speed (`bolt_speed`) and vision range (`bolt_vision`). The rest will be collected on impact. Our function should now look like this:
 
@@ -236,9 +239,9 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
 }
 ```
 
-```note
+:::info
 Since GetSpecialValueFor always returns a number, it doesn't have a potential for undefined. However, it will still return 0 if the engine will not be able to find the string provided for the ability.
-```
+:::
 
 Next, we want to fire a tracking projectile at the target. The projectile cannot be dodged, and provides vision during its journey to the target, among other properties. Most of them have default values and can be omitted.
 
@@ -246,7 +249,7 @@ One of the great advantages of Typescript is that things like tracking projectil
 
 ![Tracking Projectile Properties](/images/typescript-tutorial/trackingProjectileProperties.png)
 
-:::note
+:::info
 In most editors, `ctrl + spacebar` is the hotkey to show auto-complete if it is not shown.
 :::
 
@@ -284,7 +287,7 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
 
 The above codes fires a projectile at the target. Note that `Target` expects either a CDOTA_BaseNPC or undefined, so Typescript doesn't complain about it. If it hits the target, it will trigger the OnProjectileHit event, so let's use this function as well.
 
-### Coding The Ability: Projectile Impact
+## Coding The Ability: Projectile Impact
 
 After creating the OnProjectileHit function, we might want to check if it comes with additional parameters that we can use. There are two ways to check for those additional parameters:
 
@@ -335,7 +338,7 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
 }
 ```
 
-Next, Let's quickly collect the remaining information of the ability from the ability definition: we need base damage, intelligence multiplier, and the vision's radius and duration after impact:
+Next, let's quickly collect the remaining information of the ability from the ability definition: we need base damage, intelligence multiplier, and the vision's radius and duration after impact:
 
 ```ts
 @registerAbility()
@@ -392,9 +395,9 @@ let damage = bolt_damage;
 
 Now we want to add damage on top of the base damage. We can use the `+=` operator to sum the value on the right with the value already stored in `damage`, so the plan is to do `damage += this.GetCaster().GetIntellect() * int_multiplier`. However, for some reason, `GetIntellect()` is not shown as a function.
 
-### Coding The Ability: Final Push
+## Coding The Ability: Final Push
 
-So why isn't GetIntellect() showing up? The best way to do is check which class is GetIntellect() under. [Running a search in moddota tools](https://moddota.com/api/#!/vscripts?search=GetIntellect) will show us that the class GetIntellect() belongs to is `CDOTA_BaseNPC_Hero`, which makes sense: only heroes have intelligence; units, buildings, and other entities don't. But our caster is a hero, so what's the problem?
+So why isn't GetIntellect() showing up? The best way to do this is check which class GetIntellect() is under. [Running a search in moddota tools](https://moddota.com/api/#!/vscripts?search=GetIntellect) will show us that the class GetIntellect() belongs to is `CDOTA_BaseNPC_Hero`, which makes sense: only heroes have intelligence; units, buildings, and other entities don't. But our caster is a hero, so what's the problem?
 
 If we hover over `this.GetCaster()`, we'll see the following information on it:
 
@@ -402,7 +405,7 @@ If we hover over `this.GetCaster()`, we'll see the following information on it:
 
 According to the return type, GetCaster() returns a CDOTA_BaseNPC. But as we've established before, GetIntellect() only applies for the `CDOTA_BaseNPC_Hero` class. So we'll have to let Typescript know that our caster is a hero by casting. We cast by adding `as classname`; in this case, `this.GetCaster() as CDOTA_BaseNPC_Hero`. As the caster's type is now a hero, you can call hero related functions, such as `GetIntellect()`.
 
-:::note
+:::info
 Generally, casting is not considered a good practice as you force Typescript to assume you're absolutely sure that the type is correct. Typeguards, which will be covered in a later tutorial, are considered a good way to make sure you don't use a type that doesn't support it. For instance, imagine what happens if at some point in your custom game, you give this ability to a creep, which doesn't have any Intelligence stat.
 :::
 
@@ -587,13 +590,13 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility
 }
 ```
 
-### Video Record
+## Video Record
 
 Below is a short video record that shows the application of Skywrath Mage's Ancient Bolt in Typescript as explained in this section.
 
 <YouTube id="jiKNIkJ8TDE" />
 
 
-### What's Next?
+## What's Next?
 
 The next tutorial [Modifiers in Typescript](typescript-modifier) explains how to create a basic modifier, and link the modifier to an ability via Typescript.

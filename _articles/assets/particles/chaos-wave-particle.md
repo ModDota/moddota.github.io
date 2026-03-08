@@ -5,9 +5,12 @@ steamId: '76561198055627364'
 date: 05.02.2015
 ---
 
+# Chaos Wave Particle
+
+
 <a name="intro"></a><h1>Introduction</h1>
 <p>
-This is taken from the project I'm currently working on. The basic idea behind this particle system was that this projectile is a cyclone/tornado in xy-axis travel forward with certain amount of velocity. If you don't have any basic in particle editor, please go to <a href="particle-basics">this link</a> first. Before you read further, here is the finished product.
+This is taken from the project I'm currently working on. The basic idea behind this particle system was that this projectile is a cyclone/tornado in xy-axis traveling forward with a certain amount of velocity. If you don't have any basics in particle editor, please go to <a href="particle-basics">this link</a> first. Before you read further, here is the finished product.
 </p>
 <img src="/images/external/fwxoB5H.png"></img>
 <p>
@@ -156,7 +159,7 @@ Now change the color to the color you like, leave the rotation random as is, and
 This is so that our particles will start in the air instead of on the ground. You can pull reference model up to adjust the height as you like.
 </p>
 <p>
-Now that is done, we will start assigning the rest of the control points as followed:
+Now that is done, we will start assigning the rest of the control points as follows:
 </p>
 - Add "Remap control point to scalar" in Initializer.<br />
 - Add "Remap control point to scalar" in Initializer. (Yes twice)
@@ -284,7 +287,7 @@ With this, the particle count should be below 60 at all time since I want them t
 Now that I have my wave particle working, I feel like it needs something like an electric spark during the duration. However, since this particle is based on the wave particle, we need to make some adjustments to the wave particle.
 </p>
 - Create new particle for static and save it.<br />
-- In wave particle, add newly created particle as a children.
+- In wave particle, add newly created particle as a child.
 <p>
 First off as usual, you want to start rendering your sprite and emitter and decay.
 </p>
@@ -298,7 +301,7 @@ Change your render sprites' texture to,
 materials/particle/electrical_arc_smooth/electrical_arc_smooth.vtex
 ```
 <p>
-Now think about the actual electric spark, it needs to be fast, colorful, looks different all the time, and a little bit of transparency. From those idea, I add following functions.
+Now think about the actual electric spark, it needs to be fast, colorful, looks different all the time, and a little bit of transparency. From those ideas, I add following functions.
 </p>
 - Add <b>"Lifetime random"</b> in Initializer.<br />
 - Add <b>"Color random"</b> in Initializer.<br />
@@ -501,14 +504,14 @@ This particle borrows most of the value from wave particle except one function. 
 </p>
 <a name="final"></a><h1>Part four: Finalize the system</h1>
 <p>
-Our system is almost finished. Now we are going to add multiple layer of wave.
+Our system is almost finished. Now we are going to add multiple layers of wave.
 </p>
 - Open your wave particle.<br />
 - Remove the children.<br />
 - Save as a new particle for an outer layer (this should have no children).<br />
 - Save as a new particle again for the outline (this should also have no children).
 <p>
-These three layer will behave the same, there are only three different between each layer.
+These three layers will behave the same, there are only three differences between each layer.
 </p>
 1. Radius<br />
 2. Color<br />
@@ -533,14 +536,14 @@ Now we combine the two outer layer into our core layer by adding children. Your 
 If you don't have ground particle, you should be done at this point. However, if you have ground particle then:
 </p>
 - Create new particle.<br />
-- Add ground particle as children.<br />
-- Add wave particle as children.
+- Add ground particle as a child.<br />
+- Add wave particle as a child.
 <p>
 It is important that ground particle is above wave particle. This is the order in which your particle will be rendered. If ground particle is below wave particle, it will be on top of wave particle and that's not how we want it.
 </p>
 <a name="lua"></a><h1>Implement in-game</h1>
 <p>
-Now that the particle is ready, we have to put it to use in game. Note that this particle is not fully compatible with projectile. Therefore, we mimic the projectile as following:
+Now that the particle is ready, we have to put it to use in game. Note that this particle is not fully compatible with a projectile. Therefore, we mimic the projectile as follows:
 </p>
 <h4>KV npc_abilities_custom.txt</h4>
 <p>

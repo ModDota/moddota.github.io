@@ -5,23 +5,26 @@ steamId: 76561197994333648
 date: 18.01.2021
 ---
 
-Recently, the development of a new project that named the Tooltip Generator has been completed. This project was inspired by Ark's Eaglesong idea which purpose was to make adding localization as easy as possible, while reducing the chance to make mistakes. This project includes a secondary part, completely optional, named the Tooltip Codemaker, which helps those that already have a working addon with a lot of localization.
+# Tooltip Generator
 
-### The Tooltip Generator
 
-The tooltip generator creates predefined Typescript objects which fit into one of three categories: Standard Tooltips, Abilities, and Modifiers. The advantage to that is the ability to write a very easy to read object by code based on the group of tooltips you're making. Whenever you make a change to any of the files and save, the Tooltip Generator will immediately take the code you've created and makes localization files (such as addon_english.txt) that the game can read. This can be expanded further to support an infinite array of languages as well using the same code with slight changes to the fields you want to change.
+Recently, the development of a new project that named the Tooltip Generator has been completed. This project was inspired by Ark's Eaglesong idea whose purpose was to make adding localization as easy as possible, while reducing the chance to make mistakes. This project includes a secondary part, completely optional, named the Tooltip Codemaker, which helps those that already have a working addon with a lot of localization.
 
-### Wait, Typescript? My setup is lua!
+## The Tooltip Generator
+
+The tooltip generator creates predefined Typescript objects which fit into one of three categories: Standard Tooltips, Abilities, and Modifiers. The advantage to that is the ability to write a very easy to read object by code based on the group of tooltips you're making. Whenever you make a change to any of the files and save, the Tooltip Generator will immediately take the code you've created and make localization files (such as addon_english.txt) that the game can read. This can be expanded further to support an infinite array of languages as well using the same code with slight changes to the fields you want to change.
+
+## Wait, Typescript? My setup is lua!
 
 This project is designed to work on both lua and Typescript based addons. While you will have to use Typescript specifically to make the localization, the rest of your addon is completely unaffected by this.
 
-:::note
+:::info
 Most editors have plugins that add Typescript support. VSCode has built-in Typescript support and requires no plugins. In order to view Typescript syntax, make sure that your editor has Typescript support installed or enabled.
 :::
 
-### Why would I ever bother using that though?
+## Why would I ever bother using that though?
 
-There are a few of reasons why I've started this project in the first place. I was getting frustrated by the "rules" of the KV, such as having to copy "DOTA_Tooltip_Ability_my_ability_name" over and over. I constantly mistyped "Description", and occasionally used only 2 percentages instead of 3 on "%something%%%" to show a variable with a percentage. And if I ever had a missing quote, the entire thing got broken, which is extremely annoying.
+There are a few reasons why I've started this project in the first place. I was getting frustrated by the "rules" of the KV, such as having to copy "DOTA_Tooltip_Ability_my_ability_name" over and over. I constantly mistyped "Description", and occasionally used only 2 percentages instead of 3 on "%something%%%" to show a variable with a percentage. And if I ever had a missing quote, the entire thing got broken, which is extremely annoying.
 
 In addition, as I've developed my game, my addon file became **HUGE**. Because of the way Dota reads this file, you cannot use #base to split this into files, and some people have resorted to making a manual script that does that. It's a lot of hassle and wasted time for everyone involved.
 
@@ -35,11 +38,11 @@ This project attempts to solve all those problems:
 
 I encourage you to at least give this project a try. You won't be disappointed.
 
-### What do I need in order to use it?
+## What do I need in order to use it?
 
 This project uses Typescript and npm packages to function. Both of those require [NodeJS](https://nodejs.org/en/). If you don't have it installed, or have a really old version, download the latest stable version from NodeJS site and install it.
 
-### The Tooltip Codemaker
+## The Tooltip Codemaker
 
 When I was developing the tooltip Generator, I manually did every single localization I had to code, and when I was done, I thought to myself: why didn't I just do a script that does it for me?
 
@@ -53,7 +56,7 @@ The script assumes that everything that begins with `Dota_Tooltip_Ability_...` i
 
 You can find the Tooltip Codemaker in [this github repo](https://github.com/Shushishtok/tooltip-codemaker). Follow the readme for instructions on how to use it.
 
-### Installing the Tooltip Generator
+## Installing the Tooltip Generator
 
 In order to use the Tooltip Generator, you must install it. This only needs to be done once per project. Navigate to the game's root of your addon. For most projects, that would be in `dota 2 beta/game/dota_addons/your_addon/`. If you're using symlinks or a Typescript configuration, the symlinked folder is most likely to be the root of your folder.
 
@@ -65,13 +68,13 @@ After the installation is completed, a new file `package.json` is added to your 
 
 The installation assumes that your `resource` folder is located on your root, which should be the case for standard addons created by the Dota Workshop. If so, skip ahead. However, if this is not the case, open `package.json` and change `"~resource": "resource",` field to match the path from the root folder to that folder. For example, Typescript configurations using Moddota's Typescript Template will need to change it to `"~resource": "game/resource",`. Save the file and close it.
 
-On the command line, type `npm run init` and press enter. This added a few files to the your `resource` folder, which you can also ignore. You'll also see a new folder, `localization`, which is the core of all your Typescript-coded localization files.
+On the command line, type `npm run init` and press enter. This added a few files to your `resource` folder, which you can also ignore. You'll also see a new folder, `localization`, which is the core of all your Typescript-coded localization files.
 
-:::warning
+:::danger
 The next step activates the Tooltip Generator, which will completely erase all of your addon localization files (such as addon_english.txt) and replace them with your code. Make sure to back them up before proceeding!
 :::
 
-### Testing the Tooltip Generator
+## Testing the Tooltip Generator
 
 Navigate to the `localization` folder inside your `resource` folder. In this folder you will find `localizationData.ts`. This is used as a sample for the tooltip generator. Open it to find the following code:
 
@@ -84,12 +87,12 @@ StandardTooltips.push({
 
 This object is a Standard Tooltip, which is expected to be converted to `"Hello" "test"` in the KV. Let's test it to check if it works as expected.
 
-Using the same command line as before, run `npm run dev`. If works as expected, you should see it is watching a few files, and that it wrote a few localizations:
+Using the same command line as before, run `npm run dev`. If it works as expected, you should see it is watching a few files, and that it wrote a few localizations:
 ![npm run dev](/images/tooltip-generator/npm-run-dev-cmd.png)
 
 Check the addon_english.txt file. It should now have only one localization, as we only have the single test object.
 
-:::note
+:::info
 While the command line is running the `npm run dev` command, a "watcher" process is running and is waiting for changes. Any changes done in files in the `localization` folder will immediately re-compile the files and re-create the `addon_<language>` files.
 :::
 
@@ -104,13 +107,13 @@ StandardTooltips.push({
 });
 ```
 
-Save your file. Your command line have refreshed (don't worry if you missed it). Check your `addon_english.txt` (you might have to close it and open it again to see changes). If can now also see a second localization `"watcher_test" "This should be automatically added"`, the test is successful.
+Save your file. Your command line have refreshed (don't worry if you missed it). Check your `addon_english.txt` (you might have to close it and open it again to see changes). If you can now also see a second localization `"watcher_test" "This should be automatically added"`, the test is successful.
 
-:::note
+:::info
 You can activate the watcher in any editor that supports npm builds, like VSCode, by running the `npm run dev` in it. Sublime also has this support, but requires a short setup which you can find in the readme of the [Tooltip Generator Github repo](https://github.com/Shushishtok/tooltip_generator). Regardless, you can always use the command line to do so. The downside to it is needing to have the command line window open while the watcher is running, which isn't as fun.
 :::
 
-### Localization Types
+## Localization Types
 
 In the base form of the localization generator, each localization goes into one of three categories:
 * Standard Tooltips: Everything that isn't an ability or a modifier. Has no predefined key structure, and can be everything. The above examples are Standard Tooltips. Those are the most simple types of KVs.
@@ -119,9 +122,9 @@ In the base form of the localization generator, each localization goes into one 
 
 * Modifier Tooltips: All modifiers adhere to the key structure of `DOTA_Tooltip_modifiername`. It is common to start every modifier's name with `modifier_...`, but those should work here even if you named your modifiers differently.
 
-In my personal mod, Dota Reimagined, I've created two more Tooltip Localization types: Reimagined Tooltips and Talent Tooltips. Those are disabled (commented out) in the compiler because they do not work on standard modes (even talents, that system is custom made in my mod). However, they can be used as good reference to setting up additional localization types if you so desire. Feel free to check the compiler (found at `node_modules/@shushishtok/tooltip_generator/localizationCompiler.ts`) and tweak it as you fit. The above Tooltips types should be sufficient for most modes.
+In my personal mod, Dota Reimagined, I've created two more Tooltip Localization types: Reimagined Tooltips and Talent Tooltips. Those are disabled (commented out) in the compiler because they do not work on standard modes (even talents, that system is custom made in my mod). However, they can be used as good reference to setting up additional localization types if you so desire. Feel free to check the compiler (found at `node_modules/@shushishtok/tooltip_generator/localizationCompiler.ts`) and tweak it as you see fit. The above Tooltips types should be sufficient for most modes.
 
-### Standard Tooltip Example
+## Standard Tooltip Example
 
 Standard Tooltips are extremely straightforward and are very easy to make. They have the following fields:
 * Classname: string
@@ -144,9 +147,9 @@ Will produce the following KV:
 
 As you can see, it produces exactly the class-name relationship of an object, with no other logic applied.
 
-### Ability Localization Example
+## Ability Localization Example
 
-Ability Tooltips are probably have the biggest objects, because abilities can include a lot of properties. Each property has an expected type (explained later). Ability Tooltips have the following fields:
+Ability Tooltips probably have the biggest objects, because abilities can include a lot of properties. Each property has an expected type (explained later). Ability Tooltips have the following fields:
 
 * Ability Classname: string
 * Name: string
@@ -222,7 +225,7 @@ This translates into proper KV:
 "DOTA_Tooltip_Ability_aghanims_shard_explosion_shard_description"    "Decreases cooldown of the ability by %shard_cd_pct%%%."
 ```
 
-Finally, let's talk about notes and ability specials. Notes are arrays of strings, with each string reflecting a note about the ability. The compiler will properly compiled them into Note0, Note1, Note2 etc that the game expects.
+Finally, let's talk about notes and ability specials. Notes are arrays of strings, with each string reflecting a note about the ability. The compiler will properly compile them into Note0, Note1, Note2 etc. that the game expects.
 
 Ability specials are slightly more complex. Those are arrays of ability special objects. Each object expects, at the very least, the ability special name and its ingame text, like "shard_damage" and "DAMAGE". It expects nothing else except the text. However, it supports two optional fields:
 
@@ -286,9 +289,9 @@ This is processed to the final KV that the game reads perfectly:
 ```
 
 
-### Modifier Localization Example
+## Modifier Localization Example
 
-The last group is a Modifier Tooltip. Unlike abilities, modifiers only have a classname, a name and a description. However, they also have an element of their own: they can present dynamic values by using modifier properties. I've always incorrectly used them, so I've took an extra step to fix this. For now, let's make a simple modifier:
+The last group is a Modifier Tooltip. Unlike abilities, modifiers only have a classname, a name and a description. However, they also have an element of their own: they can present dynamic values by using modifier properties. I've always incorrectly used them, so I've taken an extra step to fix this. For now, let's make a simple modifier:
 
 ```ts
 Modifiers.push({
@@ -307,7 +310,7 @@ It is very quickly processed to the following KV:
 
 This time, we want to also include the exact bonus to the base damage and the move speed bonus that you get from this modifier. Assuming you increase your base damage by using the `MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE` modifier property, we can use an enum to use it. Note that in order to be able to insert variables into strings, we need to use string interpolation, which is done by encasing the string with with backticks (see example if this isn't clear). In addition, we must adhere to the following structure: `{${LocalizationModifierProperty.SOME_PROPERTY}}`. When using string interpolation, `${variable}` convert during compilation to the actual variable's value. This allows us to use enums for those modifier properties.
 
-:::note
+:::info
 When calling enums, you only need to specify the property's name, not the entire string. For instance, `MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE` will be called by simply typing `PREATTACK_BONUS_DAMAGE`. This will still be correctly processed by the compiler to the form the game expects.
 :::
 
@@ -330,11 +333,11 @@ Those values are enums, so the compiler makes sure those are typed correctly, an
 
 This works for all modifier properties.
 
-:::note
+:::info
 The property assumes the `d` (integer) prefix. If you want to use `f` (float) prefix instead, you can call it with `{f${LocalizationModifierProperty.PREATTACK_BONUS_DAMAGE}}`. Right now, `f` is the only additional supported keyword - contact me if you wish to add additional keywords.
 :::
 
-### Language Control
+## Language Control
 
 Every tooltip can have different values based on the client's language, which is why we have many `addon_<language>.txt` files, one for each language. Different mods have different language supports, based on the primary language of the mode and additional translations. This has introduced the need for language control.
 
@@ -342,7 +345,7 @@ On the top of the .TS file, you can see an import for `Language`. This enum cont
 
 In order to enable or disable a language, navigate to `/game/resource/languages.ts`. Inside it, you should see `export enum Language`, which has a list of languages. Simply comment or uncomment a language to disable or enable it. This needs to be compiled and refreshed for the changes to take effects, so restart your terminal with `npm run dev` and you should see the added/removed languages in the output.
 
-### Language Override Example
+## Language Override Example
 
 By default, all language files will have the same KVs. You can, however, override a specific language's field to make the compiler use a different string for that language. This is done by the `language_override` property which is available to all tooltip objects. Let's make an example utilizing the language override:
 
@@ -363,25 +366,25 @@ StandardTooltips.push({
 
 As the example shows, we're overriding the `name` field of the `standard_tooltip_example` classname with a different text. This is done specifically for the Russian language using a language override object for the Standard Tooltip. Additional objects can be added for every language that we want to have a different text for. This results in the following KVs:
 
-<MultiCodeBlock titles="English|Russian|Standard Chinese">
+::: code-group
 
-```
+``` [English]
 "standard_tooltip_example"    "Tooltip Example"
 ```
 
-```
+``` [Russian]
 "standard_tooltip_example"    "Пример всплывающей подсказки"
 ```
 
-```
+``` [Standard Chinese]
 "standard_tooltip_example"    "Tooltip Example"
 ```
 
-</MultiCodeBlock>
+:::
 
-If you checked the Standard Chinese KV, you probably saw that it retains its English language. Because it was not overriden, it still used the "main" value provided by the `name` property of the Standard Tooltip object.
+If you checked the Standard Chinese KV, you probably saw that it retains its English language. Because it was not overridden, it still used the "main" value provided by the `name` property of the Standard Tooltip object.
 
-### Splitting Files and Folders
+## Splitting Files and Folders
 
 One of the biggest annoyances with the localization files is the inability to split them to different files without using a script. The tooltip generator allows you to split your tooltips to as many files and folders as you need, as long as those files and folders are created inside the `resource/localization` directory.
 
@@ -418,17 +421,17 @@ export function GenerateLocalizationData(): LocalizationData
 
 It doesn't matter what name it has, as long as it has the `.ts` extension. The tooltips go between the `Enter localization data below!` comment and the `Return data to compiler` comment.
 
-:::note
+:::info
 I recommend making it into a snippet for easy creation of this signature for every file created.
-You can copy it from sample file `localizationData.ts` for every file that you need it .
+You can copy it from sample file `localizationData.ts` for every file that you need it.
 :::
 
-### Dota Reimagined as examples (Talents, Reimagined Effects)
+## Dota Reimagined as examples (Talents, Reimagined Effects)
 
 You can check out [Dota Reimagined's github](https://github.com/Shushishtok/dota-reimagined/tree/master/game/resource/localization), which I originally developed this project for, to see how it looks in terms of folders and files. Each hero has its own file in the `heroes` folder, and each item has its own file in the `items` folder. `generic` folder has files for things like `addon_game_mode`.
 
-Also, this uses Reimagined Effects and Talents on hero files, which are also processed into unique KVs that my game specifically has been designed to look for in panorama. You can check out how it exactly work and make your own changes to the compiler to support your unique KVs.
+Also, this uses Reimagined Effects and Talents on hero files, which are also processed into unique KVs that my game specifically has been designed to look for in panorama. You can check out how it exactly works and make your own changes to the compiler to support your unique KVs.
 
-### Bugs, Feature Requests, and Questions
+## Bugs, Feature Requests, and Questions
 
 Feel free to contact me in the [Moddota Discord](https://discord.gg/ZyHg6T9sTd) to ask any question, request features or to submit bugs and I'll be happy to assist.

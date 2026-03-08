@@ -5,7 +5,10 @@ steamId: '76561198046984233'
 date: 27.06.2015
 ---
 
-This is the quickest but one very useful tip for Hammer map design. 
+# Making skip/clip blocks out of models
+
+
+This is the quickest but one very useful tip for Hammer map design.
 
 When you drag a prop model into the map, it won't have any collision, so if you want heroes to walk over it or be blocked by it, you need to add a skip or clip block. You could make a very raw block like a neanderthal, but there is a better way that will maintain every edge on the model:
 

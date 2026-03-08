@@ -3,9 +3,12 @@ title: Setting Up Your Addon For Collaboration
 author: Perry
 ---
 
-Talking to dota 2 mod developers, or just software developers in general, you will often hear the words 'repositories', 'version control' and 'git'. The reason these are such popular topics is that version control is a very important topic within software development, and if you are working on a piece of software you SHOULD use it. In this article, I will try to clarify firstly what version control is, why you would want to use it, and how I have personaly set it up for dota 2. If you read it all the way to the end I might even give you some shameful stories about how I learnt most of this through trial and error.
+# Setting Up Your Addon For Collaboration
 
-# Table of contents
+
+Talking to dota 2 mod developers, or just software developers in general, you will often hear the words 'repositories', 'version control' and 'git'. The reason these are such popular topics is that version control is a very important topic within software development, and if you are working on a piece of software you SHOULD use it. In this article, I will try to clarify firstly what version control is, why you would want to use it, and how I have personally set it up for dota 2. If you read it all the way to the end I might even give you some shameful stories about how I learnt most of this through trial and error.
+
+## Table of contents
 * [What is version control](#what-is-version-control)
 * [Why you should use version control](#why-you-should-use-version-control)
 * [Git](#git)
@@ -21,10 +24,10 @@ The name already gives it away, but version control is a method to control.. wel
 
 ## Why you should use version control
 
-There are a lot of reasons so use version control, I will list the ones that I personally think are the most important:
-* **Working together**: <br/> Version control allows multiple people to work on the same files without overriding eachother's changes. Git just looks at individual line changes, and when two people happen to edit the same line it will automatically detect the clash and ask for it to be resolved.
+There are a lot of reasons to use version control, I will list the ones that I personally think are the most important:
+* **Working together**: <br/> Version control allows multiple people to work on the same files without overriding each other's changes. Git just looks at individual line changes, and when two people happen to edit the same line it will automatically detect the clash and ask for it to be resolved.
 * **Looking back**: <br /> Using version control you save different versions of your software. This means that at a later point in time you can always look back at a previous version. This means you can go back to an older version if something is seriously messed up, or you can just look at the code you had previously to compare it with your current code.
-* **Back-ups**: <br /> Like stated before, most version control systems have a remove that keeps track of all the changes in the software. This means that if your hard-drive were to crash, you could always get the software from your remove like nothing happened.
+* **Back-ups**: <br /> Like stated before, most version control systems have a remote that keeps track of all the changes in the software. This means that if your hard-drive were to crash, you could always get the software from your remote like nothing happened.
 
 I would also like to address some (wrong) misconceptions about why you would _not_ want to use version control:
 
@@ -38,11 +41,11 @@ Like mentioned before, this article will focus on the use of Git. So what is Git
 ## How to use Git
 
 There are a lot of tutorials on git you can find on google, I will however give a summary of the core concepts here.
-First of all **commit** every time you want to save your changes. A commit is basically a version of your software, you can always to back to your commits at a later point in time.
+First of all **commit** every time you want to save your changes. A commit is basically a version of your software, you can always go back to your commits at a later point in time.
 **Pulling** is the action of getting all commits for some branch from your remote. This way you also get your collaborator's changes.
 On the other hand, **pushing** is the opposite of pulling. It pushes your commit history to the remote, so the other collaborators can get it. Remember: always pull before pushing!
 
-Merge conflicts Even though Git keeps track of individual lines, you will have situations where multiple collaborators have changed the same lines. When pulling from the remote, git will automatically detect these so called 'merge conflicts' and ask you to resolve them. The basic way of resolving merge conflicts is to open the file that has the conflict. You will see some lines that basically look like this:
+**Merge conflicts:** Even though Git keeps track of individual lines, you will have situations where multiple collaborators have changed the same lines. When pulling from the remote, git will automatically detect these so called 'merge conflicts' and ask you to resolve them. The basic way of resolving merge conflicts is to open the file that has the conflict. You will see some lines that basically look like this:
 
 ```
 <<<<<<< HEAD
@@ -72,14 +75,14 @@ There are three main methods of doing git:
 
 * [SourceTree](https://www.sourcetreeapp.com/) - My personal favourite. Sourcetree is a git client with a GUI. At first it may seem a bit intimidating, as there are a lot of options, but after some time you automatically learn how it works. Works with any git remote and provides a lot of functionality.
 * [Github client](https://windows.github.com/) - Github provides desktop client with a nice and very user-friendly interface. The drawback of this client is that it only works with github remotes, and only allows the bare minimum of git functionality without opening up the command line. Also only works on windows.
-* [Git command line](https://git-scm.com/) - Git is basically command-line driven, so ofcourse you can choose to not use any fancy clients at all, but just type the commands directly into your command line. Other clients are basically just user interfaces built on top of this.
+* [Git command line](https://git-scm.com/) - Git is basically command-line driven, so of course you can choose to not use any fancy clients at all, but just type the commands directly into your command line. Other clients are basically just user interfaces built on top of this.
 
 ## How to set up a dota 2 mod repository
 
-Setting up a dota 2 mod repository is not entirely trivial, as there two directories you want to include at diffent locations instead of creating your repository on just one directory. You could of course make a repository of your dota_ugc folder, but ideally you would like to have one repository per project instead of having to track changes to all of them in the same repository.
+Setting up a dota 2 mod repository is not entirely trivial, as there two directories you want to include at different locations instead of creating your repository on just one directory. You could of course make a repository of your dota_ugc folder, but ideally you would like to have one repository per project instead of having to track changes to all of them in the same repository.
 
 So here is my solution:
-I made a directory somewhere on my harddrive, doesn't matter where, and called it 'Dota 2 Mods'. Inside this directory I made different directories for each mod I made, so I would have a Bomberman directory, Invoker Warfare directory, etc etc. So how do I get my mod files in here? The answer is symbolic links, or symlinks for short. A symlink is basically a reference to a different directory on your PC. This means that you can have the same directory at two locations in your file system. Changing the contents of this directory will affect the files in the directory at both locations.
+I made a directory somewhere on my hard drive, doesn't matter where, and called it 'Dota 2 Mods'. Inside this directory I made different directories for each mod I made, so I would have a Bomberman directory, Invoker Warfare directory, etc etc. So how do I get my mod files in here? The answer is symbolic links, or symlinks for short. A symlink is basically a reference to a different directory on your PC. This means that you can have the same directory at two locations in your file system. Changing the contents of this directory will affect the files in the directory at both locations.
 
 The repository directory will look something like this:
 ```ts

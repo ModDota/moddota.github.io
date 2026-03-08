@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 18.01.2015
 ---
 
+# Reutilizing Built-In Modifiers
+
+
 Here it will be explained how to reuse any Built-In modifier through the datadriven system.
 
 This has many uses, as sometimes it's impossible to replicate some effects that are very hidden/hardcoded within the engine.
@@ -19,7 +22,7 @@ illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = durat
 
 The fields between { } are **Very** specific.
 
-The Full List of Built-In Modifiers can be found [on the the wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names)
+The Full List of Built-In Modifiers can be found [on the wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Modifier_Names)
 
 `AddNewModifier` can be replaced by the datadriven `"ApplyNewModifier"` Action block like this:
 
@@ -47,13 +50,13 @@ Instead, we can make use of the `"modifier_alchemist_chemical_rage_transform"` w
 
 Now to find out the field names and pass values to the modifier, follow these steps:
 
-#### Step 1 - Finding the ability modifier
+## Step 1. Finding the ability modifier
 
 Go to the original ability that uses the modifier you want to reuse form the list. The [SpellLibrary](https://github.com/Pizzalol/SpellLibrary/tree/SpellLibrary/game/dota_addons/spelllibrary/scripts/npc/abilities) contains a split list of all Dota Abilities with its own names, it's very easy to find the fields there.
 
 <br />
 
-#### Step 2 - Setting the AbilityValues fields
+## Step 2. Setting the AbilityValues fields
 
 Copy the ability specials from the main ability into your datadriven AbilityValues block. If the custom ability doesn't have the field, the modifier will default to 0, so you can remove those that you want to ignore.
 
@@ -70,7 +73,7 @@ Copy the ability specials from the main ability into your datadriven AbilityValu
 ```
 <br />
 
-#### Step 3 - Applying the modifier
+## Step 3. Applying the modifier
 
 On the desired Ability or Modifier Event, add the ApplyModifier action:
 ```
@@ -86,7 +89,7 @@ On the desired Ability or Modifier Event, add the ApplyModifier action:
 
 <br />
 
-#### Step 4 - Adjusting the Tooltip
+## Step 4. Adjusting the Tooltip
 
 ![img](/images/external/eHc3N-2b62c46b84.jpg)
 
@@ -107,11 +110,11 @@ After modifying the addon_english.txt:
 
 Note that you cannot refer to a new custom %dMODIFIER_PROPERTY_[CONSTANT_LIST](/abilities/ability-keyvalues)% in the tooltip, because it doesn't have the custom values in its modifier.
 
-Instead you can make those tooltips in the separate modifier, or directly add the numbers to the original modifier tooltip if they are static values (like in this cause I could've written 50 and 322). Sadly, you can't set the built-in modifier as hidden either.
+Instead you can make those tooltips in the separate modifier, or directly add the numbers to the original modifier tooltip if they are static values (like in this case I could've written 50 and 322). Sadly, you can't set the built-in modifier as hidden either.
 
 <br />
 
-#### Full Example
+## Full Example
 ```
 "alchemist_chemical_rage_warcraft"
 {

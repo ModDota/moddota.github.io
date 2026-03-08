@@ -5,9 +5,12 @@ steamId: '76561198017441460'
 date: 29.04.2015
 ---
 
+# Scripted Shop Spawning
+
+
 A feature commonly asked about is how to dynamically create shops. Turns out it's actually quite easy! Here's what to do.
 
-## Step 1
+## Step 1.
 You need to create the triggering area for your shop in hammer. Use the block tool (**ctrl+b**) to draw the triggering area you want for the shop, you can change the shape in the block tool to whatever you need.
 
 Draw the area somewhere off the map. You don't want players randomly stumbling across it.

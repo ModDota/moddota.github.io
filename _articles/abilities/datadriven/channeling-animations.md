@@ -5,7 +5,10 @@ steamId: '76561198046984233'
 date: 18.01.2015
 ---
 
-### Short Version:
+# Channeling Animations
+
+
+## Short Version:
 
 ApplyModifier with short duration in a OnThinkInterval, channeling modifier has an OverrideAnimation with a ACT_ from the [Action List](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Actions_List) or with the method explained later.
 
@@ -36,7 +39,7 @@ ApplyModifier with short duration in a OnThinkInterval, channeling modifier has 
 }
 ```
 
-### Full Version
+## Full Version
 
 <StaticVideo path="/videos/FlusteredBigBoa.mp4" />
 

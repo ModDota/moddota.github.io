@@ -5,9 +5,12 @@ steamId: '76561198000729788'
 date: 22.02.2015
 ---
 
+# Getting Started
+
+
 So you're completely new to Dota 2 modding? Don't know where in the hell to begin? This is the guide for you, the future Dota 2 modder!
 
-Note: “Addon”, "mod", and “custom game” are all synonymous throughout this guide (and likely the entire website).
+Note: "Addon", "mod", and "custom game" are all synonymous throughout this guide (and likely the entire website).
 
 ## The Facets of Dota 2 Modding
 
@@ -20,7 +23,7 @@ The [Workshop Tools Wiki Homepage](https://developer.valvesoftware.com/wiki/Dota
 * **Particles** - Editing existing particles or creating your own using the Particle Editor Tool (PET)
 * **Panorama** - Creating custom UI or modifying existing Dota 2 UI with Panorama scripts
 
-## Step #0: Installing and Launching the Dota 2 Workshop Tools
+## Step 0. Installing and Launching the Dota 2 Workshop Tools
 
 You can't create mods for Dota without the Workshop Tools!
 
@@ -31,9 +34,9 @@ taken from [How to install the Dota 2 Workshop Tools](https://developer.valvesof
 * Click Close. The required content will begin downloading.
 * When download is finished, launch Dota 2 In Steam and select Launch Dota 2 - Tools.
 
-## Step #1: Creating a New Addon From A Template
+## Step 1. Creating a New Addon From A Template
 
-To start off on a good foot, you’re going to want to create a new addon from a template. You have two options to choose from:
+To start off on a good foot, you're going to want to create a new addon from a template. You have two options to choose from:
 
 ### Option 1: The TypeScript Addon Template
 
@@ -58,12 +61,12 @@ Contains:
 * Example Lua modifiers
 * Some older libraries like `animations`, `physics`, `projectiles` and `timers`.
 
-You can get started based off of the Barebones template, which is a community made alternative to Valve’s default addon templates (i.e. Holdout). This is the link to the updated Barebones: https://github.com/DarkoniusXNG/barebones<br />
-After downloading it as a zip, you want to browse to your `.../Steam/SteamApps/dota 2 beta/` and merge the `game` and `content` folders from the .zip into the that /dota 2 beta/ folder (which should already have folders in it called `game` and `content`).
+You can get started based off of the Barebones template, which is a community made alternative to Valve's default addon templates (i.e. Holdout). This is the link to the updated Barebones: https://github.com/DarkoniusXNG/barebones<br />
+After downloading it as a zip, you want to browse to your `.../Steam/SteamApps/dota 2 beta/` and merge the `game` and `content` folders from the .zip into that /dota 2 beta/ folder (which should already have folders in it called `game` and `content`).
 
 Next, start up the Workshop Tools (or restart them if you have them opened already), and double click your new addon. Set it as the default addon. Then, go into Hammer -> File -> Open -> template_map.vmap -> Press F9 to begin building the map. After Hammer finishes building your map, your custom game will automatically load in Dota.
 
-## Step #2: Creating your map in Hammer
+## Step 2. Creating your map in Hammer
 
 <StaticVideo path="/videos/YearlyDismalHuemul.mp4" />
 
@@ -79,13 +82,13 @@ BMD has made some rather nice beginner Hammer tutorial videos:
 
 * [Part 1: Tile Editor](https://www.youtube.com/watch?v=GMvmdnNM6Sc)
 * [Part 2: Mesh Basics](https://www.youtube.com/watch?v=grLUv2hUDRY)
-* [Part 3: entity basics](https://www.youtube.com/watch?v=ln3ep-k__dk)
+* [Part 3: Entity Basics](https://www.youtube.com/watch?v=ln3ep-k__dk)
 
-## Step #3: Scripting and beyond...
+## Step 3. Scripting and beyond...
 
 Scripting is the next most important part of your addon. It is divided into Lua scripting, and KeyValue scripting. I'm going to go ahead and redirect you to [Noya's Beginner Scripting Guide](scripting-introduction.md), since it has essentially the same information that would go in this section.
 
-Now I'm going keep this short and sweet. I've already presented a ton of information for you to begin delving yourself into Dota 2 modding! Becoming good at Hammer mapping and good at Lua and KeyValue scripting will go a very long way in making successful, fun Dota 2 custom games. Please don't hesitate to ask questions in [the Moddota Discord channel](https://discord.gg/Mvn4gww).
+Now I'm going to keep this short and sweet. I've already presented a ton of information for you to begin delving yourself into Dota 2 modding! Becoming good at Hammer mapping and good at Lua and KeyValue scripting will go a very long way in making successful, fun Dota 2 custom games. Please don't hesitate to ask questions in [the Moddota Discord channel](https://discord.gg/Mvn4gww).
 
 ## Additional Resources
 

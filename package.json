@@ -1,8 +1,9 @@
 {
     "private": true,
     "scripts": {
-        "start": "docusaurus start",
-        "build": "docusaurus build",
+        "dev": "vitepress dev",
+        "build": "vitepress build",
+        "preview": "vitepress preview",
         "lint": "npm run lint:prettier",
         "lint:prettier": "prettier --check .",
         "fix:prettier": "prettier --write ."
@@ -22,25 +23,8 @@
             }
         ]
     },
-    "dependencies": {
-        "@mdx-js/react": "^3.0.0",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0"
-    },
     "devDependencies": {
-        "@docusaurus/core": "^3.0.0",
-        "@docusaurus/module-type-aliases": "^3.0.0",
-        "@docusaurus/preset-classic": "^3.0.0",
-        "@docusaurus/tsconfig": "^3.0.0",
-        "@docusaurus/types": "^3.0.0",
-        "@types/react": "^19.0.0",
-        "@types/react-dom": "^19.0.0",
         "prettier": "^3.0.0",
-        "typescript": "^5.0.4"
-    },
-    "browserslist": [
-        "last 1 chrome version",
-        "last 1 firefox version",
-        "last 1 safari version"
-    ]
+        "vitepress": "^1.6.3"
+    }
 }

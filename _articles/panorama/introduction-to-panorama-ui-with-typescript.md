@@ -5,6 +5,9 @@ steamId: '76561198046986723'
 date: 26.07.2017
 ---
 
+# Introduction to Panorama UI with TypeScript
+
+
 ## What is TypeScript and why should I use it
 
 [TypeScript](https://www.typescriptlang.org/) is a language created by and for people that were unhappy with Javascript and all of its quirks and flaws. TypeScript is a language with its own syntax (although similar to Javascript) that compiles to Javascript in a way that avoids a lot of Javascript's issues.
@@ -63,7 +66,7 @@ content/dota_addons/[addon]/
 
 ## Your first TypeScript UI
 
-To illustrate why I like using TypeScript for modular UI I will walk through a small example. We will be making some hero portraits with player name and a healh bar: ![What we are making](/images/external/ZrqqlFo.png "Example UI")
+To illustrate why I like using TypeScript for modular UI I will walk through a small example. We will be making some hero portraits with player name and a health bar: ![What we are making](/images/external/ZrqqlFo.png "Example UI")
 
 Since this tutorial is about TypeScript I will just quickly give the xml and css, this is standard stuff:
 

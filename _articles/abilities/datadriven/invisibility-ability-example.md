@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 19.12.2014
 ---
 
+# Invisibility Ability Example
+
+
 This is a datadriven + lua ability that will apply the invis state and texture, with some extra particles and effects.
 
 <StaticVideo path="/videos/MajesticDimpledIrishwaterspaniel.mp4" />

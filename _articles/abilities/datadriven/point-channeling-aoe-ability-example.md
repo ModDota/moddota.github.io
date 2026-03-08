@@ -5,13 +5,16 @@ steamId: '76561198046984233'
 date: 27.01.2015
 ---
 
+# Point Channeling AoE Ability Example
+
+
 Here I'll explain a method to do this type of abilities effectively, based on this Earthquake Example:
 
 <StaticVideo path="/videos/CarefreeAridBantamrooster.mp4" />
 
 We will review each important section of the code with comments on it, including how to get the particles to show.
 
-### General Definition:
+## General Definition:
 ```
 "far_seer_earthquake"
 {
@@ -46,7 +49,7 @@ Note the `"AOERadius"` which accepts a `"%radius"` from AbilityValues in its val
 
 ---
 
-### Ability Special block
+## Ability Special block
 
 ```
 "AbilityValues"
@@ -63,7 +66,7 @@ Nothing interesting except remarking that `"%duration"` **cannot** be used as a 
 
 ---
 
-### Precache block
+## Precache block
 
 ```
 "precache"
@@ -84,7 +87,7 @@ Paths were copied directly from the asset browser, unmodified particles. I'll ex
 
 ---
 
-### Spell Start
+## Spell Start
 
 When the cast point is complete, perform the following actions:
 ```
@@ -162,7 +165,7 @@ And the passive ability:
 }
 ```
 
-**IMPORTANT:** The dummy doesn't have `MODIFIER_STATE_INVULNERABLE` enabled, because that state is a bitch, usually preventing from applying modifiers even if they have `MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE`. That's why I called it _vulnerable even tho it can't take damage.
+**IMPORTANT:** The dummy doesn't have `MODIFIER_STATE_INVULNERABLE` enabled, because that state is a bitch, usually preventing from applying modifiers even if they have `MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE`. That's why I called it _vulnerable even though it can't take damage.
 
 ---
 
@@ -198,7 +201,7 @@ Animation needs to start half a second later to sync with the damage, this is a 
 
 ---
 
-### Channel Finish
+## Channel Finish
 
 When the ability finishes channeling either because the channel time has finished or it was cancelled, we need to stop the animation and the dummy thinker:
 ```
@@ -230,7 +233,7 @@ end
 
 ---
 
-### Modifiers
+## Modifiers
 
 Now lets move to the the Modifiers block, the first couple handles the animation:
 
@@ -263,7 +266,7 @@ Now lets move to the the Modifiers block, the first couple handles the animation
 ```
 
 
-"modifier_earthquake_thinker" is the modifier applied in Lua to the dummy, and has the main logic for all the damage, particles, sounds and other effects needed. It has a lot bunch of actions, so I'll break it up
+"modifier_earthquake_thinker" is the modifier applied in Lua to the dummy, and has the main logic for all the damage, particles, sounds and other effects needed. It has a lot of actions, so I'll break it up
 
 ```
 "modifier_earthquake_thinker"
@@ -293,7 +296,7 @@ This constantly applies another modifier effect to all units around a radius of 
 
 Back to the "modifier_earthquake_thinker", we have to have actions on 2 instances: When the modifier is created, and then on each wave interval.
 
-#### Main modifier created
+## Main modifier created
 
 ```
 "OnCreated"
@@ -365,7 +368,7 @@ To realize that the CP1 needs to be set else the particle will fail to display p
 
 ---
 
-#### Main modifier wave interval actions
+## Main modifier wave interval actions
 
 Still following this? Great, it's almost finished, only missing the `"OnIntervalThink"` actions which do the damage +effects every `"wave_interval"`
 
@@ -454,10 +457,10 @@ Not gonna lie, it's mostly trial and error and just a bit of reading whatever th
 
 ---
 
-### Complete code can be found at the following links:
+## Complete code can be found at the following links:
 
-### [DataDriven](https://github.com/MNoya/DotaCraft/blob/master/game/dota_addons/dotacraft/scripts/npc/abilities/heroes/far_seer_earthquake.txt)
-### [Lua](https://github.com/MNoya/DotaCraft/blob/master/scripts/vscripts/heroes/far_seer/earthquake.lua)
+## [DataDriven](https://github.com/MNoya/DotaCraft/blob/master/game/dota_addons/dotacraft/scripts/npc/abilities/heroes/far_seer_earthquake.txt)
+## [Lua](https://github.com/MNoya/DotaCraft/blob/master/scripts/vscripts/heroes/far_seer/earthquake.lua)
 
 * For more examples of this style of ability, check:
 

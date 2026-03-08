@@ -5,15 +5,18 @@ steamId: '76561197966853265'
 date: 24.07.2015
 ---
 
-### Introduction
+# Keybindings
 
-With the recent update (20th of july) valve added support for custom keybindings. That is, you can bind key's to fire a custom command.
+
+## Introduction
+
+With the recent update (20th of july) valve added support for custom keybindings. That is, you can bind keys to fire a custom command.
 
 The technique used is derived from rpg_example.
 
-Although this method is not nescessarily limited to panorama this tutorial will focus on using them within panorama.
+Although this method is not necessarily limited to panorama this tutorial will focus on using them within panorama.
 
-### Setup
+## Setup
 Start by adding a couple of lines to your `addoninfo.txt` file located in `/game/<your addon>/addoninfo.txt`
 
 ```
@@ -56,7 +59,7 @@ The prefix of the command defines when the command will trigger.
 `"Name"`
 Name of the command, used for debugging purposes.
 
-####Command Prefixes
+#### Command Prefixes
 
 | Prefix        | Example    | Description                                             |
 | ------------- |------------|---------------------------------------------------------|
@@ -66,7 +69,7 @@ Name of the command, used for debugging purposes.
 
 The prefixes do not lock the command to be triggered only in that event. But is a good self-reference for what you want the keybind to do.
 
-### Panorama
+## Panorama
 Catching the keybind commands in Panorama is easy:
 
 ```lua
@@ -92,4 +95,4 @@ function OnTestButtonReleased()
 })();
 ```
 
-Note how the prefixes are used again. Even though we only defined `CustomGameTestButton` to be fired on *key down*, we can easily catch the release event in our JS aswell.
+Note how the prefixes are used again. Even though we only defined `CustomGameTestButton` to be fired on *key down*, we can easily catch the release event in our JS as well.

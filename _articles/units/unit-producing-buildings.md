@@ -5,9 +5,12 @@ steamId: '76561198046984233'
 date: 08.03.2015
 ---
 
+# Unit producing buildings
+
+
 This is a response tutorial on a question thread, I'm gonna explain the scripting approaches to fully spawning units with a building, including making them controllable and defining initial orders.
 
-## Step 1: The npc_units_custom.txt files
+## Step 1. The npc_units_custom.txt files
 
 First of all, you'll need a KeyValue definition for a building and the unit you want to spawn.
 
@@ -17,13 +20,79 @@ I want to make one special note here though. **"BaseClass" "npc_dota_building" c
 
 So if you have a problem with this, don't make your unit a building, but a **npc_dota_creature instead**.
 
-This has the issue of creatures having a turn rate, so additionally you'll need to apply a MODIFIER_STATE_STUNNED on them, make the Magic Immune so most spells don't damage them, and make an special rule for spells that are supposed to damage buildings this way.
+This has the issue of creatures having a turn rate, so additionally you'll need to apply a MODIFIER_STATE_STUNNED on them, make them Magic Immune so most spells don't damage them, and make a special rule for spells that are supposed to damage buildings this way.
 
 That being said, we won't be bothering with that for the purpose of this tutorial.
 
-I'll be using a simplified version of the [human_barracks](https://pastebin.com/z5Jk9W17) definition, with a "human_train_footman" ability, which I'll expand on the possibilities for it later.
+I'll be using a simplified version of the `human_barracks` definition, with a "human_train_footman" ability, which I'll expand on the possibilities for it later.
 
-## Step 2: Putting your unit into the map.
+```
+"human_barracks"
+{
+	// General
+	//----------------------------------------------------------------
+	"BaseClass"					"npc_dota_building"
+	"Model"						"models/props_structures/good_barracks_melee001.vmdl"
+	"ModelScale"				"1"
+	"Level"						"1"
+	"HealthBarOffset"			"140"
+
+	// Abilities
+	//----------------------------------------------------------------
+	"AbilityLayout"				"1"
+	"Ability1"				"human_train_footman"
+
+	// Armor
+	//----------------------------------------------------------------
+	"ArmorPhysical"				"5"
+	"MagicalResistance"			"0"
+
+	// Attack
+	//----------------------------------------------------------------
+	"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+	"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+	"AttackDamageMin"			"0"
+	"AttackDamageMax"			"0"
+
+	// Bounty
+	//----------------------------------------------------------------
+	"BountyGoldMin"				"0.0"
+	"BountyGoldMax"				"0.0"
+
+	// Bounds
+	//----------------------------------------------------------------
+	"BoundsHullName"			"DOTA_HULL_SIZE_BARRACKS"
+	"RingRadius"				"220"
+	"CollisionSize"				"144"
+
+	// Movement
+	//----------------------------------------------------------------
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"	// Needed to cast Point abilities
+	"MovementSpeed"				"0"
+
+	// Status
+	//----------------------------------------------------------------
+	"StatusHealth"				"1200"
+	"StatusHealthRegen"			"0"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+
+	// Vision
+	//----------------------------------------------------------------
+	"VisionDaytimeRange"		"900"
+	"VisionNighttimeRange"		"600"
+
+	// Team
+	//----------------------------------------------------------------
+	"TeamName"					"DOTA_TEAM_NEUTRALS"
+	"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+	"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+
+}
+```
+
+## Step 2. Putting your unit into the map.
 
 There are 2 main options for doing this, one is Hammer oriented, and the other is a fully scripted approach.
 
@@ -80,13 +149,13 @@ Now your building should be fully controllable for ability usage, and even subtr
 
 ### Scripting Approach
 
-Hey Hammer is good and everything, but it's behavior is very static. You need to have predefined position for the units, build the map everytime you make a change, and can't choose to not spawn any of them if there are less players than expected, etc.
+Hey Hammer is good and everything, but its behavior is very static. You need to have predefined positions for the units, build the map every time you make a change, and can't choose to not spawn any of them if there are less players than expected, etc.
 
 There is a fully scripted method for placing units on the map, which is done by using the `CreateUnitByName` function, with some additional perks.
 
 `handle CreateUnitByName( szUnitName, vLocation, bFindClearSpace, hNPCOwner, hUnitOwner, iTeamNumber )`
 
-Still working inside the same OnPlayerPickHero, we can either make an static position for each playerID, such as *Vector(450,322,128)*, doing random positions with named info_target entities in Hammer, or a dynamic position based on the hero spawn location. Let's do the latter:
+Still working inside the same OnPlayerPickHero, we can either make a static position for each playerID, such as *Vector(450,322,128)*, doing random positions with named info_target entities in Hammer, or a dynamic position based on the hero spawn location. Let's do the latter:
 
 ```lua
 local origin = hero:GetAbsOrigin() -- Spawn position
@@ -107,7 +176,7 @@ Even though we set the hNPCOwner and hUnitOwner, the SetOwner and SetControllabl
 
 #### Building invulnerability
 
-There's an small issue with npc_dota_building baseclass which is that they spawn with "modifier_invulnerable" by default, to get rid of this, run this line:
+There's a small issue with npc_dota_building baseclass which is that they spawn with "modifier_invulnerable" by default, to get rid of this, run this line:
 
 ```lua
 building:RemoveModifierByName("modifier_invulnerable")
@@ -133,7 +202,7 @@ function Precache( context ) -- Find this in addon_game_mode.lua
 end
 ```
 
-Done! Full code of the building spawning on front of the hero looks like this:
+Done! Full code of the building spawning in front of the hero looks like this:
 
 ```lua
 function GameMode:OnPlayerPickHero(keys)
@@ -157,7 +226,7 @@ local building = CreateUnitByName("human_barracks", position, true, hero, hero, 
 
 <br />
 
-## Step 3: Scripting the unit-spawning ability inside the building
+## Step 3. Scripting the unit-spawning ability inside the building
 
 Now that we have a fully working building ingame, let's move to npc_abilities_custom.txt and creature spawning from this building.
 
@@ -165,7 +234,7 @@ There are 2 main ways of doing this: with the DataDriven Action "SpawnUnit", or 
 
 ### DataDriven "SpawnUnit"
 
-I actually prefer this DD Action and use it extensively thorough all of DotaCraft's unit spawning, because it has access to the very useful `"OnSpawn"` Sub-Event, which is only accessible through this action, and has some other options for unit count, limit (so you can't have more than X units of the same unit at the same time), modifier_kill integration, etc.
+I actually prefer this DD Action and use it extensively throughout all of DotaCraft's unit spawning, because it has access to the very useful `"OnSpawn"` Sub-Event, which is only accessible through this action, and has some other options for unit count, limit (so you can't have more than X units of the same unit at the same time), modifier_kill integration, etc.
 
 Of course you could listen to the game event of unit spawned and do your OnSpawn stuff there, but that makes the ability less modular and harder to maintain.
 
@@ -203,9 +272,141 @@ Inside the "OnSpawn" replacing the [ACTIONS], it's useful to send orders to the 
 
 Here is a full example:
 
-https://pastebin.com/9g316n5A
+```
+"human_train_footman"
+{
+    "BaseClass"             "ability_datadriven"
+    "AbilityTextureName"    "footman"
+    "MaxLevel"              "1"
 
-The footman unit definition is just a Dragon Knight with some wearables, [I copied it here](https://pastebin.com/XW3wWmhd).
+    "AbilityBehavior"    "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+    "AbilityGoldCost"    "10"
+
+    "OnSpellStart"
+    {
+
+        "SpawnUnit"
+        {
+            "UnitName"    "footman"
+            "Target"      "CASTER"
+            "UnitCount"   "1"
+            "UnitLimit"   "0"
+            "GrantsGold"  "1"
+            "GrantsXP"    "1"
+            "SpawnRadius" "100"
+            "OnSpawn"
+            {
+                "ApplyModifier"
+                {
+                    "ModifierName" "modifier_phased"
+                    "Target"       "TARGET"
+                    "Duration"     "0.03"
+                }
+                "RunScript"
+                {
+                    "ScriptFile"    "buildings/rally_point.lua"
+                    "Function"      "MoveToRallyPoint"
+                }
+            }
+        }
+    }
+}
+```
+
+The footman unit definition is just a Dragon Knight with some wearables:
+
+```
+//=================================================================================
+// Creature: Footman
+//=================================================================================
+"human_footman"
+{
+	// General
+	//----------------------------------------------------------------
+	"BaseClass"					"npc_dota_creature"
+	"Model"						"models/heroes/dragon_knight/dragon_knight.vmdl"
+	"ModelScale"				"0.8"
+	"Level"						"2"
+	"HealthBarOffset"			"140"
+
+	// Armor
+	//----------------------------------------------------------------
+	"ArmorPhysical"				"2"
+	"MagicalResistance"			"0"
+
+	// Attack
+	//----------------------------------------------------------------
+	"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+	"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
+	"AttackDamageMin"			"12.0"
+	"AttackDamageMax"			"13.0"
+	"AttackRate"				"1.35"
+	"AttackAnimationPoint"		"0.5"
+	"AttackAcquisitionRange"	"500"
+	"AttackRange"				"90"
+
+	// Bounty
+	//----------------------------------------------------------------
+	"BountyGoldMin"				"26.0"
+	"BountyGoldMax"				"38.0"
+
+	// Bounds
+	//----------------------------------------------------------------
+	"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+	"RingRadius"				"70"
+	"CollisionSize"				"31"
+	"FormationRank"				"0"
+
+	// Building Cost Stats
+	//----------------------------------------------------------------
+	"GoldCost"					"135"
+	"LumberCost"				"0"
+	"FoodCost"					"2"
+	"BuildTime"					"20"
+
+	// Movement
+	//----------------------------------------------------------------
+	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+	"MovementSpeed"				"270"
+	"MovementTurnRate"			"0.6"
+
+	// Status
+	//----------------------------------------------------------------
+	"StatusHealth"				"420"
+	"StatusHealthRegen"			"0.25"
+	"StatusMana"				"0"
+	"StatusManaRegen"			"0"
+
+	// Vision
+	//----------------------------------------------------------------
+	"VisionDaytimeRange"		"1400"
+	"VisionNighttimeRange"		"800"
+
+	// Team
+	//----------------------------------------------------------------
+	"TeamName"					"DOTA_TEAM_NEUTRALS"
+	"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_STRONG"
+	"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+	// Creature Data
+	//----------------------------------------------------------------
+	"Creature"
+	{
+		"DisableClumpingBehavior"	"1"
+		"AttachWearables"
+		{
+			"Wearable1"		{	"ItemDef"		"6789"		} //"Shield of Ascension"
+			"Wearable2"		{	"ItemDef"		"6791"		} //"Pauldrons of Ascension"
+			"Wearable3" 	        {	"ItemDef"		"6790"		} //"Gauntlets of Ascension"
+			"Wearable4"		{	"ItemDef"		"6788"		} //"Drapes of Ascension"
+			"Wearable5"		{	"ItemDef"		"6787"		} //"Sword of Ascension"
+			"Wearable6"		{	"ItemDef"		"6792"		} //"Helm of Ascension"
+		}
+	}
+}
+```
 
 Note the usage of a RunScript to call a MoveToRallyPoint function, this will introduce the 4th and last step of this guide.
 
