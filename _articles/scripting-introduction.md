@@ -59,7 +59,25 @@ In every single gamemode, a file named addon_game_mode.lua must be present. Whil
 - `Precache`, when the game starts and players pick their heroes, the engine will try to load the associated models/particles/sounds to those heroes. If we're dynamically using a resource in Lua before preloading it won't be displayed properly.
 - `Activate`, creates the base game mode entity and calls the initialize function.
 
-![img](/images/external/g2pUC-ca4413cc48.png) <br /> Precache function was folded in sublime
+```lua
+--[[
+    Basic Barebones
+]]
+
+-- Required files to be visible from anywhere
+require( 'timers' )
+require( 'barebones' )
+
+function Precache( context )
+    -- Precache things here
+end
+
+-- Create the game mode when we activate
+function Activate()
+    GameRules.GameMode = GameMode()
+    GameRules.GameMode:InitGameMode()
+end
+```
 
 Using our barebones, you don't need to touch this file apart from very specific situations, and all the core game logic will be coded in gamemode.lua (for older versions it's barebones.lua), which has been already required. We'll call this your *main lua file* from now on.
 
