@@ -3,7 +3,6 @@ import { Declaration } from "~components/Docs/api";
 import vscriptsEvents from "@moddota/dota-data/files/events";
 import panoramaEvents from "@moddota/dota-data/files/panorama/events";
 import panoramaEnums from "@moddota/dota-data/files/panorama/enums";
-import { orderBy } from "lodash";
 import { DeclarationsContextType } from "~components/Docs/DeclarationsContext";
 
 const starredEventNames = [
@@ -44,7 +43,10 @@ const starredEventNames = [
 ];
 
 function sort(declarations: Declaration[]) {
-  return orderBy(declarations, [(e) => e.isStarred, (e) => e.name], ["desc", "asc"]);
+  return [...declarations].sort((a, b) => {
+    if (a.isStarred !== b.isStarred) return a.isStarred ? -1 : 1;
+    return a.name.localeCompare(b.name);
+  });
 }
 
 export const scopes = {
@@ -98,7 +100,7 @@ export const scopes = {
         description: event.description,
         isStarred: false,
         args: event.args.map((arg) => ({
-          name: arg.name,
+          name: arg.name ?? "",
           types: [arg.type],
         })),
         returns: ["void"],

@@ -11,7 +11,7 @@ import { Declaration } from "~components/Docs/api";
 import { DeclarationsContext } from "~components/Docs/DeclarationsContext";
 
 function renderItem(declaration: Declaration, style?: React.CSSProperties) {
-  let children: JSX.Element;
+  let children: React.JSX.Element;
   switch (declaration.kind) {
     case "class":
       children = <ClassDeclaration declaration={declaration} />;

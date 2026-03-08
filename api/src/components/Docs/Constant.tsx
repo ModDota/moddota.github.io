@@ -29,7 +29,7 @@ export function Constant({
 }) {
   const isLinked = useLinkedElement({ scope: "constants", hash: element.name });
   return (
-    <ConstantWrapper className={className} style={style} id={element.name} isLinked={isLinked}>
+    <ConstantWrapper className={className} style={style} id={element.name} $isLinked={isLinked}>
       <CommonGroupHeader>
         <ConstantSignature>
           <KindIcon kind="constant" size="medium" />

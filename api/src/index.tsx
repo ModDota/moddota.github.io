@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
 import { HashRouter } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import { NavBar } from "~components/layout/NavBar";
@@ -30,7 +30,7 @@ function App() {
     setDarkmode(
       themeName === "dark" || (themeName === null && window.matchMedia("(prefers-color-scheme: dark)").matches),
     );
-  });
+  }, []);
 
   const appContext = {
     darkmode,
@@ -45,7 +45,7 @@ function App() {
       <ThemeProvider theme={darkmode ? themeModdotaDark : themeModdotaLight}>
         <AppWrapper>
           <GlobalStyle />
-          <HashRouter hashType="hashbang">
+          <HashRouter>
             <NavBar />
             <PageContent>
               <React.Suspense fallback={null}>
@@ -59,4 +59,4 @@ function App() {
   );
 }
 
-render(<App />, document.querySelector("#root"));
+createRoot(document.getElementById("root")!).render(<App />);

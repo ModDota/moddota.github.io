@@ -19,7 +19,7 @@ export const Field: React.FC<{
 }> = ({ className, context, element }) => {
   const isLinked = useLinkedElement({ scope: context, hash: element.name });
   return (
-    <FieldWrapper className={className} id={element.name} isLinked={isLinked}>
+    <FieldWrapper className={className} id={element.name} $isLinked={isLinked}>
       <CommonGroupHeader>
         <FieldSignature>
           <KindIcon kind="field" size="small" />

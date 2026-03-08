@@ -1,13 +1,13 @@
 import React from "react";
-import Class from "./Class.svg";
-import EnumItem from "./EnumItem.svg";
-import Field from "./Field.svg";
-import Interface from "./Interface.svg";
-import Method from "./Method.svg";
+import Class from "./Class.svg?react";
+import EnumItem from "./EnumItem.svg?react";
+import Field from "./Field.svg?react";
+import Interface from "./Interface.svg?react";
+import Method from "./Method.svg?react";
 
 // https://code.visualstudio.com/docs/editor/intellisense#_types-of-completions
 export type IconKind = "class" | "enum" | "constant" | "field" | "interface" | "function";
-const iconToElementMap: Record<IconKind, typeof import("*.svg").default> = {
+const iconToElementMap: Record<IconKind, typeof Class> = {
   class: Class,
   enum: EnumItem,
   constant: EnumItem,

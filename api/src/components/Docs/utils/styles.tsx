@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { lighten, mix } from "polished";
 
-export const CommonGroupWrapper = styled.div<{ isLinked?: boolean }>`
+export const CommonGroupWrapper = styled.div<{ $isLinked?: boolean }>`
   display: flex;
   flex-flow: column;
   background-color: ${(props) => props.theme.group};
@@ -14,7 +14,7 @@ export const CommonGroupWrapper = styled.div<{ isLinked?: boolean }>`
   word-break: break-all;
 
   ${(props) =>
-    props.isLinked &&
+    props.$isLinked &&
     css`
       border: 3px solid ${props.theme.highlight};
       box-shadow: 2px 2px 12px ${props.theme.groupShadow};

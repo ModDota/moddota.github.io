@@ -1,7 +1,7 @@
 import * as api from "./api";
 import React, { useMemo, useContext } from "react";
 import { NavLink } from "react-router-dom";
-import styled, { ThemeContext } from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { ColoredSyntax, ColoredSyntaxKind, getSyntaxColorFor } from "~components/ColoredSyntax";
 import { assertNever, intersperse } from "~utils/types";
 import { DeclarationsContext } from "~components/Docs/DeclarationsContext";
@@ -64,10 +64,10 @@ const ReferenceType: React.FC<{ name: string }> = ({ name }) => {
             : undefined,
       type.kind === "constant" || type.kind === "function" ? name : undefined,
     ];
-  }, [name]);
+  }, [name, declarations]);
 
   const urlHash = hash ? `#${hash}` : "";
-  const style: React.CSSProperties = { textDecorationColor: getSyntaxColorFor(useContext(ThemeContext), kind) };
+  const style: React.CSSProperties = { textDecorationColor: getSyntaxColorFor(useTheme(), kind) };
 
   return scope ? (
     <TypeReferenceLink to={`/vscripts/${scope}${urlHash}`} style={style}>

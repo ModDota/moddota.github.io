@@ -7,7 +7,7 @@ import * as api from "~components/Docs/api";
 
 export function useFilteredData(declarations: api.Declaration[]) {
   const search = useRouterSearch();
-  const { scope = "" } = useParams<{ scope?: string }>();
+  const { scope = "" } = useParams();
 
   if (search) {
     return { data: doSearch(declarations, search.toLowerCase().split(" ")), isSearching: true };

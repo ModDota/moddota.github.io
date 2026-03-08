@@ -1,8 +1,8 @@
 import { darken } from "polished";
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import SearchIcon from "./search.svg";
+import SearchIcon from "./search.svg?react";
 
 const SearchBoxWrapper = styled.div`
   display: flex;
@@ -28,12 +28,12 @@ const SearchBoxInput = styled.input`
   }
 `;
 
-const SearchButton = styled.button<{ isUpdated: boolean }>`
+const SearchButton = styled.button<{ $isUpdated: boolean }>`
   border: none;
-  background-color: ${(props) => darken(props.isUpdated ? 0 : 0.1, props.theme.searchbox.button)};
+  background-color: ${(props) => darken(props.$isUpdated ? 0 : 0.1, props.theme.searchbox.button)};
 
   path {
-    fill: ${(props) => (props.isUpdated ? props.theme.searchbox.buttonFillUpdated : props.theme.searchbox.buttonFill)};
+    fill: ${(props) => (props.$isUpdated ? props.theme.searchbox.buttonFillUpdated : props.theme.searchbox.buttonFill)};
   }
 
   > * {
@@ -68,7 +68,7 @@ export function useCtrlFHook<T extends HTMLElement>() {
 
     document.addEventListener("keydown", listener);
     return () => document.removeEventListener("keydown", listener);
-  }, [ref.current]);
+  }, []);
 
   return ref;
 }
@@ -78,25 +78,22 @@ export function SearchBox({ baseUrl, className }: { baseUrl: string; className?:
   const [search, setSearch] = useState(routerSearch);
   useEffect(() => setSearch(routerSearch), [routerSearch]);
 
-  // TODO: Location.state should be nullable
-  const history = useHistory<{ searchReferrer?: string } | null>();
+  const navigate = useNavigate();
 
   const setSearchQuery = useCallback(
     (query: string) => {
-      const { state, pathname, search: urlSearch } = history.location;
       if (query === "") {
-        history.push(state?.searchReferrer || baseUrl);
+        navigate(baseUrl);
       } else {
-        const searchReferrer = state?.searchReferrer || `${pathname}${urlSearch}`;
-        history.push(`${baseUrl}?search=${encodeURIComponent(query)}`, { searchReferrer });
+        navigate(`${baseUrl}?search=${encodeURIComponent(query)}`);
       }
     },
-    [history, baseUrl],
+    [navigate, baseUrl],
   );
 
   const handleSearchButton = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
     () => setSearchQuery(search),
-    [search],
+    [search, setSearchQuery],
   );
   const handleSearchButtonMouseDown = useCallback<React.MouseEventHandler<HTMLButtonElement>>(
     (event) => event.preventDefault(),
@@ -109,7 +106,7 @@ export function SearchBox({ baseUrl, className }: { baseUrl: string; className?:
   );
   const handleKey = useCallback<React.KeyboardEventHandler<HTMLInputElement>>(
     (event) => event.key === "Enter" && setSearchQuery(search),
-    [search],
+    [search, setSearchQuery],
   );
 
   const ref = useCtrlFHook<HTMLInputElement>();
@@ -117,7 +114,7 @@ export function SearchBox({ baseUrl, className }: { baseUrl: string; className?:
   return (
     <SearchBoxWrapper className={className}>
       <SearchButton
-        isUpdated={search !== routerSearch}
+        $isUpdated={search !== routerSearch}
         onClick={handleSearchButton}
         onMouseDown={handleSearchButtonMouseDown}
         title="Search"

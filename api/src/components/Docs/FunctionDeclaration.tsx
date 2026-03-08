@@ -70,7 +70,7 @@ export const FunctionDeclaration: React.FC<{
   const isLinked = useLinkedElement({ scope: context, hash: declaration.name });
 
   return (
-    <FunctionWrapper className={className} style={style} id={declaration.name} isLinked={isLinked}>
+    <FunctionWrapper className={className} style={style} id={declaration.name} $isLinked={isLinked}>
       <CommonGroupHeader>
         <FunctionSignature>
           <KindIcon kind="function" size="big" />

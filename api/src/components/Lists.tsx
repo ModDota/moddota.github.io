@@ -8,7 +8,7 @@ interface Props<T> {
 }
 
 export function LazyList<T>({ className, data, render }: Props<T>) {
-  const cache = useMemo(() => new CellMeasurerCache({ fixedWidth: true }), [data]);
+  const cache = useMemo(() => new CellMeasurerCache({ fixedWidth: true }), []);
   const renderRow = useCallback<ListRowRenderer>(
     ({ key, parent, style, index }) => (
       <CellMeasurer cache={cache} key={key} parent={parent} rowIndex={index}>

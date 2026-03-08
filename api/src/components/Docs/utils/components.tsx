@@ -3,8 +3,8 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { ElementLink as RawElementLink, useLinkedElement as useLinkedElementRaw } from "~components/ElementLink";
 import { KindIcon as UnstyledKindIcon } from "~components/KindIcon";
-import SearchGitHubIcon from "./search-github.svg";
-import SearchGoogleIcon from "./search-google.svg";
+import SearchGitHubIcon from "./search-github.svg?react";
+import SearchGoogleIcon from "./search-google.svg?react";
 import { DeclarationsContext } from "~components/Docs/DeclarationsContext";
 
 export function useLinkedElement(options: { scope?: string; hash?: string }) {
