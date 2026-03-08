@@ -278,12 +278,7 @@ export default defineConfig({
         },
 
         search: {
-            provider: "algolia",
-            options: {
-                appId: "53WE0HHYGT",
-                apiKey: "ce612349c2e1e35842e9630128e92dc2",
-                indexName: "moddota",
-            },
+            provider: "local",
         },
     },
 
