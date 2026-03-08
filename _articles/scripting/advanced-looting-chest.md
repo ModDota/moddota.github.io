@@ -196,4 +196,4 @@ class item_treasure_chest_2 extends BaseItem {
 
 Finally you will want to give your chest a tooltip name. Add `"DOTA_Tooltip_ability_item_treasure_chest_2" "Testchest"` to your `addon_*.txt`.
 
-There are some drawbacks to this approach. You can't change the pickup range and the item quality. Please leave a comment in discord or edit this page, if you know.
+There are some drawbacks to this approach. You can't change the pickup range and the item quality.

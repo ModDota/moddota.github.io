@@ -337,7 +337,7 @@ Those values are enums, so the compiler makes sure those are typed correctly, an
 This works for all modifier properties.
 
 :::info
-The property assumes the `d` (integer) prefix. If you want to use `f` (float) prefix instead, you can call it with `{f${LocalizationModifierProperty.PREATTACK_BONUS_DAMAGE}}`. Right now, `f` is the only additional supported keyword - contact me if you wish to add additional keywords.
+The property assumes the `d` (integer) prefix. If you want to use `f` (float) prefix instead, you can call it with `{f${LocalizationModifierProperty.PREATTACK_BONUS_DAMAGE}}`. Right now, `f` is the only additional supported keyword.
 :::
 
 ## Language Control
@@ -435,7 +435,3 @@ You can copy it from sample file `localizationData.ts` for every file that you n
 You can check out [Dota Reimagined's github](https://github.com/Shushishtok/dota-reimagined/tree/master/game/resource/localization), which I originally developed this project for, to see how it looks in terms of folders and files. Each hero has its own file in the `heroes` folder, and each item has its own file in the `items` folder. `generic` folder has files for things like `addon_game_mode`.
 
 Also, this uses Reimagined Effects and Talents on hero files, which are also processed into unique KVs that my game specifically has been designed to look for in panorama. You can check out how it exactly works and make your own changes to the compiler to support your unique KVs.
-
-## Bugs, Feature Requests, and Questions
-
-Feel free to contact me in the [Moddota Discord](https://discord.gg/ZyHg6T9sTd) to ask any question, request features or to submit bugs and I'll be happy to assist.

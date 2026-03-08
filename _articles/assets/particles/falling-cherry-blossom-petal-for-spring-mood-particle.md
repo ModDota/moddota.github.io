@@ -217,8 +217,4 @@ in Emitter since I want my petals to keep falling down.
   as you desire. The result particles should be similar to the following.
 </p>
 <img src="/images/external/ajnc7uu.png"></img>
-<p>
-  This reaches the end of this tutorial. If you have any question, comment, or improvement to the
-  guide, please don't hesitate to leave a comment or send me a message. Let me know what you want to
-  see created next!
-</p>
+<p>This reaches the end of this tutorial.</p>

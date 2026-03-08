@@ -17,8 +17,6 @@ In this example we'll make a classic _Rage_ system, meaning:
 4. Gain mana on particular spell cast
 5. Decrease mana over time, scaling with level
 
-Hope this is enough for most systems, let me know if you have another concept that I should add.
-
 ## No normal mana regeneration and start mana at 0
 
 The easier approach is to nullify your hero's Intelligence

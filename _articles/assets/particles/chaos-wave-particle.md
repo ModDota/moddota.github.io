@@ -563,8 +563,4 @@ Timers:CreateTimer( 6.0, function()
 ```
 
 <p>With those implemented, your particles should show up in-game now.</p>
-<p>
-  This concludes my tutorial on making Chaos Wave particles. If you have any comment, question, or
-  improvement to the guide, please do not hesitate to leave a comment or contact me. Let me know
-  what you want to see created next!
-</p>
+<p>This concludes my tutorial on making Chaos Wave particles.</p>

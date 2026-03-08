@@ -11,19 +11,11 @@ date: 05.02.2015
   So I was asked by many people about particle creation and workflow since the tutorial provided by
   the steam (or someone that is put on the Valve developer site) seems to stop at one point. Since I
   can't do too much of complicated work today, I will write some tutorials to get people start
-  diving into particles. I will write it in series of multiple tutorials by taking request from
-  people and such since particles itself is kinda big topic. Just leave me a comment or send me a
-  message what kind of particle system you want to see created manually. I will try my best to mimic
-  the system and write it out step by step. Don't hesitate to contact me if you have any question,
-  comment, or improvement to the tutorial.
+  diving into particles.
 </p>
 <p>
   Also note that some particle system implementations might have Lua scripting involved if it is a
   very complicated system. So a little basic Lua scripting will help you every now and then.
-</p>
-<p>
-  Again, let me know what kind of particle system you want to see created so I can keep this
-  tutorial series going.
 </p>
 <p>Here is the list of functions covered in this tutorial:</p>
 <h3>Renderer</h3>

@@ -1050,7 +1050,7 @@ Notice how we added "02" to the item requirements and it only requires the item 
 
 ## The End
 
-That is end of this tutorial. If you have requests concerning this tutorial or improvements/corrections please comment bellow.<br />
+That is end of this tutorial.
 You can find this and other lua items and abilities from my Dota2Overflow github repo.<br />
 https://github.com/DrTeaSpoon/Dota2Overflow
 

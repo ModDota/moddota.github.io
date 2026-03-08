@@ -148,12 +148,928 @@ In some of the attack events we can also use the %attack_damage
 
 OnAbilityStart - Broken?
 
-<br />
+## Raw Data
 
-Please report if you find any inconsistencies.
+This post has the raw data I used to compile the first.
 
-<br />
+Scripts:
 
-On the next post you'll find the random rambling analyzed to get the results.
+**KV**
 
-Then we'll move to Multiple Targets, acting over different entities, Flags, etc.
+```
+OnSomethingEvent
+{
+     "RunScript"
+     {
+         "ScriptFile"   "test.lua"
+         "Function" "TargetTest"
+         "EventName" "OnSomethingEvent"
+     }
+}
+```
+
+The entire ability script to test them all in the same cast is in [this pastebin](https://web.archive.org/web/20190508142542/http://pastebin.com/kxZ5tgf3)
+
+**Lua**
+
+```lua
+function TargetTest( event )
+    local caster = event.caster
+    local target = event.target
+    local unit = event.unit
+    local attacker = event.attacker
+    local ability = event.ability
+
+    -- Tables
+    local target_points = event.target_points
+    local target_entities = event.target_entities
+
+    -- Extra parameter
+    local EventName = event.EventName
+    local Damage = event.Damage
+
+    print("**"..EventName.."**")
+    print("~~~")
+    if caster then print("CASTER: "..caster:GetUnitName()) end
+    if target then print("TARGET: "..target:GetUnitName()) end
+    if unit then print("UNIT: "..unit:GetUnitName()) end
+    if attacker then print("ATTACKER: "..attacker:GetUnitName()) end
+    if Damage then print("DAMAGE: "..Damage) end
+
+    if target_points then
+        for k,v in pairs(target_points) do
+            print("POINT",k,v)
+        end
+    end
+
+    -- Multiple Targets
+    if target_entities then
+        for k,v in pairs(target_entities) do
+            print("TARGET "..k..": "..v:GetUnitName())
+        end
+    end
+
+    --DeepPrintTable(event)
+    print("~~~")
+end
+```
+
+Will produce console messages like this:
+
+**OnAbilityPhaseStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+**OnSpellStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+Results on casting abilities with [every Ability Events at the same time](https://web.archive.org/web/20190508142542/http://pastebin.com/kxZ5tgf3), Alchemist is our caster, Abaddon is an enemy hero.
+
+## Ability Event Context
+
+---
+
+Any Behaviors
+
+**OnUpgrade**
+
+```
+CASTER: npc_dota_hero_alchemist
+```
+
+---
+
+`DOTA_ABILITY_BEHAVIOR_NO_TARGET`
+
+**OnAbilityPhaseStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+**OnSpellStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+---
+
+`DOTA_ABILITY_BEHAVIOR_UNIT_TARGET`
+
+**OnAbilityPhaseStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+**OnSpellStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+---
+
+`DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED`
+
+_Without an AbilityChannelTime value it will just do the OnSpellStart and OnAbilityPhaseStart, AbilityChannelTime is "0" by default._
+
+In fact, the BEHAVIOR_CHANNELED isn't even needed, AbilityChannelTime is all that matters for the actual ability behavior while the BEHAVIOR_CHANNELED is just for tooltip.
+
+`"AbilityChannelTime" "1.0"`
+
+**OnAbilityPhaseStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+**OnSpellStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+After 1 second, it displays:
+
+**OnChannelFinish**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+**OnChannelSucceeded**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+Moving after the spell started channeling results in:
+
+**OnAbilityPhaseStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+**OnSpellStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+**OnChannelFinish**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+**OnChannelInterrupted**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+---
+
+DOTA_ABILITY_BEHAVIOR_POINT
+
+If you don't pass POINT to the RunScript, you'll get this:
+
+**OnAbilityPhaseStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+**OnSpellStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+If you add UNIT_TARGET to the behaviors, it produces this, but only when you target an enemy instead of the ground:
+
+**OnAbilityPhaseStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+**OnSpellStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+```
+
+Adding `"Target" "POINT"` to the RunScript gives us the point targeted when iterating over the table of target_points
+
+```
+"RunScript"
+{
+    "ScriptFile" "test.lua"
+    "Function" "TargetTest"
+    "EventName" "OnAbilityPhaseStart"
+    "Target" "POINT"
+}
+```
+
+**OnSpellStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+POINT   1   Vector 000000000322E9D8 [-296.343750 -84.625000 128.000000]
+```
+
+In fact, it doesn't need to be a behavior POINT ability to produce a point entity.
+
+---
+
+PROJECTILE
+
+Added a Linear Projectile to the event_test ability in the OnSpellStart, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
+
+```
+"LinearProjectile"
+{
+    "Target" "POINT"
+    "EffectName"    "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
+    "MoveSpeed" "1000"
+    "StartRadius"   "100"
+    "StartPosition" "attach_attack1"
+    "EndRadius" "100"
+    "HasFrontalCone" "0"
+    "FixedDistance" "1000"
+    "TargetTeams"   "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "TargetTypes"   "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+    "TargetFlags"   "DOTA_UNIT_TARGET_FLAG_NONE"
+}
+```
+
+Triggers up this action when the projectile collides with the enemy hero. Changing the Linear to a Tracking doesn't change the basic targeting.
+
+**OnProjectileHitUnit**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+```
+
+If I fire the projectile and it goes for the entire fixed distance, it results in this:
+
+**OnProjectileFinish**
+
+```
+CASTER: npc_dota_hero_alchemist
+```
+
+Passing the Point and we'll get a POINT 1
+
+Now with this test we can check if POINT and PROJECTILE are the same Vector:
+
+```
+"OnSpellStart"
+{
+    "RunScript"
+    {
+        "ScriptFile"  "test.lua"
+        "Function"    "TargetTest"
+        "EventName"   "OnSpellStart"
+        "Target"      "POINT"
+    }
+}
+
+"OnProjectileHitUnit"
+{
+    "DeleteOnHit"  "1"
+    "RunScript"
+    {
+        "ScriptFile"  "test.lua"
+        "Function"    "TargetTest"
+        "EventName"   "OnProjectileHitUnitUnit"
+        "Target"      "POINT"
+    }
+
+    "RunScript"
+    {
+        "ScriptFile"  "test.lua"
+        "Function"    "TargetTest"
+        "EventName"   "OnProjectileHitUnitProjectile"
+        "Target"      "PROJECTILE"
+    }
+}
+```
+
+Result after a couple of units hit:
+
+**OnSpellStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_alchemist
+POINT   1   Vector 0000000003255BA0 [-513.468750 -16.468750 128.000000]
+```
+
+**OnProjectileHitUnitUnit**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_neutral_kobold
+POINT   1   Vector 0000000003244688 [-742.161560 22.603647 162.187149]
+```
+
+**OnProjectileHitUnitProjectile**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_neutral_kobold
+POINT   1   Vector 000000000322FA00 [-742.161560 22.603647 162.187149]
+```
+
+**OnProjectileHitUnitUnit**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_neutral_kobold
+POINT   1   Vector 000000000325CCC8 [-676.447083 11.376265 162.187149]
+```
+
+**OnProjectileHitUnitProjectile**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_neutral_kobold
+POINT   1   Vector 000000000326CDA8 [-676.447083 11.376265 162.187149]
+```
+
+**OnProjectileFinishPoint**
+
+```
+CASTER: npc_dota_hero_alchemist
+POINT   1   Vector 0000000003231680 [210.698059 -140.193390 162.187149]
+```
+
+**OnProjectileFinishProjectile**
+
+```
+CASTER: npc_dota_hero_alchemist
+POINT   1   Vector 00000000032692B8 [210.698059 -140.193390 162.187149]
+```
+
+We can see how OnSpellStart has the POINT where we clicked
+
+Note: Projectiles are not an entity.
+
+---
+
+DYING
+
+**OnOwnerDied**
+
+```
+CASTER: npc_dota_hero_alchemist
+```
+
+RESPAWN LATER
+
+**OnOwnerSpawned**
+
+```
+CASTER: npc_dota_hero_alchemist
+```
+
+---
+
+ITEM
+
+**OnEquip**
+
+```
+CASTER: npc_dota_hero_alchemist
+```
+
+**OnUnequip**
+
+```
+CASTER: npc_dota_hero_alchemist
+```
+
+---
+
+## Modifier Event Context
+
+Applying a modifier on an enemy abaddon with [all the modifier events](https://web.archive.org/web/20190508142542/http://pastebin.com/kxZ5tgf3) (2nd test ability starts on line 167)
+
+**OnManaGained**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_abaddon
+```
+
+**OnHealReceived**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_abaddon
+```
+
+These 2 spam the crap out of the console (even though the target is on full health an mana) so I'll move to others.
+
+---
+
+First triggered after the modifier is applied
+
+**OnCreated**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+```
+
+---
+
+Enemy learned an ability triggered the OnOrder function, pressing Stop key repeatedly did the same
+
+**OnOrder**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_abaddon
+```
+
+---
+
+Enemy moved only triggered this (meaning OnOrder doesn't count moving)
+
+**OnUnitMoved**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_abaddon
+```
+
+Added `if ability then print("ABILITY: "..ability:GetAbilityName()) end` to the script to check that the ability handle is always the name of the modifier.
+
+Enemy cast a damaging unit target spell on caster of the modifier, these 3 events trigger on this order:
+
+**OnOrder**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_abaddon
+ABILITY: event_test
+```
+
+**OnAbilityExecuted**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_abaddon
+ABILITY: event_test
+```
+
+**OnDealDamage**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+ABILITY: event_test
+```
+
+---
+
+Now testing the Damage events, making use of the magic %attack_damage that Valve added at some point.
+
+```
+"OnTakeDamage"
+{
+    "RunScript"
+    {
+        "ScriptFile"  "test.lua"
+        "Function"    "TargetTest"
+        "EventName"   "OnTakeDamage"
+        "Damage"      "%attack_damage"
+    }
+}
+
+"OnDealDamage"
+{
+    "RunScript"
+    {
+        "ScriptFile"  "test.lua"
+        "Function"    "TargetTest"
+        "EventName"   "OnDealDamage"
+        "Damage"      "%attack_damage"
+    }
+}
+```
+
+This started triggering the OnHealthGained, as the target with the modifier _gained_ health, unlike the OnHealReceived which triggered every time.
+
+**OnHealthGained**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_abaddon
+```
+
+Back to testing the Damage events, I added `local Damage = event.Damage` to the script and confirmed that both OnTakeDamage and OnDealDamage have access to the attack_damage:
+
+**OnTakeDamage**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_abaddon
+ATTACKER: npc_dota_hero_alchemist
+DAMAGE: 56.208053588867
+```
+
+**OnAttackLanded**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+```
+
+We also get triggers from the OnAttack events, when Abaddon attacks caster Alchemist:
+
+**OnAttackStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+```
+
+**OnAttack**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+```
+
+**OnAttackLanded**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+```
+
+**OnDealDamage**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+DAMAGE: 67.154029846191
+```
+
+Alchemist attacks Abaddon with our test modifier on Abaddon:
+
+**OnAttacked**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+ATTACKER: npc_dota_hero_alchemist
+DAMAGE: 55.369129180908
+```
+
+**OnTakeDamage**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_abaddon
+ATTACKER: npc_dota_hero_alchemist
+DAMAGE: 55.369129180908
+```
+
+So both OnDealDamage and OnTakeDamage have access to the %attack_damage
+
+What if we add attack_damage to the attack landed?
+
+2 attacks:
+
+**OnAttackStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+DAMAGE: 0
+```
+
+**OnAttack**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+DAMAGE: 0
+```
+
+**OnAttackLanded**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+DAMAGE: 83
+```
+
+**OnDealDamage**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+DAMAGE: 70.554229736328
+```
+
+**OnAttackStart**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+DAMAGE: 0
+```
+
+**OnAttack**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+DAMAGE: 0
+```
+
+**OnAttackLanded**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+DAMAGE: 80
+```
+
+**OnDealDamage**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+DAMAGE: 68.004081726074
+```
+
+Abaddon has an attack range of 79 to 89
+
+![Abaddon attack stats](/images/external/asdgiouzv.jpg)
+
+**OnAttackLanded attack_damage passes the attack value!**
+
+---
+
+Casting a teleport scroll:
+
+**OnTeleporting**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+```
+
+**OnAbilityExecuted**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_building_hut
+UNIT: npc_dota_hero_alchemist
+```
+
+After ending succesfully:
+
+**OnTeleported**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+```
+
+**OnAbilityEndChannel**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+```
+
+If the scroll is canceled, no OnTeleported is triggered.
+
+---
+
+I gave Abaddon some Evasion:
+
+**OnAttackFailed**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+ATTACKER: npc_dota_hero_alchemist
+DAMAGE: 69
+```
+
+OnAttackFailed also has **the real, pre mitigation attack_damage of the ATTACKER.**
+
+---
+
+Kill some kobold
+
+**OnKill**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_neutral_kobold
+ATTACKER: npc_dota_hero_alchemist
+```
+
+Killed Abaddon, triggered
+
+**OnHeroKilled**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+ATTACKER: npc_dota_hero_alchemist
+```
+
+---
+
+I used Chemical Rage, which is NO_TARGET, triggered these:
+
+**OnSpentMana**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+```
+
+**OnAbilityExecuted**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+```
+
+**OnStateChanged**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+```
+
+OnStateChanged triggers every time a new State is applied, the State Changed because the ability applies a short INVULNERABLE state)
+
+---
+
+When Dying, OnDeath occurs before the modifiers are destroyed
+
+**OnDeath**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+ATTACKER: npc_dota_hero_abaddon
+```
+
+**OnDestroy**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+```
+
+OnRespawn will only trigger with PERMANENT modifiers, because without this key the mods will be destroy when the owner dies.
+
+```
+"Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT"
+"OnRespawn"
+{
+    "RunScript"
+    {
+        "ScriptFile"    "test.lua"
+        "Function"      "TargetTest"
+        "EventName"     "OnRespawn"
+    }
+}
+```
+
+**OnRespawn**
+
+```
+CASTER: npc_dota_hero_alchemist
+UNIT: npc_dota_hero_alchemist
+```
+
+---
+
+Dodging a projectile
+
+**OnProjectileDodge**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+```
+
+---
+
+OnDestroy has the same scope as OnCreated
+
+**OnDestroy**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_abaddon
+```
+
+---
+
+OnIntervalThink same as OnCreated
+
+**OnIntervalThink**
+
+```
+CASTER: npc_dota_hero_alchemist
+TARGET: npc_dota_hero_alchemist
+```
+
+---
+
+OnAbilityStart -> NEGATORY, Fails.

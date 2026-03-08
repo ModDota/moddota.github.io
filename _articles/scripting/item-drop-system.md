@@ -218,6 +218,4 @@ end
 
 ## Example
 
-[item_drops.kv file at TBR](https://github.com/Aleteh/TBR3/blob/master/game/dota_addons/theblackroad3/scripts/kv/item_drops.kv)
-
-Leave any questions or suggestions below
+[item_drops.kv file at TBR](https://pastebin.com/EYx4K18j)

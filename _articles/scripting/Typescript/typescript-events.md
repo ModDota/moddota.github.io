@@ -190,7 +190,3 @@ private async OnNpcSpawned(event: NpcSpawnedEvent) {
 As you can see, this makes the code very clean and easy to use. Non-repeating Timers can be converted to sleep in this way to achieve the same result with a cleaner code flow.
 
 There are many things that you can use async/await for, such as waiting for tracking projectiles to hit, waiting until an animation finishes and so on.
-
-## What's Next?
-
-Feel free to start experimenting on your own! If you have something that you'd like me to cover in Typescript, please contact me in Discord and let me know.

@@ -662,4 +662,377 @@ Displays "[ALLIES] Gather for **ItemName** here."
 
 ---
 
-That's it for all the Item-related key values. In next post we'll review different examples.
+## Examples
+
+1. [Basic Item Skeleton](#basic)
+2. [Adding More Stats](#stats)
+3. [Charged Consumables](#charged)
+   - Tome of Stats
+   - Potion of Health
+   - Summons
+4. [Upgradeable Items and Recipes](#recipes)
+5. [Passives](#passives)
+   - Auras
+   - Damage over time
+   - Cleave
+   - Crit
+   - Lifesteal Orb
+   - Block
+
+<a name="basic"></a>
+
+## Basic Item Skeleton
+
+Copy this to start an item
+
+```
+"item_custom"
+{
+    "ID"           "1100"
+    "BaseClass"    "item_datadriven"
+    "AbilityTextureName" "item_rapier"
+    "Model"        "models/props_gameplay/recipe.vmdl"
+    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+    "ItemQuality"  "artifact"
+
+    "ItemCost"     "322"
+    "ItemKillable" "0"
+    "ItemSellable" "1"
+    "ItemPurchasable" "1"
+    "ItemDroppable" "1"
+    "ItemShareability" "ITEM_NOT_SHAREABLE"
+
+    "SideShop"     "1"
+    "SecretShop"   "0"
+
+    "ItemStackable" "1"
+    "ItemPermanent" "1"
+    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+
+    "AbilitySpecial"
+    {
+        "01"
+        {
+            "var_type"      "FIELD_INTEGER"
+            "bonus_stat"    "100"
+        }
+    }
+
+    "Modifiers"
+    {
+        "modifier_item_custom"
+        {
+            "Passive"  "1"
+            "IsHidden" "1"
+            "Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+            "Properties"
+            {
+                "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%bonus_stat"
+            }
+        }
+    }
+}
+```
+
+Those are the most important values. For Charges, Upgrades, Sounds, Aliases & Declarations add the lines explained before, I kept them out of the basic layout because they aren't needed for most items.
+
+I also added a very basic passive Modifier which takes the _bonus_stat_ from `AbilitySpecial` to give 1 Strength bonus. Using `AbilitySpecial` makes it easier to make tooltips and adjust item values later without having to change said tooltips.
+
+---
+
+<a name="stats"></a>
+
+## Adding More Stats
+
+Every value from [Modifier Constants](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Constants#Modifier_Properties) can be added to the `"Properties"` block, some very common examples are:
+
+```
+    "Properties"
+    {
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attackspeed"
+        "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%bonus_str"
+        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%bonus_agi"
+        "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_int"
+        "MODIFIER_PROPERTY_HEALTH_BONUS"    "%bonus_hp"
+        "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%bonus_health_regen"
+        "MODIFIER_PROPERTY_MANA_BONUS"  "%bonus_hp"
+        "MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"  "%bonus_mana_regen"
+        "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "%bonus_damage_percent"
+    }
+```
+
+---
+
+<a name="charged"></a>
+
+## Charged Consumables
+
+### Tome of Stats
+
+[item_tome_of_knowledge](https://github.com/MNoya/Warchasers/blob/master/scripts/npc/npc_items_custom.txt#L1475)
+
+### Potion of Health
+
+[item_potion_of_healing](https://github.com/MNoya/Warchasers/blob/master/scripts/npc/npc_items_custom.txt#L1844)
+
+### Summons
+
+[item_demonic_figurine](https://github.com/MNoya/Warchasers/blob/master/scripts/npc/npc_items_custom.txt#L2967)
+
+<a name="recipes"></a>
+
+## Upgradeable Items and Recipes
+
+- See [Reflex](https://github.com/bmddota/reflexdota/blob/source2/game/dota_addons/reflex/scripts/npc/npc_items_custom.txt)
+
+---
+
+Apart from these values, item code uses the same datadriven values as abilities. See the [DataDriven Ability Breakdown](ability-keyvalues).
+
+<a name="passives"></a>
+
+## Passives
+
+### Auras
+
+`"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_PASSIVE"`
+
+In a modifier block:
+
+```
+    "Aura"  "custom_aura"
+    "Aura_Teams"    "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "Aura_Radius"   "%radius"
+    "Aura_Types"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "Aura_Flags" "DOTA_UNIT_TARGET_FLAG_RANGED_ONLY"
+```
+
+Then have a new modifier block with the Aura name with the desired effects.
+
+### Damage over time
+
+Inside a modifier, use `"ThinkInterval" "1"` and have a `"OnIntervalThink"` block in which you do damage.
+
+```
+    "ThinkInterval" "1"
+    "OnIntervalThink"
+    {
+        "Damage"
+        {
+             "Target"
+             {
+                 "Center" "CASTER"
+                 "Radius" "%radius"
+                 "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                 "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+             }
+             "Type" "DAMAGE_TYPE_MAGICAL"
+             "Damage"   "%damage_per_second"
+        }
+    }
+```
+
+### Cleave
+
+Inside a modifier. Keep in mind this will work on ranged, so you need to restrict it when applying this modifier if you need.
+
+```
+    "OnAttackLanded"
+    {
+        "CleaveAttack"
+        {
+            "CleavePercent" "10"
+            "CleaveRadius"  "140"
+            "CleaveEffect"  "particles/units/heroes/hero_sven/sven_spell_great_cleave.vpcf"
+        }
+    }
+```
+
+### Crit
+
+There is a `MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE` Property but this doesn't include a chance, so you need to use a DataDriven `Random` when starting the attack, and applying a modifier that has the crit, removing it later `OnAttackLanded`.
+
+The first `RemoveModifier` is added to disable people from canceling attacks to get a guaranteed crit.
+
+```
+"modifier_crit"
+{
+    "Passive"   "1"
+    "IsHidden"  "1"
+    "OnAttackStart"
+    {
+        "RemoveModifier"
+        {
+            "ModifierName" "crit"
+            "Target" "CASTER"
+        }
+        "Random"
+        {
+            "Chance" "%crit_chance"
+            "OnSuccess"
+            {
+                "ApplyModifier"
+                {
+                    "ModifierName" "crit"
+                    "Target"    "CASTER"
+                }
+            }
+        }
+    }
+}
+
+"crit"
+{
+    "IsHidden"  "1"
+    "Properties"
+    {
+        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_bonus"
+    }
+
+    "OnAttackLanded"
+    {
+        "RemoveModifier"
+        {
+            "ModifierName"  "crit"
+            "Target"    "CASTER"
+        }
+
+        // Basic blood particle effect
+        "FireEffect"
+        {
+            "EffectName" "particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+            "EffectAttachType"  "follow_origin"
+            "Target"    "TARGET"
+        }
+    }
+}
+```
+
+### Orb: Slow and Lifesteal with custom projectile
+
+```
+"modifier_orb_of_frost"
+{
+    "Passive" "1"
+    "IsHidden"  "1"
+    "Attributes"    "MODIFIER_ATTRIBUTE_MULTIPLE"
+    "Properties"
+    {
+        "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "6"
+    }
+
+    "Orb"
+    {
+        "Priority"  "DOTA_ORB_PRIORITY_ABILITY"
+        "ProjectileName" "particles\items2_fx\skadi_projectile.vpcf"
+    }
+
+    "OnOrbImpact"
+    {
+        "Lifesteal"
+        {
+            "Target"    "ATTACKER"
+            "LifestealPercent" "%bonus_lifesteal"
+        }
+
+        "ApplyModifier"
+        {
+            "Target"    "TARGET"
+            "ModifierName"  "modifier_orb_of_frost_slow"
+            "Duration"  "%slow_duration"
+        }
+    }
+}
+
+"modifier_orb_of_frost_slow"
+{
+    "IsDebuff" "1"
+    "Duration"  "3"
+    "Properties"
+    {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "%move_speed_slow"
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%attack_speed_slow"
+    }
+    "EffectName"    "particles/generic_gameplay/generic_slowed_cold.vpcf"
+    "EffectAttachType" "attach_hitloc"
+    "Target" "TARGET"
+}
+```
+
+Note: DataDriven Lifesteal might steal from things you don't want to steal from, it's better done through [lua](https://github.com/MNoya/Warchasers/blob/master/scripts/npc/npc_abilities_custom.txt#L7041).
+
+### Block
+
+This is a tricky one. Note that there are 2 modifiers again.
+
+The first one has `OnAttacked` which randoms a block chance, `OnSuccess` it applies the block modifier, `OnFailure` it removes it. Inside the block_modifier, `OnAttacked` removes itself.
+
+The `OnCreated` is just so it's possible to block the 1st hit after equiping the shield.
+
+```
+"shield_modifier"
+{
+    "Passive" "1"
+    "IsHidden" "1"
+    "Properties"
+    {
+        "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%magic_resistance"
+    }
+    "OnCreated"
+    {
+        "Random"
+        {
+            "Chance" "%block_chance"
+            "OnSuccess"
+            {
+                "ApplyModifier"
+                {
+                    "Target" "CASTER"
+                    "ModifierName" "block_modifier"
+                }
+            }
+        }
+    }
+    "OnAttacked"
+    {
+        "Random"
+        {
+            "Chance" "%block_chance"
+            "OnSuccess"
+            {
+                "ApplyModifier"
+                {
+                    "Target" "CASTER"
+                    "ModifierName" "block_modifier"
+                }
+            }
+            "OnFailure"
+            {
+                "RemoveModifier"
+                {
+                    "Target" "CASTER"
+                    "ModifierName" "block_modifier"
+                }
+            }
+        }
+    }
+}
+
+"block_modifier"
+{
+    "IsBuff" "1"
+    "IsHidden" "1"
+    "Properties"
+    {
+        "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK" "%damage_blocked"
+    }
+    "OnAttacked"
+    {
+        "RemoveModifier"
+        {
+            "Target" "CASTER"
+            "ModifierName" "block_modifier"
+        }
+    }
+}
+```
