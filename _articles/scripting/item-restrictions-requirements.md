@@ -15,7 +15,7 @@ This implements the following mechanic:
 
 First create a text file to write down your item properties. File Name, extension and path can be anything as long as the file structure is a proper table.
 
-For this example, we will use this path: **scripts**/**maps**/**item_info**.kv
+For this example, we will use this path: `scripts/maps/item_info.kv`
 
 ```
 "Items"
@@ -151,7 +151,3 @@ function DropItem( item, hero )
 end
 
 ```
-
----
-
-Leave your questions or suggestions below.

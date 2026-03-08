@@ -7,7 +7,7 @@ date: 07.02.2015
 
 # Volcano Particle
 
-Here I'll explain how to modify preexisting particles for the creation of a [Volcano ability](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/firelord_volcano.txt) :nuke:
+Here I'll explain how to modify preexisting particles for the creation of a [Volcano ability](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/firelord_volcano.txt)
 
 I won't be making the particles from scratch or going really deep into its possibilities, so make sure to read the wonderful [Particle Creation Series](/assets/particles/particle-basics) by kritth to get a deeper understanding than just this example.
 
@@ -17,7 +17,7 @@ I won't be making the particles from scratch or going really deep into its possi
 
 First we want a ~250 AoE radius volcano earth cone.
 
-There is a useful particle system for this, espirit_spawn.vpcf, open it.
+There is a useful particle system for this, `espirit_spawn.vpcf`, open it.
 
 Go into its first child, `_ground`.
 
@@ -41,7 +41,7 @@ Let's repeat the same steps on the other children to make the dust-debris effect
     For this, go to its base properties, filter for Max, and double the max particles value.
   - Then go to the Emit instantaneously, in the num to emit, also double this value.
   - Also increase the radius size of the launched particles by going into Initializer's Radius random and setting the min & max to 0.1 and 0.5
-  - Finally, change to a darker rock model, Render Model to bad_barracks_stones003.vmdl
+  - Finally, change to a darker rock model, Render Model to `bad_barracks_stones003.vmdl`
 
 It's looking like this now (I forgot to hide the model for this preview)
 
@@ -76,7 +76,7 @@ Repeat the same process on the groundburst particle.
 
 ---
 
-Now, let's add fire to it! :fire:
+Now, let's add fire to it!
 
 <br />
 
@@ -88,7 +88,7 @@ Back to the particle editor, open the recently forked, sf_fire_arcana_wings syst
 - Add the espirit_spawn custom system made earlier.
 
 - Change the first 3 sf_fire_arcana_wings child particles to emit continuously like before.
-- Going into sf_fire_arcana_wings_smoke_body you can see there are many wings_rope children copied, each one of these childs has a different ground position.
+- Going into sf_fire_arcana_wings_smoke_body you can see there are many wings_rope children copied, each one of these children has a different ground position.
 
   Let's keep only 1 at the middle and disable the rest while also making it emit continuously.
   The `_wings_rope` is already set to emit continuously but has a limited emission duration to 2.0, change it to 0.
@@ -164,6 +164,6 @@ Finally after getting the particle with the ability together...
 
 ---
 
-I hope this isn't too much of a mess to reproduce and there's useful pieces of information hidden in between my random rambling :puppeyface:
+I hope this isn't too much of a mess to reproduce and there are useful pieces of information hidden in between the rambling.
 
-If I missed something or there's any doubts or suggestions just bombard this thread with them, I'll be glad to answer and learn from the mistakes I constantly do while modding particles.
+If you find any issues or have suggestions, feel free to contribute to this article.

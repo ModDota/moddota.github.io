@@ -37,4 +37,4 @@ Basically, abusing the datadriven system we can do this on any event:
 
 modifier_name being any modifier **without a "Duration"** specified directly in its block.
 
-Hopefully this will make many codes that need to apply different duration to hero and creeps way better to read and polish. Until now I was using Lua to define the different duration but after seeing this system it's just way better.
+Hopefully this will make many cases that need to apply different duration to hero and creeps way better to read and polish. Until now I was using Lua to define the different duration but after seeing this system it's just way better.

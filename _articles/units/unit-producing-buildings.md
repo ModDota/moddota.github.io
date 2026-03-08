@@ -9,7 +9,7 @@ date: 08.03.2015
 
 This is a response tutorial on a question thread, I'm gonna explain the scripting approaches to fully spawning units with a building, including making them controllable and defining initial orders.
 
-## Step 1. The npc_units_custom.txt files
+## Step 1. The `npc_units_custom.txt` files
 
 First of all, you'll need a KeyValue definition for a building and the unit you want to spawn.
 
@@ -180,7 +180,7 @@ There's a small issue with npc_dota_building baseclass which is that they spawn 
 building:RemoveModifierByName("modifier_invulnerable")
 ```
 
-#### Did I mention Buildings are retarded?
+#### Did I mention Buildings can be buggy?
 
 There's another issue, buildings will sometimes be not created where you want them to be, and instead be stuck to the (0,0,0) position, so, if this happens, add this:
 
@@ -192,7 +192,7 @@ Wait 1 frame, and using BMD's timers4life, your building will finally appear in 
 
 #### Precache
 
-Last thing is the Unit's Precache requirement. Unlike units dropped on Hammer, lua CreateUnitByName won't run the precache {} blocks of the unit abilities nor Model, so we need to do it manually in either addon_game_mode.lua or in PostLoadPrecache() if you are worried about your clients not loading properly. I'll just go with the first method in this case:
+Last thing is the Unit's Precache requirement. Unlike units dropped on Hammer, lua CreateUnitByName won't run the precache {} blocks of the unit abilities nor Model, so we need to do it manually in either `addon_game_mode.lua` or in PostLoadPrecache() if you are worried about your clients not loading properly. I'll just go with the first method in this case:
 
 ```lua
 function Precache( context ) -- Find this in addon_game_mode.lua
@@ -434,8 +434,3 @@ function MoveToRallyPoint( event )
     target:SetOwner(hero)
 end
 ```
-
----
-
-<br />
-That's it for now, post any doubts about anything below. Thanks for reading!

@@ -7,12 +7,12 @@ date: 07.08.2015
 
 # Lua Item Tutorial
 
-This tutorial is walk-through of creating completely new item with the new item_lua base class. <br />
-For this first tutorial we create upgrade from Blink Dagger to Blink Staff. How it will work is that when targeting any point in ground it will work like Blink Dagger does but if you target allied Unit you can 'tag' it to blink instead of you. We will also add passive bonuses from the item we will have in the recipe.
+This tutorial is a walk-through of creating a completely new item with the new `item_lua` base class.
+For this first tutorial we create an upgrade from Blink Dagger to Blink Staff. How it will work is that when targeting any point on the ground it will work like Blink Dagger does, but if you target an allied unit you can 'tag' it to blink instead of you. We will also add passive bonuses from the item we will have in the recipe.
 
 ## Blink Staff
 
-First open up your npc_items_custom.txt in your favourite text editor. (I use notepad++) If you don't have this file in your scripts\npc\ folder then create it and copy following into it.
+First open up your `npc_items_custom.txt` in your favourite text editor. If you don't have this file in your `scripts/npc/` folder then create it and copy the following into it.
 
 ```
 "DOTAAbilities"
@@ -55,7 +55,7 @@ The image I will be using for this item is this one: ![enter image description h
 }
 ```
 
-The last part we must add is link to the script file. You should create new `*.lua` file somewhere in your `scripts\vscripts` folder. You can even create sub-folder for it if you want to be organized. Now your `npc_items_custom.txt` should be something like this.
+The last part we must add is link to the script file. You should create new `*.lua` file somewhere in your `scripts/vscripts` folder. You can even create sub-folder for it if you want to be organized. Now your `npc_items_custom.txt` should be something like this.
 
 ```
 "DOTAAbilities"
@@ -78,9 +78,9 @@ if item_blink_staff == nil then
 end
 ```
 
-IMPORTANT: Make sure you use same name as you defined in your npc_items_custom.txt<br />
-Now next we want to define cooldown and mana cost for our blink staff. This can be done through 'npc_items_custom.txt' or through lua. Note that everything we define through lua we can manipulate more dynamically. For example we could reduce cooldown by half during night time or double the mana cost if player has positive k/d ratio.<br />
-Also advantage of defining them in npc_items_custom.txt is that what ever shows in the store (before player has the item) is the values defined there. Also currently there is issue that Manacost will always display the value defined by 'npc_item_custom.txt' but the item will still grey(blue?)-out when your mana is lower than what is defined in lua for mana cost.<br />
+IMPORTANT: Make sure you use same name as you defined in your `npc_items_custom.txt`<br />
+Now next we want to define cooldown and mana cost for our blink staff. This can be done through `npc_items_custom.txt` or through lua. Note that everything we define through lua we can manipulate more dynamically. For example we could reduce cooldown by half during night time or double the mana cost if player has positive k/d ratio.<br />
+Also advantage of defining them in `npc_items_custom.txt` is that what ever shows in the store (before player has the item) is the values defined there. Also currently there is issue that Manacost will always display the value defined by `npc_items_custom.txt` but the item will still grey(blue?)-out when your mana is lower than what is defined in lua for mana cost.<br />
 Because we want things to look smooth lets define some basic parameters we can later over ride in lua as we like:
 
 ```
@@ -196,7 +196,7 @@ This is what our item should do right now:
 
 ## Cast on Allied
 
-Now we are going to create the part that makes this item unique compared to blink dagger. First we if statement in our cast function that distinguishes how it should act depending on the target. Also at same time we make sure that double tapping the item works like it does with blink dagger (self targeting blinks towards base)
+Now we are going to create the part that makes this item unique compared to Blink Dagger. First we add an if statement in our cast function that distinguishes how it should act depending on the target. At the same time we make sure that double tapping the item works like it does with Blink Dagger (self targeting blinks towards base).
 
 Because this lua ability stuff still has some minor issues we have to return to our 'npc_items_custom.txt' file to add some targeting help. Just add the following to the item.
 
@@ -205,7 +205,7 @@ Because this lua ability stuff still has some minor issues we have to return to 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 ```
 
-Now looking at our lua code you can see that we can use most of our writen blink code in multiple places. Thats why we are going to change things around a bit like this:
+Now looking at our Lua code you can see that we can use most of our written blink code in multiple places. That's why we are going to change things around a bit like this:
 
 ```lua
 function item_blink_staff:OnSpellStart()
@@ -1050,8 +1050,8 @@ Notice how we added "02" to the item requirements and it only requires the item 
 
 ## The End
 
-That is end of this tutorial.
-You can find this and other lua items and abilities from my Dota2Overflow github repo.<br />
+That is the end of this tutorial.
+You can find this and other Lua items and abilities in my Dota2Overflow GitHub repo.
 https://github.com/DrTeaSpoon/Dota2Overflow
 
 <br />

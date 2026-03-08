@@ -7,17 +7,6 @@ author: Perry
 
 Talking to dota 2 mod developers, or just software developers in general, you will often hear the words 'repositories', 'version control' and 'git'. The reason these are such popular topics is that version control is a very important topic within software development, and if you are working on a piece of software you SHOULD use it. In this article, I will try to clarify firstly what version control is, why you would want to use it, and how I have personally set it up for dota 2. If you read it all the way to the end I might even give you some shameful stories about how I learnt most of this through trial and error.
 
-## Table of contents
-
-- [What is version control](#what-is-version-control)
-- [Why you should use version control](#why-you-should-use-version-control)
-- [Git](#git)
-- [How to use Git](#how-to-use-git)
-- [Remotes](#remotes)
-- [Git clients](#git-clients)
-- [How to set up a dota 2 mod repository](#how-to-set-up-a-dota-2-mod-repository)
-  - [How to make your dota 2 symlinks](#how-to-make-your-dota-2-symlinks)
-
 ## What is version control
 
 The name already gives it away, but version control is a method to control.. well, your versions. A more useful description would be that version control is a way of tracking different versions and stages of development in your software. The term repository is used to describe a project that is managed by some kind of version control. You basically have a system in place that tracks any changes and makes sure that everyone working on the software can work on the same version of this software simultaneously. This usually means that you have a 'remote' server that has all files, and every time you or somebody else makes a change, this remote knows this and can distribute this version to other people working on the software. There are multiple methods to do version control, popular ones include Git, SVN and Mercurial. This article will focus on Git as it is in my opinion the most convenient method.

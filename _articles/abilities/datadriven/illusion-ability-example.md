@@ -74,4 +74,4 @@ function ConjureImage( event )
 end
 ```
 
-The entire ability (with its datadriven code) can be found at the SpellLibrary in github
+The entire ability (with its datadriven code) can be found at the SpellLibrary on GitHub

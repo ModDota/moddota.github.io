@@ -182,7 +182,7 @@ In React, the only things that should affect what component shows are its props 
 
 Since we can update component state only within the component itself, we also have to put our `GameEvents.Subscribe` call inside the component. However you can't register it in the render function itself, because it gets executed more often than we need to, since we need to register our listener only when the component gets mounted for the first time. That's when we have to use another builtin hook - [`useEffect`](https://reactjs.org/docs/hooks-effect.html).
 
-`useEffect` hook is a function that usually gets called with 2 parameters. First one is the callback we want to execute, which would register our listener. The second is the list of state variable that our . Since we don't use any state for our listener, we can just use an empty array (`[]`). Also, optionally our callback can return a cleanup function, which is called either when one of dependencies changes, or when component gets unmounted.
+`useEffect` hook is a function that usually gets called with 2 parameters. First one is the callback we want to execute, which would register our listener. The second is the list of state variables that our listener depends on. Since we don't use any state for our listener, we can just use an empty array (`[]`). Also, optionally our callback can return a cleanup function, which is called either when one of dependencies changes, or when component gets unmounted.
 
 ```jsx
 import React, { useEffect, useState } from 'react';

@@ -7,9 +7,7 @@ date: 20.08.2015
 
 # Lava damage
 
-Hello, this is a small tutorial giving back to the awesome Moddota community.
-
-Today we are going to create a Lava area when a hero steps on that lava he will get damaged per sec until he dies.
+Today we are going to create a lava area — when a hero steps on the lava, he will get damaged per second until he dies.
 
 **First you need to create a block and assign trigger texture to it**
 
@@ -26,11 +24,11 @@ Afterwards, name it plus assign this Entity script to lavatrigger.lua &lt;-- you
 
 ![](/images/external/5eZycip.png)
 
-Next we go to Outputs tabs in top and click on it add the following in the picture.
+Next, go to the Outputs tab at the top, click on it, and add the following as shown in the picture.
 
 ![](/images/external/nvr9nhv.png)
 
-Now go to your vscript folder and create a file called lavatrigger.lua and put this script inside.
+Now go to your `vscripts` folder and create a file called `lavatrigger.lua` and put this script inside.
 
 ```lua
 LAVA_MODIFIER_NAME = "lava_modifier"

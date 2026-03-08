@@ -67,7 +67,7 @@ For your mana to start at 0, we'll begin by making the passive hidden ability wh
 }
 ```
 
-This requires a barbarian.lua script inside _your_addon/scripts/vscripts_ folder.
+This requires a `barbarian.lua` script inside _your_addon/scripts/vscripts_ folder.
 The script is very simple:
 
 ```lua
@@ -204,10 +204,6 @@ end
 ```
 
 With this, our hero's mana will decrease over time by ~0.3 and slightly faster on higher levels.
-
-I hope I covered everything and kept a middle ground explanation style for those who are new to scripted abilities, without boring those who aren't.
-
-Thanks for reading, feel free to ask any questions or discuss variations of mana systems.
 
 Check the original complete file scripts in TBR Github
 

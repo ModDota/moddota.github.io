@@ -7,7 +7,7 @@ date: 22.02.2015
 
 # Useful Console Commands
 
-Here are the console commands useful for modding. If you constantly use one which isn't on this list, please post it.
+Here are the console commands useful for modding.
 
 `dota_launch_custom_game <addon_name> <map_name>`: Launches the map_name inside the addon_name content folder. This avoids having to open the map in hammer. You can `disconnect` or `restart` at any point.
 

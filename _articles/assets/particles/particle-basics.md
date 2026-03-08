@@ -9,8 +9,8 @@ date: 05.02.2015
 
 <p>
   So I was asked by many people about particle creation and workflow since the tutorial provided by
-  the steam (or someone that is put on the Valve developer site) seems to stop at one point. Since I
-  can't do too much of complicated work today, I will write some tutorials to get people start
+  Steam (or someone that is put on the Valve developer site) seems to stop at one point. Since I
+  can't do too much of complicated work today, I will write some tutorials to get people started
   diving into particles.
 </p>
 <p>

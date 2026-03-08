@@ -12,7 +12,7 @@ Modifiers are an extremely important part of almost any Dota custom game. They a
 We'll use an easy example which should cover a lot of common concepts for modifiers. This example is Skywrath's Ancient seal, which is an ability that simply applies a modifier to an enemy. The modifier applies the Silenced state on the enemy, and reduces its magic resist property by a percentage.
 
 :::info
-For simplicity sake, assume the ability has no shard or talents upgrades.
+For simplicity's sake, assume the ability has no shard or talent upgrades.
 :::
 
 ## Defining The Ability
@@ -66,7 +66,7 @@ As the `ScriptFile` denotes it, the lua file should be in `vscripts/abilities/`.
 
 ## Coding The Ability
 
-The ability itself is very straightforward, since all it does is apply a modifier on the target. For simplicity sake, let's decide the modifier will be named `modifier_typescript_ancient_seal`. Following is the ability:
+The ability itself is very straightforward, since all it does is apply a modifier on the target. For simplicity's sake, let's decide the modifier will be named `modifier_typescript_ancient_seal`. Following is the ability:
 
 ```ts
 import { BaseAbility, registerAbility } from '../lib/dota_ts_adapter';

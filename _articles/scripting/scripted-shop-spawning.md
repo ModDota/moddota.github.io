@@ -11,13 +11,13 @@ A feature commonly asked about is how to dynamically create shops. Turns out it'
 
 ## Step 1.
 
-You need to create the triggering area for your shop in hammer. Use the block tool (**ctrl+b**) to draw the triggering area you want for the shop, you can change the shape in the block tool to whatever you need.
+You need to create the triggering area for your shop in Hammer. Use the block tool (**ctrl+b**) to draw the triggering area you want for the shop, you can change the shape in the block tool to whatever you need.
 
 Draw the area somewhere off the map. You don't want players randomly stumbling across it.
 
 ## Step 2.
 
-Turn the block into a entity by selecting it and pressing **ctrl+t**. Change the entity class to trigger_shop and give it a name. Also filter materials and find the trigger material, drag it onto the block. Finally set the shop type at the bottom. It should now look like this ![ShopInHammer](/images/external/XqzWA3I.jpg 'ShopInHammer'). When that's done rebuild the map.
+Turn the block into an entity by selecting it and pressing **ctrl+t**. Change the entity class to trigger_shop and give it a name. Also filter materials and find the trigger material, drag it onto the block. Finally set the shop type at the bottom. It should now look like this ![ShopInHammer](/images/external/XqzWA3I.jpg 'ShopInHammer'). When that's done rebuild the map.
 
 ## Step 3.
 

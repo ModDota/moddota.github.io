@@ -41,7 +41,7 @@ So now we know how filters work, how do we use them? This explanation will use t
 
 The first step is to set the filter using the `CDOTABaseGameMode:SetExecuteOrderFilter(function, context)` API call. Let's analyze what this function expects. There are two parameters:
 
-**Parameter: function** - The filter function. This function is your actual filter. It is called every time the event you are filtering is called (in this case when an order arrives). The filter function receives two parameters: **self** and **event**. The **self** parameter is just the context of the function (and is hidden if you use Dynamic_Wrap and the : operator). The really interesting parameter is the **event** parameter. This parameter contains all the data of the event. Your filter function should look at this function and make a decision. There are three possible outcomes:
+**Parameter: function** - The filter function. This function is your actual filter. It is called every time the event you are filtering is called (in this case when an order arrives). The filter function receives two parameters: **self** and **event**. The **self** parameter is just the context of the function (and is hidden if you use Dynamic_Wrap and the : operator). The really interesting parameter is the **event** parameter. This parameter contains all the data of the event. Your filter function should look at this event and make a decision. There are three possible outcomes:
 
 1. You want to do nothing and accept the event, you `return true`.
 2. You want to reject the event, it will be like this event never happened, `return false`.

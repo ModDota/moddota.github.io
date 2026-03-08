@@ -11,7 +11,7 @@ Here's a step by step guide to custom sound events.
 
 ## Step 1. Preparing the file
 
-You want a file with mp3 extension, .wav might work but I haven't tried it. You can convert sounds to mp3 using any decent sound editor, I use Audacity, you can download it from [here](https://audacity.sourceforge.net/download/)
+You want a file with `.mp3` extension, `.wav` might work but I haven't tried it. You can convert sounds to `.mp3` using any decent sound editor, I use Audacity, you can download it from [here](https://audacity.sourceforge.net/download/)
 
 If you want a sound from a youtube video, I recommend using this website: https://www.vidtomp3.com/
 
@@ -29,7 +29,7 @@ Also inside the content folder of your addon, there should be a soundevents fold
 
 ![img](/images/external/guI3k-1c84b64257.png)
 
-Create one if there isn't. Here is the place where text files with the **.vsndevts** extension are located. You can name it as you want as long as you keep that extension. I usually use custom_sounds.vsndevts for all the addon's sounds, and **make sure to precache this file somewhere** (usually it's easier to do it once in Lua Precache(context) and forget about it).
+Create one if there isn't. Here is the place where text files with the **`.vsndevts`** extension are located. You can name it as you want as long as you keep that extension. I usually use `custom_sounds.vsndevts` for all the addon's sounds, and **make sure to precache this file somewhere** (usually it's easier to do it once in Lua Precache(context) and forget about it).
 
 The structure of the file is quite simple, it's a KV list with a sound string name as the first value of each sound block and then many values that control different properties of the sounds which aren't really important most of the times if you use this code:
 
@@ -69,7 +69,7 @@ The structure of the file is quite simple, it's a KV list with a sound string na
 
 First **`"AddonName.FileName"`**, which is your desired sound string and will be used to Fire/Emit it
 
-Last and most important, the **`"sounds/FileName.vsnd"`** contains a relative path to the sound files **compiled valveSound**. The sound you added on the step 2 was an mp3, the engine will convert this sound to .vsnd when the **.vsndevts** file is compiled/build.
+Last and most important, the **`"sounds/FileName.vsnd"`** contains a relative path to the sound files **compiled valveSound**. The sound you added on the step 2 was an `.mp3`, the engine will convert this sound to `.vsnd` when the **`.vsndevts`** file is compiled/build.
 
 In this whole block, those are the only lines you want to change when adding a new sound. It's basically a big copy paste of the same block, just changing those 2 lines.
 
@@ -88,7 +88,3 @@ Now, if you go into your game addon folder, there should be a sounds and soundev
 ![img](/images/external/guJ7J-00d69a1243.png)
 
 If this isn't the case, go into the Asset Browser again and instead of your sound event, type the name of your sound file, and click on it, if it starts playing, it has been properly compiled.
-
----
-
-Thanks for reading, leave any questions below.

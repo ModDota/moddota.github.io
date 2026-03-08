@@ -9,7 +9,7 @@ date: 28.12.2015
 
 A guide/snippet which will help you to make any ability use charges like Shrapnel or Stone Caller.
 
-First, save the following code with a name "modifier_charges.lua" to your vscripts folder (or any subfolder inside of it)
+First, save the following code with a name `modifier_charges.lua` to your `vscripts` folder (or any subfolder inside of it)
 
 ```lua
 modifier_charges = class({})
@@ -84,13 +84,13 @@ function modifier_charges:RemoveOnDeath()
 end
 ```
 
-Then, add an initialization line to your addon_game_mode.lua:
+Then, add an initialization line to your `addon_game_mode.lua`:
 
 ```lua
 LinkLuaModifier("modifier_charges", LUA_MODIFIER_MOTION_NONE)
 ```
 
-If your file is in a subfolder you can do it like that
+If your file is in a subfolder you can do it like this
 
 ```lua
 LinkLuaModifier("modifier_charges", "subfolder/anothersubfolder/modifier_charges", LUA_MODIFIER_MOTION_NONE)
@@ -110,4 +110,4 @@ unit:AddNewModifier(unit, unit:FindAbilityByName("ability_name"), "modifier_char
 
 The settings in the end are pretty self-explanatory. You can omit the start_count if you want.
 
-That's it, folks.
+That's it.

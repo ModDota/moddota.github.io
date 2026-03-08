@@ -7,11 +7,7 @@ date: 18.12.2015
 
 # Making a "rpg-like" looting chest
 
-Hello, it's the first time i'm making a tutorial here (and on lua too)
-I was working on this for the last 2 days for my mod, and I didn't see something similar for now
-So today i'll teach you how to make a chest you must open , and then you can obtain item or gold from it (or anything you want idc)
-
-first off, you need to create your chest item in npc_item_custom.txt :
+First off, you need to create your chest item in `npc_items_custom.txt`:
 
 ```
 "item_chest"
@@ -52,7 +48,7 @@ first off, you need to create your chest item in npc_item_custom.txt :
 	}
 ```
 
-then your script in lua_datadriven/chest.lua
+then your script in `lua_datadriven/chest.lua`
 
 ```lua
 function chest_open(keys)
@@ -67,7 +63,7 @@ function chest_open(keys)
 	caster:RemoveItem(item)--Here we remove the chest
 	local chest_name = keys.chest_name
 
-	item_list = item_list[chest_name] --he we load the item list specific to this chest
+	item_list = item_list[chest_name] -- here we load the item list specific to this chest
 	--DeepPrintTable (item_list) --undo the commentary to check if your item_list is right
 	local len = 0
 	for k,v in pairs( item_list ) do
@@ -75,7 +71,7 @@ function chest_open(keys)
 	end
 	local item_number = 0
 	if keys.gold == 1 then
-		item_number = math.random(1,(len + 1)) --here we determine the item number (soo here we chose the item), the +1 is to add the gold chance in ,you can change it to 2 or more if you want gold to have higher chance of appearing
+		item_number = math.random(1,(len + 1)) -- here we determine the item number (so here we chose the item), the +1 is to add the gold chance in, you can change it to 2 or more if you want gold to have higher chance of appearing
 	else
 		item_number = math.random(1,len)
 	end
@@ -93,7 +89,7 @@ end
 ```
 
 and finally we create our kv file where we put all the item for each chest
-"scripts/kv/chest_result.kv"
+`scripts/kv/chest_result.kv`
 
 ```
 "put_the_name_you_wanna"

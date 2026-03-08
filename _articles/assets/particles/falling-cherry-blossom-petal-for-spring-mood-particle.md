@@ -8,7 +8,7 @@ date: 05.02.2015
 # Falling cherry blossom petal for spring mood particle
 
 <p>
-  If you are new to particle creation, you should read{' '}
+  If you are new to particle creation, you should read
   <a href="particle-basics">this particle basic</a> first because I will not explain these functions
   in detail. I will instead explain the thought process that comes in my mind during each creation.
   Now let's get started.
@@ -50,7 +50,7 @@ in Emitter since I want my petals to keep falling down.
   <b>
     Don't forget to change your max particles number in Base Properties and emission rate
     accordingly so your particle system will not overflow with too many particles.
-  </b>{' '}
+  </b>
   In this tutorial, I set mine to 160 as I think that should do the job. Now your screen should have
   something similar to this.
 </p>

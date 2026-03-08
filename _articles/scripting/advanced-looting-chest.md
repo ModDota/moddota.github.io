@@ -40,7 +40,7 @@ In our example we use models/props_generic/chest_treasure_02.vmdl and models\pro
         "AbilityUnitTargetType"           "DOTA_UNIT_TARGET_HERO"
         "OnlyPlayerHeroPickup"            "1"
         "CreepHeroPickup"                 "1"
-        "DisplayOverheadAlertOnReceived"  "0" // Show no item accquired overhead effect
+        "DisplayOverheadAlertOnReceived"  "0" // Show no item acquired overhead effect
         "ItemCastOnPickup"                "1" // Start channeling on pickup
 
         // Custom Values
@@ -158,7 +158,7 @@ class item_treasure_chest_2 extends BaseItem {
   }
 
   private DeleteChest() {
-    // Removing an item also destroys the underlying entity, be carefull
+    // Removing an item also destroys the underlying entity, be careful
     this.GetCaster().RemoveItem(this);
     this.DeletePlaceholder();
   }

@@ -72,8 +72,8 @@ end
 
 All images and videos should be stored locally in the repository, not linked from external URLs.
 
-- **Images:** Place in the `static/images/` folder and reference as `![alt text](/images/your-image.png)`
-- **Videos:** Place `.mp4` files in the `static/videos/` folder and use `<StaticVideo path="/videos/your-video.mp4" />`
+- **Images:** Place in the `_articles/images/` folder and reference as `![alt text](/images/your-image.png)`
+- **Videos:** Place `.mp4` files in the `_articles/videos/` folder and use `<StaticVideo path="/videos/your-video.mp4" />`
 
 **To add a YouTube player to the page use the following:**
 
@@ -106,11 +106,10 @@ File structure is as follows:
 _articles/              # Directory storing all articles as markdown files
   | index.md            # Homepage
   | contribute.md       # This page
+  | images/             # Static images
+  | videos/             # Static videos
   | ...
 .vitepress/
   | config.mts          # VitePress configuration (sidebar, nav, etc.)
   | theme/              # Custom theme, components, and CSS
-static/
-  | images/             # Static images
-  | videos/             # Static videos
 ```

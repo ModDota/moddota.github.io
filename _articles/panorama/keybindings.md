@@ -9,7 +9,7 @@ date: 24.07.2015
 
 ## Introduction
 
-With the recent update (20th of july) valve added support for custom keybindings. That is, you can bind keys to fire a custom command.
+With the recent update (20th of July) Valve added support for custom keybindings. That is, you can bind keys to fire a custom command.
 
 The technique used is derived from rpg_example.
 
@@ -73,26 +73,23 @@ The prefixes do not lock the command to be triggered only in that event. But is 
 
 Catching the keybind commands in Panorama is easy:
 
-```lua
-function OnExecuteAbility1ButtonPressed()
-{
+```js
+function OnExecuteAbility1ButtonPressed() {
   $.Msg("'S' Pressed or Released");
 }
 
-function OnTestButtonPressed()
-{
+function OnTestButtonPressed() {
   $.Msg("'Z' Pressed");
 }
 
-function OnTestButtonReleased()
-{
+function OnTestButtonReleased() {
   $.Msg("'Z' Released");
 }
 
-(function() {
-  Game.AddCommand( "CustomGameExecuteAbility1", OnExecuteAbility1ButtonPressed, "", 0 );
-  Game.AddCommand( "+CustomGameTestButton", OnTestButtonPressed, "", 0 );
-  Game.AddCommand( "-CustomGameTestButton", OnTestButtonReleased, "", 0 );
+(function () {
+  Game.AddCommand('CustomGameExecuteAbility1', OnExecuteAbility1ButtonPressed, '', 0);
+  Game.AddCommand('+CustomGameTestButton', OnTestButtonPressed, '', 0);
+  Game.AddCommand('-CustomGameTestButton', OnTestButtonReleased, '', 0);
 })();
 ```
 

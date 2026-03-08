@@ -22,7 +22,7 @@ When attempting to use some of the available particles, keep in mind what was th
 
 For example if you try to use a projectile particle as a buff, or an explosion as a projectile, you will get disastrous or just no effect at all.
 
-You can browse particles in the asset browser, for filtering just write keywords like "particle" or "vpcf".
+You can browse particles in the asset browser, for filtering just write keywords like "particle" or `.vpcf`.
 
 Also every time you use a particle, remember to add them in a datadriven precache block on the ability:
 
@@ -49,7 +49,7 @@ Copy this entire path for the particleName
 
 ## Attachments
 
-Particles need to be Attached to some entity location to begin its behavior.
+Particles need to be attached to some entity location to begin their behavior.
 This can be as easy as a single `"Target" "TARGET"` line, or contain many weird attach points that you will need to discover through numerous trial and error attempts.
 
 Here is a list of every attach type, in order of importance/relevance.
@@ -68,7 +68,7 @@ Here is a list of every attach type, in order of importance/relevance.
 | PATTACH_POINT_FOLLOW_SUBSTEPPED | follow_attachment_substepped |
 | PATTACH_RENDERORIGIN_FOLLOW     | follow_renderorigin          |
 | PATTACH_ROOTBONE_FOLLOW         | follow_rootbone              |
-| Attach to an specific bone      | attach_attack1               | You can check these by opening the hero VMDL file in the Model Editor. |
+| Attach to a specific bone       | attach_attack1               | You can check these by opening the hero VMDL file in the Model Editor. |
 | -                               | start_at_origin              |
 | -                               | start_at_attachment          |
 | -                               | follow_attachment            |

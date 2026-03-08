@@ -175,7 +175,7 @@ For more on Modifiers, check the [Constants in the wiki]
 
 ## Adding spell functionality
 
-Apart from this values specially related to items, you can add **_everything_** that could be part of a datadriven ability, for example:
+Apart from these values specially related to items, you can add **_everything_** that could be part of a datadriven ability, for example:
 
 ```
 "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -199,7 +199,7 @@ For your item to have an icon you'll need to go to your addon folder under this 
 
 `/resource/flash3/images/items`
 
-And put a .PNG file with dimensions **86 x 64**, with the same name as the `item_custom`, WITHOUT the `item_`
+And put a `.PNG` file with dimensions **86 x 64**, with the same name as the `item_custom`, WITHOUT the `item_`
 
 ![img](/images/external/4Jr9cpF.png)
 
@@ -210,11 +210,11 @@ Then in your "item_custom" code, you add the following:
 You can also use the names of the dota icons. Just make sure this line starts with `"item_`, so the engine knows to look the image on the items folder.
 
 Adding the item to a shop. Layout [Here]
-For this, inside your addon folder you need to go inside scripts/shops and make/edit a .txt file with this name file structure:
+For this, inside your addon folder you need to go inside `scripts/shops` and make/edit a `.txt` file with this name file structure:
 
 `mapName_shops.txt`
 
-mapName should be the name of YOUR MAP (.vmap file in Hammer or content folder), NOT your addon name (both could be the same, or you could have multiple maps with different shops)
+mapName should be the name of YOUR MAP (`.vmap` file in Hammer or content folder), NOT your addon name (both could be the same, or you could have multiple maps with different shops)
 
 Adding `_shops` to the mapName is also mandatory.
 
@@ -309,7 +309,7 @@ You can change categories and shop tab names, with [addon_english modding]
 
 To make an actual shop area inside your map on Hammer, check this other tutorial [tutorial_creating_a_custom_shop_step_by_step](https://www.reddit.com/r/Dota2Modding/comments/2dpts1/tutorial_creating_a_custom_shop_step_by_step/)
 
-To disable your dota items, use this `npc_abilities_override.txt` inside the scripts/npc folder:
+To disable your dota items, use this `npc_abilities_override.txt` inside the `scripts/npc` folder:
 
 ::: details npc_abilities_override.txt
 
@@ -598,7 +598,7 @@ Important: If you create the item through lua [CreateItemOnPositionSync], you ne
 
 ### Tags & Alias
 
-Tags are defined in `addon_english`, find them in [dota_english] under `// Tags`
+Tags are defined in `addon_english.txt`, find them in [dota_english] under `// Tags`
 Aliases help the search bar to find the item quickly with abbreviations
 
 ```
@@ -624,11 +624,9 @@ This is how Basher is disallowed for certain heroes
 
 For the Scripted, more powerful version, read more on [Item Restrictions & Requirements](/scripting/item-restrictions-requirements)
 
----
-
 ## Alt-Click
 
-Alt-click text on items in Inventory and dropped on the ground. Takes the strings from resource/addon_english.txt
+Alt-click text on items in Inventory and dropped on the ground. Takes the strings from `resource/addon_english.txt`
 or any other languages.
 
 ### PingOverrideText
@@ -659,27 +657,6 @@ Displays "[ALLIES] Gather for **ItemName** here."
 ```
 "ItemAlertable"	"1"
 ```
-
----
-
-## Examples
-
-1. [Basic Item Skeleton](#basic)
-2. [Adding More Stats](#stats)
-3. [Charged Consumables](#charged)
-   - Tome of Stats
-   - Potion of Health
-   - Summons
-4. [Upgradeable Items and Recipes](#recipes)
-5. [Passives](#passives)
-   - Auras
-   - Damage over time
-   - Cleave
-   - Crit
-   - Lifesteal Orb
-   - Block
-
-<a name="basic"></a>
 
 ## Basic Item Skeleton
 
@@ -738,10 +715,6 @@ Those are the most important values. For Charges, Upgrades, Sounds, Aliases & De
 
 I also added a very basic passive Modifier which takes the _bonus_stat_ from `AbilitySpecial` to give 1 Strength bonus. Using `AbilitySpecial` makes it easier to make tooltips and adjust item values later without having to change said tooltips.
 
----
-
-<a name="stats"></a>
-
 ## Adding More Stats
 
 Every value from [Modifier Constants](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Constants#Modifier_Properties) can be added to the `"Properties"` block, some very common examples are:
@@ -761,10 +734,6 @@ Every value from [Modifier Constants](https://developer.valvesoftware.com/wiki/D
     }
 ```
 
----
-
-<a name="charged"></a>
-
 ## Charged Consumables
 
 ### Tome of Stats
@@ -779,17 +748,11 @@ Every value from [Modifier Constants](https://developer.valvesoftware.com/wiki/D
 
 [item_demonic_figurine](https://github.com/MNoya/Warchasers/blob/master/scripts/npc/npc_items_custom.txt#L2967)
 
-<a name="recipes"></a>
-
 ## Upgradeable Items and Recipes
 
 - See [Reflex](https://github.com/bmddota/reflexdota/blob/source2/game/dota_addons/reflex/scripts/npc/npc_items_custom.txt)
 
----
-
 Apart from these values, item code uses the same datadriven values as abilities. See the [DataDriven Ability Breakdown](ability-keyvalues).
-
-<a name="passives"></a>
 
 ## Passives
 

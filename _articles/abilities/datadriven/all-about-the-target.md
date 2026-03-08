@@ -7,9 +7,9 @@ date: 23.01.2015
 
 # All about the Target
 
-I wanted to review a very old thread which was posted almost one year ago but still isn't completely well documented anywhere:
+The following was originally an article that compiled documentation about the Target key, which wasn't well documented anywhere:
 
-> "Target" is one bitch of a key.
+> "Target" is one tricky key.
 
 And yet, it's arguably the most important KV to understand, as its found in almost every datadriven Action.
 
@@ -19,9 +19,9 @@ Quoting the [wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tool
 
 > Note: These names mean different things in different events. It may require some experimentation to discover exactly what in each case.
 
-This thread intends to compile every Target-related decision.
+This article intends to compile every Target-related decision.
 
-To test everything and get results, I used some simple scripts to test which parameters are seen in each event context. The KV and Lua Scripts are found in the second post, which also contains all the debug data.
+To test everything and get results, I used some simple scripts to test which parameters are seen in each event context. The KV and Lua Scripts are found below, along with all the debug data.
 
 After running many tests with different ability behaviors, here's what I got:
 
@@ -150,7 +150,7 @@ OnAbilityStart - Broken?
 
 ## Raw Data
 
-This post has the raw data I used to compile the first.
+This section has the raw data used to compile the above.
 
 Scripts:
 
@@ -168,7 +168,7 @@ OnSomethingEvent
 }
 ```
 
-The entire ability script to test them all in the same cast is in [this pastebin](https://web.archive.org/web/20190508142542/http://pastebin.com/kxZ5tgf3)
+The entire ability script to test them all in the same cast is in the [full test ability script](#full-test-ability-script) at the bottom of this article.
 
 **Lua**
 
@@ -234,7 +234,7 @@ UNIT: npc_dota_hero_alchemist
 ATTACKER: npc_dota_hero_alchemist
 ```
 
-Results on casting abilities with [every Ability Events at the same time](https://web.archive.org/web/20190508142542/http://pastebin.com/kxZ5tgf3), Alchemist is our caster, Abaddon is an enemy hero.
+Results on casting abilities with [every Ability Event at the same time](#full-test-ability-script), Alchemist is our caster, Abaddon is an enemy hero.
 
 ## Ability Event Context
 
@@ -618,7 +618,7 @@ CASTER: npc_dota_hero_alchemist
 
 ## Modifier Event Context
 
-Applying a modifier on an enemy abaddon with [all the modifier events](https://web.archive.org/web/20190508142542/http://pastebin.com/kxZ5tgf3) (2nd test ability starts on line 167)
+Applying a modifier on an enemy abaddon with [all the modifier events](#full-test-ability-script) (2nd ability in the full script below)
 
 **OnManaGained**
 
@@ -634,7 +634,7 @@ CASTER: npc_dota_hero_alchemist
 UNIT: npc_dota_hero_abaddon
 ```
 
-These 2 spam the crap out of the console (even though the target is on full health an mana) so I'll move to others.
+These 2 spam the console heavily (even though the target is on full health and mana) so I'll move to others.
 
 ---
 
@@ -914,7 +914,7 @@ TARGET: npc_building_hut
 UNIT: npc_dota_hero_alchemist
 ```
 
-After ending succesfully:
+After ending successfully:
 
 **OnTeleported**
 
@@ -994,7 +994,7 @@ CASTER: npc_dota_hero_alchemist
 UNIT: npc_dota_hero_alchemist
 ```
 
-OnStateChanged triggers every time a new State is applied, the State Changed because the ability applies a short INVULNERABLE state)
+OnStateChanged triggers every time a new State is applied (the State Changed because the ability applies a short INVULNERABLE state)
 
 ---
 
@@ -1071,5 +1071,486 @@ TARGET: npc_dota_hero_alchemist
 ```
 
 ---
+
+## Full Test Ability Script {#full-test-ability-script}
+
+```
+// Ability Events
+"event_test"
+{
+	"BaseClass"             		"ability_datadriven"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"	//Change this to trigger different events
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+	"AbilityCastRange"				"700"
+	"AbilityCastPoint"				"0.3"
+	"AbilityCooldown"				"0.0"
+
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnSpellStart"
+		}
+	}
+
+	"OnAbilityPhaseStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnAbilityPhaseStart"
+		}
+	}
+
+	"OnToggleOff"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnToggleOff"
+		}
+	}
+
+	"OnToggleOn"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnToggleOn"
+		}
+	}
+
+	"OnChannelFinish"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnChannelFinish"
+		}
+	}
+
+	"OnChannelInterrupted"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnChannelInterrupted"
+		}
+	}
+
+	"OnChannelSucceeded"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnChannelSucceeded"
+		}
+	}
+
+
+	"OnEquip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnEquip"
+		}
+	}
+
+	"OnUnequip"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnUnequip"
+		}
+	}
+
+	"OnOwnerDied"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnOwnerDied"
+		}
+	}
+
+	"OnOwnerSpawned"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnOwnerSpawned"
+		}
+	}
+
+	"OnProjectileFinish"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnProjectileFinish"
+		}
+	}
+
+	"OnProjectileHitUnit"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnProjectileHitUnit"
+		}
+	}
+
+	"OnUpgrade"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnUpgrade"
+		}
+	}
+
+	"OnSpawn"
+	{
+		"RunScript"
+		{
+			"ScriptFile"	"test.lua"
+			"Function"		"TargetTest"
+			"EventName"		"OnSpawn"
+		}
+	}
+}
+
+
+// Modifier Events
+"event_test"
+{
+	"BaseClass"             		"ability_datadriven"
+
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"	//Change this to trigger different events
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+	"AbilityCastRange"				"700"
+	"AbilityCastPoint"				"0.3"
+	"AbilityCooldown"				"0.0"
+
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"ModifierName"	"modifier_test"
+			"Target" 		"TARGET"
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_test"
+		{
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnCreated"
+				}
+			}
+
+			"OnAbilityEndChannel"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnAbilityEndChannel"
+				}
+			}
+
+			"OnAbilityExecuted"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnAbilityExecuted"
+				}
+			}
+
+			"OnManaGained"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnManaGained"
+				}
+			}
+
+			"OnRespawn"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnRespawn"
+				}
+			}
+
+			"OnSpentMana"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnSpentMana"
+				}
+			}
+
+			"OnStateChanged"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnStateChanged"
+				}
+			}
+
+			"OnTakeDamage"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnTakeDamage"
+				}
+			}
+
+			"OnDealDamage"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnDealDamage"
+				}
+			}
+
+			"OnTeleported"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnTeleported"
+				}
+			}
+
+			"OnTeleporting"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnTeleporting"
+				}
+			}
+
+			"OnOrder"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnOrder"
+				}
+			}
+
+			"OnProjectileDodge"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnProjectileDodge"
+				}
+			}
+
+			"OnUnitMoved"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnUnitMoved"
+				}
+			}
+
+			"OnHealReceived"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnHealReceived"
+				}
+			}
+
+			"OnHealthGained"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnHealthGained"
+				}
+			}
+
+			"OnAttack"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnAttack"
+				}
+			}
+
+			"OnAttackStart"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnAttackStart"
+				}
+			}
+
+			"OnAttackAllied"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnAttackAllied"
+				}
+			}
+
+			"OnAttacked"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnAttacked"
+				}
+			}
+
+			"OnAttackFailed"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnAttackFailed"
+				}
+			}
+
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnAttackLanded"
+				}
+			}
+
+			"OnDeath"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnDeath"
+				}
+			}
+
+			"OnKill"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnKill"
+				}
+			}
+
+			"OnHeroKilled"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnHeroKill"
+				}
+			}
+
+			// "ThinkInterval" "1.0"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnIntervalThink"
+				}
+			}
+
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnDestroy"
+				}
+			}
+
+			// This doesn't trigger.
+			"OnAbilityStart"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"test.lua"
+					"Function"		"TargetTest"
+					"EventName"		"OnAbilityStart"
+				}
+			}
+		}
+	}
+}
+```
 
 OnAbilityStart -> NEGATORY, Fails.

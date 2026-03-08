@@ -17,7 +17,7 @@ Please note `particleonly='false'` is required for `DOTAScenePanel` to display a
 
 Code like this is used to display heroes in the armory. This panel also has no custom dynamic properties, meaning that we can't change the unit after creating a panel.
 
-In armory, heroes models can be rotated, and this behaviour can be enabled with `allowrotation="true"` settled. However, this parameter is not compatible with custom background maps.
+In armory, heroes models can be rotated, and this behaviour can be enabled with `allowrotation="true"` set. However, this parameter is not compatible with custom background maps.
 
 ## Background maps
 
@@ -25,7 +25,7 @@ But wait, there's more! DOTAScenePanel accepts the "map" parameter, which points
 
 ### Setting up the map
 
-Start up hammer editor and create a new map. Save it in your maps folder as 'background.vmap'. Go to Map -> Map Properties (Ctrl-Shift-P) and check the 'Compile as background map' checkbox.
+Start up hammer editor and create a new map. Save it in your maps folder as `background.vmap`. Go to Map -> Map Properties (Ctrl-Shift-P) and check the 'Compile as background map' checkbox.
 
 Use the Entity Tool (Shift-E) and choose the `prop_dynamic` entity, then click somewhere in the world to place it.
 
@@ -127,4 +127,4 @@ The way cosmetics in dota works is that every cosmetic item is a separate entity
 
 The way that works is you select a prop_dynamic, in object properties put up a parent entity name, put in the `Parent Model Bone/Attachment Name` (you can look up attachment names in the model editor), check the `Use Model Attachment Offset` checkbox and then realize that changing attachment offset doesn't work. At least for now. Changing angles works though so there is hope that offset will be fixed someday.
 
-That's it for today!
+That's it!

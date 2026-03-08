@@ -65,7 +65,7 @@ Contains:
 You can get started based off of the Barebones template, which is a community made alternative to Valve's default addon templates (i.e. Holdout). This is the link to the updated Barebones: https://github.com/DarkoniusXNG/barebones<br />
 After downloading it as a zip, you want to browse to your `.../Steam/SteamApps/dota 2 beta/` and merge the `game` and `content` folders from the .zip into that /dota 2 beta/ folder (which should already have folders in it called `game` and `content`).
 
-Next, start up the Workshop Tools (or restart them if you have them opened already), and double click your new addon. Set it as the default addon. Then, go into Hammer -> File -> Open -> template_map.vmap -> Press F9 to begin building the map. After Hammer finishes building your map, your custom game will automatically load in Dota.
+Next, start up the Workshop Tools (or restart them if you have them opened already), and double click your new addon. Set it as the default addon. Then, go into Hammer -> File -> Open -> `template_map.vmap` -> Press F9 to begin building the map. After Hammer finishes building your map, your custom game will automatically load in Dota.
 
 ## Step 2. Creating your map in Hammer
 

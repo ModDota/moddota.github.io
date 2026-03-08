@@ -7,23 +7,9 @@ date: 22.04.2015
 
 # Unit KeyValues
 
-This document covers every keyvalue of the npc_units_custom file
+This document covers every keyvalue of the `npc_units_custom.txt` file
 
 ![img](/images/external/T7W828Q.png)
-
-- [General](#general)
-- [Boolean Values and Flags](#boolean-values-and-flags)
-- [Selection Properties](#selection-properties)
-- [Sounds](#sounds)
-- [Abilities](#abilities)
-- [Stats](#stats)
-- [Bounds](#bounds)
-- [Movement](#movement)
-- [Health and Mana](#health-and-mana)
-- [Armor and Attack Types](#armor-and-attack-types)
-- [Vision](#vision)
-- [Lua VScript AI](#lua-vscript-ai)
-- [Creature Block](#creature-block)
 
 ## General
 

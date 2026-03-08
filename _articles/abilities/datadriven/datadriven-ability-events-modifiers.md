@@ -11,7 +11,6 @@ A guide that tries to cover every Ability & Modifier Event of the _ability_datad
 
 ![img](/images/external/T7W828Q.png)
 
-<a name="start"></a>
 This is an Intermediate guide that expects some knowledge of the most common first-level keyvalues.
 If unsure about the meaning of any of them, check the [DataDriven Ability
 Breakdown](/abilities/ability-keyvalues).
@@ -260,7 +259,7 @@ This requires the use of `OnIntervalThink` with a `RunScript` Action to spend th
 
 #### AbilityBehavior Needed: DOTA_ABILITY_BEHAVIOR_CHANNELLED
 
-There's 3 Events control channels:
+There are 3 Events that control channels:
 
 - OnChannelFinish
 - OnChannelInterrupted
@@ -936,7 +935,7 @@ The Script is very simple:
 ```lua
 function maintain_toggle( event )
     local manacost_per_second = 10
-    -- if the caster has enough mana left to mantain the spell, spend it. Else, toggle the ability off
+    -- if the caster has enough mana left to maintain the spell, spend it. Else, toggle the ability off
     if event.caster:GetMana() >= manacost_per_second then
         event.caster:SpendMana( manacost_per_second, event.ability)
     else

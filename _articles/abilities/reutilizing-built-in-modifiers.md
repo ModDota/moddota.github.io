@@ -52,7 +52,7 @@ Now to find out the field names and pass values to the modifier, follow these st
 
 ## Step 1. Finding the ability modifier
 
-Go to the original ability that uses the modifier you want to reuse form the list. The [SpellLibrary](https://github.com/Pizzalol/SpellLibrary/tree/SpellLibrary/game/dota_addons/spelllibrary/scripts/npc/abilities) contains a split list of all Dota Abilities with its own names, it's very easy to find the fields there.
+Go to the original ability that uses the modifier you want to reuse from the list. The [SpellLibrary](https://github.com/Pizzalol/SpellLibrary/tree/SpellLibrary/game/dota_addons/spelllibrary/scripts/npc/abilities) contains a split list of all Dota Abilities with its own names, it's very easy to find the fields there.
 
 <br />
 
@@ -97,16 +97,16 @@ On the desired Ability or Modifier Event, add the ApplyModifier action:
 
 The modifier_alchemist_chemical_rage tooltip needs to be adjusted to ignore AbilityValues we don't need, and instead use our `bonus_attack_speed` and `bonus_movespeed_percent`.
 
-1. Go to dota_english.txt, which can be found in the main dota file or in [this repository link](https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota/resource/dota_english.txt)
+1. Go to `dota_english.txt`, which can be found in the main dota file or in [this repository link](https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota/resource/dota_english.txt)
 
-2. Find the modifier tooltip of the spell we want to modify, copy them into your addon_english and edit them:
+2. Find the modifier tooltip of the spell we want to modify, copy them into your `addon_english.txt` and edit them:
 
 ```
 "DOTA_Tooltip_modifier_alchemist_chemical_rage"             "Legacy Chemical Rage"
 "DOTA_Tooltip_modifier_alchemist_chemical_rage_Description"	"Increasing attack and movement speed."
 ```
 
-After modifying the addon_english.txt:
+After modifying the `addon_english.txt`:
 
 ![img](/images/external/eHpXB-8fe79a1d57.jpg)
 
@@ -194,7 +194,3 @@ Instead you can make those tooltips in the separate modifier, or directly add th
 <br />
 
 Hopefully this will help you have more options if the ability you want to modify hasn't been rewritten yet, or to get a particular effect which is hard to replicate by normal means.
-
-_Remember to share any interesting discoveries in here, for the benefit of everyone in the community._
-
-Thanks for reading!

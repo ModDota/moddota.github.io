@@ -169,7 +169,7 @@ And the passive ability:
 ```
 
 ::: warning
-The dummy doesn't have `MODIFIER_STATE_INVULNERABLE` enabled, because that state is a bitch, usually preventing from applying modifiers even if they have `MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE`. That's why I called it `_vulnerable` even though it can't take damage.
+The dummy doesn't have `MODIFIER_STATE_INVULNERABLE` enabled, because that state is problematic — it usually prevents applying modifiers even if they have `MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE`. That's why it's called `_vulnerable` even though it can't take damage.
 :::
 
 ---
@@ -242,7 +242,7 @@ end
 
 ## Modifiers
 
-Now lets move to the the Modifiers block, the first couple handles the animation:
+Now let's move to the Modifiers block, the first couple handles the animation:
 
 ```
 "Modifiers"
@@ -476,4 +476,4 @@ Not gonna lie, it's mostly trial and error and just a bit of reading whatever th
 
 ---
 
-If you find a way to improve this method or have any questions, leave them here.
+If you find a way to improve this method or have any questions, feel free to contribute to this article.

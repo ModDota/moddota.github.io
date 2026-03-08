@@ -7,11 +7,11 @@ date: 21.01.2015
 
 # Extracting and Compiling VTEX files
 
-Hello everybody. Recently, I've been looking through the .VTEX files used by most of the sprites and particle effects in-game, but I couldn't find any extensive documentation about it. Therefore, I decided to write this little guide in case anybody else finds it useful.
+Hello everybody. Recently, I've been looking through the `.VTEX` files used by most of the sprites and particle effects in-game, but I couldn't find any extensive documentation about it. Therefore, I decided to write this little guide in case anybody else finds it useful.
 
 ## Extracting from VTEX
 
-1. Extracting images from compiled VTEX files (.VTEX_C) is actually quite simple, but we need those files first. If you haven't already extracted them, you can find them in pak01_dir.vpk, which is located in your dota_ugc\game\dota_imported folder. Use a tool like GCFScape or [Source 2 Viewer](https://s2v.app/) to open and extract the files that you need.
+1. Extracting images from compiled VTEX files (`.VTEX_C`) is actually quite simple, but we need those files first. If you haven't already extracted them, you can find them in `pak01_dir.vpk`, which is located in your dota_ugc\game\dota_imported folder. Use a tool like GCFScape or [Source 2 Viewer](https://s2v.app/) to open and extract the files that you need.
 
 ![img](/images/external/xsQnBg9.png)
 
@@ -43,9 +43,9 @@ Additionally, you should also have one or more TGA images in your win64 director
 
 Simply replace the filename in the highlighted line ("m_fileName", under "CDmeInputTexture") with the name of your TGA image and you're set.
 
-2b) If you're creating a texture with sequences however, you must create a .MKS file first. Like VTEX files, MKS files are ASCII data files, although these files describe how and which sprites to render in-game. Refer to the [Valve Developer Wiki](https://developer.valvesoftware.com/wiki/Animated_Particles) for more information on MKS files and animated particles in general. Note that you do NOT need to compile the MKS files with mksheet.exe first.
+2b) If you're creating a texture with sequences however, you must create a `.MKS` file first. Like VTEX files, `.MKS` files are ASCII data files, although these files describe how and which sprites to render in-game. Refer to the [Valve Developer Wiki](https://developer.valvesoftware.com/wiki/Animated_Particles) for more information on MKS files and animated particles in general. Note that you do NOT need to compile the MKS files with `mksheet.exe` first.
 
-Once you have the .mks file, replace the filename as mentioned above with the name of the MKS file instead.
+Once you have the `.mks` file, replace the filename as mentioned above with the name of the MKS file instead.
 
 3. Go back to dota_ugc\game\bin\win64, and type the following:
 
@@ -57,13 +57,13 @@ If everything goes well, you should see something like this:
 
 ![img](/images/external/qQyXGI9.png)
 
-You should also see a .VTEX_C file somewhere in your dota_ugc\game\dota_addons\\(modname)\materials folder, which you can now freely use all throughout your mod.
+You should also see a `.VTEX_C` file somewhere in your `dota_ugc\game\dota_addons\(modname)\materials` folder, which you can now freely use all throughout your mod.
 
 ![img](/images/external/xCQSs0C.png)
 
 ## Download
 
-If you want to use the example .VTEX_C file created by this tutorial to use in your mod, you can download it [here](https://www.mediafire.com/download/fgce2192os392on/iw_msg_01.zip). For comparison:
+If you want to use the example `.VTEX_C` file created by this tutorial to use in your mod, you can download it [here](https://www.mediafire.com/download/fgce2192os392on/iw_msg_01.zip). For comparison:
 
 ![img](/images/external/AQT6Foz.png) ![img](/images/external/JpsmJxS.png)
 

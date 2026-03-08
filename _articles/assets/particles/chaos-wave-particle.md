@@ -7,12 +7,11 @@ date: 05.02.2015
 
 # Chaos Wave Particle
 
-<a name="intro"></a>
 <h1>Introduction</h1>
 <p>
   This is taken from the project I'm currently working on. The basic idea behind this particle
   system was that this projectile is a cyclone/tornado in xy-axis traveling forward with a certain
-  amount of velocity. If you don't have any basics in particle editor, please go to{' '}
+  amount of velocity. If you don't have any basics in particle editor, please go to
   <a href="particle-basics">this link</a> first. Before you read further, here is the finished
   product.
 </p>
@@ -34,7 +33,6 @@ scalar (Radius, CP2) - Alpha random - Position modify offset random - Emit conti
 basic - Radius scale - Alpha fade and decay - Movement place on ground - Position within sphere
 random - Color random - Remap control point to scalar (Life Duration, CP3) - Remap control point to
 scalar (Radius, CP2) - Alpha random - Emit continuously ```
-<a name="wave"></a>
 <h1>Part one: Wave particle</h1>
 <p>Now let's start making this particle system.</p>
 - Open particle editor and create new Particle.
@@ -255,7 +253,6 @@ in Initializer.
   <b>Very important, don't forget to save.</b>
 </p>
 
-<a name="static"></a>
 <h1>Part two: Spark Particle</h1>
 <p>
   Now that I have my wave particle working, I feel like it needs something like an electric spark
@@ -393,7 +390,6 @@ in Initializer.
 <p>Now that's done, you should see something like the following in your wave particle.</p>
 <img src="/images/external/ERIr5ld.png"></img>
 <p>With this, your spark particle is done. Feel free to adjust the value to your taste.</p>
-<a name="ground"></a>
 <h1>Part three: Ground Particle (Optional)</h1>
 <p>
   You may wonder why I list this part as optional. It is not a requirement since it doesn't really
@@ -469,7 +465,6 @@ in Initializer.
 <p>
   <b>Don't forget to save your file.</b> Now that's done, let's combine all the works together.
 </p>
-<a name="final"></a>
 <h1>Part four: Finalize the system</h1>
 <p>Our system is almost finished. Now we are going to add multiple layers of wave.</p>
 - Open your wave particle.
@@ -486,7 +481,7 @@ in Initializer.
 3. Sequence number
 <p>Let's set our 3 layers (or more if you want to) as following.</p>
 <p>
-  For the inner most layer, our core layer, adjust the color to become very bright, have{' '}
+  For the inner most layer, our core layer, adjust the color to become very bright, have
   <b>radius end scale</b> in <b>Radius scale</b> as 0.6, and <b>sequence min/max</b> set to 7 and 8.
 </p>
 <p>
@@ -495,7 +490,7 @@ in Initializer.
   and 8.
 </p>
 <p>
-  For the outline layer, last layer, adjust the color to be black and have <b>radius end scale</b>{' '}
+  For the outline layer, last layer, adjust the color to be black and have <b>radius end scale</b>
   in <b>Radius scale</b> as 1.2.
 </p>
 <p>
@@ -516,7 +511,6 @@ in Initializer.
   particle will be rendered. If ground particle is below wave particle, it will be on top of wave
   particle and that's not how we want it.
 </p>
-<a name="lua"></a>
 <h1>Implement in-game</h1>
 <p>
   Now that the particle is ready, we have to put it to use in game. Note that this particle is not

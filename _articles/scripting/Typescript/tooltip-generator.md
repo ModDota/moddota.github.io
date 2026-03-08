@@ -71,7 +71,7 @@ The installation assumes that your `resource` folder is located on your root, wh
 On the command line, type `npm run init` and press enter. This added a few files to your `resource` folder, which you can also ignore. You'll also see a new folder, `localization`, which is the core of all your Typescript-coded localization files.
 
 :::danger
-The next step activates the Tooltip Generator, which will completely erase all of your addon localization files (such as addon_english.txt) and replace them with your code. Make sure to back them up before proceeding!
+The next step activates the Tooltip Generator, which will completely erase all of your addon localization files (such as `addon_english.txt`) and replace them with your code. Make sure to back them up before proceeding!
 :::
 
 ## Testing the Tooltip Generator
@@ -90,7 +90,7 @@ This object is a Standard Tooltip, which is expected to be converted to `"Hello"
 Using the same command line as before, run `npm run dev`. If it works as expected, you should see it is watching a few files, and that it wrote a few localizations:
 ![npm run dev](/images/tooltip-generator/npm-run-dev-cmd.png)
 
-Check the addon_english.txt file. It should now have only one localization, as we only have the single test object.
+Check the `addon_english.txt` file. It should now have only one localization, as we only have the single test object.
 
 :::info
 While the command line is running the `npm run dev` command, a "watcher" process is running and is waiting for changes. Any changes done in files in the `localization` folder will immediately re-compile the files and re-create the `addon_<language>` files.

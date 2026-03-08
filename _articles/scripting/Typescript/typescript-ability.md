@@ -17,9 +17,9 @@ Before we start, I'm going to go ahead and link the [moddota tools](https://modd
 
 ## Creating A New Ability
 
-Before we can start coding an ability, we need to define it. Typescript only replaces lua files, so anything with KVs, like the npc_abilities_custom.txt or npc_heroes_custom.txt files is completely unchanged.
+Before we can start coding an ability, we need to define it. Typescript only replaces lua files, so anything with KVs, like the `npc_abilities_custom.txt` or `npc_heroes_custom.txt` files is completely unchanged.
 
-In the npc_abilities_custom.txt, which is located in `scripts/npc` folder, we'll put the ability definition, which is taken straight from the original Dota 2:
+In the `npc_abilities_custom.txt`, which is located in `scripts/npc` folder, we'll put the ability definition, which is taken straight from the original Dota 2:
 
 ```
 "typescript_skywrath_mage_arcane_bolt"
@@ -80,9 +80,7 @@ Three new fields were added:
 
 ## Creating The Ability File
 
-Now that the ability is defined, it is time to start coding it. The first step would be to create a file named in `typescript_skywrath_mage_arcane_bolt` inside of source folder `src/vscripts/abilities`. The source is where we'll create the file, but when we compile it, it will be produce a lua file in `/game/vscripts/abilities`, as the game expects. Remember that even though we create the ability in Typescript, the engine works with lua files, which is what we need to produce.
-
-We'll add the `.ts` extension, so the file that we'll be editing is `typescript_skywrath_mage_arcane_bolt.ts`.
+Now that the ability is defined, it is time to start coding it. The first step would be to create a file named `typescript_skywrath_mage_arcane_bolt.ts` inside of source folder `src/vscripts/abilities`. The source is where we'll create the file, but when we compile it, it will produce a lua file in `/game/vscripts/abilities`, as the game expects. Remember that even though we create the ability in Typescript, the engine works with lua files, which is what we need to produce.
 
 :::info
 While the [Watcher is active](typescript-introduction#activating-the-watcher), each time you save your file, a `.lua` file of the same name will be created in the respective output folder. This lua file will be used by the game, and will immediately update to correspond for any changes you do in your Typescript file.
@@ -559,7 +557,7 @@ export class typescript_skywrath_mage_arcane_bolt extends BaseAbility {
 
 ## Video Record
 
-Below is a short video record that shows the application of Skywrath Mage's Ancient Bolt in Typescript as explained in this section.
+Below is a short video record that shows the application of Skywrath Mage's Arcane Bolt in TypeScript as explained in this section.
 
 <YouTube id="jiKNIkJ8TDE" />
 

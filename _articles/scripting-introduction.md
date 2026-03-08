@@ -13,14 +13,14 @@ Part 2 of [Getting Started With Dota 2 Modding](getting-started), this tutorial 
 
 So now you have your freshly created gamemode running and have played around the map editor a bit, it's time to move into the programming realm of Dota 2 custom maps.
 
-Go into your &lt;addonName&gt;/scripts/ folder. The 2 main script folders are **npc** and **vscripts**. The first holds the following .txt files:
+Go into your &lt;addonName&gt;/scripts/ folder. The 2 main script folders are `npc` and `vscripts`. The first holds the following `.txt` files:
 
 - `npc_abilities_custom.txt` - Contains all the custom abilities of the gamemode.
 - `npc_heroes_custom.txt` - Heroes with its abilities and stats
 - `npc_items_custom.txt` - Items are abilities that go into a units inventory
 - `npc_units_custom.txt` - All the data for non-hero units like buildings or creatures.
 - `npc_abilities_override.txt` - Modified dota abilities/items with changed values.
-- **herolist**.txt - List of the heroes available for picking.
+- `herolist.txt` - List of the heroes available for picking.
 
 These files are defined using KeyValues (KV) and are the core of the **DataDriven system**. While they fulfill the definition of a programming language, it's more like a big table containing all the possible data in a static document. It uses a relatively simple syntax whose only special characters are curly braces and quotes, with alternating sets of "Key" and "Value" or "Key" `{table}` pairs, where `table` is another set of KeyValues.
 
@@ -50,11 +50,11 @@ After this command, you will enter a game with your addon rules. If you want to 
 
 ## Lua/TypeScript Scripting
 
-Going back to the game/scripts folder, there's the **vscripts** folder. Here is the place where all the Lua/TypeScript scripts are placed.
+Going back to the game/scripts folder, there's the `vscripts` folder. Here is the place where all the Lua/TypeScript scripts are placed.
 
 ### Game Logic
 
-In every single gamemode, a file named addon_game_mode.lua must be present. While it is possible to add the game logic to this file (and in fact, Valve did so in their holdout example), it is recommended that you reserve this file only for these 2 functions:
+In every single gamemode, a file named `addon_game_mode.lua` must be present. While it is possible to add the game logic to this file (and in fact, Valve did so in their holdout example), it is recommended that you reserve this file only for these 2 functions:
 
 - `Precache`, when the game starts and players pick their heroes, the engine will try to load the associated models/particles/sounds to those heroes. If we're dynamically using a resource in Lua before preloading it won't be displayed properly.
 - `Activate`, creates the base game mode entity and calls the initialize function.
@@ -79,11 +79,11 @@ function Activate()
 end
 ```
 
-Using our barebones, you don't need to touch this file apart from very specific situations, and all the core game logic will be coded in gamemode.lua (for older versions it's barebones.lua), which has been already required. We'll call this your _main lua file_ from now on.
+Using our barebones, you don't need to touch this file apart from very specific situations, and all the core game logic will be coded in `gamemode.lua` (for older versions it's `barebones.lua`), which has been already required. We'll call this your _main lua file_ from now on.
 
-After addon_game_mode `Precache` & `Activate` are finished, the first function to be executed in the barebones.lua file is `GameMode:InitGameMode()`.
+After `addon_game_mode` `Precache` & `Activate` are finished, the first function to be executed in the `barebones.lua` file is `GameMode:InitGameMode()`.
 
-In here the game starts by initializing all sorts of rules and functions, which are registered over the GameRules and GameMode entities. For this, many variables are defined in settings.lua file to help organizing options like gold settings, kills, custom levels, etc.
+In here the game starts by initializing all sorts of rules and functions, which are registered over the GameRules and GameMode entities. For this, many variables are defined in `settings.lua` file to help organizing options like gold settings, kills, custom levels, etc.
 
 This is the syntax of a function applied over GameRules, with one bool parameter:
 
@@ -223,7 +223,7 @@ public OnNPCSpawned(event: NpcSpawnedEvent) {
 
 :::
 
-Here we make use of the Timers library for a simple 1.0 second delay, there are many different timer functions included and explained in timers.lua. The bool on ForceKill is to enable the death animation.
+Here we make use of the Timers library for a simple 1.0 second delay, there are many different timer functions included and explained in `timers.lua`. The bool on ForceKill is to enable the death animation.
 
 <StaticVideo path="/videos/DigitalDefinitiveChimpanzee.mp4" />
 
@@ -365,7 +365,7 @@ Manually:
 1. Check the URL, steamcommunity.com/sharedfiles/filedetails/?id=**copy this number**
 2. Go to your Steam folder -> SteamApps -> workshop -> content -> 570 (this is the dota folder)
 3. Search for the copied number folder
-4. Open the .vpk file with GCFScape or S2V and extract its contents anywhere you want. Now you can access its scripts and compiled models/particles/sounds.
+4. Open the `.vpk` file with GCFScape or S2V and extract its contents anywhere you want. Now you can access its scripts and compiled models/particles/sounds.
 
 ![img](/images/external/g2zNP-d1e018010e.png)
 
@@ -375,6 +375,4 @@ Whenever you have a doubt about how to use a particular GameAPI function, it's p
 
 Just make sure it's actually Dota Lua and not another game API, as some of the functions might share names with other engines.
 
-That's all for the Scripting basics. I expect you to have more questions than when you started reading, feel free to drop all your doubts at the community's [Discord channel](https://discord.com/invite/tPvHaRz), you'll find help there 24/7.
-
----
+That's all for the Scripting basics. For more questions, the community's [Discord channel](https://discord.com/invite/tPvHaRz) is available for help 24/7.

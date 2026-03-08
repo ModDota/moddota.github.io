@@ -15,9 +15,9 @@ Thanks to some detective work done in #steamdb and some testing on my part, we d
 
 **This method works for:**
 
-- Unit/Ability definition files (like npc_units_custom.txt or npc_abilities_custom.txt).
+- Unit/Ability definition files (like `npc_units_custom.txt` or `npc_abilities_custom.txt`).
 - Custom key value files loaded into lua with LoadKeyValues.
-- Localisation files (addon_english.txt)
+- Localisation files (`addon_english.txt`)
 
 ## How it works
 
@@ -40,7 +40,7 @@ Assume we start with one file at path `scripts/npc/npc_abilities_custom.txt` wit
 }
 ```
 
-Now let's say we want to split this up into two files, we can create another file `scripts/npc/abilities_2.txt`. This file has to have a root element just like the other files, we can just copy DOTAAbilities. Also copy the content to be separated so this is the result:
+Now let's say we want to split this up into two files, we can create another file `scripts/npc/abilities_2.txt`. This file has to have a root element just like the other files, we can just copy `DOTAAbilities`. Also copy the content to be separated so this is the result:
 
 ```
 "DOTAAbilities"
@@ -53,7 +53,7 @@ Now let's say we want to split this up into two files, we can create another fil
 }
 ```
 
-Now edit the main file to include this new abilities_2.txt file by adding `#base "[relativePath]"`, this results in:
+Now edit the main file to include this new `abilities_2.txt` file by adding `#base "[relativePath]"`, this results in:
 
 ```
 #base "abilities_2.txt"
@@ -67,11 +67,11 @@ Now edit the main file to include this new abilities_2.txt file by adding `#base
 }
 ```
 
-When loading this KV file, the engine will now automatically add the contents of abilities_2.txt to npc_abilities_custom.txt by combining the two root objects in both files. This means that the name of the root object does not matter, so instead of `"DOTAAbilities"` you could have `"MYOTHERFILE"`, or even just empty string `""`. You should not have identical keys in both root objects, but if you do then the ones defined later (think of #base happening before the rest of the file) will override already defined ones.
+When loading this KV file, the engine will now automatically add the contents of `abilities_2.txt` to `npc_abilities_custom.txt` by combining the two root objects in both files. This means that the name of the root object does not matter, so instead of `"DOTAAbilities"` you could have `"MYOTHERFILE"`, or even just empty string `""`. You should not have identical keys in both root objects, but if you do then the ones defined later (think of `#base` happening before the rest of the file) will override already defined ones.
 
 This also supports directories. Keep in mind all paths are relative. Say I create `scripts/npc/customAbilities/ability1.txt`, I can include this from `scripts/npc/npc_abilities_custom.txt` using `#base "customAbilities/ability1.txt"`.
 
-**PS:** Other extensions are also allowed, you could name your included files `*.kv`
+**PS:** Other extensions are also allowed, you could name your included files `.kv`
 
 ## Credits for pointing out this is part of the KV spec:
 

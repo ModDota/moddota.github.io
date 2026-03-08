@@ -11,7 +11,7 @@ date: 10.12.2014
 
 A DataDriven ability is a collection _KeyValues_. KeyValues are simple, tree-based structures used for storing nested sections containing key/value pairs.
 
-DataDriven abilities are defined inside scripts/npc/npc_abilities_custom.txt under a game addon folder.
+DataDriven abilities are defined inside `scripts/npc/npc_abilities_custom.txt` under a game addon folder.
 
 This skeleton contains many keyvalues which will be expanded upon in this documentation.
 
@@ -58,7 +58,7 @@ This skeleton contains many keyvalues which will be expanded upon in this docume
 
 BaseClass can be any default dota ability name or "ability_datadriven", which allows the use of the entire data driven ability system.
 
-Using a dota ability as the BaseClass can be done either as an override of the ability (goes in npc_abilities_override.txt) or just as a new ability in npc_abilities.custom.txt which inherits the exposed variables. This however doesn't let us change/add its internal structure, as that code is locked in C++ code.
+Using a dota ability as the BaseClass can be done either as an override of the ability (goes in `npc_abilities_override.txt`) or just as a new ability in `npc_abilities_custom.txt` which inherits the exposed variables. This however doesn't let us change/add its internal structure, as that code is locked in C++ code.
 
 Here we'll focus on everything that concerns writing custom abilities from scratch, using the `"BaseClass" "ability_datadriven"`.
 
@@ -111,7 +111,7 @@ Example:
 
 The following behaviors will generate a line in the ability tooltip. You want at least one behavior of this list. The rest of the ability behaviors don't have any UI support yet.
 
-The UI can only show one behavior tooltip, but internally it will behave as expected, as long two contradicting keys are not used together (like _NO_TARGET_ with _UNIT_TARGET_).
+The UI can only show one behavior tooltip, but internally it will behave as expected, as long as two contradicting keys are not used together (like _NO_TARGET_ with _UNIT_TARGET_).
 
 | **AbilityBehavior**               | **ABILITY: _Tooltip_** | **Takes precedence over:** |
 | --------------------------------- | ---------------------- | -------------------------- |
@@ -249,7 +249,7 @@ Flags allow targeting units that are ignored by default (for example, magic immu
 | DOTA_UNIT_TARGET_FLAG_DEAD                    | Dead units, which are otherwise ignored.                                                                                                                             |
 | DOTA_UNIT_TARGET_FLAG_MELEE_ONLY              | Units with AttackCapabilities DOTA_UNIT_CAP_MELEE_ATTACK.                                                                                                            |
 | DOTA_UNIT_TARGET_FLAG_RANGED_ONLY             | Units with AttackCapabilities DOTA_UNIT_CAP_RANGED_ATTACK.                                                                                                           |
-| DOTA_UNIT_TARGET_FLAG_MANA_ONLY               | Units with mana, without `"StatusMana" "0"` in the npc_units file.                                                                                                   |
+| DOTA_UNIT_TARGET_FLAG_MANA_ONLY               | Units with mana, without `"StatusMana" "0"` in the `npc_units` file.                                                                                                 |
 | DOTA_UNIT_TARGET_FLAG_CHECK_DISABLE_HELP      | Units with Disable Help on.<br/>Not sure how to make a DataDriven ability use it?                                                                                    |
 | DOTA_UNIT_TARGET_FLAG_NO_INVIS                | Ignores invisible units (with MODIFIER_STATE_INVISIBLE.)                                                                                                             |
 | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES    | Targets ENEMY units with `MODIFIER_STATE_MAGIC_IMMUNE`.<br/>Examples: Ensnare, Culling Blade, Primal Roar...                                                         |
@@ -1261,7 +1261,7 @@ A datadriven way to change the model of a unit from within a modifier:
 
 ## Properties Block
 
-[![Properties](/images/external/HFXTmij.png)](#properties)
+[![Properties](/images/external/HFXTmij.png)](#properties-block)
 
 This block inside a modifier gives numeric stat bonuses from the list of modifier properties. Supports `AbilitySpecial` references and negative values.
 
@@ -1396,7 +1396,7 @@ These properties are not functional in a DataDriven context:
 
 ## States Block
 
-[![States](/images/external/ACfQMmq.png)](#states)
+[![States](/images/external/ACfQMmq.png)](#states-block)
 
 States are similar to properties, except they take one of three values:
 
@@ -1474,7 +1474,7 @@ Added with Reborn:
 
 ## Modifier Events
 
-[![Modifier Events](/images/external/LWPALN8.png)](#modifierevents)
+[![Modifier Events](/images/external/LWPALN8.png)](#modifier-events)
 
 See the detailed guide on [Modifier Events with Actions](/abilities/datadriven/datadriven-ability-events-modifiers).
 

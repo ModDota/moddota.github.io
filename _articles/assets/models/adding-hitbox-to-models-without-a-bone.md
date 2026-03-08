@@ -33,13 +33,13 @@ Search for your new model in the Asset Browser and double-click it to open.
 
 ## Step 3. Download Cube.fbx
 
-This is a mesh with 1 bone. [Download it directly](/cube.fbx) and put the file in your models directory.
+This is a mesh with 1 bone. [Download it directly](/cube.fbx) and put the `Cube.fbx` file in your models directory.
 
 Credits to @Internet_Veteran
 
-## Step 4. Add the Cube.fbx a 'Simple Animation'
+## Step 4. Add the `Cube.fbx` a 'Simple Animation'
 
-This is the critical part. Basically you'll be adding the cube mesh into the new model. You can do this on the model editor **Add -> Add Simple Animations...** and click "OK." It will ask for an fbx file to add. Choose the Cube.fbx that you placed in your models directory.
+This is the critical part. Basically you'll be adding the cube mesh into the new model. You can do this on the model editor **Add -> Add Simple Animations...** and click "OK." It will ask for an fbx file to add. Choose the `Cube.fbx` that you placed in your models directory.
 
 ## Step 5. Add a "Bone"
 
@@ -55,4 +55,4 @@ Now use the blue arrows in the viewport to adjust the size of the hitbox.
 
 Finally, go to **File -> Save and Compile**
 
-That's all! Now your model will have a hitbox ingame!
+That's all! Now your model will have a hitbox in-game.

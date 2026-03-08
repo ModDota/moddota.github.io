@@ -15,12 +15,12 @@ Here is a quick and simple step by step guide on how to make and use your own mi
 
 This contains the following files:
 
-- **addon_hud_textures.txt**
-- **vgui/hud/minimap_icon.txt**
-- **vgui/hud/minimap_icon.vmat**
-- **vgui/hud/minimap_icon.psd**
+- **`addon_hud_textures.txt`**
+- **`vgui/hud/minimap_icon.txt`**
+- **`vgui/hud/minimap_icon.vmat`**
+- **`vgui/hud/minimap_icon.psd`**
 
-addon_hud_textures is a unique file to define the paths for every custom icon.
+`addon_hud_textures.txt` is a unique file to define the paths for every custom icon.
 
 The 3 `minimap_icon` files are used together, and should be renamed to the name your future icon, like `_minimap_questgiver_` or `_boss_kappa_`.
 
@@ -47,7 +47,7 @@ For better results, add strong black borders to the image as an outline (and rem
 
 ### VMAT Material
 
-Open the vmat with any code editor and make sure to change minimap_icon.psd for the name of your choice. Keep the rest unchanged
+Open the `.vmat` with any code editor and make sure to change `minimap_icon.psd` for the name of your choice. Keep the rest unchanged
 
 ```
 "Layer0"
@@ -61,7 +61,7 @@ Open the vmat with any code editor and make sure to change minimap_icon.psd for 
 
 ### Texture KV File
 
-Same process in the addon_hud_textures.txt file
+Same process in the `addon_hud_textures.txt` file
 
 ```
 ""
@@ -109,5 +109,3 @@ In the unit definition, add these lines:
 ## Step 6. Try it ingame
 
 ![img](/images/external/lhQFp-37192e1e63.jpg)
-
----

@@ -7,7 +7,7 @@ date: 28.05.2015
 
 # MDL to VMDL Conversion
 
-This guide will go through the process of making a **.vmdl file** (Source 2 Model) from a **.mdl file** and other model-related files from Source 1. The Wyvern Hatchling courier will be used as example, but the same process applies to heroes, buildings and any Valve Dota model.
+This guide will go through the process of making a **`.vmdl`** file (Source 2 Model) from a **`.mdl`** file and other model-related files from Source 1. The Wyvern Hatchling courier will be used as example, but the same process applies to heroes, buildings and any Valve Dota model.
 
 <StaticVideo path="/videos/JauntyQuickArcticwolf.mp4" />
 
@@ -18,14 +18,14 @@ This guide will go through the process of making a **.vmdl file** (Source 2 Mode
 - [VTFEdit](https://developer.valvesoftware.com/wiki/VTFEdit)
 - Workshop Tools (Material and Model Editor)
 
-## Step 1. Acquire the **model** and **material** files from the main game VPK (_pak01_dir.vpk_) using GCFScape.
+## Step 1. Acquire the **model** and **material** files from the main game VPK (`pak01_dir.vpk`) using GCFScape.
 
 The following file types are required:
 
-- .mdl
-- .vvd
-- .dx90.vtx
-- .vtf
+- `.mdl`
+- `.vvd`
+- `.dx90.vtx`
+- `.vtf`
 
 Model files will be in a subfolder of the _/models/_ folder:
 
@@ -43,7 +43,7 @@ Finally we should have these:
 
 ![img](/images/external/i3aF1-ac40c1028e.png)
 
-## Step 2. Use Crowbar to decompile the model files into meshes (.smd)
+## Step 2. Use Crowbar to decompile the model files into meshes (`.smd`)
 
 ![img](/images/external/i3aHy-2c37903006.png)
 
@@ -77,20 +77,20 @@ Result ([IrfanView](https://www.irfanview.com/) is an oldschool image viewer tha
 
 Create new folders on each or just drop the files over the respective directories. Make sure to use the content folder (not the /game/). <br />The location of the reference mesh in /content/models/ will determine the location where the .vmdl file will be saved.
 
-## Step 5. Generate a .vmat file from the TGA files.
+## Step 5. Generate a `.vmat` file from the TGA files.
 
 - Open the Material Editor
 - File -> New Material
-- Without doing anything yet, **Save** the empty material with the name of the TGA you want to make a .vmat for. ![img](/images/external/i3d02-b647383364.png)
+- Without doing anything yet, **Save** the empty material with the name of the TGA you want to make a `.vmat` for. ![img](/images/external/i3d02-b647383364.png)
 - Browse and find the TGA to use ![img](/images/external/i3d8I-b8d0e0b25d.png)
 - The file should be visible by default with the `_color.` extension ![img](/images/external/Bbu4VtP.jpg)
 - Save the final material. ![img](/images/external/Jbw6kyq.jpg)
 
-## Step 6. Make a New VMDL from the Mesh file (.smd)
+## Step 6. Make a New VMDL from the Mesh file (`.smd`)
 
 - Open the Model Editor
 - New VMDL from Mesh File (Ctrl+M) ![img](/images/external/i3gPC-eb6efe93f2.jpg)
-- Select the reference .smd file generated in step 2. ![img](/images/external/Q7VH7Nq.png)
+- Select the reference `.smd` file generated in step 2. ![img](/images/external/Q7VH7Nq.png)
 - If everything went well you should get a red error mesh: ![img](/images/external/MQmf1IM.jpg)
 
 ## Step 7. Add a Material Remap for the missing textures, using the .vmat file from step 5.
@@ -102,7 +102,7 @@ Create new folders on each or just drop the files over the respective directorie
 
 ![img](/images/external/o22c9Iy.jpg)
 
-- IF the model shows as **Error**, something went wrong. Make sure to delete the auto-compiled models and materials of the same name on the /game/ folders, which are now corrupted. Make sure everything is using the proper names and directories, sometimes the Model/Material editor feel like not working and doing Volvo things.
+- IF the model shows as **Error**, something went wrong. Make sure to delete the auto-compiled models and materials of the same name on the /game/ folders, which are now corrupted. Make sure everything is using the proper names and directories, sometimes the Model/Material editor feels like it's not working and doing Volvo things.
 
 ## Step 8. Add the Animations on the `_anims` folder and make Activities for them.
 
@@ -153,5 +153,3 @@ If you enable Display-> Hitboxes and Hitbox Names you should see something like 
 Final result is the finished model with all its animations (hopefully):
 
 <Gfycat id="FirmEthicalHylaeosaurus" />
-
----

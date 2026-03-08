@@ -45,9 +45,9 @@ ApplyModifier with short duration in a OnThinkInterval, channeling modifier has 
 
 Instead of trying to find the desired animation in the Action List on the wiki, you can view the animations on the model you are trying to use and their respective names.
 
-For this, go to the Asset Browser, type your hero name + _vmdl_, in this case I'm going to use drow.vmdl. Double click it, you will enter the Model Editor. In here, you want to go to the top tabs and click Tools -> View Sequences.
+For this, go to the Asset Browser, type your hero name + `.vmdl`, in this case I'm going to use `drow.vmdl`. Double click it, you will enter the Model Editor. In here, you want to go to the top tabs and click Tools -> View Sequences.
 
-After this, you can select any animation and it will animate the white blocks at the right. To get the `ACT_` name, you can click Properties then open the Activities box, or just tick down the Activity checkbox in the Sequences window, which will show how all the animations are refered ingame.
+After this, you can select any animation and it will animate the white blocks at the right. To get the `ACT_` name, you can click Properties then open the Activities box, or just tick down the Activity checkbox in the Sequences window, which will show how all the animations are referred to in-game.
 
 ::: info
 Ignore the +string.

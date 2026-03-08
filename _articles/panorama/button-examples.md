@@ -9,8 +9,6 @@ date: 08.08.2020 # The date of writing
 
 Here are some button examples that you can use in your custom games.
 
----
-
 ## Example 1 - Default Valve Button
 
 Here is the button that valve mostly uses for Dota 2. (Valve mostly recolor them for different uses: Green for Store, Gold-ish for Dotaplus etc.)
@@ -88,8 +86,6 @@ CSS:
 }
 ```
 
----
-
 ## Example 2 - Purple Button
 
 ![/images/external/uZKACHo.png](/images/external/uZKACHo.png)
@@ -145,8 +141,6 @@ CSS:
   color: grey;
 }
 ```
-
----
 
 ## Example 3 - Text Button with Icon
 
@@ -235,8 +229,6 @@ CSS:
   transform: translateY(1px);
 }
 ```
-
----
 
 ## Example 4 - Popup ESC Menu Buttons
 

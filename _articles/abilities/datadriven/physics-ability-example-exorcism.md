@@ -23,7 +23,7 @@ The complete codes for the ability can be found in the following [SpellLibrary](
 
 - [exorcism.lua](https://github.com/Pizzalol/SpellLibrary/blob/SpellLibrary/game/dota_addons/spelllibrary/scripts/vscripts/heroes/hero_death_prophet/exorcism.lua)
 
-The entire lua file has comments for every decision. I hope it helps understand and adapt this skill to different behaviors.
+The entire Lua file has comments for every decision, to help understand and adapt this skill to different behaviors.
 
 ---
 

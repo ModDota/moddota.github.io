@@ -143,4 +143,4 @@ end
 
 The line that takes care of applying the "transparency" is AddNewModifier with modifier_invisible.
 
-Credits to my buddy [igo](https://github.com/igo95862) that made this ability for [The Black Road project](https://github.com/Aleteh/TBR3) which is still WIP but there are some interesting stuff we made already.
+Credits to my buddy [igo](https://github.com/igo95862) that made this ability for [The Black Road project](https://github.com/Aleteh/TBR3) which is still WIP but there are some interesting things we made already.

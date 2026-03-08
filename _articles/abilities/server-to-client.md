@@ -10,7 +10,7 @@ date: 05.12.2021
 Modifier scripts are run on both the server, and every client in the game.
 A lot of the [Lua API](https://moddota.com/api/#!/vscripts) is server-side functions that the client cannot use.
 
-And so, often times when using modifiers you will have to use Server only functions for calculations or whatever your purpose may be.
+And so, oftentimes when using modifiers you will have to use Server only functions for calculations or whatever your purpose may be.
 
 Usually the server is what handles the functionality, while the client is just for displaying information.
 

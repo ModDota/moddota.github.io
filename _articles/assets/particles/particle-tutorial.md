@@ -9,7 +9,7 @@ date: 20.03.2021 # The date of writing
 
 **Important Note:** _This article is strongly connected to an external particle tool and tutorial collection and most links will guide you there: [Github](https://github.com/Nibuja05/dota_particle_editor_tutorial)._
 
-The Particle Editor is a powerful tool that allows to create all kinds of particle effects, from ambient effects to projectiles up to HUD animations. So it's definitely worth it for everybody to learn how to create their own. Here you will learn the basics to understand the tool, as well as advanced techniques to master particle creation!
+The Particle Editor is a powerful tool that allows you to create all kinds of particle effects, from ambient effects to projectiles up to HUD animations. So it's definitely worth it for everybody to learn how to create their own. Here you will learn the basics to understand the tool, as well as advanced techniques to master particle creation!
 
 ## How to get started?
 

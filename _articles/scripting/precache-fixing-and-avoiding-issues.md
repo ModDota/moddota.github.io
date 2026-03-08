@@ -15,7 +15,7 @@ Missing particles are indicated by red crosses:
 
 <Gfycat id="SinfulShamefulBittern" />
 
-**How to fix and avoid this crap?**
+**How to fix and avoid this?**
 
 First, the datadriven `"SpawnUnit"` Action will always precache the "UnitName" custom unit and whatever cosmetics you have attached to it. For example in this [Avatar of Vengeance ability](https://github.com/MNoya/DotaCraft/blob/master/scripts/npc/abilities/warden_avatar_of_vengeance.txt), I'll be spawning a Spectre with some hats:
 
@@ -51,7 +51,7 @@ function SpiritOfVengeanceSpawn( event )
 end
 ```
 
-Without any previous precache I'll get something like the ERROR model like before, or if this isn't the first I run the tools (because after the 1st run it attempts to store some models to keep on the cache), something like this:
+Without any previous precache I'll get something like the ERROR model like before, or if this isn't the first time I run the tools (because after the 1st run it attempts to store some models to keep on the cache), something like this:
 
 So yeah, that's bad, here's how to fix it:
 
@@ -75,12 +75,10 @@ In this case, I precache all the models and the ambient particles I'm using, ins
 
 Now all the models will load properly.
 
-Final note, some cosmetics you might want to use have their own particles and its hard to know their names. In the first gif (the one with the red crosses) I was missing the wing particle effect for fallenprincess_shoulders. If this is the case, you can also find the particles used by the cosmetic in its [item_game.txt](https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota_pak01/scripts/items/items_game.txt) definition:
+Final note, some cosmetics you might want to use have their own particles and its hard to know their names. In the first gif (the one with the red crosses) I was missing the wing particle effect for fallenprincess_shoulders. If this is the case, you can also find the particles used by the cosmetic in its [`item_game.txt`](https://raw.githubusercontent.com/dotabuff/d2vpk/master/dota_pak01/scripts/items/items_game.txt) definition:
 
 <br />
 
-Now after adding that particle (which I just looked up on the Asset Browser and copied the path to the .vpcf), everything is displaying properly:
+Now after adding that particle (which I just looked up on the Asset Browser and copied the path to the `.vpcf`), everything is displaying properly:
 
 <Gfycat id="SphericalHonorableChevrotain" />
-
----

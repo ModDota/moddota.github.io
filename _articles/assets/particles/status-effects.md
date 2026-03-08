@@ -44,8 +44,8 @@ What you need for a basic Status Effect:
 
 ## Step by Step
 
-_Note:_ Since I'm not too experienced in modeling and texturing i cannot exactly tell what type of texture or parameter does what but i can show you how to modify it.  
-Please also note that your Status Effect will not be visible in the particle editor. You will have to go ingame to see it.
+_Note:_ Since I'm not too experienced in modeling and texturing, I cannot exactly tell what type of texture or parameter does what, but I can show you how to modify it.  
+Please also note that your Status Effect will not be visible in the particle editor. You will have to go in-game to see it.
 
 ### Base Properties
 
@@ -57,7 +57,7 @@ Just leave this as it is.
 
 ### Render status effect
 
-This function will have the most impact on how the status effect looks. It selects what type of texture is replaced with what .vtex/.vmat file. In Valve's Status effects those textures are defined through multiple "Vector component random". They basically do the same thing but we are choosing "Render status effect" because it is much easier to handle and understand.
+This function will have the most impact on how the status effect looks. It selects what type of texture is replaced with what `.vtex`/`.vmat` file. In Valve's Status effects those textures are defined through multiple "Vector component random". They basically do the same thing but we are choosing "Render status effect" because it is much easier to handle and understand.
 
 ![/images/external/jIhkOve.jpg](/images/external/jIhkOve.jpg)
 
@@ -137,7 +137,7 @@ In the properties window you can set what the scalar random function should do. 
 
 **_For our 9 Scalar random we need:_**
 
-_Note_: In this guide min and max will always be equal. If you don't know what does what just play around with the values and observe the changes ingame.
+_Note_: In this guide min and max will always be equal. If you don't know what does what just play around with the values and observe the changes in-game.
 
 - **ColorWarpBlendFactor**
   - Defines how much the Color Warp Texture is applied.
@@ -249,5 +249,3 @@ Here you can download a template of a basic status effect particle file:
 Make sure to put it in the **content** folder of your addon.
 
 You can simply edit the _colorwarp texture_ and _detail 2 texture_ to get fast results. Make sure you choose an appropriate blend mode with **D_DETAIL_2** for your _detail 2 texture_ and use an appropriate _colorwarp texture_(as mentioned above).
-
-Hope this helps. Feel free to ask questions or give me feedback.
