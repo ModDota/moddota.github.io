@@ -283,6 +283,14 @@ export default defineConfig({
         },
     },
 
+    vue: {
+        template: {
+            transformAssetUrls: {
+                StaticVideo: ["path"],
+            }
+        }
+    },
+
     vite: {
         publicDir: "../public",
     },

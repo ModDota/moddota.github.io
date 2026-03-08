@@ -227,7 +227,6 @@ Here we make use of the Timers library for a simple 1.0 second delay, there are 
 
 <StaticVideo path="/videos/DigitalDefinitiveChimpanzee.mp4" />
 
-
 ### Tables
 
 Tables are the most important structure we will have to use. As mentioned before, all the info on entities can be seen as a table (even though it's technically a pointer to a C++ object), and you Get and Set the values through the various Game API functions.
