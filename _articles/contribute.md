@@ -2,9 +2,12 @@
 title: Contribute
 ---
 
+# Contribute
+
+
 ## Suggest an article on GitHub
 
-To suggest a new article go to the [/_articles directory of the ModDota GitHub](https://github.com/ModDota/moddota.github.io/tree/source/_articles)
+To suggest a new article go to the [/_articles directory of the ModDota GitHub](https://github.com/ModDota/moddota.github.io/tree/source/_articles).
 
 **Note: You need to be logged in to your GitHub account for this.**
 

@@ -5,9 +5,12 @@ steamId: '76561198046986723'
 date: 26.06.2016
 ---
 
+# Using the order filter and other filters
+
+
 ## Filters in general
 
-This tutorial explains the use of the different filter functions currentlly in the API, and illustrates this using a small example in the order filter.
+This tutorial explains the use of the different filter functions currently in the API, and illustrates this using a small example in the order filter.
 
 There are currently 9 filters available in the lua API, namely:
 
@@ -21,7 +24,7 @@ There are currently 9 filters available in the lua API, namely:
 - **RuneSpawnFilter** - Filters rune spawns.
 - **TrackingProjectileFilter** - Filters tracking projectile launches.
 
-These filters are set using functions like `CDOTABaseGameMode:SetExecuteOrderFilter(function, context)`, check the [API declarations](https://github.com/TypeScriptToLua/Dota2Declarations/blob/master/dota-api.d.ts#L1193) for the exact function name for each function. The filters can then be cleared again using functions like `CDOTABaseGameMode:ClearExecuteOrderFilter()` and similar functions - again, see the [API declarations](https://github.com/TypeScriptToLua/Dota2Declarations/blob/master/dota-api.d.ts#L1193) .
+These filters are set using functions like `CDOTABaseGameMode:SetExecuteOrderFilter(function, context)`, check the [API declarations](https://github.com/TypeScriptToLua/Dota2Declarations/blob/master/dota-api.d.ts#L1193) for the exact function name for each function. The filters can then be cleared again using functions like `CDOTABaseGameMode:ClearExecuteOrderFilter()` and similar functions - again, see the [API declarations](https://github.com/TypeScriptToLua/Dota2Declarations/blob/master/dota-api.d.ts#L1193).
 
 ## The general idea
 
@@ -35,7 +38,7 @@ An analogy to explain this is that of a company receiving mail. The regular situ
 
 ## Filters in Lua
 
-So now we know how filters work, how do we use them. This explanation will use the `ExecuteOrderFilter`, keep in mind that all filters use the same basic idea.
+So now we know how filters work, how do we use them? This explanation will use the `ExecuteOrderFilter`, keep in mind that all filters use the same basic idea.
 
 The first step is to set the filter using the `CDOTABaseGameMode:SetExecuteOrderFilter(function, context)` API call. Let's analyze what this function expects. There are two parameters:
 
@@ -49,7 +52,7 @@ The first step is to set the filter using the `CDOTABaseGameMode:SetExecuteOrder
 
 ## Example 1: Disabling glyph
 
-Time to put into practice what we just used. We know the glyph is an order given by a player, so we should use the order filter to disable it. All we have to do is find any glyph orders and return false. Of course you can add any restriction you want based on the contents of the event parameter. Just `DeepPrintTable( event )` to see what data is available to you.
+Time to put into practice what we just learned. We know the glyph is an order given by a player, so we should use the order filter to disable it. All we have to do is find any glyph orders and return false. Of course you can add any restriction you want based on the contents of the event parameter. Just `DeepPrintTable( event )` to see what data is available to you.
 
 To check which order types there are, look at the [API](https://moddota.com/api/#!/vscripts/dotaunitorder_t).
 

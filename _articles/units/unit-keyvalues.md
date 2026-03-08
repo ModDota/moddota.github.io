@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 22.04.2015
 ---
 
+# Unit KeyValues
+
+
 This document covers every keyvalue of the npc_units_custom file
 
 ![img](/images/external/T7W828Q.png)
@@ -38,9 +41,9 @@ There are a lot of classes for units, but as we don't have much control over the
 
 * ***npc_dota_creature***
 
-  The most useful baseclass, it doesn't have any critical hardcoded property so it's the go-to unit type for most units. It also allows the usage of the "Creature" block, which will is reviewed in the next section. It's linked to the `"DOTA_UNIT_TARGET_BASIC"` target type in abilities.
+  The most useful baseclass, it doesn't have any critical hardcoded property so it's the go-to unit type for most units. It also allows the usage of the "Creature" block, which is reviewed in the next section. It's linked to the `"DOTA_UNIT_TARGET_BASIC"` target type in abilities.
 
-  There is however one simple property imposed to this unit type, which for the most part it's useful but it's good to keep in mind, and it's that **abilities are automatically skilled** up to the MaxLevel if possible (limited by the Level*2 of the creature, meaning a Level 1 creature will autolearn its abilities upto the 2nd rank). This can be of course modified through Lua `SetLevel` on each ability.
+  There is however one simple property imposed to this unit type, which for the most part it's useful but it's good to keep in mind, and it's that **abilities are automatically skilled** up to the MaxLevel if possible (limited by the Level*2 of the creature, meaning a Level 1 creature will autolearn its abilities up to the 2nd rank). This can be of course modified through Lua `SetLevel` on each ability.
 
 * ***npc_dota_building***
 
@@ -78,7 +81,7 @@ This level can be accessed and modified with Lua though various creature functio
 "ModelScale"                    "0.8"
 ```
 
-Self explanatory, get the models through the asset browser and set its size (it will use "1" by omission).
+Self-explanatory, get the models through the asset browser and set its size (it will use "1" by omission).
 
 Creatures using models that are broken down for cosmetic equipment will be 'naked' unless we attach them wearables. More on this later.
 
@@ -115,7 +118,7 @@ Associated Lua functions: `HasInventory()` and `SetHasInventory(bool)`
 "CanBeDominated"			"0"
 ```
 
-Self explanatory, the default values are 0 for summoned (so the lua IsSummoned will always return false unless you set this), and 1 for dominated creaturesl
+Self-explanatory, the default values are 0 for summoned (so the lua IsSummoned will always return false unless you set this), and 1 for dominated creatures.
 
 <br />
 ```
@@ -197,7 +200,7 @@ Unit won't aggro units on the Neutral team within their acquisition range.
 
 * **SoundSet** with the correct **GameSoundsFile** associated takes care of sounds like attacks and walking footsteps. The SoundSet string should be the first part of each of the hero sounds, which can be easily seen through the [Dota 2 Sound Editor](https://github.com/pingzing/dota2-sound-editor).
 
-* **IdleSoundLoop** will be played constantly after the unit spawns. Some heroes don't have a loop sound defined, but as in the example above it's possible to use this as an Spawn sound for the unit if you add the string of a non-loopable sound.
+* **IdleSoundLoop** will be played constantly after the unit spawns. Some heroes don't have a loop sound defined, but as in the example above it's possible to use this as a spawn sound for the unit if you add the string of a non-loopable sound.
 
 ## Abilities
 
@@ -213,7 +216,7 @@ The unit can hold up to 16 abilities at any time being.
 
 ## Stats
 
-Because of :valve: - reasons  , unit stats aren't hover-able, but they are there.
+Because of :valve: reasons, unit stats aren't hover-able, but they are there.
 
 ### Physical and Magical protection
 
@@ -234,7 +237,7 @@ List of Attack Capabilities:
 * `DOTA_UNIT_CAP_MELEE_ATTACK`
 * `DOTA_UNIT_CAP_RANGED_ATTACK`
 
-####  Other Attack Stats:
+###  Other Attack Stats:
 
 ```
 "AttackDamageMin"            "50"       // Damage range min.
@@ -246,7 +249,7 @@ List of Attack Capabilities:
 "AttackRangeBuffer"          "250"     // Extra range the target can move without canceling the attack
 ```
 
-#### Ranged Attack Projectiles
+### Ranged Attack Projectiles
 
 ```
 "ProjectileModel"            "particles/units/heroes/hero_lina/lina_base_attack.vpcf"
@@ -257,7 +260,7 @@ Find hero/unit attack particles with the asset browser, filtering for the hero n
 
 If you have any "Melee to Ranged" mechanic, the unit definition should have a projectile speed, else it will default to 0, effectively making them never reach its target.
 
-#### The things we could do...
+### The things we could do...
 
 ```
 "AttackDamageType"           "DAMAGE_TYPE_ArmorPhysical"
@@ -267,7 +270,7 @@ This is seen in every unit file, but worthless/unsupported. In the future, we co
 
 ### Attribute Stats
 
-Attributes are ignored for anything that isn't a hero unit, but because anything used to define units can also be used for npc_heroes_custom, these are the keyvalues, all self explanatory:
+Attributes are ignored for anything that isn't a hero unit, but because anything used to define units can also be used for npc_heroes_custom, these are the keyvalues, all self-explanatory:
 
 ```
 "AttributePrimary"             "DOTA_ATTRIBUTE_STRENGTH"
@@ -344,7 +347,7 @@ List of Movement Capabilities
 * `DOTA_UNIT_CAP_MOVE_GROUND`
 * `DOTA_UNIT_CAP_MOVE_FLY`
 
-##### Less used movement-related values:
+### Less used movement-related values:
 
 ```
 "HasAggressiveStance"         "0"
@@ -449,7 +452,7 @@ This will load a lua script file as soon as the unit is spawned. With a Spawn ( 
 
 ## Neutral Behavior
 
-When you add a creep to the map and set it to the neutral team, the default is to turn it to a neutral. If you wan't to use a custom behavior, turn it off:
+When you add a creep to the map and set it to the neutral team, the default is to turn it to a neutral. If you want to use a custom behavior, turn it off:
 
 ```
 "UseNeutralCreepBehavior" 	"0"
@@ -458,7 +461,7 @@ When you add a creep to the map and set it to the neutral team, the default is t
 ## Creature Block
 
 The creature block allows for a variety of features to be applied from KV like basic AI, stat bonuses based on creature level, and wearables.
-All these settings can and should be put inside **one** creature block, but they will be separated by category in this guide
+All these settings can and should be put inside **one** creature block, but they will be separated by category in this guide.
 
 ### Stats Settings and Items
 

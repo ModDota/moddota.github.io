@@ -5,11 +5,14 @@ steamId: '76561198046984233'
 date: 01.12.2014
 ---
 
+# Item KeyValues
+
+
 A comprehensive guide to npc_items_custom and coding items
 
 ## General
 
-Start with "item_" and your item name. If you **don't** put `item_` at the begging of an item, bad things happen
+Start with "item_" and your item name. If you **don't** put `item_` at the beginning of an item, bad things happen.
 
 ```
 "item_custom"
@@ -122,7 +125,7 @@ Meaning if the ItemResult you want to get is called *"item_capuchino"*, your rec
 
 ![img](/images/external/dyDFL-f0a814100d.jpg)
 
-If you don't, the item will till be combinable but it won't show the neat lines to the possible upgrades.
+If you don't, the item will still be combinable but it won't show the neat lines to the possible upgrades.
 
 ### Disassembling
 ```
@@ -223,14 +226,14 @@ You can change categories and shop tab names, with [addon_english modding]
 
 To make an actual shop area inside your map on Hammer, check this other tutorial [tutorial_creating_a_custom_shop_step_by_step](https://www.reddit.com/r/Dota2Modding/comments/2dpts1/tutorial_creating_a_custom_shop_step_by_step/)
 
-To disable your dota items, use [this npc_abillities_override.txt](https://pastebin.com/pGExrS4A) inside the scripts/npc folder.
+To disable your dota items, use [this npc_abilities_override.txt](https://pastebin.com/pGExrS4A) inside the scripts/npc folder.
 
 ## Cosmetic Values: Models, Effects, Tags and others.
 These values are optional but greatly improve the quality of your item
 
 ### Sounds when Picked, Dropped
 ```
-"UIPickupSound" "Item.PickUpRingShop" //Sound when adquiring the item
+"UIPickupSound" "Item.PickUpRingShop" //Sound when acquiring the item
 "UIDropSound" "Item.DropRecipeShop" //Sound when dropping the item manually
 "WorldDropSound" "Item.DropGemWorld" //Sound when dropping the item on death (?)
 ```
@@ -259,7 +262,7 @@ Important: If you create the item through lua [CreateItemOnPositionSync], you ne
 ### Tags & Alias
 
 Tags are defined in addon_english, find them in [dota_english] under *// Tags*
-Aliases help the search bar to find the item quickly with abreviations
+Aliases help the search bar to find the item quickly with abbreviations
 
 ```
 "ItemShopTags" "int;str;agi;mana_pool;health_pool;hard_to_tag"

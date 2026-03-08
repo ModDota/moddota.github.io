@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 17.05.2015
 ---
 
+# Item Drop System
+
+
 Here I'll go over the implementation of a flexible item drop system for any sort of gamemode, mostly useful for RPGs.
 
 There are multiple ways to do this, for example [Warchasers uses a pure datadriven system](https://github.com/MNoya/Warchasers/blob/master/scripts/npc/npc_abilities_custom.txt#L3687-L5667) that goes over 2 thousand lines of abilities, each one for a different drop type... yeah you don't want to do that :sweat_smile: 
@@ -14,7 +17,7 @@ The best way for this is to have a text file to configure what items can drop fr
 <StaticVideo path="/videos/PowerlessCourageousAsiantrumpetfish.mp4" />
 
 ---
-### 1. Key Values Table
+## Step 1. Key Values Table
 
 I recommend having a *kv* folder under scripts to store this and other similar table files. The file can have any extension, but using *.kv* is a good convention.
 
@@ -40,7 +43,7 @@ GameRules.DropTable = LoadKeyValues("scripts/kv/item_drops.kv")
 
 In this initial version, each item drop chance is independent from the others. From the same creature there might be 1 drop, all of them, or none (if the chances are all less than 100). This behavior will be expanded later to provide some of the classic drop options.
 
-### 2. OnEntityKilled Lua Event
+## Step 2. OnEntityKilled Lua Event
 
 Simply listen to `entity_killed` and call a custom RollDrops function with the killed unit as a parameter.
 
@@ -57,7 +60,7 @@ function GameMode:OnEntityKilled( keys )
 end
 ```
 
-### 3. RollDrops Lua Script
+## Step 3. RollDrops Lua Script
 
 Now given the subtable of the unit name contained in the main Drop Table, if it exists, iterate over the elements rolling each chance value.
 
@@ -81,7 +84,7 @@ function RollDrops(unit)
 end
 ```
 
-### 4. Extending the solution to allow multiple drops of the same item
+## Step 4. Extending the solution to allow multiple drops of the same item
 
 The way Lua KV tables work, it's not possible to have more than 1 of the same index, so if we were to add 2 "item_name1" entries both with some chance value, LoadKeyValues would fail.
 
@@ -138,7 +141,7 @@ end
 
 The 'or 100' and 'or 1' are just to make sure that if the "Chance" or "Multiple" lines are missing, a default value ('drop always' and 'drop 1') will be used.
 
-### 5. Extending to "100% drop one of these"
+## Step 5. Extending to "100% drop one of these"
 
 Sometimes doing "50% of item 1 and 50% of item 2" is too random, because it will mean sometimes a mob will drop nothing, and sometimes it might drop 2. In order to reduce the randomness and ensure a certain combination of items will drop, the most common approach is to have a set list of possible drops, and make it so that the unit will drop only one of that set at random.
 
@@ -169,7 +172,7 @@ To do this, instead of tying a single item to each item table, there will be yet
 }
 ```
 
-The ItemSets entry could also have a "Multiple" kv if we wanted an scenario like "2 of these 3", but this can't guarantee that the 2nd roll won't drop the same item than the first, if it did.
+The ItemSets entry could also have a "Multiple" kv if we wanted an scenario like "2 of these 3", but this can't guarantee that the 2nd roll won't drop the same item as the first, if it did.
 
 And the RollDrops now looks like this:
 
@@ -213,7 +216,7 @@ end
 
 ---
 
-#### Example
+## Example
 
 [item_drops.kv file at TBR](https://github.com/Aleteh/TBR3/blob/master/game/dota_addons/theblackroad3/scripts/kv/item_drops.kv)
 

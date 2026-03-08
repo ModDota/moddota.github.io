@@ -3,6 +3,8 @@ title: React in Panorama
 author: ark120202
 ---
 
+# React in Panorama
+
 React is a JavaScript library for building user interfaces. It allows you to break down UI into small reusable building blocks (components) and simplifies state management.
 
 Usually React is used for building websites and web applications, but [`react-panorama`](https://github.com/ark120202/react-panorama) allows you to use the power of React in Dota 2.
@@ -54,6 +56,7 @@ import React from 'react';
 import { render } from 'react-panorama';
 
 function HeroRow({ heroName }: { heroName: string }) {
+  // [!code highlight]
   return (
     <Panel style={{ flowChildren: 'right' }}>
       <DOTAHeroImage heroimagestyle="icon" heroname={heroName} />
@@ -65,11 +68,9 @@ function HeroRow({ heroName }: { heroName: string }) {
 function HeroList() {
   return (
     <Panel style={{ flowChildren: 'down' }}>
-
       <HeroRow heroName="npc_dota_hero_abaddon" />
       <HeroRow heroName="npc_dota_hero_abyssal_underlord" />
       <HeroRow heroName="npc_dota_hero_alchemist" />
-
     </Panel>
   );
 }
@@ -192,14 +193,16 @@ function KDA() {
   const [deaths, setDeaths] = useState(() => Game.GetLocalPlayerInfo().player_deaths);
   const [assists, setAssists] = useState(() => Game.GetLocalPlayerInfo().player_assists);
 
-  useEffect(() => { // [!code highlight]
-    const handle = GameEvents.Subscribe('dota_player_kill', () => { // [!code highlight]
+  useEffect(() => {
+    // [!code highlight]
+    const handle = GameEvents.Subscribe('dota_player_kill', () => {
+      // [!code highlight]
       const playerInfo = Game.GetLocalPlayerInfo(); // [!code highlight]
       setKills(playerInfo.player_kills); // [!code highlight]
       setDeaths(playerInfo.player_deaths); // [!code highlight]
       setAssists(playerInfo.player_assists); // [!code highlight]
     }); // [!code highlight]
- // [!code highlight]
+    // [!code highlight]
     return () => GameEvents.Unsubscribe(handle); // [!code highlight]
   }, []); // [!code highlight]
 
@@ -220,13 +223,17 @@ function KDA() {
   const [deaths, setDeaths] = useState(() => Game.GetLocalPlayerInfo().player_deaths);
   const [assists, setAssists] = useState(() => Game.GetLocalPlayerInfo().player_assists);
 
-
-  useGameEvent('dota_player_kill', () => { // [!code highlight]
-    const playerInfo = Game.GetLocalPlayerInfo(); // [!code highlight]
-    setKills(playerInfo.player_kills); // [!code highlight]
-    setDeaths(playerInfo.player_deaths); // [!code highlight]
-    setAssists(playerInfo.player_assists); // [!code highlight]
-  }, []); // [!code highlight]
+  useGameEvent(
+    'dota_player_kill',
+    () => {
+      // [!code highlight]
+      const playerInfo = Game.GetLocalPlayerInfo(); // [!code highlight]
+      setKills(playerInfo.player_kills); // [!code highlight]
+      setDeaths(playerInfo.player_deaths); // [!code highlight]
+      setAssists(playerInfo.player_assists); // [!code highlight]
+    },
+    [],
+  ); // [!code highlight]
 
   return <Label style={{ color: 'white' }} text={`KDA: ${kills}/${deaths}/${assists}`} />;
 }
@@ -245,6 +252,7 @@ import React, { useState } from 'react';
 import { render, useGameEvent } from 'react-panorama';
 
 function useKDA() {
+  // [!code highlight]
   // Since both initializing and updating state is the same process,
   // we can extract it into a regular function
   function getKDA() {
@@ -264,15 +272,13 @@ function useKDA() {
 }
 
 function KDA() {
-
-  const { kills, deaths, assists } = useKDA();
+  const { kills, deaths, assists } = useKDA(); // [!code highlight]
 
   return <Label style={{ color: 'white' }} text={`KDA: ${kills}/${deaths}/${assists}`} />;
 }
 
 function KDARatio() {
-
-  const { kills, deaths, assists } = useKDA();
+  const { kills, deaths, assists } = useKDA(); // [!code highlight]
   const ratio = (kills + assists) / (deaths || 1);
 
   return <Label style={{ color: 'white' }} text={`KDA Ratio: ${ratio}`} />;
@@ -292,4 +298,4 @@ render(<App />, $.GetContextPanel());
 
 ## Next Steps
 
-This tutorial have covered only basics of React. React has a large ecosystem of libraries, patterns and articles, lots of which would apply to Panorama. As a starting point you can check out [the official React website](https://reactjs.org/) (although some parts of it are [a little](https://github.com/reactjs/reactjs.org/issues/1782) [outdated](https://github.com/reactjs/reactjs.org/issues/1788)).
+This tutorial has covered only the basics of React. React has a large ecosystem of libraries, patterns and articles, lots of which would apply to Panorama. As a starting point you can check out [the official React website](https://reactjs.org/) (although some parts of it are [a little](https://github.com/reactjs/reactjs.org/issues/1782) [outdated](https://github.com/reactjs/reactjs.org/issues/1788)).

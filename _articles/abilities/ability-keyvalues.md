@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 10.12.2014
 ---
 
+# Ability KeyValues
+
+
 <!--
 TODO: Some categories are missing:
 [![Damage Type](/images/external/WwwNkbj.png)](##damage "Damage type of the ability")
@@ -98,7 +101,7 @@ Example:
 |DOTA_ABILITY_BEHAVIOR_AUTOCAST|Can be cast automatically.<br/>Usually doesn't work by itself in anything that is not an ATTACK ability.|
 |DOTA_ABILITY_BEHAVIOR_HIDDEN|Can't be cast, and won't show up on the HUD.|
 |DOTA_ABILITY_BEHAVIOR_AOE|Can draw a radius where the ability will have effect.<br/>Like POINT, but with an area of effect display.<br/>Makes use of `AOERadius`.|
-|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|CAnnot be learned by clicking on the HUD.<br/>Example: Invoker's abilities.|
+|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|Cannot be learned by clicking on the HUD.<br/>Example: Invoker's abilities.|
 |DOTA_ABILITY_BEHAVIOR_ITEM|Ability is tied to an item. There is no need to use this, the game will internally assign this behavior to any `"item_datadriven"`.|
 |DOTA_ABILITY_BEHAVIOR_DIRECTIONAL|Has a direction from the hero.<br/>Examples: Mirana's Arrow, or Pudge's Hook.|
 |DOTA_ABILITY_BEHAVIOR_IMMEDIATE|Can be used instantly, without going into the action queue.|
@@ -107,7 +110,7 @@ Example:
 |DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES|Cannot be used when rooted.|
 |DOTA_ABILITY_BEHAVIOR_UNRESTRICTED|Ability is allowed when commands are restricted.<br/>Example: Lifestealer's Consume.|
 |DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET|Does not alert enemies when target-cast on them.<br/>Example: Spirit Breaker's Charge.|
-|DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT|Should not resume movement when it completes.<br/>Only applicable ot no-target, non-immediate abilities.|
+|DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT|Should not resume movement when it completes.<br/>Only applicable to no-target, non-immediate abilities.|
 |DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK|Ability should not resume command-attacking the previous target when it completes.<br/>Only applicable to no-target, non-immediate abilities and unit-target abilities.|
 |DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN|Ability still uses its normal cast point when stolen.<br/>Examples: Meepo's Poof, Furion's Teleport.|
 |DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING|Ability ignores backswing pseudoqueue.|
@@ -119,11 +122,11 @@ Example:
 
 ### Behavior Tooltips
 
-The following behaviors will generate a line in the ability tooltip. You want at least one of 1 behavior of this list. The rest of the ability behaviors don't have any UI support yet.
+The following behaviors will generate a line in the ability tooltip. You want at least one behavior of this list. The rest of the ability behaviors don't have any UI support yet.
 
 The UI can only show one behavior tooltip, but internally it will behave as expected, as long two contradicting keys are not used together (like *NO_TARGET* with *UNIT_TARGET*).
 
-|**AbilityBehavior**|**ABILITY: *Tooltip***|**Takes precdence over:**|
+|**AbilityBehavior**|**ABILITY: *Tooltip***|**Takes precedence over:**|
 |-|-|-|
 |DOTA_ABILITY_BEHAVIOR_NO_TARGET|**No Target**||
 |DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|**Unit Target**|POINT|
@@ -172,7 +175,7 @@ At which level the ability can first be learned. This takes negative values, to 
 
 ### LevelsBetweenUpgrades
 
-How many levels to wait to be able to learnt he next rank.
+How many levels to wait to be able to learn the next rank.
 
 *Example*:
 ```
@@ -189,7 +192,7 @@ Max level of the heroes can be changed using the Lua `SetCustomHeroMaxLevel(MAX_
 
 The icon file name that should be used in the UI for this ability. You can reutilize the icon from another just by putting that ability name here if desired. The internal name of every default dota ability can be found in: [Built-In Ability Names](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Built-In_Ability_Names).
 
-To use your own icons, place them in `resources/flash3/images/spellicons` in you game addon folder, and just directly refer to the image name without the path or the extension.
+To use your own icons, place them in `resources/flash3/images/spellicons` in your game addon folder, and just directly refer to the image name without the path or the extension.
 
 **Format**: 128x128 PNG
 ```
@@ -264,11 +267,11 @@ Flags allow targeting units that are ignored by default (for example, magic immu
 |DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS|Ignores units with `"IsAncient" "1"` defined.<br/>Example: Hand of Midas.|
 |DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO|Ignores units with `"ConsideredHero" "1"` defined.<br/>Examples: Astral Imprisonment, Disruption, Sunder.|
 |DOTA_UNIT_TARGET_FLAG_NOT_DOMINATED|Ignores units with `MODIFIER_STATE_DOMINATED`.|
-|DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS|Ignores untis with `MODIFIER_PROPERTY_IS_ILLUSION`.|
+|DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS|Ignores units with `MODIFIER_PROPERTY_IS_ILLUSION`.|
 |DOTA_UNIT_TARGET_FLAG_NOT_NIGHTMARED|Ignores units with `MODIFIER_STATE_NIGHTMARED`.|
 |DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED|Ignores units created through the `SpawnUnit` [action](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven#Actions).|
 |DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD|Units with `MODIFIER_STATE_OUT_OF_GAME`.|
-|DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED|Units controllable by a player, accesible with [Lua](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API)'s `IsControllableByAnyPlayer()`.|
+|DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED|Units controllable by a player, accessible with [Lua](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/API)'s `IsControllableByAnyPlayer()`.|
 |DOTA_UNIT_TARGET_FLAG_PREFER_ENEMIES|Prioritizes units over trees when both are selectable.|
 
 **Clean list**:
@@ -396,7 +399,7 @@ Instead of the `"Radius"` keyvalue, which only takes one parameter, `Line` takes
 
 #### ScriptSelectPoints
 
-Its use is very rare, normally when the targeting is complex we would just use `RunScript` lua and do all the acitons inside the script.
+Its use is very rare, normally when the targeting is complex we would just use `RunScript` lua and do all the actions inside the script.
 
 ```
 ScriptSelectPoints

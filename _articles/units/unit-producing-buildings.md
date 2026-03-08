@@ -5,9 +5,12 @@ steamId: '76561198046984233'
 date: 08.03.2015
 ---
 
+# Unit producing buildings
+
+
 This is a response tutorial on a question thread, I'm gonna explain the scripting approaches to fully spawning units with a building, including making them controllable and defining initial orders.
 
-## Step 1: The npc_units_custom.txt files
+## Step 1. The npc_units_custom.txt files
 
 First of all, you'll need a KeyValue definition for a building and the unit you want to spawn.
 
@@ -17,13 +20,13 @@ I want to make one special note here though. **"BaseClass" "npc_dota_building" c
 
 So if you have a problem with this, don't make your unit a building, but a **npc_dota_creature instead**.
 
-This has the issue of creatures having a turn rate, so additionally you'll need to apply a MODIFIER_STATE_STUNNED on them, make the Magic Immune so most spells don't damage them, and make an special rule for spells that are supposed to damage buildings this way.
+This has the issue of creatures having a turn rate, so additionally you'll need to apply a MODIFIER_STATE_STUNNED on them, make them Magic Immune so most spells don't damage them, and make a special rule for spells that are supposed to damage buildings this way.
 
 That being said, we won't be bothering with that for the purpose of this tutorial.
 
 I'll be using a simplified version of the [human_barracks](https://pastebin.com/z5Jk9W17) definition, with a "human_train_footman" ability, which I'll expand on the possibilities for it later.
 
-## Step 2: Putting your unit into the map.
+## Step 2. Putting your unit into the map.
 
 There are 2 main options for doing this, one is Hammer oriented, and the other is a fully scripted approach.
 
@@ -80,13 +83,13 @@ Now your building should be fully controllable for ability usage, and even subtr
 
 ### Scripting Approach
 
-Hey Hammer is good and everything, but it's behavior is very static. You need to have predefined position for the units, build the map everytime you make a change, and can't choose to not spawn any of them if there are less players than expected, etc.
+Hey Hammer is good and everything, but its behavior is very static. You need to have predefined positions for the units, build the map every time you make a change, and can't choose to not spawn any of them if there are less players than expected, etc.
 
 There is a fully scripted method for placing units on the map, which is done by using the `CreateUnitByName` function, with some additional perks.
 
 `handle CreateUnitByName( szUnitName, vLocation, bFindClearSpace, hNPCOwner, hUnitOwner, iTeamNumber )`
 
-Still working inside the same OnPlayerPickHero, we can either make an static position for each playerID, such as *Vector(450,322,128)*, doing random positions with named info_target entities in Hammer, or a dynamic position based on the hero spawn location. Let's do the latter:
+Still working inside the same OnPlayerPickHero, we can either make a static position for each playerID, such as *Vector(450,322,128)*, doing random positions with named info_target entities in Hammer, or a dynamic position based on the hero spawn location. Let's do the latter:
 
 ```lua
 local origin = hero:GetAbsOrigin() -- Spawn position
@@ -107,7 +110,7 @@ Even though we set the hNPCOwner and hUnitOwner, the SetOwner and SetControllabl
 
 #### Building invulnerability
 
-There's an small issue with npc_dota_building baseclass which is that they spawn with "modifier_invulnerable" by default, to get rid of this, run this line:
+There's a small issue with npc_dota_building baseclass which is that they spawn with "modifier_invulnerable" by default, to get rid of this, run this line:
 
 ```lua
 building:RemoveModifierByName("modifier_invulnerable")
@@ -133,7 +136,7 @@ function Precache( context ) -- Find this in addon_game_mode.lua
 end
 ```
 
-Done! Full code of the building spawning on front of the hero looks like this:
+Done! Full code of the building spawning in front of the hero looks like this:
 
 ```lua
 function GameMode:OnPlayerPickHero(keys)
@@ -157,7 +160,7 @@ local building = CreateUnitByName("human_barracks", position, true, hero, hero, 
 
 <br />
 
-## Step 3: Scripting the unit-spawning ability inside the building
+## Step 3. Scripting the unit-spawning ability inside the building
 
 Now that we have a fully working building ingame, let's move to npc_abilities_custom.txt and creature spawning from this building.
 
@@ -165,7 +168,7 @@ There are 2 main ways of doing this: with the DataDriven Action "SpawnUnit", or 
 
 ### DataDriven "SpawnUnit"
 
-I actually prefer this DD Action and use it extensively thorough all of DotaCraft's unit spawning, because it has access to the very useful `"OnSpawn"` Sub-Event, which is only accessible through this action, and has some other options for unit count, limit (so you can't have more than X units of the same unit at the same time), modifier_kill integration, etc.
+I actually prefer this DD Action and use it extensively throughout all of DotaCraft's unit spawning, because it has access to the very useful `"OnSpawn"` Sub-Event, which is only accessible through this action, and has some other options for unit count, limit (so you can't have more than X units of the same unit at the same time), modifier_kill integration, etc.
 
 Of course you could listen to the game event of unit spawned and do your OnSpawn stuff there, but that makes the ability less modular and harder to maintain.
 

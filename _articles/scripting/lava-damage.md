@@ -5,9 +5,12 @@ steamId: '76561197974680917'
 date: 20.08.2015
 ---
 
+# Lava damage
+
+
 Hello, this is a small tutorial giving back to the awesome Moddota community.
 
-Today we going to create Lava area when a hero step on that lava he will get damaged per sec until he die.
+Today we are going to create a Lava area when a hero steps on that lava he will get damaged per sec until he dies.
 
 
 **First you need to create a block and assign trigger texture to it**

@@ -4,28 +4,31 @@ author: Kain
 steamId: '76561198011709789'
 date: 01.04.2022
 ---
+
+# improvement vConsole
+
 ![icon](/images/improvement-vconsole/logo.png)
- ## vConsole
-Dota2 Tools have a console `vConsole2.exe`
- 
- Today I will show you how to change the functionality of the toolbar. In this article, we will not consider the configuration and standard features of the vConsole program.
+## vConsole
+Dota2 Tools have a console `vConsole2.exe`.
+
+Today I will show you how to change the functionality of the toolbar. In this article, we will not consider the configuration and standard features of the vConsole program.
 
 > Standard toolbar view:
 
 ![vconsole](/images/improvement-vconsole/vConsole.png)
 
 This is the part of the program that we will expand on today.
-What opportunities will we get :
+What opportunities will we get:
 
 1) Button launches a tool from the dll (in default config bug reporter and NetGraph )
 1) Button applies a console command (in default config launches AssetBrowser )
-1) Button launches an external program (VsCode , Notepade++, Sublime text, and of course Dota2 Tools )
+1) Button launches an external program (VsCode , Notepad++, Sublime text, and of course Dota2 Tools )
 
 In variant 1 we probably can't change anything (or it would be very difficult and my knowledge is lacking).
 
 But the other two are just right.
 
-We need this configuration file for the console :
+We need this configuration file for the console:
 `dota 2 beta\game\core\tools\sdk_vconsole_subtools.txt`
 
 The file format is the usual key-value. The key parameters that I was able to find for this file:
@@ -98,10 +101,10 @@ running a VSCode program with arguments (in this case the workspace is specified
 ```
 
 ***
-View of my toolbar without Dota2 tools running :
+View of my toolbar without Dota2 tools running:
 ![toolbar1](/images/improvement-vconsole/toolbar1.png)
 
-with running tools :
+with running tools:
 
 ![toolbar2](/images/improvement-vconsole/toolbar2.png)
 

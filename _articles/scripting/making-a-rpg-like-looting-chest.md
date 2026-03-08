@@ -5,11 +5,14 @@ steamId: '76561198002718302'
 date: 18.12.2015
 ---
 
-Hello , it's the first time i'm making a tutorial here (and on lua too)
-I was working on this for the last 2 day for my mod , an I didn't seen something similar for now 
+# Making a "rpg-like" looting chest
+
+
+Hello, it's the first time i'm making a tutorial here (and on lua too)
+I was working on this for the last 2 days for my mod, and I didn't see something similar for now
 So today i'll teach you how to make a chest you must open , and then you can obtain item or gold from it (or anything you want idc)
 
-first off , you need to create you chest item in npc_item_custom.txt :
+first off, you need to create your chest item in npc_item_custom.txt :
 
 ```
 "item_chest"
@@ -71,14 +74,14 @@ function chest_open(keys)
 	end
 	local item_number = 0
 	if keys.gold == 1 then
-		item_number = math.random(1,(len + 1)) --here we determine the item number (soo here we chose the item), the +1 is to add the gold chance in ,you can change it to 2 or more if you want gold to have higger change of appear
+		item_number = math.random(1,(len + 1)) --here we determine the item number (soo here we chose the item), the +1 is to add the gold chance in ,you can change it to 2 or more if you want gold to have higher chance of appearing
 	else
 		item_number = math.random(1,len)
 	end
-	if item_number > len then --in case the player obtaine gold instead of item
+	if item_number > len then --in case the player obtains gold instead of item
 	       PlayerResource:ModifyGold(Player_ID, gold, true, 0 ) 
 	else
-		local item_name = item_list[tostring(item_number)] -- i know it could be better , but i'm not realy used to kv
+		local item_name = item_list[tostring(item_number)] -- i know it could be better, but i'm not really used to kv
 		local item_reward = CreateItem( item_name, caster, caster )
 		caster:AddItem(item_reward)
 		if keys.gold == 2 then
@@ -88,7 +91,7 @@ function chest_open(keys)
 end
 ```
 
-and finaly we create our kv file where we put all the item for each chest 
+and finally we create our kv file where we put all the item for each chest 
 "scripts/kv/chest_result.kv"
 ```
 "put_the_name_you_wanna" 
@@ -107,5 +110,5 @@ and finaly we create our kv file where we put all the item for each chest
 }
 ```
 
-Now you can easely make a chest for your rpg game :D
-If you want to make the chest loot on enemy death , look this another tutorial from Noya about an [item drop system](/scripting/item-drop-system)
+Now you can easily make a chest for your rpg game :D
+If you want to make the chest loot on enemy death, look at this other tutorial from Noya about an [item drop system](/scripting/item-drop-system)

@@ -3,11 +3,13 @@ title: Bundling scripts with webpack
 author: ark120202
 ---
 
+# Bundling scripts with webpack
+
 ## What is webpack and why should I use it?
 
 Working on a large codebase there are two ways to organize your code. The first is just keeping all logic in a single `.js` file, which quickly becomes hard to change and comprehend. The second approach is splitting code by functionality, creating multiple `.js` files and including all of them in the layout file.
 
-While the second approach is preferred it also has some problems. Lack of explicit references to value definitions makes it hard to track where a certain values comes from, and, since all files use a single shared scope, naming conflicts can arise.
+While the second approach is preferred it also has some problems. Lack of explicit references to value definitions makes it hard to track where a certain value comes from, and, since all files use a single shared scope, naming conflicts can arise.
 
 In Lua these problems are solved with `require` function, which allows one script to include another. JavaScript also got an official solution to this problem in EcmaScript 2015 - modules.
 
@@ -111,7 +113,7 @@ export function sayHello() {
 
 And layout files to make Panorama run our script:
 
-```xml title="content/panorama/layout/custom_game/hud.xml"
+```xml{4} title="content/panorama/layout/custom_game/hud.xml"
 <root>
   <scripts>
 
@@ -121,7 +123,7 @@ And layout files to make Panorama run our script:
 </root>
 ```
 
-```xml title="content/panorama/layout/custom_game/custom_ui_manifest.xml"
+```xml{4} title="content/panorama/layout/custom_game/custom_ui_manifest.xml"
 <root>
   <Panel>
 
@@ -282,7 +284,7 @@ module.exports = {
 
 Now you need to move layout file to the source directory, and use relative script path:
 
-```xml title="content/panorama/src/hud/layout.xml"
+```xml{4} title="content/panorama/src/hud/layout.xml"
 <root>
   <scripts>
 

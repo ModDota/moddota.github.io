@@ -5,9 +5,12 @@ steamId: '76561198046920629'
 date: 28.12.2015
 ---
 
+# Making any ability use charges
+
+
 A guide/snippet which will help you to make any ability use charges like Shrapnel or Stone Caller.
 
-First, add save this [file](https://gist.github.com/DoctorGester/1939e277e677e9394924) with a name "modifier_charges.lua" to your vscripts folder (or any subfolder inside of it)
+First, save this [file](https://gist.github.com/DoctorGester/1939e277e677e9394924) with a name "modifier_charges.lua" to your vscripts folder (or any subfolder inside of it)
 
 Then, add an initialization line to your addon_game_mode.lua:
 
@@ -15,7 +18,7 @@ Then, add an initialization line to your addon_game_mode.lua:
 LinkLuaModifier("modifier_charges", LUA_MODIFIER_MOTION_NONE)
 ```
 
-If your file is into a subfolder you can do it like that
+If your file is in a subfolder you can do it like that
 
 ```lua
 LinkLuaModifier("modifier_charges", "subfolder/anothersubfolder/modifier_charges", LUA_MODIFIER_MOTION_NONE)

@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 13.01.2015
 ---
 
+# Particle Attachment
+
+
 ## Particle Types
 
   Each particle system in Dota is designed for a certain purpose, for example: 
@@ -33,13 +36,13 @@ Also every time you use a particle, remember to add them in a datadriven precach
 
 Else you won't see them unless they belonged originally to the hero that is casting them.
 
-## Parents and Childs
+## Parents and Children
 
-  A Parent Particle is indicated by a P in the Asset Broswer.
+  A Parent Particle is indicated by a P in the Asset Browser.
 
   ![img](/images/external/esM9P-998defaf12.jpg)
 
-  You normally want to use a Parent because it will show the complete particle effect. Childs are harder to display and might not show or display properly.
+  You normally want to use a Parent because it will show the complete particle effect. Children are harder to display and might not show or display properly.
 
   ![img](/images/external/esz6V-b4912e2ca5.png)
 
@@ -76,7 +79,7 @@ Attach to an specific bone | attach_attack1 | You can check these by opening the
 
   Numerous times when dealing with complex particle systems you will get errors like:
 
-- Particle childs showing at the Vector (0,0,0). 
+- Particle children showing at the Vector (0,0,0). 
   - This is what normally happens when you miss a Control Point (explained later)
 - Effect appearing in a different position than expected. 
   - Wrong attachment or particle can't attach that place.
@@ -99,7 +102,7 @@ With Reborn, now the default dota particles can be opened directly with the Part
 
 This type of particles is the easiest to attach. They are tied to a modifier and automatically stop after the modifier is destroyed.
 
-For this to, the particle system duration usually needs to be infinite, designed as a simple buff, internally they have a single control point which is set with the `EffectAttachType` key.
+For this too, the particle system duration usually needs to be infinite, designed as a simple buff, internally they have a single control point which is set with the `EffectAttachType` key.
 
 **Example**
 ```
@@ -216,7 +219,7 @@ Keep in mind that a `"FireEffect"` or `"AttachEffect"` action can be inside any 
 
 ### 4. Control Point Entities
 
-Some times, particle attach points can get even more complicated when they need to be attached on specific locations or entities.
+Sometimes, particle attach points can get even more complicated when they need to be attached on specific locations or entities.
 If your attachment is not working with the simple lua method, you need to try the next level of control point setup, the **Control Point Entities**, in either Lua or Keyvalues.
 
 #### 4.1 Lua `SetParticleControlEnt`
@@ -234,7 +237,7 @@ ParticleManager:SetParticleControlEnt(target.ShieldParticle, 0, target, PATTACH_
 
 PATTACH_POINT_FOLLOW puts the particle at the targets body in this case. PATTACH_ABSORIGIN_FOLLOW will put it at its feet, and PATTACH_OVERHEAD_FOLLOW at its head.
 
-Note the partice being defined under the `target.` handle, this is because we will need to destroy it later in Lua, becase attaching a particle this way 
+Note the particle being defined under the `target.` handle, this is because we will need to destroy it later in Lua, because attaching a particle this way
 will not stop the particle effect by itself after the modifier is destroyed, as we are just tying the particle to a target.
 This is not a concern if the particle is meant for a short duration (unlike the buff particles that last forever until removed)
 

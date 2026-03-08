@@ -5,6 +5,9 @@ steamId: '76561198157673452'
 date: 05.12.2021
 ---
 
+# Sending Server values to the Client in a modifier.
+
+
 Modifier scripts are run on both the server, and every client in the game.
 A lot of the [Lua API](https://moddota.com/api/#!/vscripts) is server-side functions that the client cannot use.
 
@@ -34,9 +37,9 @@ end
 With this modifier you will run into the mentioned issue where your attack damage is not updated in the UI, but you will still deal the bonus damage.
 
 To fix this, we need to somehow send this server-only value to the client.
-There are 2 primary methods for doing this, though there are other less convienient ways.
+There are 2 primary methods for doing this, though there are other less convenient ways.
 
-### Modifier Stack Count {#stacks}
+## Modifier Stack Count {#stacks}
 
 This is the most basic method, where all you need to do is Set the modifiers stack count on the server and the stack count is automatically synced to the client.
 
@@ -71,7 +74,7 @@ So what can you do if you need to send one of these unsupported values or even s
 
 Well, there are some workarounds but what you should use is Modifier Transmitters.
 
-### Modifier Transmitters {#transmitters}
+## Modifier Transmitters {#transmitters}
 
 Modifier transmitters allow you to send any amount of any value types from the server to the client in your modifier.
 But they require a bit of set-up.

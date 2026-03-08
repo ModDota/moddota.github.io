@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 12.12.2014
 ---
 
+# Passing AbilityValues values into Lua
+
+
 Given this "AbilityValues" block in the ability:
 
 ```
@@ -25,7 +28,7 @@ local mana_per_second = ability:GetLevelSpecialValueFor("mana_per_second", (abil
 
 The first one will get the value for the **current level** of the ability.
 
-The second one will get the value for the **specified level** of the ability
+The second one will get the value for the **specified level** of the ability.
 
 The first one is the most common and should be **used every time**, unless you need the value for a specific level.
 

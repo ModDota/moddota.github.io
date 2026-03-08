@@ -5,12 +5,15 @@ steamId: '76561198046920629'
 date: 27.09.2019
 ---
 
+# Creating innate (available from level 1) abilities
+
+
 This article will guide you through creating an ability which is available to the given hero right away, like Earth Spirit's Stone Remnant.
 This guide assumes you already have an ability set up on a hero.
 
 ## Lua abilities
 
-Lua abilities can define a `Spawn` method, that is invoked by the engine when ability is cretated.
+Lua abilities can define a `Spawn` method, that is invoked by the engine when ability is created.
 
 ```lua
 my_innate_ability = my_innate_ability or {}

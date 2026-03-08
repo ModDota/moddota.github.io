@@ -5,8 +5,11 @@ steamId: '76561198055627364'
 date: 05.02.2015
 ---
 
+# Falling cherry blossom petal for spring mood particle
+
+
 <p>
-If you are new to particle creation, you should read <a href="particle-basics">this particle basic</a> first because I will not explain in detail these functions in detail. I will instead explain the thought process that comes in my mind during each creation. Now let's get started.
+If you are new to particle creation, you should read <a href="particle-basics">this particle basic</a> first because I will not explain these functions in detail. I will instead explain the thought process that comes in my mind during each creation. Now let's get started.
 </p>
 <p>
 I was working on my map the other day in the following image.
@@ -66,7 +69,7 @@ Now that it shows the petal, but there is nothing going on yet. Since I want the
 - Add <b>"Lifespan decay"</b> in Operator since I want them to disappear at some points.<br />
 - Add <b>"Movement basic"</b> in Operator since I want them to move at some points.
 <p>
-Now I do feel like this scene somewhat needs a gravity since petal will be falling down in some directions. So I make some changes to the value in Movement basic as followed:
+Now I do feel like this scene somewhat needs a gravity since petal will be falling down in some directions. So I make some changes to the value in Movement basic as follows:
 </p>
 
 |Field|Value|
@@ -122,7 +125,7 @@ Now you have to go in each function and adjust the value to your taste. The foll
 - default value
 <h4>Alpha random</h4>
 <p>
-People won't like it if these petals will obstruct the view of the players so I set the values as followed.
+People won't like it if these petals will obstruct the view of the players so I set the values as follows.
 </p>
 
 |Field|Value|
@@ -132,7 +135,7 @@ People won't like it if these petals will obstruct the view of the players so I 
 
 <h4>Lifetime random</h4>
 <p>
-The petals should disappear at different time so I set the values as followed.
+The petals should disappear at different time so I set the values as follows.
 </p>
 
 |Field|Value|
@@ -142,7 +145,7 @@ The petals should disappear at different time so I set the values as followed.
 
 <h4>Radius random</h4>
 <p>
-In reality, petals are not the same size every where, so I set the values as followed.
+In reality, petals are not the same size everywhere, so I set the values as follows.
 </p>
 
 |Field|Value|
@@ -197,7 +200,7 @@ Now you should have something looking similar to this.
 <p>
 Now it almost looks natural but it lacks wind. Normally when petals fall down, it should somewhat be affected by the wind. To achieve this, I add the following function:
 </p>
-- Add <b>"Noise Vector</b> in Operator.
+- Add <b>"Noise Vector"</b> in Operator.
 <p>
 You should now see your petals blinking with different color. Don't panic. We haven't adjusted the value yet so it's set to default that way. Now I want to adjust so the noise will add into my sprite as it goes with randomness. So I set the values to the following:
 </p>
@@ -215,5 +218,5 @@ Now with this, your falling petals should look very natural, and you can adjust 
 </p>
 <img src="/images/external/ajnc7uu.png"></img>
 <p>
-This reaches the end of this tutorial. If you have any question, comment, or improvement to the guide, please don't hesitate to leave a comment or send me a message. Let me know what you want to see created next!.
+This reaches the end of this tutorial. If you have any question, comment, or improvement to the guide, please don't hesitate to leave a comment or send me a message. Let me know what you want to see created next!
 </p>

@@ -5,6 +5,9 @@ steamId: '76561198046984233'
 date: 01.12.2014
 ---
 
+# Custom Mana System
+
+
 This is a guide to make a simple custom mana system. A working barebones addon is assumed.
 
 In this example we'll make a classic *Rage* system, meaning:
@@ -17,7 +20,7 @@ In this example we'll make a classic *Rage* system, meaning:
 Hope this is enough for most systems, let me know if you have another concept that I should add.
 
 
-##No normal mana regeneration and start mana at 0
+## No normal mana regeneration and start mana at 0
  The easier approach is to nullify your hero's Intelligence
  For this you'll need to set the following in your hero definition
 
@@ -33,7 +36,7 @@ Hope this is enough for most systems, let me know if you have another concept th
 
 If you need to keep your Int stat but still have 0 natural mana regen, you'll need to apply modifiers for each Int point with negative mana regen to compensate.
 
-I won't be following this process in this guide, but you can check the guide [on the wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Using_Bitfields_To_Adjust_Stat_Value_Bonuses)
+I won't be following this process in this guide, but you can check the guide [on the wiki](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Using_Bitfields_To_Adjust_Stat_Value_Bonuses).
 
 For your mana to start at 0, we'll begin by making the passive hidden ability which will be the base for our Rage system:
 
@@ -85,7 +88,7 @@ The script is very simple:
 
 We need to do a wait a bit for the hero to be properly spawned else it might fail. Notice the use of [BMD's Timers](https://github.com/bmddota/barebones/blob/source2/game/dota_addons/barebones/scripts/vscripts/timers.lua).
 
-###Before we continue:
+### Before we continue:
 Right now our spell is not even available on the hero, and we want it to be learned when we spawn.
  For this we'll need to add the following in our `OnHeroInGame`* listener (*function hook of npc_spawned, see [barebones Event Hooks](https://github.com/bmddota/barebones/blob/source2/game/dota_addons/barebones/scripts/vscripts/barebones.lua#L443) )
 
@@ -101,7 +104,7 @@ if heroName == "npc_dota_hero_beastmaster" then
 end
 ```
 
-The if is not exactly neccessary but you'll need to filter your desired hero somehow. We'll use Beastmaster for our example
+The if is not exactly necessary but you'll need to filter your desired hero somehow. We'll use Beastmaster for our example
 
 
 ## Gain mana after an attack, scaling with level
@@ -120,7 +123,7 @@ Our rage_modifier block gains another modifier event:
 ```
 
 I'll use a basic formula for it, which gives a base mana per attack but also scales with levels slightly.
-Keep in mind this function is used for a 200 hero level system, so if you have something different of bigger mana costs, you need to adjust to your liking.
+Keep in mind this function is used for a 200 hero level system, so if you have something different or bigger mana costs, you need to adjust to your liking.
 
 ```lua
 -- lua code inside barbarian.lua
@@ -136,6 +139,7 @@ end
 ## Gain mana after being attacked, scaling with level
 
 Our modifier block gains another modifier event:
+
 ```
 "OnAttacked"
 {
@@ -147,7 +151,7 @@ Our modifier block gains another modifier event:
 }
 ```
 
-Same as before, another different formula can be used, we will give a bit less mana on attacked
+Same as before, another different formula can be used, we will give a bit less mana on attacked.
 
 ```lua
 function ManaOnAttacked( event )
@@ -190,7 +194,7 @@ This will take your "mana_gain" from AbilityValues, in my leap example it would 
 
 ## Decrease mana over time, scaling with level
 
-In the beginning we had set our StatsManaRegen to 0. This is done to properly control the mana regen dinamically in our main lua file
+In the beginning we had set our StatsManaRegen to 0. This is done to properly control the mana regen dynamically in our main lua file.
 
 Base Mana Regen will need to be updated when the hero spawns `OnHeroInGame`, and then each time he levels up `OnPlayerLevelUp` if we want it to scale.
 

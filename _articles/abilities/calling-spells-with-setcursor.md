@@ -5,6 +5,9 @@ steamId: '76561198003060848'
 date: 10.01.2015
 ---
 
+# Calling Spells with SetCursor
+
+
 `CDotaBaseAbility:OnSpellStart` in combination with `CDotaBaseNPC:SetCursorCastTarget` and `CDOTABaseNPC:SetCursorPosition` are used to "Call" spells.
 
 This is a powerful way to interact with Valve's spells in particular. This allows you to:

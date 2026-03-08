@@ -5,11 +5,14 @@ steamId: '76561198046984233'
 date: 13.12.2014
 ---
 
+# Item Restrictions & Requirements
+
+
 This implements the following mechanic:
 
 <StaticVideo path="/videos/OfficialAdorableJabiru.mp4" />
 
-### 1. Key Values Table
+## Step 1. Key Values Table
 
 First create a text file to write down your item properties. File Name, extension and path can be anything as long as the file structure is a proper table.
 
@@ -31,7 +34,7 @@ For this example, we will use this path: **scripts**/**maps**/**item_info**.kv
 }
 ```
 
-To load a table into your game mode, you need to use the `LoadKeyValues( "path/to/file" ) lua function. This can be called at GameMode:InitGameMode() inside your main lua addon. GameMode = self
+To load a table into your game mode, you need to use the `LoadKeyValues( "path/to/file" )` lua function. This can be called at GameMode:InitGameMode() inside your main lua addon. GameMode = self
 
 ```lua
 self.ItemInfoKV = LoadKeyValues( "scripts/maps/item_info.kv" ) 
@@ -54,7 +57,7 @@ function GameMode:OnHeroInGame(hero)
 end
 ```
 
-### 2. OnEquip Ability Event
+## Step 2. OnEquip Ability Event
 
 Add this datadriven event on every item that needs to do a check for restrictions. It calls a lua script to do the logic check against the table.
 
@@ -71,11 +74,11 @@ This is needed because the listener for inventory changed is broken, and the Lua
 }
 ```
 
-### 3. Lua Script
+## Step 3. Lua Script
 
 In this example, I'll look for Level and Class requirements
 
-Make use of the [CustomError Flash UI by zedor](https://github.com/zedor/CustomError) to display a red error message when the item doesn't met any criteria found in the table.
+Make use of the [CustomError Flash UI by zedor](https://github.com/zedor/CustomError) to display a red error message when the item doesn't meet any criteria found in the table.
 
 There are some `DeepPrintTable` and `print` to check that the table is being reviewed as you expect.
 
@@ -105,7 +108,7 @@ function ItemCheck( event )
                 if itemTable.levelRequired then
                     print("Name","Level Req","Hero Level")
                     print(itemName,itemTable.levelRequired,hero:GetLevel())
-                    -- If the hero doesn't met the level required, show message and call DropItem
+                    -- If the hero doesn't meet the level required, show message and call DropItem
                     if itemTable.levelRequired > hero:GetLevel() then
                         FireGameEvent( 'custom_error_show', { player_ID = pID, _error = "You need level "..itemTable.levelRequired.." to use this." } )
                         DropItem(Item, hero)

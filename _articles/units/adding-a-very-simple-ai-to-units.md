@@ -5,9 +5,12 @@ steamId: '76561198004447135'
 date: 27.07.2015
 ---
 
+# Adding a Very Simple AI to Units
+
+
 This tutorial will cover how to issue very simple orders to units. This tutorial uses a move order to make a unit wander inside an area randomly, and a cast order to make a unit cast an untargeted spell randomly.
 
-This tutorial assumes a basic knowledge of lua scripting.
+This tutorial assumes a basic knowledge of Lua scripting.
 
 ## Drawbacks
  - This technique should not be used for units which need to perform more than one kind of order each. If a more advanced AI is required, you should check holdout_example's lua ai scripts.

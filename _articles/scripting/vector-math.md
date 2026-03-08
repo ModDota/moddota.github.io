@@ -5,6 +5,9 @@ steamId: '76561198046986723'
 date: 01.10.2020
 ---
 
+# Basic Vector Math
+
+
 While creating games it is hard to avoid using vector math, however they are not commonly taught in schools. While they are fairly intuitive once you get used to them, learning about vector math for the first time can be a bit difficult, therefore this tutorial.
 
 ## Introduction to vectors
@@ -27,9 +30,9 @@ When using vectors as a movement they only describe a movement TO somewhere, ori
 
 #### Example
 
-So let's look at how we would think about and vizualize two vectors: `A: (3, 2)` and `B: (-1, 3)`:
+So let's look at how we would think about and visualize two vectors: `A: (3, 2)` and `B: (-1, 3)`:
 
-![Vector vizualization](/images/external/4lalG0u.png)
+![Vector visualization](/images/external/4lalG0u.png)
 
 **Note:** vectors have no origin and always originate from (0, 0). If you consider vectors as movements from origin to a point, you can also calculate their length, denoted by l_A and l_B.
 
@@ -42,7 +45,7 @@ So let's say you consider vectors as movements, you can simply add two vectors t
 **Note:** Moving by vector A first and then by B will result in the same vector as moving by B first followed by A. (This is why visualizing vector addition always results in this parallelogram).
 
 :::info Example
-You can use calculate things like offsets or knockbacks using addition, i.e where does a unit end after getting knocked back in some direction?
+You can calculate things like offsets or knockbacks using addition, i.e where does a unit end after getting knocked back in some direction?
 
 ```
 newUnitPos = unitPos + knockbackVector
@@ -92,7 +95,7 @@ To do so, orientation is often expressed as vectors of length 1. This is because
 
 ![Vectors and angles](/images/external/vjW0ye7.png)
 
-You might be wondering what the point of this is, for an application if why storing orientation as vectors of length 1 see section 'Spawning an item in front of the player'.
+You might be wondering what the point of this is, for an application of why storing orientation as vectors of length 1 see section 'Spawning an item in front of the player'.
 
 ### Dot product
 
@@ -106,7 +109,7 @@ Technically `dot(A, B) = length(A) * length(B) * cos(angle)`, so watch out when 
 
 ### Normalization
 
-As mentioned shown above it is often very useful to have vectors of length 1 (only the direction, not the distance). This is so common there is a standard procedure to calculate this: Normalization. When normalizing a vector you simply divide it by its length (or multiply with 1/length). This will always give you a vector of length 1.
+As shown above it is often very useful to have vectors of length 1 (only the direction, not the distance). This is so common there is a standard procedure to calculate this: Normalization. When normalizing a vector you simply divide it by its length (or multiply with 1/length). This will always give you a vector of length 1.
 
 :::info
 Vectors with length 1 are referred to as 'Normal' or 'Unit' vectors.
@@ -278,7 +281,7 @@ for (let i = 0; i < numPoints; i++) {
 
 ### Physics with vectors - Homing projectile
 
-As you have seen vector math is quite powerful and can be used to express positional and movement concepts in simple statements. In this final example I will show how to a simple 'physics' simulation to create a homing projectile.
+As you have seen vector math is quite powerful and can be used to express positional and movement concepts in simple statements. In this final example I will show how to do a simple 'physics' simulation to create a homing projectile.
 
 We will express the projectile using two vectors: `position` and `velocity`. This makes the projectile unable to instantly change its direction, but suffer some inertia: it will home in on the player on every tick, but it cannot easily slow down or change direction:
 

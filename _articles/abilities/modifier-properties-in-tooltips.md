@@ -5,6 +5,9 @@ steamId: '76561198157673452'
 date: 05.12.2021
 ---
 
+# Using Modifier Properties in tooltips
+
+
 Any time you see a modifier tooltip using a non-static number it's getting its value from one of that modifier's [MODIFIER_PROPERTY_](https://moddota.com/api/#!/vscripts/modifierfunction)'s
 
 some examples:
@@ -25,14 +28,14 @@ and approximately 560 more examples in valve's abilities_english.txt.
 
 As you can see, all of those numbers are not manually written into the modifier description, they are dynamically grabbed from the modifier.
 
-### Why is this useful?
+## Why is this useful?
 
 Because if you manually write the numbers into the tooltip then any time you make a number change in the ability you will have to remember to update every related tooltip, and hassle aside you're bound to miss some.
 
 Using the dynamic tooltip you only have to change the number in one place and it gets updated everywhere.
 And you can change the number you are returning in your script during the game.
 
-### How to do it
+## How to do it
 
 First, please note that this only works with Lua Modifiers and Valve's built in modifiers. It cannot be done with datadriven modifiers.
 
@@ -58,9 +61,9 @@ In your addon_\<language\>.txt
 This would result in a tooltip that says: **`Granting 100 bonus damage!`**
 
 In the tooltip the percentage `%` sign surrounds the MODIFIER_PROPERTY_ to mark it as text to be replaced with the value of the modifier property.
-If the contents between the %'s don't match the format then it wont work.
+If the contents between the %'s don't match the format then it won't work.
 
-### The Format
+## The Format
 `%<-><number><d|f>MODIFIER_PROPERTY_%`
 
 Snippet from abilities_english.txt:
@@ -105,14 +108,14 @@ And with a float you can add a number before the `f` to choose how many decimals
 `%-2fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%`
 `%3fMODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT%`
 
-and finally, if you want to write a percentage sign `%` in your modifier tooltip you simply put 2 `%%` next to eachother where ever you want it in the tooltip.
+and finally, if you want to write a percentage sign `%` in your modifier tooltip you simply put 2 `%%` next to each other where ever you want it in the tooltip.
 
 `"This is a percentage sign: %%"`
 
 `"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% bonus movement speed"`
 
 
-### MODIFIER_PROPERTY_TOOLTIP
+## MODIFIER_PROPERTY_TOOLTIP
 
 I'll leave a special note here for MODIFIER_PROPERTY_TOOLTIP and MODIFIER_PROPERTY_TOOLTIP2
 These modifier properties do not do anything functionality wise, they exist only to display a custom number in your tooltip.
@@ -135,7 +138,7 @@ end
 ```
 
 
-### My %property% always shows 0 ??
+## My %property% always shows 0 ??
 
 If you're having this issue then your returned value is probably only seen on the Server and not the Client.
 See this guide for instruction: [Sending Server values to the Client](/abilities/server-to-client)

@@ -5,15 +5,18 @@ steamId: '76561198046920629'
 date: 02.04.2016
 ---
 
+# DOTAScenePanel
+
+
 In this tutorial we'll go through the tricks you can do with the undocumented DOTAScenePanel class in panorama.
 
 Now, you might have seen its usage if you looked through the sources in the main menu. This panel allows us to display 3D content in panorama. You might have tried using it yourself. It's pretty easy to setup a simple panel to display a unit, with code like
 
 `<DOTAScenePanel style="width:400px;height:400px;" unit="npc_dota_hero_sven" particleonly="false"/>`
 
-Please note `particleonly='false'` is required for `DOTAScenePanel` to display anything other then particles properly.
+Please note `particleonly='false'` is required for `DOTAScenePanel` to display anything other than particles properly.
 
-Code like this is used to display heroes in the armory. This panel is also has no custom dynamic properties, meaning that we can't change the unit after creating a panel.
+Code like this is used to display heroes in the armory. This panel also has no custom dynamic properties, meaning that we can't change the unit after creating a panel.
 
 In armory, heroes models can be rotated, and this behaviour can be enabled with `allowrotation="true"` settled. However, this parameter is not compatible with custom background maps.
 
@@ -31,7 +34,7 @@ Select that newly placed entity in the outliner and change its `World Model` pro
 
 Now you've got your movie star ready to be displayed. You can also change the `Default Animation` field to `idle` or any string from its model entries.
 
-Now we've got _action_, but still missing _lights_ and _camera_. Let's begin with light - with the Entity Tool (Shift-E), create a `env_global_light` entity. Change it's name to `light`, for example.
+Now we've got _action_, but still missing _lights_ and _camera_. Let's begin with light - with the Entity Tool (Shift-E), create a `env_global_light` entity. Change its name to `light`, for example.
 
 Same as `env_global_light`, create a `point_camera` entity.
 Select your newly created camera, move your hammer camera in such way that you can see the donkey and click `View - Align Selection to Active Camera`.

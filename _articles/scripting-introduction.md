@@ -5,11 +5,14 @@ steamId: '76561198046984233'
 date: 18.02.2015
 ---
 
+# Scripting Introduction
+
+
 Part 2 of [Getting Started With Dota 2 Modding](getting-started), this tutorial is meant to explain the basics of programming Dota 2 custom mods.
 
 ## Scripting
 
-So now you have your freshly created gamemode running and have played around the map editor a bit, it’s time to move into the programming realm of Dota 2 custom maps.
+So now you have your freshly created gamemode running and have played around the map editor a bit, it's time to move into the programming realm of Dota 2 custom maps.
 
 Go into your &lt;addonName&gt;/scripts/ folder. The 2 main script folders are **npc** and **vscripts**. The first holds the following .txt files:
 
@@ -20,13 +23,13 @@ Go into your &lt;addonName&gt;/scripts/ folder. The 2 main script folders are **
 * npc_**abilities**_override.txt - Modified dota abilities/items with changed values.
 * **herolist**.txt - List of the heroes available for picking.
 
-These files are defined using KeyValues (KV) and are the core of the the **DataDriven system**. While they fulfill the definition of a programming language, it’s more like a big table containing all the possible data in a static document. it uses a relatively simple syntax whose only special characters are curly braces and quotes, with alternating sets of "Key" and "Value" or "Key" `{table}` pairs, where `table` is another set of KeyValues.
+These files are defined using KeyValues (KV) and are the core of the **DataDriven system**. While they fulfill the definition of a programming language, it's more like a big table containing all the possible data in a static document. It uses a relatively simple syntax whose only special characters are curly braces and quotes, with alternating sets of "Key" and "Value" or "Key" `{table}` pairs, where `table` is another set of KeyValues.
 
 KV will define the data of abilities/items/units, while more elaborate behavior is handled with Lua or TypeScript.
 
-Each .txt file contains its particular KVs, and when the game starts, each client (and server) will interpret them. Changes to these files won’t take effect until the game is started again, so be very aware of the syntax, as any extra/missing `"` or `{` `}` will usually make all the keyvalues that come after this error unusable. Consistent [indentation](https://en.wikipedia.org/wiki/Indent_style) is a good practice to learn early! KV is case-sensitive, so also pay attention to write everything like the game expects you to write. If your KV is not working, try putting it into [the KV checker](https://arhowk.github.io/) to look for errors.
+Each .txt file contains its particular KVs, and when the game starts, each client (and server) will interpret them. Changes to these files won't take effect until the game is started again, so be very aware of the syntax, as any extra/missing `"` or `{` `}` will usually make all the keyvalues that come after this error unusable. Consistent [indentation](https://en.wikipedia.org/wiki/Indent_style) is a good practice to learn early! KV is case-sensitive, so also pay attention to write everything like the game expects you to write. If your KV is not working, try putting it into [the KV checker](https://arhowk.github.io/) to look for errors.
 
-Now it’s a good time to get your environment ready to write Dota Scripts. For this, the best way is getting [Visual Studio Code](https://code.visualstudio.com/). Use VSCode to open your addon root directory using File > Open Folder...
+Now it's a good time to get your environment ready to write Dota Scripts. For this, the best way is getting [Visual Studio Code](https://code.visualstudio.com/). Use VSCode to open your addon root directory using File > Open Folder...
 
 ## Running and testing your game
 
@@ -47,18 +50,18 @@ After this command, you will enter a game with your addon rules. If you want to 
 
 ## Lua/TypeScript Scripting
 
-Going back to the game/scripts folder, there’s the **vscripts** folder. Here is the place where all the Lua/TypeScript scripts are placed.
+Going back to the game/scripts folder, there's the **vscripts** folder. Here is the place where all the Lua/TypeScript scripts are placed.
 
 ### Game Logic
 
-In every single gamemode, a file named addon_game_mode.lua must be present. While it is possible to add the game logic to this file (and in fact, valve did so in their holdout example), it is recommended that you reserve this file only for these 2 functions:
+In every single gamemode, a file named addon_game_mode.lua must be present. While it is possible to add the game logic to this file (and in fact, Valve did so in their holdout example), it is recommended that you reserve this file only for these 2 functions:
 
-- `Precache`, when the game starts and players pick their heroes, the engine will try to load the associated models/particles/sounds to those heroes. If we’re dynamically using a resource in Lua before preloading it won’t be displayed properly.
+- `Precache`, when the game starts and players pick their heroes, the engine will try to load the associated models/particles/sounds to those heroes. If we're dynamically using a resource in Lua before preloading it won't be displayed properly.
 - `Activate`, creates the base game mode entity and calls the initialize function.
 
 ![img](/images/external/g2pUC-ca4413cc48.png) <br /> Precache function was folded in sublime
 
-Using our barebones, you don’t need to touch this file apart from very specific situations, and all the core game logic will be coded in gamemode.lua (for older versions it's barebones.lua), which has been already required. We’ll call this your *main lua file* from now on.
+Using our barebones, you don't need to touch this file apart from very specific situations, and all the core game logic will be coded in gamemode.lua (for older versions it's barebones.lua), which has been already required. We'll call this your *main lua file* from now on.
 
 After addon_game_mode `Precache` & `Activate` are finished, the first function to be executed in the barebones.lua file is `GameMode:InitGameMode()`.
 
@@ -68,17 +71,17 @@ This is the syntax of a function applied over GameRules, with one bool parameter
 
 `GameRules:SetHeroRespawnEnabled( ENABLE_HERO_RESPAWN )`
 
-Just as KV, Lua is Case Sensitive. Also the placement of the functions within your main Lua file doesn’t generally matter. All the script lines within a function call will be run one after another, potentially on the same *frame*; one frame in Dota is 1/30 of a second.
+Just as KV, Lua is Case Sensitive. Also the placement of the functions within your main Lua file doesn't generally matter. All the script lines within a function call will be run one after another, potentially on the same *frame*; one frame in Dota is 1/30 of a second.
 
-Note the use of `:` colon before the function. In Lua, this is how we access the various **Game API functions**. We say that `GameRules` is an **HScript** or a **handle**. Handles are basically huge tables, with all the pertinent info of the entity. Over the [Scripting API page](https://moddota.com/api/#!/vscripts) you’ll see many different types of functions which can use different handles
+Note the use of `:` colon before the function. In Lua, this is how we access the various **Game API functions**. We say that `GameRules` is an **HScript** or a **handle**. Handles are basically huge tables, with all the pertinent info of the entity. Over the [Scripting API page](https://moddota.com/api/#!/vscripts) you'll see many different types of functions which can use different handles.
 
-Global functions don’t need any handle `:` prefix. Heroes, Creatures, Abilities and Items all have their different handle classes and attempting to call a function over an incompatible class will cause a VScript error, as pink text in console and red text on the gamescreen.
+Global functions don't need any handle `:` prefix. Heroes, Creatures, Abilities and Items all have their different handle classes and attempting to call a function over an incompatible class will cause a VScript error, as pink text in console and red text on the gamescreen.
 
 ### The Console
 
 You can access the game console by pressing the ` key.
 
-This will provide tons of useful information for debugging. The different colors represent the various “channels” of information. By default all the channels are in the same Log: Default tab. It’s very recommended that you make your own tabs to split the log viewer.
+This will provide tons of useful information for debugging. The different colors represent the various "channels" of information. By default all the channels are in the same Log: Default tab. It's very recommended that you make your own tabs to split the log viewer.
 
 ![img](/images/external/y2BUNcS.png)
 
@@ -110,13 +113,13 @@ The structure of this ListenToGameEvent is read as:
 
 **Whenever the dota_player_gained_level event is triggered, execute the scripts inside the OnPlayerLevelUp function.**
 
-`OnPlayerLevelUp` and `GameMode` (or `barebones` in updated version) are just the names of the function and main class name we came up with, normally you don’t need to worry about them, all Listeners and functions are already available in barebones, ready to be expanded. `Dynamic_Wrap` is a function to ensure that the `script_reload` command also reloads the listeners. `script_reload` restarts lua scripts at runtime, unlike DataDriven files which require the game to be fully restarted. As you can see on the barebones example there are tons of possible events, and not all of them are listed there, those are just the most used ones.
+`OnPlayerLevelUp` and `GameMode` (or `barebones` in updated version) are just the names of the function and main class name we came up with, normally you don't need to worry about them, all Listeners and functions are already available in barebones, ready to be expanded. `Dynamic_Wrap` is a function to ensure that the `script_reload` command also reloads the listeners. `script_reload` restarts lua scripts at runtime, unlike DataDriven files which require the game to be fully restarted. As you can see on the barebones example there are tons of possible events, and not all of them are listed there, those are just the most used ones.
 
-The 3rd and last part of the `InitGameMode` in simplified Barebones are self defined variables to track info. These use the `self.` entity, which is a local reference to the GameMode entity, seen through all the functions inside the main lua file. Adding information to an entity like `entity.` is loosely called “indexing” and is basically adding another entry to the big table of that entity. This is very useful because this information is stored under the entity handle visible everywhere, and won’t change until we reassign it or destroy it.
+The 3rd and last part of the `InitGameMode` in simplified Barebones are self defined variables to track info. These use the `self.` entity, which is a local reference to the GameMode entity, seen through all the functions inside the main lua file. Adding information to an entity like `entity.` is loosely called "indexing" and is basically adding another entry to the big table of that entity. This is very useful because this information is stored under the entity handle visible everywhere, and won't change until we reassign it or destroy it.
 
-Enough theory, let’s see how this all comes together. Let's take a look at OnNPCSpawned function, which is the listener for `npc_spawned` and triggers every time a unit or hero entity is added to the map.
+Enough theory, let's see how this all comes together. Let's take a look at OnNPCSpawned function, which is the listener for `npc_spawned` and triggers every time a unit or hero entity is added to the map.
 
-Let’s analyze the contents of the `OnNPCSpawned` default function:
+Let's analyze the contents of the `OnNPCSpawned` default function:
 
 ::: code-group
 
@@ -152,7 +155,7 @@ public OnNPCSpawned(event: NpcSpawnedEvent) {
 
 First line will print the string in the VConsole. The print function is native to Lua, and accepts multiple parameters separated by commas.
 
-`DeepPrintTable` is a Global Valve-made function which will display the information of the table passed. For keys in this case, it will be the .entindex and .splitscreenplayer. The **entity index** is a very important number to reference the entity. Ignore splitscreenplayer, it’s just legacy source stuff and never used in Dota 2.
+`DeepPrintTable` is a Global Valve-made function which will display the information of the table passed. For keys in this case, it will be the .entindex and .splitscreenplayer. The **entity index** is a very important number to reference the entity. Ignore splitscreenplayer, it's just legacy source stuff and never used in Dota 2.
 
 ![img](/images/external/g2iLY-54583b0b65.png)
 
@@ -166,7 +169,7 @@ The npc local variable is an HScript, of handle type. All changes done into the 
 
 The next line is a conditional, first it checks if the npc is a real hero (this excludes illusions) and it also checks if the .bFirstSpawned index (a self-defined variable) has not been assigned yet. If both conditions are true, changes the boolean value to true and calls the OnHeroInGame function.
 
-To finish this basic Dota Lua tutorial, let’s modify the OnNPCSpawned function so that if a unit named npc_dota_neutral_kobold is spawned, wait 1 seconds and then kill itself. Added to the first if statement there’s this else-if condition:
+To finish this basic Dota Lua tutorial, let's modify the OnNPCSpawned function so that if a unit named npc_dota_neutral_kobold is spawned, wait 1 second and then kill itself. Added to the first if statement there's this else-if condition:
 
 ::: code-group
 
@@ -207,23 +210,23 @@ Here we make use of the Timers library for a simple 1.0 second delay, there are 
 <StaticVideo path="/videos/DigitalDefinitiveChimpanzee.mp4" />
 
 
-### Tables.
+### Tables
 
 Tables are the most important structure we will have to use. As mentioned before, all the info on entities can be seen as a table (even though it's technically a pointer to a C++ object), and you Get and Set the values through the various Game API functions.
 
 There are some functions in the API that return a table of entity handles.
 
-Let say you want to find all the units near the spawned kobold unit and kill them. The function `FindUnitsInRadius` can be used for this purpose, and takes a lot of parameters with different types which is worth explaining:
+Let's say you want to find all the units near the spawned kobold unit and kill them. The function `FindUnitsInRadius` can be used for this purpose, and takes a lot of parameters with different types which is worth explaining:
 
 `table FindUnitsInRadius(int teamNumber, Vector position, handle cacheUnit, float radius, int teamFilter, int typeFilter, int flagFilter, int order, bool canGrowCache)`
 
-The parameters Have to be in this order. This function is a global, so no `handle:` needed, but we need to keep the table under a variable, like this:
+The parameters have to be in this order. This function is a global, so no `handle:` needed, but we need to keep the table under a variable, like this:
 
 `local units = FindUnitsInRadius(...)`
 
 For the teamNumber, finding out which team an entity is in can be done with `GetTeamNumber()` on the npc handle. As for the other Filter parameters, instead of real integers, we use a bunch of **Constants** that represent different number values. The complete list of Constants is [found on this wiki page](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Constants).
 
-A Vector is represented as Vector(x,y,z) coordinates. The function to get the position of  particular unit is called `GetAbsOrigin` and takes a npc handle.
+A Vector is represented as Vector(x,y,z) coordinates. The function to get the position of a particular unit is called `GetAbsOrigin` and takes a npc handle.
 
 As for the cache parameters, just leave it nil and false, they aren't of much use generally.
 
@@ -317,7 +320,7 @@ public OnNPCSpawned(event: NpcSpawnedEvent) {
 
 :::
 
-And the result ingame:
+And the result in-game:
 
 <StaticVideo path="/videos/SkeletalIcyDalmatian.mp4" />
 
@@ -340,7 +343,7 @@ Manually:
 
 ![img](/images/external/g2zNP-d1e018010e.png)
 
-Whenever you have a doubt about how to use a particular GameAPI function, its possible to find examples all over GitHub by just writing the name of it, additionally filtering by lua like this:
+Whenever you have a doubt about how to use a particular GameAPI function, it's possible to find examples all over GitHub by just writing the name of it, additionally filtering by lua like this:
 
 ![img](/images/external/g2yTG-93f1641866.png)
 
