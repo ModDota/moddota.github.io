@@ -100,7 +100,9 @@ const ToggleThumb = styled.span<{ $active: boolean }>`
   border-radius: 50%;
   background-color: ${(props) => (props.$active ? "#606060" : "#ffffff")};
   border: 2px solid ${(props) => (props.$active ? "#404040" : "#e0e0e0")};
-  transition: left 0.2s, background-color 0.2s;
+  transition:
+    left 0.2s,
+    background-color 0.2s;
   box-sizing: border-box;
 `;
 
