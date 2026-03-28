@@ -8,7 +8,7 @@
     "test": "tsc --noEmit && npm run lint"
   },
   "dependencies": {
-    "@moddota/dota-data": "^0.45.0",
+    "@moddota/dota-data": "^0.47.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/react-virtualized": "^9.21.10",
